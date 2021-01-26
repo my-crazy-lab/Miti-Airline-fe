@@ -5,9 +5,6 @@ input{
   font-weight : 700;
   color: var(--color-text-booktrip);
 }
-button:hover{
-  cursor: pointer;
-}
 input::placeholder{
   font-size: 16px;
   font-weight: 500;
@@ -85,6 +82,7 @@ input::placeholder{
 /* traveler */
 .booktrip-traveler{
   width: 100%;
+  position: relative;
   height: 15%;
   border-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
@@ -102,6 +100,101 @@ input::placeholder{
 }
 .booktrip-traveler:hover{
   cursor: pointer;
+}
+.booktrip-traveler-child{
+  position: absolute;
+  width: 100%;
+  background-color:white;
+  box-shadow: 1px 2px 12px rgba(0,0,0, 0.4);
+  top: calc(var(--width-global)*0.05);
+  right: 0;
+  border-radius: 8px;
+  cursor: default;
+  display:  none;
+}
+.booktrip-traveler-child-head{
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(150, 148, 148);
+  background: #f7f7f7;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.booktrip-traveler-child-head button{
+  margin-right: 6px;
+}
+.booktrip-traveler-child-list span:nth-child(1){
+  font-size: 17px;
+  color: black;
+  font-weight: 500;
+}
+.booktrip-traveler-child-list span:nth-child(2){
+  font-size: 13px;
+  color: var(--color-text-booktrip);
+}
+.booktrip-traveler-child-list{
+  display: flex;
+  justify-content: space-between;
+  padding : 8px 0;
+  align-items:center;
+}
+.booktrip-traveler-child-list:nth-child(2),
+.booktrip-traveler-child-list:nth-child(3){
+  border-bottom : 1px solid #d6d5d5;
+}
+.booktrip-traveler-child-list-head{
+  display: flex;
+  flex-direction: column;
+}
+.booktrip-traveler-child-list-count{
+  display: flex;
+  align-items: center;
+  margin-right : 20px
+}
+.booktrip-traveler-child-list-count button{
+  height: 28px;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.booktrip-traveler-child-list-count-minus{
+  color: #e4e4e4;
+  border : 1px solid white;
+  background-color: #efefef;
+  cursor: no-drop;
+}
+.booktrip-traveler-child-list-count-plus{
+  color: var(--color-global);
+  border : 1px solid var(--color-global);
+  background-color: white;
+  cursor: pointer;
+}
+.booktrip-minus-hide{
+  color: #e4e4e4;
+  border : 1px solid white;
+  background-color: #efefef;
+  cursor: no-drop;
+}
+.booktrip-minus-show{
+  color: var(--color-global);
+  border : 1px solid var(--color-global);
+  background-color: white;
+  cursor: pointer;
+}
+.booktrip-minus-run{
+  color: white;
+  border : 1px solid var(--color-global);
+  background-color: var(--color-global);
+  cursor: pointer;
+}
+.booktrip-traveler-child-list-count p{
+  margin : 0 28px;
 }
 /* date */
 .booktrip-day{
@@ -153,16 +246,22 @@ input::placeholder{
   flex-direction: column;
   margin-left: var(--margin-left-global-booktrip);
 } 
-.booktrip-where-child-1{
+.booktrip-where-child-1,
+.booktrip-where-child-2{
   position: absolute;
   background: #fff;
   padding : 8px 20px;
   border-radius: 8px;
   width: 100%;
-  top:  calc(var(--height-global-booktrip)*0.4*0.5);
   left: 0;
   display: none;
   box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.booktrip-where-child-1{
+  top: calc(var(--height-global-booktrip)*0.4*0.5 - 12px);
+}
+.booktrip-where-child-2{
+  top: calc(var(--height-global-booktrip)*0.4*0.5*2 - 24px);
 }
 .booktrip-where-child-head{
   display: flex;
@@ -180,14 +279,14 @@ input::placeholder{
   margin-bottom: 6px;
   display: flex;
 }
-.booktrip-where-child-head button{
+.button-exit{
   border : none;
   text-align: center;
   cursor: pointer;
   padding: 6px 12px 6px 12px;
   background: transparent;
 }
-.booktrip-where-child-head  i{
+.button-exit-icon{
   color: rgb(179, 179, 179);
   font-size: 16px;
 }
