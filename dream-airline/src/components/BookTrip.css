@@ -1,0 +1,251 @@
+input{
+  border: none;
+  padding: 0;
+  font-size : 16px;
+  font-weight : 700;
+  color: var(--color-text-booktrip);
+}
+button:hover{
+  cursor: pointer;
+}
+input::placeholder{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-booktrip);
+}
+:root{
+  --height-global-booktrip : 480px;
+  --border-global-booktrip : #e6e6e7;
+  --margin-left-global-booktrip : 20px;
+  --margin-top-bottom-global-booktrip : calc(var( --height-global-booktrip)/80);
+  --color-text-booktrip : #7c8391;
+}
+.booktrip{
+  width:480px;
+  height: var( --height-global-booktrip);
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 8px;
+}
+/* type */
+.booktrip-type{
+  width:100%;
+  height: 10%;
+  margin: 0 0 var(--margin-top-bottom-global-booktrip) 0;
+}
+.booktrip-type button:nth-child(2){
+  border-radius: 6px;
+  border: 1px solid var(--border-global-booktrip);
+  width: 50%;
+  height: 100%;
+}
+.booktrip-type button:nth-child(1){
+  border-radius: 6px;
+  width: 50%;
+  border: none;
+  height: 100%;
+}
+.booktrip-type button:nth-child(1){
+  background: var(--color-global);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.booktrip-type button:nth-child(2){
+  background: #f7f7f7;
+  color: var(--color-text-booktrip);
+  font-size: 16px;
+  font-weight: 700;
+}
+.booktrip-type button:nth-child(2):hover{
+  box-shadow: 2px 2px 4px  rgba(0, 0, 0, 0.4);
+}
+.booktrip-type button:nth-child(1):hover{
+  background: #f83f45;
+}
+/* search */
+.booktrip-search{
+  width: 100%;
+  border: none;
+  height: 12%;
+  background: var(--color-global);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 6px;
+  margin: var(--margin-top-bottom-global-booktrip) 0 0 0;
+}
+.booktrip-search:hover{
+  background: #f83f45;
+}
+/* traveler */
+.booktrip-traveler{
+  width: 100%;
+  height: 15%;
+  border-radius: 6px;
+  border: 1px solid var(--border-global-booktrip);
+  display: flex;
+  justify-content: center;
+  align-items:start;
+  flex-direction: column;
+  margin: var(--margin-top-bottom-global-booktrip) 0;
+}
+.booktrip-traveler span{
+  margin-left: var(--margin-left-global-booktrip);
+}
+.booktrip-traveler span:nth-child(1){
+  color: var(--color-text-booktrip);
+}
+.booktrip-traveler:hover{
+  cursor: pointer;
+}
+/* date */
+.booktrip-day{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content:space-between;
+  margin: var(--margin-top-bottom-global-booktrip) 0;
+}
+.booktrip-day div{
+  width: 49%;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border-global-booktrip);
+  display: flex;
+  justify-content: center;
+  align-items:start;
+  flex-direction: column;
+}
+.booktrip-day div:hover{
+  cursor: pointer;
+}
+.booktrip-day div span{
+  margin-left: var(--margin-left-global-booktrip);
+}
+.booktrip-day div:nth-child(1) span:nth-child(1){
+  color: var(--color-text-booktrip);
+}
+.booktrip-day div:nth-child(2) span:nth-child(1){
+  color: var(--color-text-booktrip);
+}
+
+/* where */
+.booktrip-where{
+  position: relative;
+  width: 100%;
+  height: 40%;
+  border-radius: 6px;
+  border: 1px solid var(--border-global-booktrip);
+  position: relative;
+  margin: var(--margin-top-bottom-global-booktrip) 0;
+}
+.booktrip-where form{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  margin-left: var(--margin-left-global-booktrip);
+} 
+.booktrip-where-child-1{
+  position: absolute;
+  background: #fff;
+  padding : 8px 20px;
+  border-radius: 8px;
+  width: 100%;
+  top:  calc(var(--height-global-booktrip)*0.4*0.5);
+  left: 0;
+  display: none;
+  box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.booktrip-where-child-head{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+.booktrip-where-child-head div{
+  display: flex;
+  justify-content:space-between;
+}
+.booktrip-where-child-head span:nth-child(1){
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-global);
+  margin-bottom: 6px;
+  display: flex;
+}
+.booktrip-where-child-head button{
+  border : none;
+  text-align: center;
+  cursor: pointer;
+  padding: 6px 12px 6px 12px;
+  background: transparent;
+}
+.booktrip-where-child-head  i{
+  color: rgb(179, 179, 179);
+  font-size: 16px;
+}
+.booktrip-where-child-head span:nth-child(2){
+  font-size: 16px;
+  font-weight: 500;
+}
+.booktrip-where-child-list{
+  
+}
+.booktrip-where-child-list-child{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+}
+.booktrip-where-child-list-child div{
+  display: flex;
+  flex-direction: column;
+}
+.booktrip-where-child-list-child div span:nth-child(2){
+  font-size: 14px;
+}
+.booktrip-where-child-list-child div span:nth-child(1){
+  font-size: 16px;
+  font-weight: 700;
+}
+.booktrip-where-child-list-child i{
+  color: var(--color-global);
+}
+.booktrip-where form input{
+  width: 70%;
+  margin-top: 12px;
+}
+.booktrip-where::before{
+  content:'';
+  position: absolute;
+  height: 1.5px;
+  width: 300px;
+  background: var(--border-global-booktrip);
+  top: 50%;
+  left: 0;
+  margin-left: var(--margin-left-global-booktrip);
+}
+.booktrip-where-swap{
+  position: absolute;
+  color: var(--color-global);
+  top:32%;
+  right : 4%;
+  font-size: 20px;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
