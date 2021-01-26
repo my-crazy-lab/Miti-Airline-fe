@@ -35,34 +35,38 @@ input::placeholder{
   margin: 0 0 var(--margin-top-bottom-global-booktrip) 0;
 }
 .booktrip-type button:nth-child(2){
-  border-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
   width: 50%;
   height: 100%;
+  cursor: pointer;
 }
 .booktrip-type button:nth-child(1){
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   width: 50%;
   border: none;
   height: 100%;
+  cursor: pointer;
 }
-.booktrip-type button:nth-child(1){
+.oneway{
   background: var(--color-global);
   color: white;
   font-size: 16px;
   font-weight: 700;
 }
-.booktrip-type button:nth-child(2){
+.twoway{
   background: #f7f7f7;
   color: var(--color-text-booktrip);
   font-size: 16px;
   font-weight: 700;
 }
 .booktrip-type button:nth-child(2):hover{
-  box-shadow: 2px 2px 4px  rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
 }
 .booktrip-type button:nth-child(1):hover{
-  background: #f83f45;
+  opacity: 0.8;
 }
 /* search */
 .booktrip-search{
@@ -110,7 +114,7 @@ input::placeholder{
   right: 0;
   border-radius: 8px;
   cursor: default;
-  display:  none;
+  display: none;
 }
 .booktrip-traveler-child-head{
   font-size: 20px;
@@ -163,28 +167,23 @@ input::placeholder{
   justify-content: center;
   align-items: center;
 }
-.booktrip-traveler-child-list-count-minus{
-  color: #e4e4e4;
-  border : 1px solid white;
-  background-color: #efefef;
-  cursor: no-drop;
-}
-.booktrip-traveler-child-list-count-plus{
-  color: var(--color-global);
-  border : 1px solid var(--color-global);
-  background-color: white;
-  cursor: pointer;
-}
 .booktrip-minus-hide{
   color: #e4e4e4;
   border : 1px solid white;
   background-color: #efefef;
   cursor: no-drop;
+  pointer-events: none;
 }
 .booktrip-minus-show{
   color: var(--color-global);
   border : 1px solid var(--color-global);
   background-color: white;
+  cursor: pointer;
+}
+.booktrip-traveler-child-list-count button:hover{
+  color: white;
+  border : 1px solid var(--color-global);
+  background-color: var(--color-global);
   cursor: pointer;
 }
 .booktrip-minus-run{
@@ -197,14 +196,14 @@ input::placeholder{
   margin : 0 28px;
 }
 /* date */
-.booktrip-day{
+.booktrip-date{
   width: 100%;
   height: 15%;
   display: flex;
   justify-content:space-between;
   margin: var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-day div{
+.booktrip-date div{
   width: 49%;
   height: 100%;
   border-radius: 6px;
@@ -214,19 +213,34 @@ input::placeholder{
   align-items:start;
   flex-direction: column;
 }
-.booktrip-day div:hover{
+.booktrip-date div:hover{
   cursor: pointer;
 }
-.booktrip-day div span{
+.booktrip-date div span{
   margin-left: var(--margin-left-global-booktrip);
 }
-.booktrip-day div:nth-child(1) span:nth-child(1){
+.booktrip-date div:nth-child(1) span:nth-child(1){
   color: var(--color-text-booktrip);
 }
-.booktrip-day div:nth-child(2) span:nth-child(1){
+.booktrip-date div:nth-child(2) span:nth-child(1){
   color: var(--color-text-booktrip);
 }
-
+.booktrip-date-return{
+  position: relative;
+}
+.booktrip-date-return::before{
+  position: absolute;
+  content:'';
+  width :calc(100%);
+  height: calc(100%);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.booktrip-date-return.hide::before{
+  display: none;
+}
+.booktrip-date-return.show::before{
+  display: block;
+}
 /* where */
 .booktrip-where{
   position: relative;
@@ -256,6 +270,7 @@ input::placeholder{
   left: 0;
   display: none;
   box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
+  top: 0;
 }
 .booktrip-where-child-1{
   top: calc(var(--height-global-booktrip)*0.4*0.5 - 12px);
@@ -293,9 +308,6 @@ input::placeholder{
 .booktrip-where-child-head span:nth-child(2){
   font-size: 16px;
   font-weight: 500;
-}
-.booktrip-where-child-list{
-  
 }
 .booktrip-where-child-list-child{
   display: flex;
@@ -344,6 +356,7 @@ input::placeholder{
   align-items: center;
   background-color: white;
   border-radius: 50%;
+  cursor: pointer;
   border: none;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 }

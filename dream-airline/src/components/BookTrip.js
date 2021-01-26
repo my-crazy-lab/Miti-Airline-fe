@@ -1,10 +1,45 @@
-import react, {useState} from 'react';
+import react, {useState , useEffect} from 'react';
 import "./BookTrip.css";
 import $ from 'jquery';
 
 const BookTrip =()=>{
   const [des, setDes] = useState('');
   const [dep, setDep] = useState('');
+  const [adult , setAdult] = useState(1);
+  const [child , setChild] = useState(0);
+  const [infant , setInfant] = useState(0);
+  const [traveler , setTraveler] = useState(1);
+  const [checkway, setCheckway] = useState(true);
+  useEffect(() => {
+    setTraveler(adult + child + infant);
+  },[adult,child,infant]);
+  const checkWay =()=>{
+    if(checkway === true){
+      setCheckway(false);
+    }
+    else {
+      setCheckway(true);
+    }
+    console.log(checkway)
+  }
+  const minusAdult =()=>{
+    setAdult(adult - 1);
+  }
+  const minusChildren =()=>{
+    setChild(child - 1);
+  }
+  const minusInfant=()=>{
+    setInfant(infant - 1);
+  }
+  const plusInfant=()=>{
+    setInfant(infant + 1);
+  }
+  const plusChildren=()=>{
+    setChild(child + 1);
+  }
+  const plusAdult=()=>{
+    setAdult(adult + 1);
+  }
   const overflow =()=>{
     $('.booktrip-where-child-1').css('display','none');
     $('.booktrip-where-child-2').css('display','none');
@@ -32,6 +67,9 @@ const BookTrip =()=>{
     $('.booktrip-where-child-1').css('display','none');
     $('.booktrip-where-child-2').css('display','none'); 
   }
+  const exitTraveler=()=>{
+    $('.booktrip-traveler-child').css('display','none');
+  }
   const swapContent=()=>{
     setDep(des) ;
     setDes(dep);
@@ -41,8 +79,8 @@ const BookTrip =()=>{
   return(
       <div className="booktrip">
         <div className="booktrip-type">
-          <button>One Way</button>
-          <button>Round Trip</button>
+          <button onClick={checkWay} className={`${checkway === true? 'oneway': 'twoway'}`}>One Way</button>
+          <button onClick={checkWay} className={`${checkway === true? 'twoway': 'oneway'}`}>Round Trip</button>
         </div>
         <div className="booktrip-where">
           <form onClick={clickDeparture } >
@@ -151,23 +189,23 @@ const BookTrip =()=>{
               </div>
             </div>
         </div>
-        <div className="booktrip-day">
+        <div className="booktrip-date">
           <div>
             <span>Departure Date</span>
             <span>Mon, 25 January 2021</span>
           </div>
-          <div>
-            <span>Return Date</span>
+          <div className={`booktrip-date-return ${checkway === true? 'show': 'hide'}`}>
+            <span >Return Date</span>
             <span>Mon, 25 January 2021</span>
           </div>
         </div>
         <div onClick={clickTraveler} className="booktrip-traveler">
           <span>Traveler</span>
-          <span>1 Traveler</span>
-          <div  className="booktrip-traveler-child">
+          <span>{traveler} Traveler</span>
+          <div className="booktrip-traveler-child">
             <div className="booktrip-traveler-child-head">
               <span>Traveler</span>
-              <button type="button" className="button-exit">
+              <button type="button" className="button-exit" onClick={exitTraveler}>
                 <i class="fas fa-times button-exit-icon"></i>
               </button>
             </div>
@@ -177,11 +215,11 @@ const BookTrip =()=>{
                 <span>Age 12+</span>
               </div>
               <div className="booktrip-traveler-child-list-count">
-                <button type="button" className="booktrip-traveler-child-list-count-minus">
+                <button  onClick={minusAdult} type="button" className={`adult adultminus ${adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
                   <i class="fas fa-minus"></i>
                 </button>
-                <p id="adult">1</p>
-                <button type="button" className="booktrip-traveler-child-list-count-plus">
+                <p id="adult">{adult}</p>
+                <button onClick={plusAdult} type="button" className={`adult ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -192,11 +230,11 @@ const BookTrip =()=>{
                 <span>Age 2-11</span>
               </div>
               <div className="booktrip-traveler-child-list-count">
-                <button type="button" className="booktrip-traveler-child-list-count-minus">
+                <button onClick={minusChildren} type="button" className={`children ${child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
                   <i class="fas fa-minus"></i>
                 </button>
-                <p id="children">0</p>
-                <button type="button" className="booktrip-traveler-child-list-count-plus">
+                <p id="children">{child}</p>
+                <button onClick={plusChildren} type="button" className={`children ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -207,11 +245,11 @@ const BookTrip =()=>{
                 <span>Age 0-2</span>
               </div>
               <div className="booktrip-traveler-child-list-count">
-                <button type="button" className="booktrip-traveler-child-list-count-minus">
+                <button onClick={minusInfant} type="button" className={`infant ${infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
                   <i class="fas fa-minus"></i>
                 </button>
-                <p id="infant">0</p>
-                <button type="button" className="booktrip-traveler-child-list-count-plus">
+                <p id="infant">{infant}</p>
+                <button onClick={plusInfant} type="button" className={`infant ${traveler > 5 || infant > 1 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
                   <i class="fas fa-plus"></i>
                 </button>
               </div>

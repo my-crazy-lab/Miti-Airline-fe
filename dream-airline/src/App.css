@@ -8,6 +8,11 @@
 .booktrip{
   z-index: 1;
 }
+.booktrip-where-child-1,
+.booktrip-where-child-2,
+.booktrip-traveler-child{
+  z-index: 1;
+}
 /* The end */
 .style-text-header-body{
   color: #6d595b;
