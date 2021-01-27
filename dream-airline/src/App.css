@@ -10,7 +10,8 @@
 }
 .booktrip-where-child-1,
 .booktrip-where-child-2,
-.booktrip-traveler-child{
+.booktrip-traveler-child,
+.calender{
   z-index: 1;
 }
 /* The end */

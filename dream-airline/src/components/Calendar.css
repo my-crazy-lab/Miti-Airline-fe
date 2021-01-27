@@ -1,0 +1,79 @@
+:root{
+  --width-calendar : 350px;
+}
+.calendar-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calendar-head span{
+  font-size : 20px;
+  font-weight : 500;
+  color: var(--color-text-global);
+}
+.calendar-head button{
+  border : none;
+  color: var(--color-text-booktrip);
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  cursor: pointer;
+  padding: 16px;
+}
+.calendar-head i{
+  font-size : 18px;
+}
+.calendar{
+  width: var(--width-calendar);
+}
+.calendar div{
+  height: 40px;
+}
+.calendar-name-day div:nth-child(1){
+  color: var(--color-global)
+}
+.calendar-name-day div{
+  margin: 8px 0;
+  width: calc(var(--width-calendar)/7);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-name-day span:hover{
+  cursor: pointer;
+}
+.calendar-name-day{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.calendar-body {
+  font-weight: 500;
+  color: var(--color-text-booktrip)
+}
+.calendar-name-month{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.calendar-name-month div{
+  width: calc(var(--width-calendar)/7);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-note{
+  color: var(--color-global);
+}
+.calendar-name-day div span:hover{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color:var(--color-global);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

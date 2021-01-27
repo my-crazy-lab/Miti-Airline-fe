@@ -1,6 +1,7 @@
 import react, {useState , useEffect} from 'react';
 import "./BookTrip.css";
 import $ from 'jquery';
+import Calendar from './Calendar';
 
 const BookTrip =()=>{
   const [des, setDes] = useState('');

@@ -237,9 +237,11 @@ input::placeholder{
 }
 .booktrip-date-return.hide::before{
   display: none;
+  pointer-events: none;
 }
 .booktrip-date-return.show::before{
   display: block;
+  pointer-events: auto;
 }
 /* where */
 .booktrip-where{
