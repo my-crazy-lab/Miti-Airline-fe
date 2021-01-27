@@ -11,8 +11,13 @@
 .booktrip-where-child-1,
 .booktrip-where-child-2,
 .booktrip-traveler-child,
-.calender{
+.booktrip-date-calendar-1,
+.booktrip-date-calendar-2,
+.calendar{
   z-index: 1;
+}
+.login{
+  z-index: 10000;
 }
 /* The end */
 .style-text-header-body{

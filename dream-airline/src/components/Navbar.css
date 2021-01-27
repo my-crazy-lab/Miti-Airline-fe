@@ -44,17 +44,21 @@
   justify-content: space-between;
   align-items:center;
 }
-.nav-login{
+.nav-login-btn{
+  cursor: pointer;
   border: none;
+  margin-right : 8px;
   color: var(--color-global);
   width: 100px;
   height: 40px;
   font-size: 16px;
   font-weight: 700;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
-.nav-register{
+.nav-register-btn{
+  cursor: pointer;
+  margin-left : 8px;
   border: none;
   color: #fff;
   background: var(--color-global);
@@ -64,6 +68,10 @@
   border-radius: 4px;
   font-weight: 500;
   box-shadow: 1px 0px 8px rgba(0,0,0,0.4);
+}
+.nav-register-btn:hover,
+.nav-login-btn:hover{
+  opacity: 0.6;
 }
 .nav-list{
   display:flex;

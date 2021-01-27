@@ -1,9 +1,9 @@
 import react from 'react';
-import Calendar from "../components/Calendar";
+import Login from "../components/Login";
 
 const Hotel =() =>{
   return(
-    <Calendar></Calendar>
+    <Login></Login>
   )
 }
 

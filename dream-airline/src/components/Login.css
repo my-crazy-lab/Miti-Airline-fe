@@ -1,0 +1,104 @@
+:root{
+  --color-head-login : #575a5c;
+  --color-placeholder-login : #6a6a6a;
+  --color-signin-login : #5a5d64;
+  --color-forgotpass-login : #7ab2d7;
+  --color-icon-login : #59585a;
+  --width-login : 320px;
+  --height-login : 400px;
+  --color-background-login: #dee1e8;
+}
+.login{
+  position:absolute;
+  top: 0; 
+  left: calc(50% - var(--width-login)/2); 
+  width: var(--width-login);
+  height: var(--height-login);
+  display : flex;
+  flex-direction: column;
+  background: var(--color-background-login);
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px #969696,
+              -2px -2px 12px #7d7c7c;
+}
+.login-header{
+  color : var(--color-head-login);
+  font-weight: 700;
+}
+.login-user input{
+  margin-left : 12px;
+  color : black;
+  height: 20px;
+  font-weight: 300;
+  background-color:transparent;
+  width: calc(var(--width-login)*0.8*0.75);
+}
+.login-user input::placeholder{
+  color : var(--color-placeholder-login);
+  font-size : 14px;
+}
+.login-user i{
+  color : var(--color-icon-login);
+  margin-left : 12px;
+}
+.login-user-name,
+.login-user-pass,
+.login-sign-in{
+  width: calc(var(--width-login)*0.8);
+  border: none;
+  height: 44px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+}
+.login-user-name,
+.login-user-pass{
+  box-shadow: inset 4px 4px 2px#bababa,
+                    inset -3px -3px 2px#fff;
+}
+.login-sign-in{
+  font-size: 16px;
+  font-weight: 700;
+  color : var( --color-placeholder-login );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin : 28px 0px;
+  box-shadow: 4px 4px 2px#bababa,
+              -4px -4px 2px#fff;
+  background : var(--color-background-login);
+  cursor: pointer;
+}
+.login-sign-in:hover{
+  box-shadow: 4px 4px 2px#a9a8a8,
+  -3px -3px 2px#fff;
+background : #e9e9e9;
+}
+.login-user-name{
+  margin-bottom : 12px;
+}
+.login-user-pass{
+  margin-top : 12px;
+}
+.login-forgot{
+  width: 100%;
+  margin-left : 20%;
+  display: inline-flex;
+  justify-content : flex-start;
+  margin-top : 8px;
+}
+.login-forgot a{
+  color : var(--color-forgotpass-login);
+}
+.login-sign-up a{
+  color : var(--color-forgotpass-login);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.login-sign-up{
+  display: flex;
+  width: 100%;
+  justify-content : space-evenly;
+}

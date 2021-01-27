@@ -1,4 +1,4 @@
-import react from 'react';
+import react,{useState, useEffect} from 'react';
 import Navbar from '../components/Navbar';
 import "./Flight.css";
 import BookTrip from '../components/BookTrip';
@@ -13,6 +13,7 @@ import plane14 from "../images/plane-14.jpeg";
 import plane13 from "../images/plane-13.jpeg";
 import plane5 from "../images/plane-5.jpeg";
 import plane6 from "../images/plane-6.jpeg";
+import Login  from '../components/Login';
 
 const Flight =() =>{
   // let countBackground = 1; 
@@ -26,9 +27,16 @@ const Flight =() =>{
   //   countBackground ++;
   //   if(countBackground > 5) countBackground = 0;
   // },8000)
+  const [showLogin,setShowLogin] = useState(false);
+  useEffect(() => {
+    $('.flight-login').toggle();
+  },[showLogin]);
   return(
     <div>
-      <Navbar></Navbar>
+      <Navbar showLogin ={showLogin} setShowLogin={setShowLogin}></Navbar>
+      <div className="flight-login">
+        <Login></Login>
+      </div>
       <div className="flight-head-frame" >
         <div className="flight-head">
           <BookTrip></BookTrip> 

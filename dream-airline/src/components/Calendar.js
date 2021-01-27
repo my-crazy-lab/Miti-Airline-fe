@@ -148,87 +148,87 @@ const Calendar =() =>{
     findMonth();
     checkLeapYear();
     if(checkFday === 'Su'){
-      $('#0').text('1');
+      $('.0').text('1');
       for(let i = 2 ; i <= sumDay ; i++){
-        $(`#${i - 1}`).text(`${i}`);
+        $(`.${i - 1}`).text(`${i}`);
       }
       for(let j = sumDay; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
     if(checkFday === 'Mo'){
-      $('#0').text('');
-      $('#1').text('1');
+      $('.0').text('');
+      $('.1').text('1');
       for(let i = 2 ; i <= sumDay; i++){
-        $(`#${i}`).text(`${i}`);
+        $(`.${i}`).text(`${i}`);
       }
       for(let j = sumDay + 1 ; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
     if(checkFday === 'Tu'){
-      $('#0').text('');
-      $('#1').text('');
-      $('#2').text('1');
+      $('.0').text('');
+      $('.1').text('');
+      $('.2').text('1');
       for(let i = 2 ; i <= sumDay; i++){
-        $(`#${i + 1}`).text(`${i}`);
+        $(`.${i + 1}`).text(`${i}`);
       }
       for(let j = sumDay + 2 ; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
     if(checkFday === 'We'){
-      $('#0').text('');
-      $('#1').text('');
-      $('#2').text('');
-      $('#3').text('1');
+      $('.0').text('');
+      $('.1').text('');
+      $('.2').text('');
+      $('.3').text('1');
       for(let i = 2 ; i <= sumDay; i++){
-        $(`#${i + 2}`).text(`${i}`);
+        $(`.${i + 2}`).text(`${i}`);
       }
       for(let j = sumDay + 3 ; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
     if(checkFday === 'Th'){
-      $('#0').text('');
-      $('#1').text('');
-      $('#2').text('');
-      $('#3').text('');
-      $('#4').text('1');
+      $('.0').text('');
+      $('.1').text('');
+      $('.2').text('');
+      $('.3').text('');
+      $('.4').text('1');
       for(let i = 2 ; i <= sumDay; i++){
-        $(`#${i + 3}`).text(`${i}`);
+        $(`.${i + 3}`).text(`${i}`);
       }
       for(let j = sumDay + 4 ; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
     if(checkFday === 'Fr'){
-      $('#0').text('');
-      $('#1').text('');
-      $('#2').text('');
-      $('#3').text('');
-      $('#4').text('');
-      $('#5').text('1');
+      $('.0').text('');
+      $('.1').text('');
+      $('.2').text('');
+      $('.3').text('');
+      $('.4').text('');
+      $('.5').text('1');
       for(let i = 2 ; i <= sumDay; i++){
-        $(`#${i + 4}`).text(`${i}`);
+        $(`.${i + 4}`).text(`${i}`);
       }
       for(let j = sumDay + 5 ; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
     if(checkFday === 'Sa'){
-      $('#0').text('');
-      $('#1').text('');
-      $('#2').text('');
-      $('#3').text('');
-      $('#4').text('');
-      $('#5').text('');
-      $('#6').text('1');
+      $('.0').text('');
+      $('.1').text('');
+      $('.2').text('');
+      $('.3').text('');
+      $('.4').text('');
+      $('.5').text('');
+      $('.6').text('1');
       for(let i = 2 ; i <= sumDay; i++){
-        $(`#${i + 5}`).text(`${i}`);
+        $(`.${i + 5}`).text(`${i}`);
       }
       for(let j = sumDay + 6 ; j <= 41; j++){
-        $(`#${j}`).text('');
+        $(`.${j}`).text('');
       }
     }
   }
@@ -355,140 +355,140 @@ const Calendar =() =>{
         </div>
         <div className="calendar-name-day">
           <div>
-            <span id="0"></span>
+            <span className="0"></span>
           </div>
           <div>
-            <span id="1"></span>
+            <span className="1"></span>
           </div>
           <div>
-            <span id="2"></span>
+            <span className="2"></span>
           </div>
           <div>
-            <span id="3"></span>
+            <span className="3"></span>
           </div>
           <div>
-            <span id="4"></span>
+            <span className="4"></span>
           </div>
           <div>
-            <span id="5"></span>
+            <span className="5"></span>
           </div>
           <div>
-            <span id="6"></span>
+            <span className="6"></span>
           </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span id="7"></span>
+        <span className="7"></span>
       </div>
       <div>
-        <span id="8"></span>
+        <span className="8"></span>
       </div>
       <div>
-        <span id="9"></span>
+        <span className="9"></span>
       </div>
       <div>
-        <span id="10"></span>
+        <span className="10"></span>
       </div>
       <div>
-        <span id="11"></span>
+        <span className="11"></span>
       </div>
       <div>
-        <span id="12"></span>
+        <span className="12"></span>
       </div>
       <div>
-        <span id="13"></span>
+        <span className="13"></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span id="14"></span>
+        <span className="14"></span>
       </div>
       <div>
-        <span id="15"></span>
+        <span className="15"></span>
       </div>
       <div>
-        <span id="16"></span>
+        <span className="16"></span>
       </div>
       <div>
-        <span id="17"></span>
+        <span className="17"></span>
       </div>
       <div>
-        <span id="18"></span>
+        <span className="18"></span>
       </div>
       <div>
-        <span id="19"></span>
+        <span className="19"></span>
       </div>
       <div>
-        <span id="20"></span>
+        <span className="20"></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span id="21"></span>
+        <span className="21"></span>
       </div>
       <div>
-        <span id="22"></span>
+        <span className="22"></span>
       </div>
       <div>
-        <span id="23"></span>
+        <span className="23"></span>
       </div>
       <div>
-        <span id="24"></span>
+        <span className="24"></span>
       </div>
       <div>
-        <span id="25"></span>
+        <span className="25"></span>
       </div>
       <div>
-        <span id="26"></span>
+        <span className="26"></span>
       </div>
       <div>
-        <span id="27"></span>
+        <span className="27"></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span id="28"></span>
+        <span className="28"></span>
       </div>
       <div>
-        <span id="29"></span>
+        <span className="29"></span>
       </div>
       <div>
-        <span id="30"></span>
+        <span className="30"></span>
       </div>
       <div>
-        <span id="31"></span>
+        <span className="31"></span>
       </div>
       <div>
-        <span id="32"></span>
+        <span className="32"></span>
       </div>
       <div>
-        <span id="33"></span>
+        <span className="33"></span>
       </div>
       <div>
-        <span id="34"></span>
+        <span className="34"></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span id="35"></span>
+        <span className="35"></span>
       </div>
       <div>
-        <span id="36"></span>
+        <span className="36"></span>
       </div>
       <div>
-        <span id="37"></span>
+        <span className="37"></span>
       </div>
       <div>
-        <span id="38"></span>
+        <span className="38"></span>
       </div>
       <div>
-        <span id="39"></span>
+        <span className="39"></span>
       </div>
       <div>
-        <span id="40"></span>
+        <span className="40"></span>
       </div>
       <div>
-        <span id="41"></span>
+        <span className="41"></span>
       </div>
         </div>
       </div>

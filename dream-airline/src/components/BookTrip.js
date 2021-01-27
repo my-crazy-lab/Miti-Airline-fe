@@ -45,6 +45,8 @@ const BookTrip =()=>{
     $('.booktrip-where-child-1').css('display','none');
     $('.booktrip-where-child-2').css('display','none');
     $('.booktrip-traveler-child').css('display','none');
+    $('.booktrip-date-calendar-1').css('display','none');
+    $('.booktrip-date-calendar-2').css('display','none');
   }
   const inputDes=()=>{
     setDes($('#destination').val());
@@ -65,11 +67,15 @@ const BookTrip =()=>{
     $('.booktrip-where-child-2').css('display','block');
   }
   const clickExit=()=>{
-    $('.booktrip-where-child-1').css('display','none');
-    $('.booktrip-where-child-2').css('display','none'); 
+    overflow();
   }
-  const exitTraveler=()=>{
-    $('.booktrip-traveler-child').css('display','none');
+  const showCalendarDe=()=>{
+    overflow();
+    $('.booktrip-date-calendar-1').css('display','block');
+  }
+  const showCalendarRe=()=>{
+    overflow();
+    $('.booktrip-date-calendar-2').css('display','block');
   }
   const swapContent=()=>{
     setDep(des) ;
@@ -84,7 +90,7 @@ const BookTrip =()=>{
           <button onClick={checkWay} className={`${checkway === true? 'twoway': 'oneway'}`}>Round Trip</button>
         </div>
         <div className="booktrip-where">
-          <form onClick={clickDeparture } >
+          <form className="booktrip-where-input" onClick={clickDeparture } >
             <span>Form</span>
             <input placeholder="Select Departure City" id="departure" onInput={inputDep}></input>
           </form>
@@ -138,7 +144,7 @@ const BookTrip =()=>{
           <button className="booktrip-where-swap" onClick={swapContent}>
             <i class="fas fa-retweet"></i>
           </button>
-          <form onClick={clickDestination} >
+          <form className="booktrip-where-input" onClick={clickDestination} >
             <span>To</span>
             <input placeholder="Select Destination City" id="destination" onInput={inputDes}></input>
           </form>
@@ -191,71 +197,97 @@ const BookTrip =()=>{
             </div>
         </div>
         <div className="booktrip-date">
-          <div>
-            <span>Departure Date</span>
-            <span>Mon, 25 January 2021</span>
+          <div className="booktrip-date-departure" onClick={showCalendarDe}>
+            <span className="booktrip-date-departure-span1">Departure Date</span>
+            <span className="booktrip-date-departure-span2">Mon, 25 January 2021</span>
           </div>
-          <div className={`booktrip-date-return ${checkway === true? 'show': 'hide'}`}>
-            <span >Return Date</span>
-            <span>Mon, 25 January 2021</span>
-          </div>
-        </div>
-        <div onClick={clickTraveler} className="booktrip-traveler">
-          <span>Traveler</span>
-          <span>{traveler} Traveler</span>
-          <div className="booktrip-traveler-child">
-            <div className="booktrip-traveler-child-head">
-              <span>Traveler</span>
-              <button type="button" className="button-exit" onClick={exitTraveler}>
+          <div className="booktrip-date-calendar-1">
+            <div className="booktrip-date-calendar-head">
+              <span>Departure Date</span>
+              <button type="button" onClick={clickExit}>
                 <i class="fas fa-times button-exit-icon"></i>
               </button>
             </div>
-            <div className="booktrip-traveler-child-list adult">
-              <div className="booktrip-traveler-child-list-head">
-                <span>Adults</span>
-                <span>Age 12+</span>
-              </div>
-              <div className="booktrip-traveler-child-list-count">
-                <button  onClick={minusAdult} type="button" className={`adult adultminus ${adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
-                  <i class="fas fa-minus"></i>
-                </button>
-                <p id="adult">{adult}</p>
-                <button onClick={plusAdult} type="button" className={`adult ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-            </div>
-            <div className="booktrip-traveler-child-list children">
-              <div className="booktrip-traveler-child-list-head">
-                <span>Childrens</span>
-                <span>Age 2-11</span>
-              </div>
-              <div className="booktrip-traveler-child-list-count">
-                <button onClick={minusChildren} type="button" className={`children ${child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
-                  <i class="fas fa-minus"></i>
-                </button>
-                <p id="children">{child}</p>
-                <button onClick={plusChildren} type="button" className={`children ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-            </div>
-            <div className="booktrip-traveler-child-list infant">
-              <div className="booktrip-traveler-child-list-head">
-                <span>Infants</span>
-                <span>Age 0-2</span>
-              </div>
-              <div className="booktrip-traveler-child-list-count">
-                <button onClick={minusInfant} type="button" className={`infant ${infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
-                  <i class="fas fa-minus"></i>
-                </button>
-                <p id="infant">{infant}</p>
-                <button onClick={plusInfant} type="button" className={`infant ${traveler > 5 || infant > 1 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
+            <div className="booktrip-date-calendar-body">
+              <Calendar></Calendar>
+              <div>1</div>
             </div>
           </div>
+          <div className={`booktrip-date-return ${checkway === false? '' : 'pointer-none'}`} onClick={showCalendarRe}>
+            <span className={`${checkway === false? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>Return Date</span>
+            <span className={`${checkway === false? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>Mon, 25 January 2021</span>
+          </div>
+            <div className="booktrip-date-calendar-2" >
+              <div className="booktrip-date-calendar-head">
+                <span>Return Date</span>
+                <button type="button" onClick={clickExit}>
+                  <i class="fas fa-times button-exit-icon"></i>
+                </button>
+              </div>
+              <div className="booktrip-date-calendar-body">
+                <Calendar></Calendar>
+                <div>2</div>
+              </div>
+            </div>
+        </div>
+        <div className="booktrip-traveler-frame">
+          <div onClick={clickTraveler} className="booktrip-traveler">
+            <span>Traveler</span>
+            <span>{traveler} Traveler</span>
+          </div>
+            <div className="booktrip-traveler-child">
+              <div className="booktrip-traveler-child-head">
+                <span>Traveler</span>
+                <button type="button" className="button-exit" onClick={clickExit}>
+                  <i class="fas fa-times button-exit-icon"></i>
+                </button>
+              </div>
+              <div className="booktrip-traveler-child-list adult">
+                <div className="booktrip-traveler-child-list-head">
+                  <span>Adults</span>
+                  <span>Age 12+</span>
+                </div>
+                <div className="booktrip-traveler-child-list-count">
+                  <button  onClick={minusAdult} type="button" className={`adult adultminus ${adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <p id="adult">{adult}</p>
+                  <button onClick={plusAdult} type="button" className={`adult ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div className="booktrip-traveler-child-list children">
+                <div className="booktrip-traveler-child-list-head">
+                  <span>Childrens</span>
+                  <span>Age 2-11</span>
+                </div>
+                <div className="booktrip-traveler-child-list-count">
+                  <button onClick={minusChildren} type="button" className={`children ${child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <p id="children">{child}</p>
+                  <button onClick={plusChildren} type="button" className={`children ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div className="booktrip-traveler-child-list infant">
+                <div className="booktrip-traveler-child-list-head">
+                  <span>Infants</span>
+                  <span>Age 0-2</span>
+                </div>
+                <div className="booktrip-traveler-child-list-count">
+                  <button onClick={minusInfant} type="button" className={`infant ${infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <p id="infant">{infant}</p>
+                  <button onClick={plusInfant} type="button" className={`infant ${traveler > 5 || infant > 1 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
         </div>
         <button className="booktrip-search">Search</button>
       </div>

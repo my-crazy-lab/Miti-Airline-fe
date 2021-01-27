@@ -1,5 +1,6 @@
 :root{
   --width-calendar : 350px;
+  --height-calendar : 320px;
 }
 .calendar-head{
   display: flex;
@@ -27,6 +28,8 @@
 }
 .calendar{
   width: var(--width-calendar);
+  height: var(--height-calendar) ;
+  background-color: white;
 }
 .calendar div{
   height: 40px;

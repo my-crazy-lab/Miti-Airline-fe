@@ -1,8 +1,12 @@
-import react from 'react'
+import react,{useState} from 'react'
 import './Navbar.css';
 import {Link} from 'react-router-dom';
 
-const Navbar=()=>{
+const Navbar=({showLogin,setShowLogin})=>{
+  const toggleLogin=()=>{
+    if(showLogin === false) setShowLogin(true);
+    else setShowLogin(false);
+  }
   return(
     <div className="nav-frame">
       <div className="nav">
@@ -39,8 +43,8 @@ const Navbar=()=>{
           </button>
         </div>
         <div className="nav-human">
-          <button className="nav-login">Login</button>
-          <button className="nav-register">Register</button>
+          <button type="button" onClick={toggleLogin} className="nav-login-btn">Login</button>
+          <button className="nav-register-btn">Register</button>
         </div>
       </div>
     </div>

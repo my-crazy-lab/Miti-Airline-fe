@@ -79,24 +79,28 @@ input::placeholder{
   color: #fff;
   border-radius: 6px;
   margin: var(--margin-top-bottom-global-booktrip) 0 0 0;
+  cursor: pointer;
 }
 .booktrip-search:hover{
   background: #f83f45;
 }
 /* traveler */
-.booktrip-traveler{
+.booktrip-traveler-frame{
   width: 100%;
   position: relative;
   height: 15%;
   border-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
+}
+.booktrip-traveler{
+  height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items:start;
   flex-direction: column;
-  margin: var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-traveler span{
+.booktrip-traveler-frame span{
   margin-left: var(--margin-left-global-booktrip);
 }
 .booktrip-traveler span:nth-child(1){
@@ -199,11 +203,13 @@ input::placeholder{
 .booktrip-date{
   width: 100%;
   height: 15%;
+  position: relative;
   display: flex;
   justify-content:space-between;
   margin: var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-date div{
+.booktrip-date-departure,
+.booktrip-date-return{
   width: 49%;
   height: 100%;
   border-radius: 6px;
@@ -212,36 +218,73 @@ input::placeholder{
   justify-content: center;
   align-items:start;
   flex-direction: column;
+  position: relative;
 }
-.booktrip-date div:hover{
+.booktrip-date-departure:hover,
+.booktrip-date-return:hover{
   cursor: pointer;
 }
-.booktrip-date div span{
+.booktrip-date-departure-span1,
+.booktrip-date-departure-span2,
+.booktrip-date-return-span1,
+.booktrip-date-return-span2{
   margin-left: var(--margin-left-global-booktrip);
 }
-.booktrip-date div:nth-child(1) span:nth-child(1){
-  color: var(--color-text-booktrip);
+.pointer-none{
+  pointer-events: none;
 }
-.booktrip-date div:nth-child(2) span:nth-child(1){
+.booktrip-date-return-span1,
+.booktrip-date-departure-span1{
   color: var(--color-text-booktrip);
 }
 .booktrip-date-return{
   position: relative;
 }
-.booktrip-date-return::before{
+.booktrip-date-return-hide{
+  color: #d8d9da;
+  margin-left : 20px;
+}
+
+.booktrip-date-calendar-1,
+.booktrip-date-calendar-2{
   position: absolute;
-  content:'';
-  width :calc(100%);
-  height: calc(100%);
-  background-color: rgba(255, 255, 255, 0.8);
+  top: calc(100% + 4px);
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+  right : 20%;
+  cursor: default;
+  display : none;
+  border-radius: 6px;
 }
-.booktrip-date-return.hide::before{
-  display: none;
-  pointer-events: none;
+.booktrip-date-calendar-head{
+  width: 100%;
+  background: #f7f7f7;
+  display: flex;
+  justify-content:space-between;
+  height: 40px;
+  align-items:center;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
-.booktrip-date-return.show::before{
-  display: block;
-  pointer-events: auto;
+.booktrip-date-calendar-body{
+  background : white;
+  width: 100%;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.booktrip-date-calendar-head span{
+  font-size: 18px;
+  font-weight:500;
+  margin-left : 16px;
+}
+.booktrip-date-calendar-head button{
+  border : none;
+  background : transparent;
+  padding : 10px;
+  cursor: pointer;
+  margin-right : 4px;
+}
+.booktrip-date-calendar-head i{
+  font-size: 18px;
 }
 /* where */
 .booktrip-where{
@@ -253,7 +296,7 @@ input::placeholder{
   position: relative;
   margin: var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-where form{
+.booktrip-where-input{
   width: 100%;
   height: 50%;
   display: flex;
