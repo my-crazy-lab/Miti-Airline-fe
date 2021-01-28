@@ -44,9 +44,6 @@
   justify-content: center;
   align-items: center;
 }
-.calendar-name-day span:hover{
-  cursor: pointer;
-}
 .calendar-name-day{
   display: flex;
   justify-content: space-around;
@@ -70,13 +67,15 @@
 .calendar-note{
   color: var(--color-global);
 }
-.calendar-name-day div span:hover{
-  width: 36px;
-  height: 36px;
+.calendar-name-day span{
   border-radius: 50%;
-  background-color:var(--color-global);
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-text-booktrip);
+  cursor: pointer;
+}
+.calendar-name-day div span:hover{
+  background-color:var(--color-global);
   color: white;
 }

@@ -10,8 +10,6 @@
 }
 .login{
   position:absolute;
-  top: 0; 
-  left: calc(50% - var(--width-login)/2); 
   width: var(--width-login);
   height: var(--height-login);
   display : flex;

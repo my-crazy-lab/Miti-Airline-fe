@@ -149,8 +149,10 @@ const Calendar =() =>{
     checkLeapYear();
     if(checkFday === 'Su'){
       $('.0').text('1');
+      $('.0').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay ; i++){
         $(`.${i - 1}`).text(`${i}`);
+        $(`.${i - 1}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay; j <= 41; j++){
         $(`.${j}`).text('');
@@ -159,8 +161,10 @@ const Calendar =() =>{
     if(checkFday === 'Mo'){
       $('.0').text('');
       $('.1').text('1');
+      $('.1').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay; i++){
         $(`.${i}`).text(`${i}`);
+        $(`.${i}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay + 1 ; j <= 41; j++){
         $(`.${j}`).text('');
@@ -170,8 +174,10 @@ const Calendar =() =>{
       $('.0').text('');
       $('.1').text('');
       $('.2').text('1');
+      $('.2').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay; i++){
         $(`.${i + 1}`).text(`${i}`);
+        $(`.${i + 1}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay + 2 ; j <= 41; j++){
         $(`.${j}`).text('');
@@ -182,8 +188,10 @@ const Calendar =() =>{
       $('.1').text('');
       $('.2').text('');
       $('.3').text('1');
+      $('.3').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay; i++){
         $(`.${i + 2}`).text(`${i}`);
+        $(`.${i + 2}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay + 3 ; j <= 41; j++){
         $(`.${j}`).text('');
@@ -195,8 +203,10 @@ const Calendar =() =>{
       $('.2').text('');
       $('.3').text('');
       $('.4').text('1');
+      $('.4').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay; i++){
         $(`.${i + 3}`).text(`${i}`);
+        $(`.${i + 3}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay + 4 ; j <= 41; j++){
         $(`.${j}`).text('');
@@ -209,8 +219,10 @@ const Calendar =() =>{
       $('.3').text('');
       $('.4').text('');
       $('.5').text('1');
+      $('.5').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay; i++){
         $(`.${i + 4}`).text(`${i}`);
+        $(`.${i + 4}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay + 5 ; j <= 41; j++){
         $(`.${j}`).text('');
@@ -224,8 +236,10 @@ const Calendar =() =>{
       $('.4').text('');
       $('.5').text('');
       $('.6').text('1');
+      $('.6').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay; i++){
         $(`.${i + 5}`).text(`${i}`);
+        $(`.${i + 5}`).css({'width': '40px', 'height': '40px'});
       }
       for(let j = sumDay + 6 ; j <= 41; j++){
         $(`.${j}`).text('');

@@ -3,7 +3,7 @@
 }
 /* z-index */
 .booktrip-where-child{
-  z-index: 10;
+  z-index: 100;
 }
 .booktrip{
   z-index: 1;
@@ -13,8 +13,10 @@
 .booktrip-traveler-child,
 .booktrip-date-calendar-1,
 .booktrip-date-calendar-2,
+.nav-language-list,
+.nav-currency-list,
 .calendar{
-  z-index: 1;
+  z-index: 10;
 }
 .login{
   z-index: 10000;
@@ -44,6 +46,7 @@
 }
 :root{
   --color-text-global : #6d595b;
+  --color-content-global : #535353;
   --color-global :  #e31f25;
   --margin-bottom-element-body : 60px;
   --width-global : 1260px;

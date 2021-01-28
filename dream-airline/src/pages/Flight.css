@@ -41,3 +41,7 @@
   z-index: 1;
   animation: changeColorTopicFlight 8s linear infinite;
 }
+.flight-login{
+  position:absolute; 
+  left: calc(50% - var(--width-login)/2); 
+}

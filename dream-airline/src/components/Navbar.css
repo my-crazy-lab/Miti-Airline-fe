@@ -1,3 +1,9 @@
+:root{
+  --width-currency : 660px;
+  --width-language : 360px;
+  --width-btn-currency : 100px;
+  --margin-right-of-currency : 6px;
+}
 .nav-frame{
   display:flex;
   justify-content: center;
@@ -94,24 +100,115 @@
   transform:  translate(40%,10%);
 }
 .nav-price{
+  position: relative;
   display: flex;
   align-items: center;
 }
-.nav-price span{
+.nav-language span,
+.nav-currency span{
   font-size: 15px;
   font-weight: 700;
   color: #2f2f31;
 }
-.fa-globe-europe{
-  color: var(--color-global);
-}
-.fa-coins{
-  color: var(--color-global);
-}
-.nav-price button{
+.nav-language,
+.nav-currency{
   border: none;
   border-radius: 12px;
+  cursor: pointer;
+  height: 40px;
+  width: var(--width-btn-currency);
+  background :transparent;
 }
-.nav-price button i{
+.nav-language:hover i,
+.nav-currency:hover i,
+.nav-language:hover span,
+.nav-currency:hover span{
+  color: var(--color-global);
+}
+.nav-language:hover,
+.nav-currency:hover{
+  background :#f8f6f6;
+}
+.nav-language i,
+.nav-currency i{
   font-size: 18px;
+  margin-right : var(--margin-right-of-currency);
+}
+.nav-language-list-frame,
+.nav-currency-list-frame{
+  display:  none;
+  position : absolute;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+}
+.nav-currency-list-frame{
+  width: var(--width-currency);
+  top : calc(100% - 6px);
+  left : calc(100% - var(--width-currency));
+}
+.nav-language-list-frame{
+  width: var(--width-language);
+  top : calc(100% - 6px);
+  left : calc(100% - var(--width-language) - var(--width-btn-currency) - var(--margin-right-of-currency));
+}
+.nav-currency-list-head,
+.nav-language-list-head{
+  background-color: #f7f7f7;
+  height: 48px;
+  display: flex;
+  align-items : center;
+  border-top-left-radius: 8px ;
+  border-top-right-radius: 8px ;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 20px ;
+}
+.nav-currency-list,
+.nav-language-list{
+  width: 100%;
+  display: flex;
+  padding: 0 20px ;
+  margin : 8px 0;
+}
+.nav-currency-list-child,
+.nav-language-list-child{
+  width: 33.333%;
+  display: flex;
+  align-items : center;
+  justify-content: flex-start;  
+}
+.nav-currency-list-child span:nth-child(1),
+.nav-language-list-child span:nth-child(1){
+  font-size: 14px;
+  color : var(--color-content-global);
+  width: 36px;
+  font-weight: 500;
+}
+.nav-currency-list-child span:nth-child(2),
+.nav-language-list-child span:nth-child(2){
+  font-size: 14px;
+  color : rgb(137, 136, 136);
+  font-weight: 400;
+}
+.nav-language-list-head span,
+.nav-currency-list-head span{
+  color : var(--color-global);
+  font-weight: 500;
+  font-size: 20px;
+}
+.nav-language-icon{
+  max-width: 18px;
+}
+.nav-language-list-child img{
+  margin-right : 8px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+.nav-language-list-child:hover,
+.nav-currency-list-child:hover{
+  cursor: pointer;
+}
+.nav-language-list-child:hover span,
+.nav-currency-list-child:hover span{
+  color : var(--color-global);
 }

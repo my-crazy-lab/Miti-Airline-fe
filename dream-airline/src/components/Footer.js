@@ -1,7 +1,26 @@
-import react from 'react'
+import react,{useState,useEffect} from 'react'
 import "./Footer.css";
+import $ from 'jquery';
 
 const Footer =()=>{
+  const [showErrorMessage, setShowErrorMessage] =useState(false);
+  const hideErrorMessage =()=>{
+    $('.fill-none').hide();
+    $('.wrong-format').hide();
+  }
+  const SubEmail=()=>{
+    if($('.footer-body-sub-input').val() === ''){
+      hideErrorMessage();
+      $('.fill-none').show();
+    }
+    if($('.footer-body-sub-input').val() !== ''){
+      hideErrorMessage();
+      $('.wrong-format').show();
+    }
+  }
+  const fillEmail =()=>{
+    hideErrorMessage();
+  }
   return(
     <div className="">
       <div className="footer-head-frame">
@@ -34,25 +53,33 @@ const Footer =()=>{
           <div className="footer-body-head">
             <img src="https://cdn.airpaz.com/nuxt/img/en.f5276dd.png" className="footer-body-bigimg"></img>
             <div className="footer-body-head-app">
-              <h2>Download Airpaz App Now,
+              <h2>Download DreamAirline App Now,
               <br></br>Book hotel and flight ticket without a hassle!</h2>
               <div className="footer-body-app">
-                <a>
+                <a href="">
                   <img src="https://cdn.airpaz.com/nuxt/img/playstore.c68e1c2.svg"></img>
                 </a>
-                <a>
+                <a href="">
                   <img src="https://cdn.airpaz.com/nuxt/img/appstore.e374ae7.svg"></img>
                 </a>
               </div>
             </div>
           </div>
           <div className="footer-body-sub">
-            <div>
+            <div className="footer-body-sub-topic">
               <span>Sign Up for Newsletter</span>
               <span>Subscribe to get deals & update in your email</span>
             </div>
-            <input placeholder="Enter Email Address"></input>
-            <button>SUBSCRIBE</button>
+            <input placeholder="Enter Email Address" onInput={fillEmail} className="footer-body-sub-input"></input>
+            <button className="footer-body-sub-btn" onClick={SubEmail}>SUBSCRIBE</button>
+            <div className="footer-body-sub-error  fill-none">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span className="footer-body-sub-error-content">Please fill email</span>
+            </div>
+            <div className="footer-body-sub-error wrong-format">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span className="footer-body-sub-error-content">Wrong "Email" format</span>
+            </div>
           </div>
         </div>
       </div>
@@ -61,48 +88,57 @@ const Footer =()=>{
           <div className="footer-footer-child">
             <span className="footer-footer-topic">DREAM</span>
             <div className="footer-footer-topic-text">
-              <span>Home</span>
-              <span>About Us</span>
-              <span>Promo</span>
-              <span>Airline information</span>
-              <span>All Flights</span>
+              <a href="">Home</a>
+              <a href="">About Us</a>
+              <a href="">Promo</a>
+              <a href="">Airline information</a>
+              <a href="">All Flights</a>
             </div>
           </div>
           <div className="footer-footer-child">
             <span className="footer-footer-topic">Account</span>
             <div div className="footer-footer-topic-text">
-              <span>Sign Up</span>
-              <span>Forgot Password</span>
+              <a href="">Sign Up</a>
+              <a href="" >Forgot Password</a>
             </div>
           </div>
           <div className="footer-footer-child">
             <span className="footer-footer-topic">Support</span>
             <div div className="footer-footer-topic-text">
-              <span>FAQ</span>
-              <span>Help Center</span>
-              <span>Terms Of Use</span>
-              <span>Terms & Conditions</span>
+              <a href="" >FAQ</a>
+              <a href="" >Help Center</a>
+              <a href="" >Terms Of Use</a>
+              <a href="">Terms & Conditions</a>
             </div>
           </div>
           <div className="footer-footer-child">
             <span className="footer-footer-topic">Follow Us</span>
               <div className="footer-footer-topic-follow">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
+                <a href="" className="footer-footer-topic-follow-fb">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" className="footer-footer-topic-follow-insta">
+                  <i class="fab fa-instagram"></i>
+                </a>
               </div>
               <div className="footer-footer-topic-follow">
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-twitter"></i>
+                <a href="" className="footer-footer-topic-follow-yt">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="" className="footer-footer-topic-follow-tw">
+                  <i class="fab fa-twitter"></i>
+                </a>
               </div>
           </div>
-          <div className="footer-footer-child">
-            <span className="footer-footer-topic">Partners us</span>
-            <div>
-            </div>
-          </div>
-          <div className="footer-footer-child">
-            <span className="footer-footer-topic">Popular Flight</span>
-            <div>
+          <div className="footer-footer-child footer-footer-child-app">
+            <span className="footer-footer-topic">Our app</span>
+            <div className="footer-body-app footer-footer-topic-app">
+                <a>
+                  <img src="https://cdn.airpaz.com/nuxt/img/playstore.c68e1c2.svg"></img>
+                </a>
+                <a>
+                  <img src="https://cdn.airpaz.com/nuxt/img/appstore.e374ae7.svg"></img>
+                </a>
             </div>
           </div>
         </div>

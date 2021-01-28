@@ -29,6 +29,7 @@ const Flight =() =>{
   // },8000)
   const [showLogin,setShowLogin] = useState(false);
   useEffect(() => {
+    $('.flight-login').css('top',`${$(window).scrollTop() + $(window).height()/4}px`);
     $('.flight-login').toggle();
   },[showLogin]);
   return(
