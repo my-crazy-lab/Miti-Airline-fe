@@ -108,18 +108,14 @@
 .nav-currency span{
   font-size: 15px;
   font-weight: 700;
-  color: #2f2f31;
 }
 .nav-language,
 .nav-currency{
   border: none;
-  border-radius: 12px;
+  border-radius: 0px;
   cursor: pointer;
   height: 40px;
   width: var(--width-btn-currency);
-}
-.currency-and-language-hide{
-  background :transparent;
 }
 .nav-language:hover i,
 .nav-currency:hover i,
@@ -136,12 +132,18 @@
   font-size: 18px;
   margin-right : var(--margin-right-of-currency);
 }
+.currency-and-language-hide{
+  background :transparent;
+}
 .currency-and-language-show{
-  background :#f8f6f6;
+  background :transparent;
   color: var(--color-global);
 }
 .currency-and-language-show-text{
   color: var(--color-global);
+}
+.currency-and-language-hide-text{
+  color: #2f2f31;
 }
 .nav-language-list-frame,
 .nav-currency-list-frame{

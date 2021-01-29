@@ -50,6 +50,7 @@
   --color-global :  #e31f25;
   --margin-bottom-element-body : 60px;
   --width-global : 1260px;
+  --color-background-topic :  #f3f1f1;
 }
 body{
   background: #f7f7f7;

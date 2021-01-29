@@ -17,6 +17,15 @@ input::placeholder{
   --margin-top-bottom-global-booktrip : calc(var( --height-global-booktrip)/80);
   --color-text-booktrip : #7c8391;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb  {
+  background: rgb(162, 161, 161); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(150, 148, 148); 
+}
 .booktrip{
   width:480px;
   height: var( --height-global-booktrip);
@@ -91,6 +100,7 @@ input::placeholder{
   height: 15%;
   border-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
+  margin : var(--margin-top-bottom-global-booktrip) 0;
 }
 .booktrip-traveler{
   height: 100%;
@@ -305,17 +315,22 @@ input::placeholder{
   flex-direction: column;
   margin-left: var(--margin-left-global-booktrip);
 } 
+.booktrip-where-child-body{
+  height: 400px;
+  overflow: auto;
+}
 .booktrip-where-child-1,
 .booktrip-where-child-2{
   position: absolute;
   background: #fff;
-  padding : 8px 20px;
+  margin-left : var(--margin-left-global-booktrip);
   border-radius: 8px;
   width: 100%;
-  left: 0;
+  right: 0;
   display: none;
-  box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.6);
   top: 0;
+  width: 100%;
 }
 .booktrip-where-child-1{
   top: calc(var(--height-global-booktrip)*0.4*0.5 - 12px);
@@ -325,18 +340,22 @@ input::placeholder{
 }
 .booktrip-where-child-head{
   display: flex;
-  flex-direction: column;
-  margin-bottom: 4px;
+  justify-content: space-between;
+  background : var(--color-background-topic);
+  height: 52px;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .booktrip-where-child-head div{
   display: flex;
   justify-content:space-between;
 }
-.booktrip-where-child-head span:nth-child(1){
+.booktrip-where-child-topic{
   font-size: 20px;
   font-weight: 700;
   color: var(--color-global);
-  margin-bottom: 6px;
+  margin-left : var(--margin-left-global-booktrip);
   display: flex;
 }
 .button-exit{
@@ -350,33 +369,59 @@ input::placeholder{
   color: rgb(179, 179, 179);
   font-size: 16px;
 }
-.booktrip-where-child-head span:nth-child(2){
+.booktrip-where-child-country{
+  height: 40px;
+  display: flex;
+  background : var(--color-background-topic);
+  align-items: center;
+}
+.booktrip-where-child-country-text{
   font-size: 16px;
   font-weight: 500;
+  margin-left : var(--margin-left-global-booktrip);
 }
 .booktrip-where-child-list-child{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 8px;
+  padding: 8px 0;
+}
+.booktrip-where-child-list-child:hover{
+  background-color:#f7f7f7;
+  cursor: pointer;
 }
 .booktrip-where-child-list-child div{
   display: flex;
   flex-direction: column;
+  width: 80%;
+}
+.booktrip-where-child-list-child div span{
+  width: 100%;
+}
+.booktrip-where-child-list-child span{
+  color : rgb(150, 148, 148);
+  font-size: 14px;
 }
 .booktrip-where-child-list-child div span:nth-child(2){
-  font-size: 14px;
+  font-size: 13px;
+  color :rgb(150, 148, 148);
 }
 .booktrip-where-child-list-child div span:nth-child(1){
   font-size: 16px;
   font-weight: 700;
+  color :rgb(83, 81, 81);
 }
 .booktrip-where-child-list-child i{
   color: var(--color-global);
+  width: 15%;
+  margin-left : var(--margin-left-global-booktrip);
 }
 .booktrip-where form input{
   width: 70%;
   margin-top: 12px;
+}
+.booktrip-where-child-list-child-id{
+  width: 10%;
 }
 .booktrip-where::before{
   content:'';

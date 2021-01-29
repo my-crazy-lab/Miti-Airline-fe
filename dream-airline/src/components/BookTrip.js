@@ -2,6 +2,7 @@ import react, {useState , useEffect} from 'react';
 import "./BookTrip.css";
 import $ from 'jquery';
 import Calendar from './Calendar';
+import {appData} from '../data.js';
 
 const BookTrip =()=>{
   const [des, setDes] = useState('');
@@ -83,6 +84,12 @@ const BookTrip =()=>{
     $('#departure').val(`${dep}`);
     $('#destination').val(`${des}`);
   }
+  const chooseTrip=()=>{
+    // $('#departure').val('hihi');
+    // $(this).children('.booktrip-where-child-list-child-id').text()
+    // $(this).children('#nameCity').text()
+    console.log($(this).find(".booktrip-where-child-list-child-id").text())
+  }
   return(
       <div className="booktrip">
         <div className="booktrip-type">
@@ -94,52 +101,36 @@ const BookTrip =()=>{
             <span>Form</span>
             <input placeholder="Select Departure City" id="departure" onInput={inputDep}></input>
           </form>
-          <div className="booktrip-where-child-1">
-              <div className="booktrip-where-child-head">
-                <div>
-                  <span >
-                    Select Departure  City 
-                  </span>
-                  <button type="button" onClick={clickExit} className="button-exit" >
-                    <i class="fas fa-times button-exit-icon"></i>
-                  </button>
-                </div>
-                <span>VietNam</span>
-              </div>
+          <div className="booktrip-where-child-1"> 
+            <div className="booktrip-where-child-head">
+              <span className="booktrip-where-child-topic">
+                  Select Departure City 
+              </span>
+              <button type="button" onClick={clickExit} className="button-exit" >
+                  <i class="fas fa-times button-exit-icon"></i>
+              </button>
+            </div> 
+            <div className="booktrip-where-child-body">
+              {appData.allTrip.map(dataAll => {
+              return <div className="booktrip-where-child">
+              <div className="booktrip-where-child-country">
+              <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
+            </div>
               <div className="booktrip-where-child-list">
-                <div className="booktrip-where-child-list-child">
+                {dataAll.detailTrip.map(data => {
+                  return <div className="booktrip-where-child-list-child" onClick={chooseTrip}>
                   <i class="fas fa-plane-departure"></i>
                   <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
+                    <span id="nameCity">{data.name}</span>
+                    <span>{data.airport}</span>
                   </div>
-                  <span>SGN</span>
+                  <span className="booktrip-where-child-list-child-id">{data.id}</span>
                 </div>
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
-                  </div>
-                  <span>SGN</span>
-                </div>
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
-                  </div>
-                  <span>SGN</span>
-                </div>
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
-                  </div>
-                  <span>SGN</span>
-                </div>
+                })}
               </div>
+            </div>
+              })} 
+            </div>
             </div>
           <button className="booktrip-where-swap" onClick={swapContent}>
             <i class="fas fa-retweet"></i>
@@ -149,51 +140,35 @@ const BookTrip =()=>{
             <input placeholder="Select Destination City" id="destination" onInput={inputDes}></input>
           </form>
           <div className="booktrip-where-child-2">
-              <div className="booktrip-where-child-head">
-                <div>
-                  <span >
-                    Select Destination City 
-                  </span>
-                  <button type="button" onClick={clickExit} className="button-exit" >
-                    <i class="fas fa-times button-exit-icon"></i>
-                  </button>
+            <div className="booktrip-where-child-head">
+              <span className="booktrip-where-child-topic">
+                Select Destination City 
+              </span>
+              <button type="button" onClick={clickExit} className="button-exit" >
+                  <i class="fas fa-times button-exit-icon"></i>
+              </button>
+            </div>
+            <div className="booktrip-where-child-body">
+              {appData.allTrip.map(dataAll => {
+                return <div className="booktrip-where-child">
+                <div className="booktrip-where-child-country">
+                  <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
                 </div>
-                <span>VietNam</span>
-              </div>
-              <div className="booktrip-where-child-list">
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
+                <div className="booktrip-where-child-list">
+                  {dataAll.detailTrip.map(data => {
+                    return <div className="booktrip-where-child-list-child">
+                    <i class="fas fa-plane-departure"></i>
+                    <div>
+                      <span>{data.name}</span>
+                      <span>{data.airport}</span>
+                    </div>
+                    <span className="booktrip-where-child-list-child-id">{data.id}</span>
                   </div>
-                  <span>SGN</span>
-                </div>
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
-                  </div>
-                  <span>SGN</span>
-                </div>
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
-                  </div>
-                  <span>SGN</span>
-                </div>
-                <div className="booktrip-where-child-list-child">
-                  <i class="fas fa-plane-departure"></i>
-                  <div>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                    <span>Tan Son Nhat International Airport</span>
-                  </div>
-                  <span>SGN</span>
+                  })}
                 </div>
               </div>
+              })}
+            </div>
             </div>
         </div>
         <div className="booktrip-date">

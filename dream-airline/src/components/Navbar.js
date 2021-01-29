@@ -55,14 +55,14 @@ const Navbar=({showLogin,setShowLogin})=>{
           </Link>   
         </div>
         <div className="nav-price">
-          <button className="nav-language" onClick={showLanguage}>
+          <button className={`nav-language  ${checkLanguage === true ? 'currency-and-language-show'  : 'currency-and-language-hide'}`} onClick={showLanguage}>
             <i class="fas fa-globe-europe"></i>
-            <span>EN</span>        
+            <span className={`${checkLanguage === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>EN</span>        
             <i class="fas fa-angle-down"></i>
           </button>
-          <button className={`nav-currency  ${checkCurrency === true ? '.currency-and-language-show'  : '.currency-and-language-hide'}`} onClick={showCurrency}>
+          <button className={`nav-currency  ${checkCurrency === true ? 'currency-and-language-show'  : 'currency-and-language-hide'}`} onClick={showCurrency}>
             <i class="fas fa-coins"></i>
-            <span className={`${checkCurrency === true ?'.currency-and-language-show-text'  : ''}`}>VND</span>     
+            <span className={`${checkCurrency === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>VND</span>     
             <i class="fas fa-angle-down"></i>
           </button>
           <div className="nav-currency-list-frame">

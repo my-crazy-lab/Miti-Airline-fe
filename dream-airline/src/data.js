@@ -162,7 +162,88 @@ const languageData =[
     name : "Tiếng Việt",
   }
 ]
+const tripDataVN ={
+  countryTrip : "VietNam",
+  detailTrip : [
+  {
+    id : "SGN",
+    name : "Ho Chi Minh City, Vietnam",
+    airport : "Tan Son Nhat International Airport",
+    price : "",
+    flightTime : "",
+    departureTime : "",
+    typePrice : "",
+    destinationTime : "",
+    timeZone: "",
+  },
+  {
+    id : "HAN",
+    name : "Hanoi, Vietnam",
+    airport : "Noi Bai International Airport",
+    price : "",
+    flightTime : "",
+    departureTime : "",
+    typePrice : "",
+    destinationTime : "",
+    timeZone: "",
+  },
+  {
+    id : "DAD",
+    name : "Da Nang, Vietnam",
+    airport : "Da Nang International Airport",
+    price : "",
+    flightTime : "",
+    departureTime : "",
+    typePrice : "",
+    destinationTime : "",
+    timeZone: "",
+  }
+]}
+const tripDataUS ={
+  countryTrip : "American",
+  detailTrip : [
+    {
+      id : "AMR",
+      name : "Denver City, American",
+      airport : "Denver - Den International Airport",
+      price : "",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "",
+      destinationTime : "",
+      timeZone: "",
+    },
+    {
+      id : "DAF",
+      name : "Texas City, American",
+      airport : "Dallas-Forth Worth International Airport",
+      price : "",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "",
+      destinationTime : "",
+      timeZone: "",
+    },
+    {
+      id : "ATL  ",
+      name : "Georgia City, American",
+      airport : "Atlanta  International Airport",
+      price : "",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "",
+      destinationTime : "",
+      timeZone: "",
+    }
+  ]
+}
+const allTrip = [
+  tripDataVN,
+  tripDataUS
+  // tripDataUK : tripDataUK,
+]
 export const appData={
   currencyData : currencyData,
   languageData : languageData,
+  allTrip : allTrip,
 }
