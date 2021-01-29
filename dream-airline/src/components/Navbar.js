@@ -2,23 +2,34 @@ import react,{useState} from 'react'
 import './Navbar.css';
 import {Link} from 'react-router-dom';
 import $ from "jquery";
+import {appData} from "../data";
 
 const Navbar=({showLogin,setShowLogin})=>{
+  const [checkCurrency , setCheckCurrency] = useState(false);
+  const [checkLanguage, setCheckLanguage] = useState(false);
   const toggleLogin=()=>{
     if(showLogin === false) setShowLogin(true);
     else setShowLogin(false);
   }
-  const clickExit=()=>{
+  const hideCurrencyAndLanguage = ()=>{
     $('.nav-currency-list-frame').hide();
     $('.nav-language-list-frame').hide();
+    setCheckCurrency(false);
+    setCheckLanguage(false);
+  }
+  const clickExit=()=>{
+    hideCurrencyAndLanguage();
   }
   const showCurrency=()=>{
-    $('.nav-language-list-frame').hide();
+    hideCurrencyAndLanguage();
     $('.nav-currency-list-frame').show();
+    setCheckCurrency(true);
+    console.log(checkCurrency)
   }
   const showLanguage=()=>{
-    $('.nav-currency-list-frame').hide();
+    hideCurrencyAndLanguage();
     $('.nav-language-list-frame').show();
+    setCheckLanguage(true);
   }
   return(
     <div className="nav-frame">
@@ -49,9 +60,9 @@ const Navbar=({showLogin,setShowLogin})=>{
             <span>EN</span>        
             <i class="fas fa-angle-down"></i>
           </button>
-          <button className="nav-currency" onClick={showCurrency}>
+          <button className={`nav-currency  ${checkCurrency === true ? '.currency-and-language-show'  : '.currency-and-language-hide'}`} onClick={showCurrency}>
             <i class="fas fa-coins"></i>
-            <span>VND</span>     
+            <span className={`${checkCurrency === true ?'.currency-and-language-show-text'  : ''}`}>VND</span>     
             <i class="fas fa-angle-down"></i>
           </button>
           <div className="nav-currency-list-frame">
@@ -76,18 +87,12 @@ const Navbar=({showLogin,setShowLogin})=>{
               </div>
             </div>
             <div className="nav-currency-list">
-              <div className="nav-currency-list-child">
-                <span>AED</span>
-                <span>Arab Emirates Dirham</span>
+              {appData.currencyData.map(appData =>{
+                return <div className="nav-currency-list-child">
+                <span>{appData.id}</span>
+                <span>{appData.name}</span>
               </div>
-              <div className="nav-currency-list-child">
-                <span>BND</span>
-                <span>Brunei Dollar</span>
-              </div>
-              <div className="nav-currency-list-child">
-                <span>CAD</span>
-                <span>Canadian Dollar</span>
-              </div>
+              })}
             </div>
           </div>
           <div className="nav-language-list-frame">
@@ -98,52 +103,12 @@ const Navbar=({showLogin,setShowLogin})=>{
               </button>
             </div>
             <div className="nav-language-list">
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/gb.d3ddd60.svg"></img>
-                <span>English</span>
+              {appData.languageData.map(appData =>{
+                return <div className="nav-language-list-child">
+                <img className="nav-language-icon" src={appData.src}></img>
+                <span>{appData.name}</span>
               </div>
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/id.17b9967.svg"></img>
-                <span>Indonesia</span>
-              </div>
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/ph.12f36ee.svg"></img>
-                <span>Tagalog</span>
-              </div>
-            </div>
-            <div className="nav-language-list">
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/cn.02c229d.svg"></img>
-                <span>简体中文</span>
-              </div>
-              <div className="nav-language-list-child">
-              <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/tw.8a19468.svg"></img>
-                <span> 繁體中文</span>
-              </div>
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/th.76fca72.svg"></img>
-                <span>ภาษาไทย</span>
-              </div>
-            </div>
-            <div className="nav-language-list">
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/jp.3e72015.svg"></img>
-                <span>日本語 </span>
-              </div>
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/kr.60fde7f.svg"></img>
-                <span>한국어</span>
-              </div>
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/my.e6739f4.svg"></img>
-                <span>Malay</span>
-              </div>
-            </div>
-            <div className="nav-language-list">
-              <div className="nav-language-list-child">
-                <img className="nav-language-icon" src="https://cdn.airpaz.com/nuxt/img/vn.6b3aef5.svg"></img>
-                <span>Tiếng Việt</span>
-              </div>
+              })}
             </div>
           </div>
         </div>
