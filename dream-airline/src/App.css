@@ -1,11 +1,11 @@
-*{
+* {
   box-sizing: border-box;
 }
 /* z-index */
-.booktrip-where-child{
+.booktrip-where-child {
   z-index: 100;
 }
-.booktrip{
+.booktrip {
   z-index: 1;
 }
 .booktrip-where-child-1,
@@ -15,53 +15,53 @@
 .booktrip-date-calendar-2,
 .nav-language-list,
 .nav-currency-list,
-.calendar{
+.calendar {
   z-index: 10;
 }
-.login{
+.login {
   z-index: 10000;
 }
 /* The end */
-.style-text-header-body{
+.style-text-header-body {
   color: #6d595b;
   font-size: 36px;
   font-weight: 500;
 }
-.style-text{
-  font-family: 'Lato', sans-serif; 
+.style-text {
+  font-family: "Lato", sans-serif;
   font-size: 18px;
   color: #947979;
 }
-.button-exit{
-  border : none;
+.button-exit {
+  border: none;
   text-align: center;
   cursor: pointer;
   padding: 6px 12px 6px 12px;
   background: transparent;
 }
-.style-topic{
+.style-topic {
   color: #4e0309;
   font-size: 36px;
   font-weight: 500;
 }
-:root{
-  --color-text-global : #6d595b;
-  --color-content-global : #535353;
-  --color-global :  #e31f25;
-  --margin-bottom-element-body : 60px;
-  --width-global : 1260px;
-  --color-background-topic :  #f3f1f1;
+:root {
+  --color-text-global: #6d595b;
+  --color-content-global: #535353;
+  --color-global: #e31f25;
+  --margin-bottom-element-body: 60px;
+  --width-global: 1260px;
+  --color-background-topic: #f3f1f1;
 }
-body{
+body {
   background: #f7f7f7;
 }
-a{
+a {
   text-decoration: none;
   color: black;
 }
-button{
+button {
   outline: none;
 }
-input{
+input {
   outline: none;
 }

@@ -24,7 +24,7 @@ const Navbar=({showLogin,setShowLogin})=>{
     hideCurrencyAndLanguage();
     $('.nav-currency-list-frame').show();
     setCheckCurrency(true);
-    console.log(checkCurrency)
+    console.log(appData.typeprice)
   }
   const showLanguage=()=>{
     hideCurrencyAndLanguage();

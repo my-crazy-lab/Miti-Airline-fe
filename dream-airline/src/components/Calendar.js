@@ -343,7 +343,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
     }
   }
   const chooseDateInCalendar =()=>{
-    console.log($(this).text())
+    console.log()
   }
   return(
     <div className="calendar">
