@@ -2,19 +2,29 @@ import react,{useState, useEffect} from 'react';
 import "./Calendar.css"
 import $ from "jquery";
 
-const Calendar =() =>{
+const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
   const dateNow = new Date();
-  const [dayNow,setDayNow] = useState('');
   const [nameMonth,setNameMonth] = useState('');
+  const [dayNow,setDayNow] = useState('');
+  const [yearNow,setYearNow] = useState(parseInt(`${new Date().getFullYear()}`));
   const [monthNow,setMonthNow] = useState(parseInt(`${dateNow.getMonth()}`));
-  const [yearNow,setYearNow] = useState(parseInt(`${dateNow.getFullYear()}`));
   const [firstDay,setFirstDay] = useState(`${new Date(yearNow, monthNow, 1)}`);
   const [checkFday,setCheckFday] = useState(`${firstDay.split('' , 2).join('')}`);
   const [sumDay,setSumDay] = useState(0);
 
   useEffect(() => {
     fillCalendar();
+    setNameDay(dateNow.getDate())
+    setMonthParent(nameMonth);
+    setDayParent(dayNow);
+    setYearParent(yearNow);
   });
+  useEffect(() => {
+    setMonthParent(nameMonth);
+    setNameDay(dateNow.getDate())
+    setDayParent(findDay());
+    setYearParent(yearNow);
+  },[monthNow])
   const fixMonthNow=()=>{
     if( monthNow === 12) {
       setMonthNow(0);
@@ -332,6 +342,9 @@ const Calendar =() =>{
       default : break;
     }
   }
+  const chooseDateInCalendar =()=>{
+    console.log($(this).text())
+  }
   return(
     <div className="calendar">
       <div className="calendar-head">
@@ -369,140 +382,140 @@ const Calendar =() =>{
         </div>
         <div className="calendar-name-day">
           <div>
-            <span className="0"></span>
+            <span className="0" onClick={chooseDateInCalendar}></span>
           </div>
           <div>
-            <span className="1"></span>
+            <span className="1" onClick={chooseDateInCalendar}></span>
           </div>
           <div>
-            <span className="2"></span>
+            <span className="2" onClick={chooseDateInCalendar}></span>
           </div>
           <div>
-            <span className="3"></span>
+            <span className="3" onClick={chooseDateInCalendar}></span>
           </div>
           <div>
-            <span className="4"></span>
+            <span className="4" onClick={chooseDateInCalendar}></span>
           </div>
           <div>
-            <span className="5"></span>
+            <span className="5" onClick={chooseDateInCalendar}></span>
           </div>
           <div>
-            <span className="6"></span>
+            <span className="6" onClick={chooseDateInCalendar}></span>
           </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="7"></span>
+        <span className="7" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="8"></span>
+        <span className="8" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="9"></span>
+        <span className="9" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="10"></span>
+        <span className="10" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="11"></span>
+        <span className="11" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="12"></span>
+        <span className="12" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="13"></span>
+        <span className="13" onClick={chooseDateInCalendar}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="14"></span>
+        <span className="14" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="15"></span>
+        <span className="15" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="16"></span>
+        <span className="16" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="17"></span>
+        <span className="17" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="18"></span>
+        <span className="18" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="19"></span>
+        <span className="19" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="20"></span>
+        <span className="20" onClick={chooseDateInCalendar}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="21"></span>
+        <span className="21" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="22"></span>
+        <span className="22" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="23"></span>
+        <span className="23" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="24"></span>
+        <span className="24" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="25"></span>
+        <span className="25" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="26"></span>
+        <span className="26" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="27"></span>
+        <span className="27" onClick={chooseDateInCalendar}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="28"></span>
+        <span className="28" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="29"></span>
+        <span className="29" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="30"></span>
+        <span className="30" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="31"></span>
+        <span className="31" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="32"></span>
+        <span className="32" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="33"></span>
+        <span className="33" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="34"></span>
+        <span className="34" onClick={chooseDateInCalendar}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="35"></span>
+        <span className="35" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="36"></span>
+        <span className="36" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="37"></span>
+        <span className="37" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="38"></span>
+        <span className="38" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="39"></span>
+        <span className="39" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="40"></span>
+        <span className="40" onClick={chooseDateInCalendar}></span>
       </div>
       <div>
-        <span className="41"></span>
+        <span className="41" onClick={chooseDateInCalendar}></span>
       </div>
         </div>
       </div>

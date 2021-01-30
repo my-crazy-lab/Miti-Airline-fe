@@ -1,34 +1,34 @@
-input{
+input {
   border: none;
   padding: 0;
-  font-size : 16px;
-  font-weight : 700;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--color-text-booktrip);
 }
-input::placeholder{
+input::placeholder {
   font-size: 16px;
   font-weight: 500;
   color: var(--color-text-booktrip);
 }
-:root{
-  --height-global-booktrip : 480px;
-  --border-global-booktrip : #e6e6e7;
-  --margin-left-global-booktrip : 20px;
-  --margin-top-bottom-global-booktrip : calc(var( --height-global-booktrip)/80);
-  --color-text-booktrip : #7c8391;
+:root {
+  --height-global-booktrip: 480px;
+  --border-global-booktrip: #e6e6e7;
+  --margin-left-global-booktrip: 20px;
+  --margin-top-bottom-global-booktrip: calc(var(--height-global-booktrip) / 80);
+  --color-text-booktrip: #7c8391;
 }
 ::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-thumb  {
-  background: rgb(162, 161, 161); 
+::-webkit-scrollbar-thumb {
+  background: rgb(162, 161, 161);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(150, 148, 148); 
+  background: rgb(150, 148, 148);
 }
-.booktrip{
-  width:480px;
-  height: var( --height-global-booktrip);
+.booktrip {
+  width: 560px;
+  height: var(--height-global-booktrip);
   background: white;
   display: flex;
   justify-content: center;
@@ -38,12 +38,12 @@ input::placeholder{
   border-radius: 8px;
 }
 /* type */
-.booktrip-type{
-  width:100%;
+.booktrip-type {
+  width: 100%;
   height: 10%;
   margin: 0 0 var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-type button:nth-child(2){
+.booktrip-type button:nth-child(2) {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
@@ -51,7 +51,7 @@ input::placeholder{
   height: 100%;
   cursor: pointer;
 }
-.booktrip-type button:nth-child(1){
+.booktrip-type button:nth-child(1) {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   width: 50%;
@@ -59,26 +59,26 @@ input::placeholder{
   height: 100%;
   cursor: pointer;
 }
-.oneway{
+.oneway {
   background: var(--color-global);
   color: white;
   font-size: 16px;
   font-weight: 700;
 }
-.twoway{
+.twoway {
   background: #f7f7f7;
   color: var(--color-text-booktrip);
   font-size: 16px;
   font-weight: 700;
 }
-.booktrip-type button:nth-child(2):hover{
+.booktrip-type button:nth-child(2):hover {
   opacity: 0.8;
 }
-.booktrip-type button:nth-child(1):hover{
+.booktrip-type button:nth-child(1):hover {
   opacity: 0.8;
 }
 /* search */
-.booktrip-search{
+.booktrip-search {
   width: 100%;
   border: none;
   height: 12%;
@@ -90,47 +90,47 @@ input::placeholder{
   margin: var(--margin-top-bottom-global-booktrip) 0 0 0;
   cursor: pointer;
 }
-.booktrip-search:hover{
+.booktrip-search:hover {
   background: #f83f45;
 }
 /* traveler */
-.booktrip-traveler-frame{
+.booktrip-traveler-frame {
   width: 100%;
   position: relative;
   height: 15%;
   border-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
-  margin : var(--margin-top-bottom-global-booktrip) 0;
+  margin: var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-traveler{
+.booktrip-traveler {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items:start;
+  align-items: start;
   flex-direction: column;
 }
-.booktrip-traveler-frame span{
+.booktrip-traveler-frame span {
   margin-left: var(--margin-left-global-booktrip);
 }
-.booktrip-traveler span:nth-child(1){
+.booktrip-traveler span:nth-child(1) {
   color: var(--color-text-booktrip);
 }
-.booktrip-traveler:hover{
+.booktrip-traveler:hover {
   cursor: pointer;
 }
-.booktrip-traveler-child{
+.booktrip-traveler-child {
   position: absolute;
   width: 100%;
-  background-color:white;
-  box-shadow: 1px 2px 12px rgba(0,0,0, 0.4);
-  top: calc(var(--width-global)*0.05);
+  background-color: white;
+  box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.4);
+  top: calc(var(--width-global) * 0.05);
   right: 0;
   border-radius: 8px;
   cursor: default;
   display: none;
 }
-.booktrip-traveler-child-head{
+.booktrip-traveler-child-head {
   font-size: 20px;
   font-weight: 700;
   color: rgb(150, 148, 148);
@@ -138,166 +138,166 @@ input::placeholder{
   height: 40px;
   display: inline-flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
   width: 100%;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
-.booktrip-traveler-child-head button{
+.booktrip-traveler-child-head button {
   margin-right: 6px;
 }
-.booktrip-traveler-child-list span:nth-child(1){
+.booktrip-traveler-child-list span:nth-child(1) {
   font-size: 17px;
   color: black;
   font-weight: 500;
 }
-.booktrip-traveler-child-list span:nth-child(2){
+.booktrip-traveler-child-list span:nth-child(2) {
   font-size: 13px;
   color: var(--color-text-booktrip);
 }
-.booktrip-traveler-child-list{
+.booktrip-traveler-child-list {
   display: flex;
   justify-content: space-between;
-  padding : 8px 0;
-  align-items:center;
+  padding: 8px 0;
+  align-items: center;
 }
 .booktrip-traveler-child-list:nth-child(2),
-.booktrip-traveler-child-list:nth-child(3){
-  border-bottom : 1px solid #d6d5d5;
+.booktrip-traveler-child-list:nth-child(3) {
+  border-bottom: 1px solid #d6d5d5;
 }
-.booktrip-traveler-child-list-head{
+.booktrip-traveler-child-list-head {
   display: flex;
   flex-direction: column;
 }
-.booktrip-traveler-child-list-count{
+.booktrip-traveler-child-list-count {
   display: flex;
   align-items: center;
-  margin-right : 20px
+  margin-right: 20px;
 }
-.booktrip-traveler-child-list-count button{
+.booktrip-traveler-child-list-count button {
   height: 28px;
   border-radius: 4px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
-.booktrip-minus-hide{
+.booktrip-minus-hide {
   color: #e4e4e4;
-  border : 1px solid white;
+  border: 1px solid white;
   background-color: #efefef;
   cursor: no-drop;
   pointer-events: none;
 }
-.booktrip-minus-show{
+.booktrip-minus-show {
   color: var(--color-global);
-  border : 1px solid var(--color-global);
+  border: 1px solid var(--color-global);
   background-color: white;
   cursor: pointer;
 }
-.booktrip-traveler-child-list-count button:hover{
+.booktrip-traveler-child-list-count button:hover {
   color: white;
-  border : 1px solid var(--color-global);
+  border: 1px solid var(--color-global);
   background-color: var(--color-global);
   cursor: pointer;
 }
-.booktrip-minus-run{
+.booktrip-minus-run {
   color: white;
-  border : 1px solid var(--color-global);
+  border: 1px solid var(--color-global);
   background-color: var(--color-global);
   cursor: pointer;
 }
-.booktrip-traveler-child-list-count p{
-  margin : 0 28px;
+.booktrip-traveler-child-list-count p {
+  margin: 0 28px;
 }
 /* date */
-.booktrip-date{
+.booktrip-date {
   width: 100%;
   height: 15%;
   position: relative;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   margin: var(--margin-top-bottom-global-booktrip) 0;
 }
 .booktrip-date-departure,
-.booktrip-date-return{
+.booktrip-date-return {
   width: 49%;
   height: 100%;
   border-radius: 6px;
   border: 1px solid var(--border-global-booktrip);
   display: flex;
   justify-content: center;
-  align-items:start;
+  align-items: start;
   flex-direction: column;
   position: relative;
 }
 .booktrip-date-departure:hover,
-.booktrip-date-return:hover{
+.booktrip-date-return:hover {
   cursor: pointer;
 }
 .booktrip-date-departure-span1,
 .booktrip-date-departure-span2,
 .booktrip-date-return-span1,
-.booktrip-date-return-span2{
+.booktrip-date-return-span2 {
   margin-left: var(--margin-left-global-booktrip);
 }
-.pointer-none{
+.pointer-none {
   pointer-events: none;
 }
 .booktrip-date-return-span1,
-.booktrip-date-departure-span1{
+.booktrip-date-departure-span1 {
   color: var(--color-text-booktrip);
 }
-.booktrip-date-return{
+.booktrip-date-return {
   position: relative;
 }
-.booktrip-date-return-hide{
+.booktrip-date-return-hide {
   color: #d8d9da;
-  margin-left : 20px;
+  margin-left: 20px;
 }
 
 .booktrip-date-calendar-1,
-.booktrip-date-calendar-2{
+.booktrip-date-calendar-2 {
   position: absolute;
   top: calc(100% + 4px);
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
-  right : 20%;
+  right: 20%;
   cursor: default;
-  display : none;
+  display: none;
   border-radius: 6px;
 }
-.booktrip-date-calendar-head{
+.booktrip-date-calendar-head {
   width: 100%;
   background: #f7f7f7;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   height: 40px;
-  align-items:center;
+  align-items: center;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
-.booktrip-date-calendar-body{
-  background : white;
+.booktrip-date-calendar-body {
+  background: white;
   width: 100%;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-.booktrip-date-calendar-head span{
+.booktrip-date-calendar-head span {
   font-size: 18px;
-  font-weight:500;
-  margin-left : 16px;
+  font-weight: 500;
+  margin-left: 16px;
 }
-.booktrip-date-calendar-head button{
-  border : none;
-  background : transparent;
-  padding : 10px;
+.booktrip-date-calendar-head button {
+  border: none;
+  background: transparent;
+  padding: 10px;
   cursor: pointer;
-  margin-right : 4px;
+  margin-right: 4px;
 }
-.booktrip-date-calendar-head i{
+.booktrip-date-calendar-head i {
   font-size: 18px;
 }
 /* where */
-.booktrip-where{
+.booktrip-where {
   position: relative;
   width: 100%;
   height: 40%;
@@ -306,7 +306,7 @@ input::placeholder{
   position: relative;
   margin: var(--margin-top-bottom-global-booktrip) 0;
 }
-.booktrip-where-input{
+.booktrip-where-input {
   width: 100%;
   height: 50%;
   display: flex;
@@ -314,16 +314,16 @@ input::placeholder{
   align-items: start;
   flex-direction: column;
   margin-left: var(--margin-left-global-booktrip);
-} 
-.booktrip-where-child-body{
+}
+.booktrip-where-child-body {
   height: 400px;
   overflow: auto;
 }
 .booktrip-where-child-1,
-.booktrip-where-child-2{
+.booktrip-where-child-2 {
   position: absolute;
   background: #fff;
-  margin-left : var(--margin-left-global-booktrip);
+  margin-left: var(--margin-left-global-booktrip);
   border-radius: 8px;
   width: 100%;
   right: 0;
@@ -332,99 +332,99 @@ input::placeholder{
   top: 0;
   width: 100%;
 }
-.booktrip-where-child-1{
-  top: calc(var(--height-global-booktrip)*0.4*0.5 - 12px);
+.booktrip-where-child-1 {
+  top: calc(var(--height-global-booktrip) * 0.4 * 0.5 - 12px);
 }
-.booktrip-where-child-2{
-  top: calc(var(--height-global-booktrip)*0.4*0.5*2 - 24px);
+.booktrip-where-child-2 {
+  top: calc(var(--height-global-booktrip) * 0.4 * 0.5 * 2 - 24px);
 }
-.booktrip-where-child-head{
+.booktrip-where-child-head {
   display: flex;
   justify-content: space-between;
-  background : var(--color-background-topic);
+  background: var(--color-background-topic);
   height: 52px;
   align-items: center;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-.booktrip-where-child-head div{
+.booktrip-where-child-head div {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.booktrip-where-child-topic{
+.booktrip-where-child-topic {
   font-size: 20px;
   font-weight: 700;
   color: var(--color-global);
-  margin-left : var(--margin-left-global-booktrip);
+  margin-left: var(--margin-left-global-booktrip);
   display: flex;
 }
-.button-exit{
-  border : none;
+.button-exit {
+  border: none;
   text-align: center;
   cursor: pointer;
   padding: 6px 12px 6px 12px;
   background: transparent;
 }
-.button-exit-icon{
+.button-exit-icon {
   color: rgb(179, 179, 179);
   font-size: 16px;
 }
-.booktrip-where-child-country{
+.booktrip-where-child-country {
   height: 40px;
   display: flex;
-  background : var(--color-background-topic);
+  background: var(--color-background-topic);
   align-items: center;
 }
-.booktrip-where-child-country-text{
+.booktrip-where-child-country-text {
   font-size: 16px;
   font-weight: 500;
-  margin-left : var(--margin-left-global-booktrip);
+  margin-left: var(--margin-left-global-booktrip);
 }
-.booktrip-where-child-list-child{
+.booktrip-where-child-list-child {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 8px 0;
 }
-.booktrip-where-child-list-child:hover{
-  background-color:#f7f7f7;
+.booktrip-where-child-list-child:hover {
+  background-color: #f7f7f7;
   cursor: pointer;
 }
-.booktrip-where-child-list-child div{
+.booktrip-where-child-list-child div {
   display: flex;
   flex-direction: column;
   width: 80%;
 }
-.booktrip-where-child-list-child div span{
+.booktrip-where-child-list-child div span {
   width: 100%;
 }
-.booktrip-where-child-list-child span{
-  color : rgb(150, 148, 148);
+.booktrip-where-child-list-child span {
+  color: rgb(150, 148, 148);
   font-size: 14px;
 }
-.booktrip-where-child-list-child div span:nth-child(2){
+.booktrip-where-child-list-child div span:nth-child(2) {
   font-size: 13px;
-  color :rgb(150, 148, 148);
+  color: rgb(150, 148, 148);
 }
-.booktrip-where-child-list-child div span:nth-child(1){
+.booktrip-where-child-list-child div span:nth-child(1) {
   font-size: 16px;
   font-weight: 700;
-  color :rgb(83, 81, 81);
+  color: rgb(83, 81, 81);
 }
-.booktrip-where-child-list-child i{
+.booktrip-where-child-list-child i {
   color: var(--color-global);
   width: 15%;
-  margin-left : var(--margin-left-global-booktrip);
+  margin-left: var(--margin-left-global-booktrip);
 }
-.booktrip-where form input{
+.booktrip-where form input {
   width: 70%;
   margin-top: 12px;
 }
-.booktrip-where-child-list-child-id{
+.booktrip-where-child-list-child-id {
   width: 10%;
 }
-.booktrip-where::before{
-  content:'';
+.booktrip-where::before {
+  content: "";
   position: absolute;
   height: 1.5px;
   width: 300px;
@@ -433,11 +433,11 @@ input::placeholder{
   left: 0;
   margin-left: var(--margin-left-global-booktrip);
 }
-.booktrip-where-swap{
+.booktrip-where-swap {
   position: absolute;
   color: var(--color-global);
-  top:32%;
-  right : 4%;
+  top: 32%;
+  right: 4%;
   font-size: 20px;
   width: 48px;
   height: 48px;
@@ -450,4 +450,3 @@ input::placeholder{
   border: none;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 }
-

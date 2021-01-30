@@ -1,4 +1,4 @@
-import react, {useState , useEffect} from 'react';
+import react, {useState , useEffect, useRef} from 'react';
 import "./BookTrip.css";
 import $ from 'jquery';
 import Calendar from './Calendar';
@@ -12,6 +12,23 @@ const BookTrip =()=>{
   const [infant , setInfant] = useState(0);
   const [traveler , setTraveler] = useState(1);
   const [checkway, setCheckway] = useState(true);
+  const [state, setState] = useState({
+    des : des,
+    adult : adult,
+    dep : dep,
+    child : child,
+    infant : infant ,
+    traveler : traveler,
+    checkway : checkway,
+  })
+  const chooseDep = useRef();
+  const chooseDes =useRef();
+
+  const [monthParent, setMonthParent] = useState();
+  const [dayParent, setDayParent]= useState();
+  const [yearParent, setYearParent]= useState();
+  const [nameDay, setNameDay]=useState();
+
   useEffect(() => {
     setTraveler(adult + child + infant);
   },[adult,child,infant]);
@@ -22,8 +39,7 @@ const BookTrip =()=>{
     else {
       setCheckway(true);
     }
-    console.log(checkway)
-  }
+  } 
   const minusAdult =()=>{
     setAdult(adult - 1);
   }
@@ -49,11 +65,11 @@ const BookTrip =()=>{
     $('.booktrip-date-calendar-1').css('display','none');
     $('.booktrip-date-calendar-2').css('display','none');
   }
-  const inputDes=()=>{
-    setDes($('#destination').val());
+  const inputDes=(e)=>{
+    setDes(e.target.value);
   }
-  const inputDep=()=>{
-    setDep($('#departure').val());
+  const inputDep=(e)=>{
+    setDep(e.target.value);
   }
   const clickDeparture =()=>{
     overflow();
@@ -84,11 +100,15 @@ const BookTrip =()=>{
     $('#departure').val(`${dep}`);
     $('#destination').val(`${des}`);
   }
-  const chooseTrip=()=>{
-    // $('#departure').val('hihi');
-    // $(this).children('.booktrip-where-child-list-child-id').text()
-    // $(this).children('#nameCity').text()
-    console.log($(this).find(".booktrip-where-child-list-child-id").text())
+  const chooseTripDep=(id,name)=>{
+    chooseDep.current.value  = `${name}(${id})`;
+    setDes(`${name}(${id})`)
+    overflow();
+  }
+  const chooseTripDes=(id,name)=>{
+    chooseDes.current.value  = `${name}(${id})`;
+    setDep(`${name}(${id})`);
+    overflow();
   }
   return(
       <div className="booktrip">
@@ -99,7 +119,7 @@ const BookTrip =()=>{
         <div className="booktrip-where">
           <form className="booktrip-where-input" onClick={clickDeparture } >
             <span>Form</span>
-            <input placeholder="Select Departure City" id="departure" onInput={inputDep}></input>
+            <input placeholder="Select Departure City" id="departure" ref={chooseDep} onInput={inputDep}></input>
           </form>
           <div className="booktrip-where-child-1"> 
             <div className="booktrip-where-child-head">
@@ -118,10 +138,10 @@ const BookTrip =()=>{
             </div>
               <div className="booktrip-where-child-list">
                 {dataAll.detailTrip.map(data => {
-                  return <div className="booktrip-where-child-list-child" onClick={chooseTrip}>
+                  return <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDep(data.id, data.name)}>
                   <i class="fas fa-plane-departure"></i>
                   <div>
-                    <span id="nameCity">{data.name}</span>
+                    <span>{data.name}</span>
                     <span>{data.airport}</span>
                   </div>
                   <span className="booktrip-where-child-list-child-id">{data.id}</span>
@@ -137,7 +157,7 @@ const BookTrip =()=>{
           </button>
           <form className="booktrip-where-input" onClick={clickDestination} >
             <span>To</span>
-            <input placeholder="Select Destination City" id="destination" onInput={inputDes}></input>
+            <input placeholder="Select Destination City" id="destination" ref={chooseDes} onInput={inputDes}></input>
           </form>
           <div className="booktrip-where-child-2">
             <div className="booktrip-where-child-head">
@@ -150,13 +170,13 @@ const BookTrip =()=>{
             </div>
             <div className="booktrip-where-child-body">
               {appData.allTrip.map(dataAll => {
-                return <div className="booktrip-where-child">
+                return <div className="booktrip-where-child" >
                 <div className="booktrip-where-child-country">
                   <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
                 </div>
                 <div className="booktrip-where-child-list">
                   {dataAll.detailTrip.map(data => {
-                    return <div className="booktrip-where-child-list-child">
+                    return <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDes(data.id, data.name)}>
                     <i class="fas fa-plane-departure"></i>
                     <div>
                       <span>{data.name}</span>
@@ -174,7 +194,7 @@ const BookTrip =()=>{
         <div className="booktrip-date">
           <div className="booktrip-date-departure" onClick={showCalendarDe}>
             <span className="booktrip-date-departure-span1">Departure Date</span>
-            <span className="booktrip-date-departure-span2">Mon, 25 January 2021</span>
+            <span className="booktrip-date-departure-span2">{dayParent}, {nameDay} {monthParent} {yearParent}</span>
           </div>
           <div className="booktrip-date-calendar-1">
             <div className="booktrip-date-calendar-head">
@@ -184,13 +204,13 @@ const BookTrip =()=>{
               </button>
             </div>
             <div className="booktrip-date-calendar-body">
-              <Calendar></Calendar>
+              <Calendar setNameDay={setNameDay} setMonthParent={setMonthParent} setDayParent={setDayParent} setYearParent={setYearParent}></Calendar>
               <div>1</div>
             </div>
           </div>
           <div className={`booktrip-date-return ${checkway === false? '' : 'pointer-none'}`} onClick={showCalendarRe}>
             <span className={`${checkway === false? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>Return Date</span>
-            <span className={`${checkway === false? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>Mon, 25 January 2021</span>
+            <span className={`${checkway === false? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>{dayParent}, {nameDay} {monthParent} {yearParent}</span>
           </div>
             <div className="booktrip-date-calendar-2" >
               <div className="booktrip-date-calendar-head">
@@ -200,7 +220,7 @@ const BookTrip =()=>{
                 </button>
               </div>
               <div className="booktrip-date-calendar-body">
-                <Calendar></Calendar>
+                <Calendar setNameDay={setNameDay} setMonthParent={setMonthParent} setDayParent={setDayParent} setYearParent={setYearParent}></Calendar>
                 <div>2</div>
               </div>
             </div>
@@ -266,7 +286,6 @@ const BookTrip =()=>{
         </div>
         <button className="booktrip-search">Search</button>
       </div>
-
   )
 }
 
