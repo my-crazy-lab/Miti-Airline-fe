@@ -5,8 +5,20 @@ import $ from "jquery";
 import {appData} from "../data";
 
 const Navbar=({showLogin,setShowLogin})=>{
+  const [idLanguage, setIdLanguage] = useState("EN");
+  const [srcLanguage, setSrcLanguage] = useState(appData.languageData[0].src);
+  const [idCurrency, setIdCurrency] = useState("VND");
   const [checkCurrency , setCheckCurrency] = useState(false);
   const [checkLanguage, setCheckLanguage] = useState(false);
+
+  const chooseLanguage=(src, id)=>{
+    setIdLanguage(id);
+    setSrcLanguage(src);
+    console.log(idLanguage)
+  }
+  const chooseCurrency=(id)=>{
+    setIdCurrency(id)
+  }
   const toggleLogin=()=>{
     if(showLogin === false) setShowLogin(true);
     else setShowLogin(false);
@@ -56,13 +68,13 @@ const Navbar=({showLogin,setShowLogin})=>{
         </div>
         <div className="nav-price">
           <button className={`nav-language  ${checkLanguage === true ? 'currency-and-language-show'  : 'currency-and-language-hide'}`} onClick={showLanguage}>
-            <i class="fas fa-globe-europe"></i>
-            <span className={`${checkLanguage === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>EN</span>        
+            <img className="nav-language-icon" src={srcLanguage}></img>
+            <span className={`${checkLanguage === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>{idLanguage}</span>        
             <i class="fas fa-angle-down"></i>
           </button>
           <button className={`nav-currency  ${checkCurrency === true ? 'currency-and-language-show'  : 'currency-and-language-hide'}`} onClick={showCurrency}>
             <i class="fas fa-coins"></i>
-            <span className={`${checkCurrency === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>VND</span>     
+            <span className={`${checkCurrency === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>{idCurrency}</span>     
             <i class="fas fa-angle-down"></i>
           </button>
           <div className="nav-currency-list-frame">
@@ -73,22 +85,8 @@ const Navbar=({showLogin,setShowLogin})=>{
               </button>
             </div>
             <div className="nav-currency-list">
-              <div className="nav-currency-list-child">
-                <span>AED</span>
-                <span>Arab Emirates Dirham</span>
-              </div>
-              <div className="nav-currency-list-child">
-                <span>BND</span>
-                <span>Brunei Dollar</span>
-              </div>
-              <div className="nav-currency-list-child">
-                <span>CAD</span>
-                <span>Canadian Dollar</span>
-              </div>
-            </div>
-            <div className="nav-currency-list">
               {appData.currencyData.map(appData =>{
-                return <div className="nav-currency-list-child">
+                return <div className="nav-currency-list-child" onClick={()=>chooseCurrency(appData.id)}>
                 <span>{appData.id}</span>
                 <span>{appData.name}</span>
               </div>
@@ -104,9 +102,9 @@ const Navbar=({showLogin,setShowLogin})=>{
             </div>
             <div className="nav-language-list">
               {appData.languageData.map(appData =>{
-                return <div className="nav-language-list-child">
+                return <div className="nav-language-list-child" onClick={()=> chooseLanguage(appData.src,appData.id)}>
                 <img className="nav-language-icon" src={appData.src}></img>
-                <span>{appData.name}</span>
+                <span >{ appData.name}</span>
               </div>
               })}
             </div>

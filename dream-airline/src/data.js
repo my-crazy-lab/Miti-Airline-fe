@@ -120,46 +120,52 @@ const languageData =[
   {
     src : "https://cdn.airpaz.com/nuxt/img/gb.d3ddd60.svg",
     name : "English",
+    id :"EN",
   },
   {
     src :"https://cdn.airpaz.com/nuxt/img/id.17b9967.svg",
     name : "Indonesia",
+    id :"ID",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/ph.12f36ee.svg",
     name : "Tagalog",
+    id :"TL",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/cn.02c229d.svg",
     name : "简体中文",
+    id :"ZH",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/tw.8a19468.svg",
     name : "繁體中文",
+    id :"ZH-TW",
   },
   {
     src :"https://cdn.airpaz.com/nuxt/img/th.76fca72.svg",
     name : "ภาษาไทย",
+    id :"TH",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/jp.3e72015.svg",
-    name : "English",
-  },
-  {
-    src : "https://cdn.airpaz.com/nuxt/img/gb.d3ddd60.svg",
     name : "日本語",
+    id :"JA",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/kr.60fde7f.svg",
     name : "한국어",
+    id :"KO",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/my.e6739f4.svg",
     name : "Malay",
+    id :"MS",
   },
   {
     src : "https://cdn.airpaz.com/nuxt/img/vn.6b3aef5.svg",
     name : "Tiếng Việt",
+    id :"VI",
   }
 ]
 const tripDataVN ={
