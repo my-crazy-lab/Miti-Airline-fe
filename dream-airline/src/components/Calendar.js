@@ -1,8 +1,9 @@
-import react,{useState, useEffect} from 'react';
+import react,{useState, useEffect, useRef} from 'react';
 import "./Calendar.css"
 import $ from "jquery";
 
 const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
+  const asd = useRef('a');
   const dateNow = new Date();
   const [nameMonth,setNameMonth] = useState('');
   const [dayNow,setDayNow] = useState('');
@@ -38,12 +39,13 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
   const nextMonth=()=>{
     setMonthNow(monthNow + 1);
     fixMonthNow();
-    console.log(nameMonth, monthNow)
+    asd.current = 'asdasd'
+    console.log(asd.current)
   }
   const backMonth=()=>{
     setMonthNow(monthNow - 1);
     fixMonthNow();
-    console.log(nameMonth, monthNow)
+    console.log(asd.current)
   }
   const checkLeapYear=()=>{
     if(yearNow %4=== 0 && yearNow %100!== 0){
