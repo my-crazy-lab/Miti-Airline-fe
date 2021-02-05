@@ -1,0 +1,59 @@
+.flight-head-frame {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background: url(../images/plane-6.jpeg) no-repeat;
+  background-size: cover;
+  display: flex;
+  margin-bottom: var(--margin-bottom-element-body);
+  justify-content: center;
+}
+.flight-head-frame::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 0;
+  animation: opaBGImage 8s linear infinite;
+}
+@keyframes opaBGImage {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes changeColorTopicFlight {
+  0% {
+    color: rgb(255, 255, 255);
+  }
+  50% {
+    color: rgb(208, 208, 208);
+  }
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+.flight-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: var(--width-global);
+}
+.flight-head-topic {
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  text-align: center;
+  z-index: 1;
+  animation: changeColorTopicFlight 8s linear infinite;
+}
+.flight-login {
+  position: absolute;
+  left: calc(50% - var(--width-login) / 2);
+}

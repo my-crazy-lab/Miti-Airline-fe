@@ -1,24 +1,15 @@
 import react from 'react';
 import "./Recommend.css";
-import { flyData, as} from "../data";
+import {appData} from "../data";
 import $ from 'jquery';
 
 const Recommend =() =>{
-  console.log(flyData)
   return(
     <div className="recommend-frame">
       <div className="recommend">
         <span className="recommend-head">Recommended for you</span>
-        <form className="recommend-choose">
-          <div>
-            <span></span>
-            <select>
-              <option value ="">All</option>
-            </select>
-          </div>
-        </form>
         <div className="recommend-list">
-          {flyData.map(fly => {
+          {appData.flyData.map(fly => {
             return <div className="recommend-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
             <div className="recommend-list-row recommend-list-row-child">
               <div className="recommend-list-row-child-topic">

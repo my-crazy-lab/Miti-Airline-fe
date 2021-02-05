@@ -14,6 +14,7 @@ import plane13 from "../images/plane-13.jpeg";
 import plane5 from "../images/plane-5.jpeg";
 import plane6 from "../images/plane-6.jpeg";
 import Login  from '../components/Login';
+import Head  from '../components/Head';
 
 const Flight =() =>{
   // let countBackground = 1; 
@@ -38,12 +39,7 @@ const Flight =() =>{
       <div className="flight-login">
         <Login></Login>
       </div>
-      <div className="flight-head-frame" >
-        <div className="flight-head">
-          <BookTrip></BookTrip> 
-          <span className="flight-head-topic">Find, Compare and Book Your Flight Easily</span>
-        </div>
-      </div>
+      <Head></Head>
       <Recommend></Recommend>
       <Partners></Partners>
       <TopFlight></TopFlight>

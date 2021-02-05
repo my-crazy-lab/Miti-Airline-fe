@@ -58,10 +58,10 @@ const Navbar=({showLogin,setShowLogin})=>{
         <div className="nav-list">
           <Link to="/" className="nav-list-child">Flight</Link>
           <Link to="/Hotel" className="nav-list-child">Hotel</Link>
-          <Link to="/Promo" className="nav-list-child">Promo</Link>
+          <Link to="/SearchPlane" className="nav-list-child">Search</Link>
           <Link to="/Orders" className="nav-list-child">Orders</Link>
           <Link to="/Price" className="nav-list-child">Price</Link>
-          <Link to="/Promo" className="nav-list-child">
+          <Link to="/SearchPlane" className="nav-list-child">
             More
             <i class="fas fa-angle-down"></i>
           </Link>   
