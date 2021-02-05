@@ -9,7 +9,7 @@ input::placeholder {
   font-size: 16px;
   font-weight: 500;
   color: var(--color-text-booktrip);
-}
+}     
 :root {
   --height-global-booktrip: 480px;
   --border-global-booktrip: #e6e6e7;

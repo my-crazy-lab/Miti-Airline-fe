@@ -175,6 +175,7 @@ const tripDataVN ={
     key : "",
     id : "SGN",
     name : "Ho Chi Minh City, Vietnam",
+    from : "Ho Chi Minh",
     airport : "Tan Son Nhat International Airport",
     price : "1.500.000d",
     flightTime : "",
@@ -182,11 +183,22 @@ const tripDataVN ={
     typePrice : "normal",
     destinationTime : "",
     timeZone: "",
+    fly : [
+      {
+        to : "DaLat",
+        img : "url(/img/city-1.jpeg)" ,
+      },
+      {
+        to : "DaNang",
+        img : "url(/img/city-2.jpeg)" ,
+      },
+    ],
   },
   {
     key : "",
     id : "HAN",
     name : "Hanoi, Vietnam",
+    from : "Hanoi",
     airport : "Noi Bai International Airport",
     price : "8.000.000d",
     flightTime : "",
@@ -194,11 +206,22 @@ const tripDataVN ={
     typePrice : "business",
     destinationTime : "",
     timeZone: "",
+    fly : [
+      {
+        to : "NhaTrang",
+        img : "url(/img/city-3.jpeg)" ,
+      },
+      {
+        to : "PhuQuoc",
+        img : "url(/img/city-4.webp)" ,
+      },
+    ],
   },
   {
     key : "",
     id : "DAD",
     name : "Da Nang, Vietnam",
+    from : "DaNang",
     airport : "Da Nang International Airport",
     price : "1.800.00d",
     flightTime : "",
@@ -206,6 +229,16 @@ const tripDataVN ={
     typePrice : "normal",
     destinationTime : "",
     timeZone: "",
+    fly : [
+      {
+        to : "CaMau",
+        img : "url(/img/city-5.jpeg)" ,
+      },
+      {
+        to : "Hanoi",
+        img : "url(/img/city-6.jpeg)" ,
+      },
+    ],
   }
 ]}
 const tripDataUS ={
@@ -215,6 +248,7 @@ const tripDataUS ={
       key : "",
       id : "AMR",
       name : "Denver City, American",
+      from : "Denver",
       airport : "Denver - Den International Airport",
       price : "100$",
       flightTime : "",
@@ -222,11 +256,22 @@ const tripDataUS ={
       typePrice : "normal",
       destinationTime : "",
       timeZone: "",
+      fly : [
+        {
+          to : "NewYork",
+          img : "url(/img/city-7.jpeg)" ,
+        },
+        {
+          to : "Paris",
+          img : "url(/img/city-8.jpeg)" ,
+        },
+      ],
     },
     {
       key : "",
       id : "DAF",
       name : "Texas City, American",
+      from : "Texas",
       airport : "Dallas-Forth Worth International Airport",
       price : "800$",
       flightTime : "",
@@ -234,11 +279,22 @@ const tripDataUS ={
       typePrice : "business",
       destinationTime : "",
       timeZone: "",
+      fly : [
+        {
+          to : "Dubai",
+          img : "url(/img/city-9.jpeg)" ,
+        },
+        {
+          to : "California",
+          img : "url(/img/city-10.jpeg)" ,
+        },
+      ],
     },
     {
       key : "",
       id : "ATL  ",
       name : "Georgia City, American",
+      from :"Georgia",
       airport : "Atlanta  International Airport",
       price : "120$",
       flightTime : "",
@@ -246,14 +302,204 @@ const tripDataUS ={
       typePrice : "normal",
       destinationTime : "",
       timeZone: "",
+      fly : [
+        {
+          to : "Tokio",
+          img : "url(/img/city-11.jpeg)" ,
+        },
+        {
+          to : "HongKong",
+          img : "url(/img/city-12.jpeg)" ,
+        },
+      ],
+    }
+  ]
+}
+const tripDataUK ={
+  countryTrip : "United Kingdom",
+  detailTrip : [
+    {
+      key : "",
+      id : "BA",
+      name : "British City, United Kingdom",
+      from : "British",
+      airport : "British Airways International Airport",
+      price : "100$",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "normal",
+      destinationTime : "",
+      timeZone: "",
+      fly : [
+        {
+          to : "Singapore",
+          img : "url(/img/city-13.jpeg)" ,
+        },
+        {
+          to : "ThaiLand",
+          img : "url(/img/city-14.jpeg)" ,
+        },
+      ],
+    },
+    {
+      key : "",
+      id : "ABB",
+      name : "Abingdon City, United Kingdom",
+      from : "Abingdon",
+      airport : "RAF Abingdon International Airport",
+      price : "800$",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "business",
+      destinationTime : "",
+      timeZone: "",
+      fly : [
+        {
+          to : "Cuba",
+          img : "url(/img/city-15.jpeg)" ,
+        },
+        {
+          to : "China",
+          img : "url(/img/city-16.webp)" ,
+        },
+      ],
+    },
+    {
+      key : "",
+      id : "EGDM",
+      name : "Amesbury City, United Kingdom",
+      from :"Amesbury",
+      airport : "MoD Boscombe Down  International Airport",
+      price : "120$",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "normal",
+      destinationTime : "",
+      timeZone: "",
+      fly : [
+        {
+          to : "HoChiMinh-Vietnam",
+          img : "url(/img/city-17.webp)" ,
+        },
+        {
+          to : "Texas",
+          img : "url(/img/city-18.webp)" ,
+        },
+      ],
+    }
+  ]
+}
+const tripDataJa ={
+  countryTrip : "Japan",
+  detailTrip : [
+    {
+      key : "",
+      id : "KIX",
+      name : "Osaka City, Japan",
+      from : "Osaka",
+      airport : "Izumisano International Airport",
+      price : "100$",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "normal",
+      destinationTime : "",
+      timeZone: "",
+      fly : [
+        {
+          to : "ThaiLand",
+          img : "url(/img/city-19.webp)" ,
+        },
+        {
+          to : "Paris",
+          img : "url(/img/city-20.jpg)" ,
+        },
+      ],
+    },
+    {
+      key : "",
+      id : "HND",
+      name : "Tokyo City, Japan",
+      from : "Tokyo",
+      airport : "Ota ward, Tokyo International Airport",
+      price : "800$",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "business",
+      destinationTime : "",
+      timeZone: "",
+      fly : [
+        {
+          to : "Osaka",
+          img : "url(/img/city-21.webp)" ,
+        },
+        {
+          to : "BangKok",
+          img : "url(/img/city-22.jpg)" ,
+        },
+      ],
+    },
+    {
+      key : "",
+      id : "FUK  ",
+      name : "Fukuoka City, Japan",
+      from :"Fukuoka",
+      airport : "Fukuoka International Airport",
+      price : "120$",
+      flightTime : "",
+      departureTime : "",
+      typePrice : "normal",
+      destinationTime : "",
+      timeZone: "",
+      fly : [
+        {
+          to : "NhaTrang-Vietnam",
+          img : "url(/img/city-23.webp)" ,
+        },
+        {
+          to : "PhuQuoc-Vietnam",
+          img : "url(/img/city-24.jpg)" ,
+        },
+      ],
     }
   ]
 }
 const allTrip = [
   tripDataVN,
-  tripDataUS
-  // tripDataUK : tripDataUK,
+  tripDataUS,
+  tripDataUK,
+  tripDataJa,
 ]
+export const flyData = []
+function setFlyData (){
+  allTrip.map( dataAll => {
+      return dataAll.detailTrip.map(data => {
+        return data.fly.map(fly => {
+          return flyData.push(fly)
+        })
+      })
+  });
+}
+export const as =[]
+function addDataToFlyData(){
+  allTrip.map( dataAll => {
+    return dataAll.detailTrip.map(data => {
+      return data.fly.map(fly =>{
+        return as.push(data.price)
+      })
+    })
+  });
+  for(let i = 0; i <= as.length; i++){
+    flyData[i]={
+      ...flyData,
+      price : `${as[i]}`
+    }
+  }
+}
+function SourceFlyData(){
+  setFlyData();
+  addDataToFlyData();
+}
+SourceFlyData()
 export const appData={
   currencyData : currencyData,
   languageData : languageData,
@@ -265,3 +511,4 @@ export const appData={
   }),
 
 }
+

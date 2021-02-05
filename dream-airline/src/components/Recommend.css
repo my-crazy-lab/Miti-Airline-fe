@@ -1,294 +1,128 @@
-.recommend-frame{
-  width:100%;
+.recommend-frame {
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 100px 0;
 }
-.recommend{
-  width: var(--width-global );
+.recommend {
+  width: var(--width-global);
 }
-.recommend-head{
+.recommend-head {
   color: #6d595b;
   font-size: 36px;
   font-weight: 500;
 }
-.recommend-list{
-  width: 100%;
-}
-.recommend-list-row{
+.recommend-list {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: calc(var(--width-global)/4);
-  margin : 16px 0;
+  flex-wrap: wrap;
+  margin-top: 100px;
 }
-.recommend-list-row-child{
+.recommend-list-frame {
+  width: 100%;
+}
+.recommend-list-row-child {
   display: flex;
   flex-direction: column;
-  align-items:space-between;
+  align-items: space-between;
   justify-content: space-around;
   border-radius: 8px;
   cursor: pointer;
 }
-.recommend-list-row-child span{
-  margin-left : var(--margin-left-global-booktrip);
+.recommend-list-row-child span {
+  margin-left: var(--margin-left-global-booktrip);
 }
-.recommend-list-row-child span:nth-child(1){
+.recommend-list-row-child span:nth-child(1) {
   font-weight: 500;
   font-size: 16px;
-  color:white;
+  color: white;
 }
-.recommend-list-row-child span:nth-child(2){
+.recommend-list-row-child span:nth-child(2) {
   font-weight: 700;
   font-size: 20px;
   color: #fff;
 }
 /* row  */
-.recommend-list-row-1-1,
-.recommend-list-row-1-2,
-.recommend-list-row-1-3,
-.recommend-list-row-2-1,
-.recommend-list-row-2-2,
-.recommend-list-row-2-3,
-.recommend-list-row-3-1,
-.recommend-list-row-3-2,
-.recommend-list-row-3-3,
-.recommend-list-row-4-1,
-.recommend-list-row-4-2,
-.recommend-list-row-4-3{
-  width: 100% ;
-  height: 100%;
-  background :rgba(0,0, 0, 0.1);
-  transition : all 0.6s linear ;
+.recommend-list-row {
+  width: 100%;
+  height: calc(var(--width-global) / 4);
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.6s linear;
 }
 /* row animation */
-.recommend-list-row-frame-1-1,
-.recommend-list-row-frame-1-2,
-.recommend-list-row-frame-1-3,
-.recommend-list-row-frame-2-1,
-.recommend-list-row-frame-2-2,
-.recommend-list-row-frame-2-3,
-.recommend-list-row-frame-3-1,
-.recommend-list-row-frame-3-2,
-.recommend-list-row-frame-3-3,
-.recommend-list-row-frame-4-1,
-.recommend-list-row-frame-4-2,
-.recommend-list-row-frame-4-3{
-  border-radius : 8px;
+.recommend-list-row-frame {
+  border-radius: 8px;
+  margin: 6px 0;
+  width: 33%;
 }
-.recommend-list-row-frame-1-1,
-.recommend-list-row-frame-2-3,
-.recommend-list-row-frame-3-1,
-.recommend-list-row-frame-4-3{
-  width: calc(50%) ;
-}
-.recommend-list-row-frame-1-2,
-.recommend-list-row-frame-1-3,
-.recommend-list-row-frame-2-1,
-.recommend-list-row-frame-2-2,
-.recommend-list-row-frame-3-2,
-.recommend-list-row-frame-3-3,
-.recommend-list-row-frame-4-1,
-.recommend-list-row-frame-4-2{
-  width: calc(25% - 12px);
-}
-.recommend-list-row-frame-1-1{
-  background: url(../images/city-13.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-1-2{
-  background: url(../images/city-2.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-1-3{
-  background: url(../images/city-3.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-2-1{
-  background: url(../images/city-8.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-2-2{
-  background: url(../images/city-7.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-2-3{
-  background: url(../images/city-6.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-3-1{
-  background: url(../images/city-12.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-3-2{
-  background: url(../images/city-14.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-3-3{
-  background: url(../images/city-15.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-4-1{
-  background: url(../images/city-11.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-4-2{
-  background: url(../images/city-10.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-frame-4-3{
-  background: url(../images/city-9.jpeg);
-  background-size: cover;
-}
-.recommend-list-row-child-topic{
+.recommend-list-row-child-topic {
   display: flex;
   flex-direction: column;
 }
-.recommend-list-row-child-topic-icon i{
-  color : transparent;
-  font-size : 18px;
+.recommend-list-row-child-topic-icon i {
+  color: transparent;
+  font-size: 18px;
   width: 0px;
-  margin-right : 0px;
+  margin-right: 0px;
 }
-.recommend-list-row-1-1:hover,
-.recommend-list-row-1-2:hover,
-.recommend-list-row-1-3:hover,
-.recommend-list-row-2-1:hover,
-.recommend-list-row-2-2:hover,
-.recommend-list-row-2-3:hover,
-.recommend-list-row-3-1:hover,
-.recommend-list-row-3-2:hover,
-.recommend-list-row-3-3:hover,
-.recommend-list-row-4-1:hover,
-.recommend-list-row-4-2:hover,
-.recommend-list-row-4-3:hover{
-  background :rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(2px);
-  transition : all 0.4s linear ;
-}
-.recommend-list-row-1-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-1-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-1-3:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-2-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-2-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-2-3:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-3-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-3-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-3-3:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-4-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-4-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-4-3:hover .recommend-list-row-child-topic-icon i{
-  color : white;
+.recommend-list-row:hover .recommend-list-row-child-topic-icon i {
+  color: white;
   width: 16px;
-  margin-right : 8px;
-  transition : all 0.1s linear; 
+  margin-right: 8px;
+  transition: all 0.1s linear;
 }
 .recommend-list-row-child-topic-icon {
-  margin-left : var(--margin-left-global-booktrip);
+  margin-left: var(--margin-left-global-booktrip);
 }
-.recommend-list-row-child-topic-icon span{
-  margin-left : 0px;
+.recommend-list-row-child-topic-icon span {
+  margin-left: 0px;
 }
-.recommend-list-row-child-topic-line{
+.recommend-list-row-child-topic-line {
   width: 0px;
   height: 1px;
-  background: rgba(255,255,255, 0.6);
-  margin : 12px 0 12px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 12px 0 12px 20px;
 }
-.recommend-list-row-1-1:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-1-2:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-1-3:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-2-1:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-2-2:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-2-3:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-3-1:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-3-2:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-3-3:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-4-1:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-4-2:hover .recommend-list-row-child-topic-line,
-.recommend-list-row-4-3:hover .recommend-list-row-child-topic-line{
-  width: calc(100% - 40px);;
-  transition : all 0.4s linear ;
+.recommend-list-row:hover .recommend-list-row-child-topic-line {
+  width: calc(100% - 40px);
+  transition: all 0.4s linear;
 }
-.recommend-list-row-1-1:hover,
-.recommend-list-row-1-2:hover,
-.recommend-list-row-1-3:hover,
-.recommend-list-row-2-1:hover,
-.recommend-list-row-2-2:hover,
-.recommend-list-row-2-3:hover,
-.recommend-list-row-3-1:hover,
-.recommend-list-row-3-2:hover,
-.recommend-list-row-3-3:hover,
-.recommend-list-row-4-1:hover,
-.recommend-list-row-4-2:hover,
-.recommend-list-row-4-3:hover{
-  background :rgba(0, 0, 0, 0.6);
+.recommend-list-row:hover {
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
-  transition : all 0.4s linear ;
+  transition: all 0.4s linear;
 }
-.recommend-list-row-1-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-1-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-1-3:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-2-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-2-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-2-3:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-3-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-3-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-3-3:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-4-1:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-4-2:hover .recommend-list-row-child-topic-icon i,
-.recommend-list-row-4-3:hover .recommend-list-row-child-topic-icon i{
-  color : white;
+.recommend-list-row:hover .recommend-list-row-child-topic-icon i {
+  color: white;
   width: 16px;
-  margin-right : 8px;
-  transition : all 0.1s linear; 
+  margin-right: 8px;
+  transition: all 0.1s linear;
 }
-.recommend-list-row-child-topic-show{
+.recommend-list-row-child-topic-show {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: 12px;
 }
-.recommend-list-row-child-topic-show i{
+.recommend-list-row-child-topic-show i {
   position: relative;
   top: 0;
   right: 10%;
   font-size: 32px;
-  color : transparent;
+  color: transparent;
 }
-.recommend-list-row-1-1:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-1-2:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-1-3:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-2-1:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-2-2:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-2-3:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-3-1:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-3-2:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-3-3:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-4-1:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-4-2:hover .recommend-list-row-child-topic-show i,
-.recommend-list-row-4-3:hover .recommend-list-row-child-topic-show i{
+.recommend-list-row:hover .recommend-list-row-child-topic-show i {
   right: 0%;
-  color : white;
-  transition : all 0.1s linear;
+  color: white;
+  transition: all 0.1s linear;
 }
-.recommend-list-row-child-topic.price{
+.recommend-list-row-child-topic.price {
   position: relative;
   top: 0;
-  right : 0;
+  right: 0;
 }
-.recommend-list-row-1-1:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-1-2:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-1-3:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-2-1:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-2-2:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-2-3:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-3-1:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-3-2:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-3-3:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-4-1:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-4-2:hover .recommend-list-row-child-topic.price,
-.recommend-list-row-4-3:hover .recommend-list-row-child-topic.price{
-  top: calc(8px - var(--width-global)/12);
-  transition : all 0.1s linear;
+.recommend-list-row:hover .recommend-list-row-child-topic.price {
+  top: calc(8px - var(--width-global) / 12);
+  transition: all 0.1s linear;
 }
