@@ -1,8 +1,21 @@
-import react from 'react'
+import react, {useState} from 'react'
 import "./ListFlight.css";
 import {appData, typeTicket} from "../data";
 
 const ListFlight =()=>{
+  const [listData, setListData] = useState(appData.flyData);
+  const changeTypeTicket =(e)=>{
+    if(e.target.value === "business"){
+      setListData(appData.flyData.filter(data => data.typePrice === "business"))
+    }
+    if(e.target.value === "normal"){
+      setListData(appData.flyData.filter(data => data.typePrice === "normal"))
+    }
+    if(e.target.value === "all"){
+      setListData(appData.flyData)
+    }
+    console.log(listData)
+  }
   return(
     <div className="list-flight-frame">
       <div className="list-flight">
@@ -10,26 +23,27 @@ const ListFlight =()=>{
         <div className="list-flight-choose">
           <div className="list-flight-choose-head">
             <span>Filter:</span>
-            <div className="list-flight-choose-head-child">
-              <span>Price</span>
-              <input type="range"></input>
-            </div>
-            <div className="list-flight-choose-head-child">
+            <form className="list-flight-choose-head-child">
+              <label for="price">Price</label>
+              <input  id="price" type="range" value="500" step= "10" min="160" max= "900"></input>
+            </form>
+            <form className="list-flight-choose-head-child">
               <span>Stops</span>
               <select>
                 <option>Direct</option>
                 <option>Transit</option>
                 <option>One-stop</option>
               </select>
-            </div>
-            <div className="list-flight-choose-head-child">
+            </form>
+            <form className="list-flight-choose-head-child">
               <span>Type Ticket</span>
-              <select>
+              <select onChange={changeTypeTicket}>
+                <option value="all">All</option>
                 <option value="business">Business</option>
                 <option value="normal">Normal</option>
               </select>
-            </div>
-            <div className="list-flight-choose-head-child">
+            </form>
+            <form className="list-flight-choose-head-child">
               <span>Plane</span>
               <select>
                 <option>Airbus A900</option>
@@ -38,8 +52,8 @@ const ListFlight =()=>{
                 <option>Boeing 700</option>
                 <option>Boeing 600</option>
               </select>
-            </div>
-            <div className="list-flight-choose-head-child">
+            </form>
+            <form className="list-flight-choose-head-child">
               <span>Departure</span>
               <select>
                 <option>Early Flight</option>
@@ -47,9 +61,9 @@ const ListFlight =()=>{
                 <option>Afternoon Flight</option>
                 <option>Night Flight</option>
               </select>
-            </div>
+            </form>
           </div>
-          <div className="list-flight-choose-footer">
+          <form className="list-flight-choose-footer">
             <span>Sort: </span>
             <select>
               <option>Lowest Price</option>
@@ -58,10 +72,10 @@ const ListFlight =()=>{
               <option>Arrival Time</option>
               <option>Duration</option>
             </select>
-          </div>
+          </form>
         </div>
         <div className="list-flight-list">
-          {typeTicket.map(fly => {
+          {listData.map(fly => {
             return <div className="list-flight-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
             <div className="list-flight-list-row list-flight-list-row-child">
               <div className="list-flight-list-row-child-topic">

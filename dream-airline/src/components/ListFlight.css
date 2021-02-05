@@ -16,7 +16,7 @@
 .list-flight-list {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 100px;
 }
@@ -54,8 +54,8 @@
 /* row animation */
 .list-flight-list-row-frame {
   border-radius: 8px;
-  margin: 6px 0;
-  width: 33%;
+  margin: 6px 6px;
+  width: 32%;
 }
 .list-flight-list-row-child-topic {
   display: flex;
