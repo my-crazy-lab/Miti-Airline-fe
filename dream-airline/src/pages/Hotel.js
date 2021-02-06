@@ -1,9 +1,9 @@
 import react from 'react';
-import Login from "../components/Login";
+import SliderPrice from "../components/SliderPrice";
 
 const Hotel =() =>{
   return(
-    <Login></Login>
+    <SliderPrice></SliderPrice>
   )
 }
 

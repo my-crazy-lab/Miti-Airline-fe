@@ -134,7 +134,7 @@
 .list-flight-choose-head {
   display: flex;
   justify-content: space-around;
-  width: 60%;
+  width: 75%;
   align-items: center;
 }
 .list-flight-choose-footer {
@@ -150,10 +150,10 @@
   align-items: center;
 }
 .list-flight-choose-head-child select {
-  width: 120px;
+  width: 160px;
   height: 24px;
 }
 .list-flight-choose-footer select {
-  width: 120px;
+  width: 160px;
   height: 24px;
 }

@@ -1,8 +1,11 @@
 import react, {useState} from 'react'
 import "./ListFlight.css";
-import {appData, typeTicket} from "../data";
+import {appData} from "../data";
+import SliderPrice from '../components/SliderPrice'
+
 
 const ListFlight =()=>{
+
   const [listData, setListData] = useState(appData.flyData);
   const changeTypeTicket =(e)=>{
     if(e.target.value === "business"){
@@ -11,10 +14,25 @@ const ListFlight =()=>{
     if(e.target.value === "normal"){
       setListData(appData.flyData.filter(data => data.typePrice === "normal"))
     }
-    if(e.target.value === "all"){
-      setListData(appData.flyData)
+    console.log(listData)
+  }
+  const changeDeparture =(e)=>{
+    if(e.target.value === "0:00"){
+      setListData(appData.flyData.filter(data => 0 <= parseInt(data.departureTime) && parseInt(data.departureTime) < 6))
+    }
+    if(e.target.value === "6:00"){
+      setListData(appData.flyData.filter(data => 6 <= parseInt(data.departureTime) && parseInt(data.departureTime) < 12))
+    }
+    if(e.target.value === "12:00"){
+      setListData(appData.flyData.filter(data => 12 <= parseInt(data.departureTime) && parseInt(data.departureTime) < 18))
+    }
+    if(e.target.value === "18:00"){
+      setListData(appData.flyData.filter(data => 18 <= parseInt(data.departureTime)&& parseInt(data.departureTime) < 24))
     }
     console.log(listData)
+  }
+  const changePrice=()=>{
+    
   }
   return(
     <div className="list-flight-frame">
@@ -25,7 +43,7 @@ const ListFlight =()=>{
             <span>Filter:</span>
             <form className="list-flight-choose-head-child">
               <label for="price">Price</label>
-              <input  id="price" type="range" value="500" step= "10" min="160" max= "900"></input>
+              <input onChange ={changePrice} type="range" id="price" min ="10" max="200"></input>
             </form>
             <form className="list-flight-choose-head-child">
               <span>Stops</span>
@@ -38,7 +56,6 @@ const ListFlight =()=>{
             <form className="list-flight-choose-head-child">
               <span>Type Ticket</span>
               <select onChange={changeTypeTicket}>
-                <option value="all">All</option>
                 <option value="business">Business</option>
                 <option value="normal">Normal</option>
               </select>
@@ -55,12 +72,15 @@ const ListFlight =()=>{
             </form>
             <form className="list-flight-choose-head-child">
               <span>Departure</span>
-              <select>
-                <option>Early Flight</option>
-                <option>Morning Flight</option>
-                <option>Afternoon Flight</option>
-                <option>Night Flight</option>
+              <select onChange={changeDeparture}>
+                <option value ="0:00">Early Flight 0:00 - 6:00</option>
+                <option value = "6:00">Morning Flight 6:00 - 12:00</option>
+                <option value = "12:00">Afternoon Flight 12:00 - 18:00</option>
+                <option value = "18:00">Night Flight 18:00 - 0:00</option>
               </select>
+            </form>
+            <form className="list-flight-choose-head-child">
+              <button>All</button>
             </form>
           </div>
           <form className="list-flight-choose-footer">
@@ -89,7 +109,7 @@ const ListFlight =()=>{
               <div className="list-flight-list-row-child-topic-show">
                 <div className="list-flight-list-row-child-topic price">
                   <span>Start from</span>
-                  <span>{fly.price}</span>
+                  <span>{fly.price}{fly.currency}</span>
                 </div>
                 <i class="fas fa-angle-double-right"></i>
               </div>
