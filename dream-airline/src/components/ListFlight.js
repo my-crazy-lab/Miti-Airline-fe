@@ -42,8 +42,7 @@ const ListFlight =()=>{
           <div className="list-flight-choose-head">
             <span>Filter:</span>
             <form className="list-flight-choose-head-child">
-              <label for="price">Price</label>
-              <input onChange ={changePrice} type="range" id="price" min ="10" max="200"></input>
+              <SliderPrice></SliderPrice>
             </form>
             <form className="list-flight-choose-head-child">
               <span>Stops</span>
