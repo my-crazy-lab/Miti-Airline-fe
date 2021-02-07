@@ -4,20 +4,21 @@ import {Link} from 'react-router-dom';
 import $ from "jquery";
 import {appData} from "../data";
 
-const Navbar=({showLogin,setShowLogin})=>{
+const Navbar=({showLogin,setShowLogin, setSymbol,setConvert })=>{
   const [idLanguage, setIdLanguage] = useState("EN");
   const [srcLanguage, setSrcLanguage] = useState(appData.languageData[0].src);
-  const [idCurrency, setIdCurrency] = useState("VND");
+  const [idCurrency, setIdCurrency] = useState("EUR");
   const [checkCurrency , setCheckCurrency] = useState(false);
   const [checkLanguage, setCheckLanguage] = useState(false);
 
   const chooseLanguage=(src, id)=>{
     setIdLanguage(id);
     setSrcLanguage(src);
-    console.log(idLanguage)
   }
-  const chooseCurrency=(id)=>{
+  const chooseCurrency=(id, symbol, convert)=>{
     setIdCurrency(id)
+    setSymbol(symbol)
+    setConvert(convert)
   }
   const toggleLogin=()=>{
     if(showLogin === false) setShowLogin(true);
@@ -36,7 +37,6 @@ const Navbar=({showLogin,setShowLogin})=>{
     hideCurrencyAndLanguage();
     $('.nav-currency-list-frame').show();
     setCheckCurrency(true);
-    console.log(appData.typeprice)
   }
   const showLanguage=()=>{
     hideCurrencyAndLanguage();
@@ -52,7 +52,7 @@ const Navbar=({showLogin,setShowLogin})=>{
           <span className="nav-logo-brand">E</span>
           <span className="nav-logo-brand">A</span>
           <span className="nav-logo-brand">M</span>
-          <span className="nav-logo-text">Ariline</span>
+          <span className="nav-logo-text">Airline</span>
           <i class="fas fa-fighter-jet"></i>
         </div>
         <div className="nav-list">
@@ -85,10 +85,10 @@ const Navbar=({showLogin,setShowLogin})=>{
               </button>
             </div>
             <div className="nav-currency-list">
-              {appData.currencyData.map(appData =>{
-                return <div className="nav-currency-list-child" onClick={()=>chooseCurrency(appData.id)}>
-                <span>{appData.id}</span>
-                <span>{appData.name}</span>
+              {appData.currencyData.map(data =>{
+                return <div className="nav-currency-list-child" onClick={()=>chooseCurrency(data.id, data.symbol, data.conversion)}>
+                <span>{data.id}</span>
+                <span>{data.name}</span>
               </div>
               })}
             </div>

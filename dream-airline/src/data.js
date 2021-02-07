@@ -2,118 +2,176 @@ const currencyData =[
   {
     id : "AED",
     name :"Arab Emirates Dirham",
+    symbol :"د.إ",
+    conversion : 4.42,
   },
   {
     id : "AUD",
     name :"Australia Dollar",
+    symbol :"A$",
+    conversion :1.57,
   },
   {
     id : "BDT",
     name :"Bangladeshi Taka",
+    symbol :"Tk",
+    conversion : 102.20,
   },
   {
     id : "BND",
+    symbol :"B$",
     name :"Brunei dollar",
+    conversion :1.61,
   },
   {
     id : "CAD",
     name :"Canadian Dollar",
+    conversion : 1.54 ,
+    symbol :"C$",
   },
   {
     id : "CNY",
     name :"Chinese Yuan",
+    conversion :7.79,
+    symbol :"CN¥",
   },
   {
     id : "EUR",
     name :"Euro",
+    conversion : 1,
+    symbol :"€",
   },
   {
     id : "GBP",
     name :"British Pound",
+    conversion : 0.88,
+    symbol :"£",
   },
   {
     id : "HKD",
+    symbol :"HK$",
+    conversion :9.34,
     name :"Hongkong Dollar",
   },
   {
     id : "IDR",
+    symbol :"Rp",
+    conversion :16930.45,
     name :"Indonesia Rupiah",
   },
   {
     id : "INR",
+    symbol :"₹",
+    conversion :87.74,
     name :"Indian Rupee",
   },
   {
     id : "JPY",
+    conversion :87.74,
     name :"Japanese Yen",
+    symbol :"¥",
   },
   {
     id : "KHR",
+    symbol :"៛",
+    conversion :4898.29,
     name :"Cambodian Riel",
   },
   {
     id : "KRW",
     name :"Korean Won",
+    symbol :"₩",
+    conversion :1346,
   },
   {
     id : "LAK",
-    name :"Laostian Kip",
+    name :"Lao Kip",
+    conversion :11253,
+    symbol :"₭",
   },
   {
     id : "LKR",
     name :"Sri Lankan Rupee",
+    conversion :233.15,
+    symbol :"Rs",
   },
   {
     id : "MMK",
     name :"Burmese Kyat",
+    conversion :1601 ,
+    symbol :"K",
   },
   {
     id : "MOP",
     name :"Macau Pataca",
+    conversion :9.62,
+    symbol :"MOP$",
   },
   {
     id : "MYR",
     name :"Malaysian Ringgit",
+    conversion :4.90,
+    symbol :"RM",
   },
   {
     id : "NPR",
     name :"Nepalese Rupee",
+    conversion :141.04 ,
+    symbol :"Rs",
   },
   {
     id : "NZD",
     name :"New Zealand Dollar",
+    conversion :1.67,
+    symbol :"NZ$",
   },
   {
     id : "PHP",
     name :"Philippine Peso",
+    conversion :57.90,
+    symbol :"₱",
   },
   {
     id : "RUB",
     name :"Russian Ruble",
+    conversion :89.89,
+    symbol :"₽",
   },
   {
     id : "SAR",
+    symbol :"ر.س",
     name :"Saudi Arabian Riyal",
+    conversion :4.52,
   },
   {
     id : "SGD",
+    symbol :"S$",
     name :"Singapore Dollar",
+    conversion :1.61,
   },
   {
     id : "THB",
     name :"Thailand Baht",
+    conversion :36.20,
+    symbol :"฿",
   },
   {
     id : "TWD",
     name :"Taiwan Dollar",
+    conversion :33.75,
+    symbol :"NT$",
   },
   {
     id : "USU",
     name :"United states Dollar",
+    conversion :66.40,
+    symbol :"US$",
   },
   {
     id : "VND",
     name :"Vietnam Dong",
+    conversion :27978,
+    symbol :"₫",
   }
 ]
 const languageData =[
@@ -182,7 +240,7 @@ const tripDataVN ={
         img : "url(/img/city-1.jpeg)" ,
         id: "",
           price : 120,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2h",
           departureTime : "7:00",
@@ -196,7 +254,7 @@ const tripDataVN ={
         img : "url(/img/city-2.jpeg)" ,
         id: "",
           price : 160,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2h",
           departureTime : "10:00",
@@ -218,7 +276,7 @@ const tripDataVN ={
         img : "url(/img/city-3.jpeg)" ,
         id: "",
           price : 140,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2h30p",
           departureTime : "11:15",
@@ -232,7 +290,7 @@ const tripDataVN ={
         img : "url(/img/city-4.webp)" ,
         id: "",
           price : 600,
-          currency : "$",
+          currency : "€",
           typePrice : "business",
           flightTime : "4h",
           departureTime : "2:00",
@@ -254,7 +312,7 @@ const tripDataVN ={
         img : "url(/img/city-5.jpeg)" ,
         id: "",
           price : 200,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "4h",
           departureTime : "17:00",
@@ -268,7 +326,7 @@ const tripDataVN ={
         img : "url(/img/city-6.jpeg)" ,
         id: "",
           price : 210,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "4h",
           departureTime : "20:00",
@@ -294,7 +352,7 @@ const tripDataUS ={
           img : "url(/img/city-7.jpeg)" ,
           id: "",
           price : 230,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "5h",
           departureTime : "0:00",
@@ -308,7 +366,7 @@ const tripDataUS ={
           img : "url(/img/city-8.jpeg)" ,
           id: "",
           price : 670,
-          currency : "$",
+          currency : "€",
           typePrice : "business",
           flightTime : "3h",
           departureTime : "13:00",
@@ -330,7 +388,7 @@ const tripDataUS ={
           img : "url(/img/city-9.jpeg)" ,
           id: "",
           price : 240,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "3h",
           departureTime : "12:00",
@@ -344,7 +402,7 @@ const tripDataUS ={
           img : "url(/img/city-10.jpeg)" ,
           id: "",
           price : 310,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "6h",
           departureTime : "3:00",
@@ -366,7 +424,7 @@ const tripDataUS ={
           img : "url(/img/city-11.jpeg)" ,
           id: "",
           price : 190,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2h",
           departureTime : "17:00",
@@ -380,7 +438,7 @@ const tripDataUS ={
           img : "url(/img/city-12.jpeg)" ,
           id: "",
           price : 890,
-          currency : "$",
+          currency : "€",
           typePrice : "business",
           flightTime : "5h",
           departureTime : "11:00",
@@ -407,7 +465,7 @@ const tripDataUK ={
           img : "url(/img/city-13.jpeg)" ,
           id: "",
           price : 220,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "4h",
           departureTime : "5:00",
@@ -421,7 +479,7 @@ const tripDataUK ={
           img : "url(/img/city-14.jpeg)" ,
           id: "",
           price : 180,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "1h30p",
           departureTime : "1:00",
@@ -443,7 +501,7 @@ const tripDataUK ={
           img : "url(/img/city-15.jpeg)" ,
           id: "",
           price : 320,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "5h",
           departureTime : "10:15",
@@ -457,7 +515,7 @@ const tripDataUK ={
           img : "url(/img/city-16.webp)" ,
           id: "",
           price : 234,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "3h",
           departureTime : "16:00",
@@ -479,7 +537,7 @@ const tripDataUK ={
           img : "url(/img/city-17.webp)" ,
           id: "",
           price : 720,
-          currency : "$",
+          currency : "€",
           typePrice : "business",
           flightTime : "4h",
           departureTime : "8:00",
@@ -493,7 +551,7 @@ const tripDataUK ={
           img : "url(/img/city-18.webp)" ,
           id: "",
           price : 220,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "3h",
           departureTime : "11:00",
@@ -520,7 +578,7 @@ const tripDataJa ={
           img : "url(/img/city-19.webp)" ,
           id: "",
           price : 190,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2h",
           departureTime : "11:30",
@@ -534,7 +592,7 @@ const tripDataJa ={
           img : "url(/img/city-20.jpg)" ,
           id: "",
           price : 260,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "4h",
           departureTime : "14:00",
@@ -556,7 +614,7 @@ const tripDataJa ={
           img : "url(/img/city-21.webp)" ,
           id: "",
           price : 180,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "1h15p",
           departureTime : "14:00",
@@ -570,7 +628,7 @@ const tripDataJa ={
           img : "url(/img/city-22.jpg)" ,
           id: "",
           price : 220,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2h",
           departureTime : "7:00",
@@ -592,7 +650,7 @@ const tripDataJa ={
           img : "url(/img/city-23.webp)" ,
           id: "",
           price : 670,
-          currency : "$",
+          currency : "€",
           typePrice : "business",
           flightTime : "4h",
           departureTime : "15:00",
@@ -606,7 +664,7 @@ const tripDataJa ={
           img : "url(/img/city-24.jpg)" ,
           id: "",
           price : 170,
-          currency : "$",
+          currency : "€",
           typePrice : "normal",
           flightTime : "2",
           departureTime : "5:00",
@@ -626,15 +684,16 @@ const allTrip = [
   tripDataJa,
 ]
 const flyData =[]
+const flyDataT =[]
 const  airline =[]
 const listPrice =[]
-export const typeTicket =[]
 export const appData={
   currencyData : currencyData,
   languageData : languageData,
   allTrip : allTrip,
   airline : airline,
   flyData : flyData,
+  flyDataT : flyDataT,
   listPrice : listPrice,
 }
 
@@ -645,11 +704,14 @@ function setData (){
         return data.fly.map(fly => flyData.push(({...fly, from : data.from}))) // con cho mat day khon nan tuoi lol.
       })
   });
+  flyData.map( data => {
+    return flyDataT.push(({...data, departureF : parseFloat(data.departureTime)})) // con cho mat day khon nan tuoi lol.
+});
   allTrip.map(dataAll =>{
     return dataAll.detailTrip.map(data =>{
       return airline.push(data.from)
     })
-  })
+  });
   allTrip.map( dataAll => {
     return dataAll.detailTrip.map(data => {
       return data.fly.map(fly => {
@@ -657,9 +719,6 @@ function setData (){
       })
     })
 });
-  flyData.filter(data => {
-    if(data.typePrice === "normal") typeTicket.push(data)
-  })
 }
 function LoadData(){
   setData();

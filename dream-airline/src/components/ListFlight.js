@@ -4,8 +4,8 @@ import {appData} from "../data";
 import SliderPrice from '../components/SliderPrice'
 
 
-const ListFlight =()=>{
-
+const ListFlight =({minPrice,maxPrice,setMaxPrice,setMinPrice,symbol, setSymbol, convert, setConvert})=>{
+  const [currentPrice, setCurrentPrice] = useState(510)
   const [listData, setListData] = useState(appData.flyData);
   const changeTypeTicket =(e)=>{
     if(e.target.value === "business"){
@@ -29,10 +29,44 @@ const ListFlight =()=>{
     if(e.target.value === "18:00"){
       setListData(appData.flyData.filter(data => 18 <= parseInt(data.departureTime)&& parseInt(data.departureTime) < 24))
     }
-    console.log(listData)
   }
-  const changePrice=()=>{
-    
+  const clickAllListTrip =()=>{
+    setListData(appData.flyData)
+    console.log(currentPrice)
+  }
+  function comPareSort(property, order){
+    var sort_order = 1;
+    if(order === "decrease"){
+        sort_order = -1;
+    }
+    return function (a, b){
+        // a should come before b in the sorted order
+        if(a[property] < b[property]){
+          return -1 * sort_order;
+        // a should come after b in the sorted order
+        }else if(a[property] > b[property]){
+          return 1 * sort_order;
+        // a and b are the same
+        }else{
+          return 0 * sort_order;
+        }
+    }
+  }
+  const changeSortChoose =(e)=>{
+    if(e.target.value === "lowest"){
+      setListData(appData.flyData.sort(comPareSort("price", "increase")))
+    }
+    if(e.target.value === "highest"){
+      setListData(appData.flyData.sort(comPareSort("price", "decrease")))
+    }
+    if(e.target.value === "earliest"){
+      setListData(appData.flyDataT.sort(comPareSort("departureF", "increase")))
+    }
+    if(e.target.value === "latest"){
+      setListData(appData.flyDataT.sort(comPareSort("departureF", "decrease")))
+    }
+    else setListData(appData.flyData)
+    console.log(listData)
   }
   return(
     <div className="list-flight-frame">
@@ -42,7 +76,7 @@ const ListFlight =()=>{
           <div className="list-flight-choose-head">
             <span>Filter:</span>
             <form className="list-flight-choose-head-child">
-              <SliderPrice></SliderPrice>
+              <SliderPrice minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} convert={convert} setListData={setListData} setCurrentPrice={setCurrentPrice} currentPrice ={currentPrice}></SliderPrice>
             </form>
             <form className="list-flight-choose-head-child">
               <span>Stops</span>
@@ -79,17 +113,17 @@ const ListFlight =()=>{
               </select>
             </form>
             <form className="list-flight-choose-head-child">
-              <button>All</button>
+              <button onClick={clickAllListTrip} type="button">All</button>
             </form>
           </div>
           <form className="list-flight-choose-footer">
             <span>Sort: </span>
-            <select>
-              <option>Lowest Price</option>
-              <option>Highest Price</option>
-              <option>Departure Time</option>
-              <option>Arrival Time</option>
-              <option>Duration</option>
+            <select onChange={changeSortChoose}>
+              <option value ="">All</option>
+              <option value ="lowest">Lowest Price</option>
+              <option value="highest">Highest Price</option>
+              <option value ="earliest">Earliest Trip</option>
+              <option value="latest">Latest Trip</option>
             </select>
           </form>
         </div>
@@ -108,7 +142,7 @@ const ListFlight =()=>{
               <div className="list-flight-list-row-child-topic-show">
                 <div className="list-flight-list-row-child-topic price">
                   <span>Start from</span>
-                  <span>{fly.price}{fly.currency}</span>
+                  <span>{symbol} {(fly.price * convert).toFixed(2)}</span>
                 </div>
                 <i class="fas fa-angle-double-right"></i>
               </div>
