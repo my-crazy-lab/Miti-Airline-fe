@@ -32,6 +32,7 @@
   margin: 16px 0;
   background: white;
   border-radius: 6px;
+  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.2);
 }
 .choose-flight-change-head {
   display: flex;
@@ -73,10 +74,12 @@
   margin-left: var(--margin-left-global);
 }
 .choose-flight-change-head-name {
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-text-big {
   font-size: 22px;
   font-weight: 700;
   color: var(--color-content-global);
-  margin-left: var(--margin-left-global);
 }
 .choose-flight-trip-detail-trip {
   font-size: 15px;
@@ -123,10 +126,7 @@
   margin: 16px 0;
   background: white;
   border-radius: 6px;
-}
-.choose-flight-list {
-}
-.choose-flight-list-child {
+  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.2);
 }
 .choose-flight-list-child-announce {
   height: 33.333%;
@@ -153,28 +153,28 @@
   display: flex;
   align-items: center;
 }
-.choose-flight-list-child-time-id {
+.choose-flight-text-normal {
   font-size: 15px;
   font-weight: 400;
   color: var(--color-content-global);
 }
-.choose-flight-list-child-time-direct {
+.choose-flight-text-bold {
   font-size: 18px;
   font-weight: 700;
   color: var(--color-content-global);
 }
-.choose-flight-list-child-time-text-direct {
+.choose-flight-text-blur {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #a9a9a9;
-}
-.choose-flight-list-child-announce-show {
 }
 .choose-flight-list-child-detail {
   height: 66.667%;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(41, 41, 41, 0.2);
   width: 100%;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .choose-flight-list-child-announce-btn {
   border: none;
@@ -187,8 +187,9 @@
   font-weight: 700;
 }
 .choose-flight-list-child-announce-show i,
+.choose-flight-list-child-announce-list i,
 .choose-flight-list-child-baggage i {
-  color: rgb(123, 123, 123);
+  color: rgb(189, 186, 186);
 }
 .choose-flight-list-child-announce-show i {
   margin: 0 12px;
@@ -201,4 +202,25 @@
 }
 .choose-flight-list-child-baggage i {
   margin: 0 4px;
+}
+.choose-flight-text-small {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(132, 132, 132);
+}
+.choose-flight-list-child-detail-child {
+  display: flex;
+  flex-direction: column;
+}
+.choose-flight-baggage {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.choose-flight-text-biggest {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-content-global);
 }

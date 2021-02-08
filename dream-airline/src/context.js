@@ -10,6 +10,11 @@ const FlyProvider =({children})=>{
     $('.flight-login').toggle();
   },[showLogin]);
 
+  const [chooseTrip, setChooseTrip] = useState(false);
+  const [idDep, setIdDep] = useState('');
+  const [idDes, setIdDes] = useState('');
+  const [trip, setTrip] = useState({});
+
   const [des, setDes] = useState('');
   const [dep, setDep] = useState('');
   const [adult , setAdult] = useState(1);
@@ -28,6 +33,9 @@ const FlyProvider =({children})=>{
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
     setMaxPrice((Math.max(...appData.listPrice) * convert).toFixed(0))
   },[convert])
+  useEffect(() => {
+    
+  },[chooseTrip])
   return(
     <FlyContext.Provider value ={{
       minPrice : minPrice ,
@@ -57,6 +65,14 @@ const FlyProvider =({children})=>{
       setChild: setChild,
       traveler: traveler ,
       setTraveler: setTraveler,
+      chooseTrip: chooseTrip ,
+      setChooseTrip: setChooseTrip,
+      idDes: idDes ,
+      setIdDes: setIdDes,
+      idDep : idDep ,
+      setIdDep : setIdDep,
+      trip: trip ,
+      setTrip: setTrip,
     }}>
       {children}
     </FlyContext.Provider>

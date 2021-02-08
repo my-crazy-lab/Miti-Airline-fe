@@ -28,12 +28,12 @@ const ChooseFlight = ()=>{
         <div className="choose-flight-change">
           <div className="choose-flight-change-head">
             <div>
-              <span className="choose-flight-change-head-name">
+              <span className="choose-flight-change-head-name choose-flight-text-big ">
                 Departure flight to Ho Chi Minh City
               </span>
               <div className="choose-flight-change-head-detail">
                 <span className="choose-flight-change-head-detail-date">Tue, 9 February 2021</span>
-                <span className="choose-flight-change-head-detail-traveler"> 3 Traveler</span>
+                <span className="choose-flight-change-head-detail-traveler"> {context.traveler} Traveler</span>
               </div>
             </div>
             <button className="choose-flight-change-head-btn">Change Date</button>
@@ -42,43 +42,170 @@ const ChooseFlight = ()=>{
             <OptionFlight></OptionFlight>
           </div>
         </div>
+
         <div className="choose-flight-list">
-          <div className="choose-flight-list-child">
-            <div className="choose-flight-list-child-announce">
-              <div className="choose-flight-list-child-announce-list">
-                <span>VietNam Airline</span>
-                <div className="choose-flight-list-child-time">
-                  <span className="choose-flight-list-child-time-direct">08:00</span>
-                  <span className="choose-flight-list-child-time-id">HUI</span>
-                </div>
-                <i class="fas fa-arrow-right"></i>
-                <div className="choose-flight-list-child-time">
-                  <span className="choose-flight-list-child-time-direct">010:00</span>
-                  <span className="choose-flight-list-child-time-id">SGN</span>
-                </div>
-                <div className="choose-flight-list-child-time">
-                  <span className="choose-flight-list-child-time-direct">1h 25m</span>
-                  <span className="choose-flight-list-child-time-text-direct">Direct</span>
-                </div>
-                <div className="choose-flight-list-child-baggage">
-                  <i class="fas fa-suitcase-rolling"></i>
-                  <i class="fas fa-suitcase"></i>
-                  <span className="choose-flight-list-child-time-id"> 24 kg</span>
-                </div>
-                <div className="choose-flight-list-child-price">
-                  <span  className="choose-flight-list-child-time-direct">€ 19.08</span>
-                  <span className="choose-flight-list-child-time-text-direct">/pax</span>
-                </div>
-              </div>
-              <div className="choose-flight-list-child-announce-show">
-                <button type="button" className="choose-flight-list-child-announce-btn">Choose Flight</button>
-                <i class="fas fa-chevron-up"></i>
-              </div>
+          { context.chooseTrip  === true ? (<div className="choose-flight-list-child">
+          <div className="choose-flight-list-child-announce">
+          <div className="choose-flight-list-child-announce-list">
+            <span className="choose-flight-text-normal">VietNam Airline</span>
+            <div className="choose-flight-list-child-time">
+              <span className="choose-flight-text-bold">{context.trip.departureTime}</span>
+              <span className="choose-flight-text-normal">{context.trip.id}</span>
             </div>
-            <div className="choose-flight-list-child-detail">
-              <div className="choose-flight-list"></div>
+            <i class="fas fa-arrow-right"></i>
+            <div className="choose-flight-list-child-time">
+              <span className="choose-flight-text-bold">{context.trip.destinationTime}</span>
+              <span className="choose-flight-text-normal">{context.trip.to}</span>
+            </div>
+            <div className="choose-flight-list-child-time">
+              <span className="choose-flight-text-bold">{Math.floor(context.trip.flightTime)}h {context.trip.flightTime - Math.floor(context.trip.flightTime)}m</span>
+              <span className="choose-flight-text-blur">Direct</span>
+            </div>
+            <div className="choose-flight-list-child-baggage">
+              <i class="fas fa-suitcase"></i>
+              <span className="choose-flight-text-normal">24 kg</span>
+            </div>
+            <div className="choose-flight-list-child-price">
+              <span  className="choose-flight-text-bold">{context.trip.currency} {context.trip.price}</span>
+              <span className="choose-flight-text-blur">/pax</span>
+            </div>
+            <span className="choose-flight-list-child-price choose-flight-text-blur">{context.trip.typePrice}</span>
+          </div>
+          <div className="choose-flight-list-child-announce-show">
+            <button type="button" className="choose-flight-list-child-announce-btn">Choose Flight</button>
+            <i class="fas fa-chevron-up"></i>
+          </div>
+        </div>
+        <div className="choose-flight-list-child-detail">
+          <div className="choose-flight-list-child-detail-child">
+            <span className="choose-flight-text-normal">VietNam Airline</span>
+            <span className="choose-flight-text-small">BL6215</span>
+            <span className="choose-flight-text-small">Airbus A320</span>
+          </div>
+          <div className="choose-flight-list-child-detail-child">
+          
+          </div>
+          <div>
+            <div className="choose-flight-list-child-detail-child">
+              <span className="choose-flight-text-big">{context.trip.departureTime}</span>
+              <span className="choose-flight-text-small">09 Feb 2021</span>
+            </div>
+            <div>
+              <i class="far fa-clock"></i>
+              <span className="choose-flight-text-small">{Math.floor(context.trip.flightTime)}h {context.trip.flightTime - Math.floor(context.trip.flightTime)}m</span>
+            </div>
+            <div className="choose-flight-list-child-detail-child">
+              <span className="choose-flight-text-big">{context.trip.destinationTime}</span>
+              <span className="choose-flight-text-small">09 Feb 2021</span>
             </div>
           </div>
+          <div>
+            <div className="choose-flight-list-child-detail-child">
+              <span className="choose-flight-text-normal">{context.trip.to} ({context.trip.toId})</span>
+              <span className="choose-flight-text-blur">{context.trip.toAirline}</span>
+            </div>
+            <div className="choose-flight-list-child-detail-child">
+              <span className="choose-flight-text-normal">{context.trip.name} ({context.trip.id})</span>
+              <span className="choose-flight-text-blur">{context.trip.airport}</span>
+            </div>
+          </div>
+          <div className="choose-flight-list-child-detail-child choose-flight-baggage">
+            <div>
+              <i class="fas fa-suitcase-rolling"></i>
+              <span className="choose-flight-text-normal">Cabin Baggage 7 kg</span>
+            </div>
+            <div>
+              <i class="fas fa-suitcase"></i>
+              <span className="choose-flight-text-normal">Baggage 23 kg</span>
+            </div>
+          </div> 
+        </div>
+      </div>):(
+        <div></div>
+      )}
+        </div>
+
+        <span className="choose-flight-text-biggest">Choose different trips</span>
+        <div className="choose-flight-list">
+          { context.listData.map(data => { 
+            return <div className="choose-flight-list-child">
+              <div className="choose-flight-list-child-announce">
+                <div className="choose-flight-list-child-announce-list">
+                  <span className="choose-flight-text-normal">VietNam Airline</span>
+                  <div className="choose-flight-list-child-time">
+                    <span className="choose-flight-text-bold">{data.departureTime}</span>
+                    <span className="choose-flight-text-normal">{data.id}</span>
+                  </div>
+                  <i class="fas fa-arrow-right"></i>
+                  <div className="choose-flight-list-child-time">
+                    <span className="choose-flight-text-bold">{data.destinationTime}</span>
+                    <span className="choose-flight-text-normal">{data.to}</span>
+                  </div>
+                  <div className="choose-flight-list-child-time">
+                    <span className="choose-flight-text-bold">{Math.floor(data.flightTime)}h {(data.flightTime - Math.floor(data.flightTime)) * 60}m</span>
+                    <span className="choose-flight-text-blur">Direct</span>
+                  </div>
+                  <div className="choose-flight-list-child-baggage">
+                    <i class="fas fa-suitcase"></i>
+                    <span className="choose-flight-text-normal">24 kg</span>
+                  </div>
+                  <div className="choose-flight-list-child-price">
+                    <span  className="choose-flight-text-bold">{data.currency} {data.price}</span>
+                    <span className="choose-flight-text-blur">/pax</span>
+                  </div>
+                  <span className="choose-flight-list-child-price choose-flight-text-blur">{data.typePrice}</span>
+                </div>
+                <div className="choose-flight-list-child-announce-show">
+                  <button type="button" className="choose-flight-list-child-announce-btn">Choose Flight</button>
+                  <i class="fas fa-chevron-up"></i>
+                </div>
+              </div>
+              <div className="choose-flight-list-child-detail">
+                <div className="choose-flight-list-child-detail-child">
+                  <span className="choose-flight-text-normal">VietNam Airline</span>
+                  <span className="choose-flight-text-small">BL6215</span>
+                  <span className="choose-flight-text-small">Airbus A320</span>
+                </div>
+                <div className="choose-flight-list-child-detail-child">
+                
+                </div>
+                <div>
+                  <div className="choose-flight-list-child-detail-child">
+                    <span className="choose-flight-text-big">{data.departureTime}</span>
+                    <span className="choose-flight-text-small">09 Feb 2021</span>
+                  </div>
+                  <div>
+                    <i class="far fa-clock"></i>
+                    <span className="choose-flight-text-small">{Math.floor(data.flightTime)}h {(data.flightTime - Math.floor(data.flightTime)) * 60}m</span>
+                  </div>
+                  <div className="choose-flight-list-child-detail-child">
+                    <span className="choose-flight-text-big">{data.destinationTime}</span>
+                    <span className="choose-flight-text-small">09 Feb 2021</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="choose-flight-list-child-detail-child">
+                    <span className="choose-flight-text-normal">{data.to} ({data.toId})</span>
+                    <span className="choose-flight-text-blur">{data.toAirline}</span>
+                  </div>
+                  <div className="choose-flight-list-child-detail-child">
+                    <span className="choose-flight-text-normal">{data.name} ({data.id})</span>
+                    <span className="choose-flight-text-blur">{data.airport}</span>
+                  </div>
+                </div>
+                <div className="choose-flight-list-child-detail-child choose-flight-baggage">
+                  <div>
+                    <i class="fas fa-suitcase-rolling"></i>
+                    <span className="choose-flight-text-normal">Cabin Baggage 7 kg</span>
+                  </div>
+                  <div>
+                    <i class="fas fa-suitcase"></i>
+                    <span className="choose-flight-text-normal">Baggage 23 kg</span>
+                  </div>
+                </div> 
+              </div>
+            </div>
+          })}
         </div>
       </div>
     </div>

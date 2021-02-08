@@ -236,7 +236,9 @@ const tripDataVN ={
     airport : "Tan Son Nhat International Airport",
     fly : [
       {
-        to : "DaLat",
+        to : "Hanoi",
+        toId : "HAN",
+        toAirline : "NoiBai International Airport",
         img : "url(/img/city-1.jpeg)" ,
         id: "",
           price : 120,
@@ -251,6 +253,8 @@ const tripDataVN ={
       },
       {
         to : "DaNang",
+        toAirline : "Da Nang International Airport",
+        toId :"DAD",
         img : "url(/img/city-2.jpeg)" ,
         id: "",
           price : 160,
@@ -273,8 +277,9 @@ const tripDataVN ={
     fly : [
       {
         to : "NhaTrang",
+        toAirline : "Nha Trang International Airport",
         img : "url(/img/city-3.jpeg)" ,
-        id: "",
+        toId: "NTT",
           price : 140,
           currency : "€",
           typePrice : "normal",
@@ -287,8 +292,9 @@ const tripDataVN ={
       },
       {
         to : "PhuQuoc",
+        toAirline : "Phu Quoc International Airport",
+        toId:"PQV",
         img : "url(/img/city-4.webp)" ,
-        id: "",
           price : 600,
           currency : "€",
           typePrice : "business",
@@ -309,8 +315,9 @@ const tripDataVN ={
     fly : [
       {
         to : "CaMau",
+        toAirline : "Ca Mau International Airport",
         img : "url(/img/city-5.jpeg)" ,
-        id: "",
+        toId: "MAC",
           price : 200,
           currency : "€",
           typePrice : "normal",
@@ -322,9 +329,10 @@ const tripDataVN ={
           typePlane: "",
       },
       {
-        to : "Hanoi",
+        to : "Lao",
+        toAirline : "LaoKi International Airport",
         img : "url(/img/city-6.jpeg)" ,
-        id: "",
+        toId: "LAO",
           price : 210,
           currency : "€",
           typePrice : "normal",
@@ -349,8 +357,9 @@ const tripDataUS ={
       fly : [
         {
           to : "NewYork",
+          toAirline : "NewYork International Airport",
           img : "url(/img/city-7.jpeg)" ,
-          id: "",
+          toId: "NYC",
           price : 230,
           currency : "€",
           typePrice : "normal",
@@ -363,8 +372,9 @@ const tripDataUS ={
         },
         {
           to : "Paris",
+          toAirline : "Paris International Airport",
           img : "url(/img/city-8.jpeg)" ,
-          id: "",
+          toId: "PAR",
           price : 670,
           currency : "€",
           typePrice : "business",
@@ -385,8 +395,9 @@ const tripDataUS ={
       fly : [
         {
           to : "Dubai",
+          toAirline : "Dubai International Airport",
           img : "url(/img/city-9.jpeg)" ,
-          id: "",
+          toId: "DUB",
           price : 240,
           currency : "€",
           typePrice : "normal",
@@ -399,8 +410,9 @@ const tripDataUS ={
         },
         {
           to : "California",
+          toAirline : "California International Airport",
           img : "url(/img/city-10.jpeg)" ,
-          id: "",
+          toId: "CAL",
           price : 310,
           currency : "€",
           typePrice : "normal",
@@ -421,8 +433,9 @@ const tripDataUS ={
       fly : [
         {
           to : "Tokio",
+          toAirline : "Tokio International Airport",
           img : "url(/img/city-11.jpeg)" ,
-          id: "",
+          toId: "TOK",
           price : 190,
           currency : "€",
           typePrice : "normal",
@@ -435,8 +448,9 @@ const tripDataUS ={
         },
         {
           to : "HongKong",
+          toAirline : "HongKong International Airport",
           img : "url(/img/city-12.jpeg)" ,
-          id: "",
+          toId: "HOK",
           price : 890,
           currency : "€",
           typePrice : "business",
@@ -462,8 +476,9 @@ const tripDataUK ={
       fly : [
         {
           to : "Singapore",
+          toAirline : "Singapore International Airport",
           img : "url(/img/city-13.jpeg)" ,
-          id: "",
+          toId: "SIN",
           price : 220,
           currency : "€",
           typePrice : "normal",
@@ -476,8 +491,9 @@ const tripDataUK ={
         },
         {
           to : "ThaiLand",
+          toAirline : "Thailand International Airport",
           img : "url(/img/city-14.jpeg)" ,
-          id: "",
+          toId: "THL",
           price : 180,
           currency : "€",
           typePrice : "normal",
@@ -498,8 +514,9 @@ const tripDataUK ={
       fly : [
         {
           to : "Cuba",
+          toAirline : "Cuba International Airport",
           img : "url(/img/city-15.jpeg)" ,
-          id: "",
+          toId: "CUB",
           price : 320,
           currency : "€",
           typePrice : "normal",
@@ -512,8 +529,9 @@ const tripDataUK ={
         },
         {
           to : "China",
+          toAirline : "China International Airport",
           img : "url(/img/city-16.webp)" ,
-          id: "",
+          toId: "CHN",
           price : 234,
           currency : "€",
           typePrice : "normal",
@@ -534,8 +552,9 @@ const tripDataUK ={
       fly : [
         {
           to : "HoChiMinh-Vietnam",
+          toAirline : "Tan Son Nhat International Airport",
           img : "url(/img/city-17.webp)" ,
-          id: "",
+          id: "SGN",
           price : 720,
           currency : "€",
           typePrice : "business",
@@ -548,8 +567,9 @@ const tripDataUK ={
         },
         {
           to : "Texas",
+          toAirline : "Texas International Airport",
           img : "url(/img/city-18.webp)" ,
-          id: "",
+          toId: "TEX",
           price : 220,
           currency : "€",
           typePrice : "normal",
@@ -574,9 +594,10 @@ const tripDataJa ={
       airport : "Izumisano International Airport",
       fly : [
         {
-          to : "ThaiLand",
+          to : "Indonesia",
           img : "url(/img/city-19.webp)" ,
-          id: "",
+          toId: "IND",
+          toAirline : "Indonesia International Airport",
           price : 190,
           currency : "€",
           typePrice : "normal",
@@ -588,11 +609,12 @@ const tripDataJa ={
           typePlane: "",
         },
         {
-          to : "Paris",
+          to : "Australia",
           img : "url(/img/city-20.jpg)" ,
-          id: "",
+          toId: "AUS",
           price : 260,
           currency : "€",
+          toAirline : "Australia International Airport",
           typePrice : "normal",
           flightTime : 4.0,
           departureTime : "14:00",
@@ -611,8 +633,9 @@ const tripDataJa ={
       fly : [
         {
           to : "Osaka",
+          toAirline : "Osaka International Airport",
           img : "url(/img/city-21.webp)" ,
-          id: "",
+          toId: "OSK",
           price : 180,
           currency : "€",
           typePrice : "normal",
@@ -625,8 +648,9 @@ const tripDataJa ={
         },
         {
           to : "BangKok",
+          toAirline : "BangKok International Airport",
           img : "url(/img/city-22.jpg)" ,
-          id: "",
+          toId: "BAK",
           price : 220,
           currency : "€",
           typePrice : "normal",
@@ -646,9 +670,10 @@ const tripDataJa ={
       airport : "Fukuoka International Airport",
       fly : [
         {
-          to : "NhaTrang-Vietnam",
+          to : "Lao Kai-Vietnam",
+          toAirline : "Lao Kai International Airport",
           img : "url(/img/city-23.webp)" ,
-          id: "",
+          toId: "CMA",
           price : 670,
           currency : "€",
           typePrice : "business",
@@ -660,10 +685,11 @@ const tripDataJa ={
           typePlane: "",
         },
         {
-          to : "PhuQuoc-Vietnam",
+          to : "Dong Thap-Vietnam",
           img : "url(/img/city-24.jpg)" ,
-          id: "",
+          toId: "DCL",
           price : 170,
+          toAirline : "Dong Thap International Airport",
           currency : "€",
           typePrice : "normal",
           flightTime : 2.0,
@@ -687,6 +713,7 @@ const flyData =[]
 const flyDataT =[]
 const  airline =[]
 const listPrice =[]
+const toCountry =[]
 
 export const appData={
   currencyData : currencyData,
@@ -696,12 +723,18 @@ export const appData={
   flyData : flyData,
   flyDataT : flyDataT,
   listPrice : listPrice,
+  toCountry : toCountry,
 }
 
 function setData (){
   allTrip.map( dataAll => {
+    return dataAll.detailTrip.map(data => {
+      return data.fly.map(fly => toCountry.push({to :fly.to, id : fly.toId, toAirline : fly.toAirline})) // con cho mat day khon nan tuoi lol.
+    })
+});
+  allTrip.map( dataAll => {
       return dataAll.detailTrip.map(data => {
-        return data.fly.map(fly => flyData.push(({...fly, from : data.from}))) // con cho mat day khon nan tuoi lol.
+        return data.fly.map(fly => flyData.push(({...fly, from : data.from, id : data.id, name : data.name, airport : data.airport}))) // con cho mat day khon nan tuoi lol.
       })
   });
   flyData.map( data => {

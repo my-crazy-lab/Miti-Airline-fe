@@ -92,12 +92,21 @@ const BookTrip =()=>{
   const chooseTripDep=(id,name)=>{
     chooseDep.current.value  = `${name}(${id})`;
     context.setDes(`${name}(${id})`)
+    context.setIdDep(id)
     overflow();
   }
   const chooseTripDes=(id,name)=>{
     chooseDes.current.value  = `${name}(${id})`;
     context.setDep(`${name}(${id})`);
+    context.setIdDes(id)
     overflow();
+  }
+  const clickToSearch=()=>{
+    if(context.appData.flyData.filter(data => data.id === context.idDep && data.toId ===context.idDes).length > 0 ) {
+      context.setChooseTrip(true)
+      context.setTrip(context.appData.flyData.find(data => data.id === context.idDep && data.toId ===context.idDes))
+    }
+    else context.setChooseTrip(false)
   }
   return(
       <div className="booktrip">
@@ -158,22 +167,20 @@ const BookTrip =()=>{
               </button>
             </div>
             <div className="booktrip-where-child-body">
-              {context.appData.allTrip.map(dataAll => {
+              {context.appData.toCountry.map(data => {
                 return <div className="booktrip-where-child" >
                 <div className="booktrip-where-child-country">
-                  <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
+                  <span className="booktrip-where-child-country-text">{data.to}</span>
                 </div>
                 <div className="booktrip-where-child-list">
-                  {dataAll.detailTrip.map(data => {
-                    return <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDes(data.id, data.name)}>
+                    return <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDes(data.id, data.to)}>
                     <i class="fas fa-plane-departure"></i>
                     <div>
-                      <span>{data.name}</span>
-                      <span>{data.airport}</span>
+                      <span>{data.to}</span>
+                      <span>{data.toAirline}</span>
                     </div>
                     <span className="booktrip-where-child-list-child-id">{data.id}</span>
                   </div>
-                  })}
                 </div>
               </div>
               })}
@@ -274,7 +281,7 @@ const BookTrip =()=>{
             </div>
         </div>
         <Link to="/SearchPlane" className="booktrip-search">
-          <button className="booktrip-search-btn">Search</button>
+          <button className="booktrip-search-btn" onClick={clickToSearch}>Search</button>
         </Link>
       </div>
   )
