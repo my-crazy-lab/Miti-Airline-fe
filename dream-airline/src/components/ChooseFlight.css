@@ -1,0 +1,204 @@
+.choose-flight-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.choose-flight-this {
+  width: var(--width-global);
+  display: flex;
+  flex-direction: column;
+}
+.choose-flight-choice-frame {
+  background: white;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+.choose-flight {
+  height: 100%;
+  width: var(--width-global);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choose-flight-change {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+  background: white;
+  border-radius: 6px;
+}
+.choose-flight-change-head {
+  display: flex;
+  height: 55%;
+  justify-content: space-between;
+  align-items: center;
+}
+.choose-flight-change-option {
+  height: 45%;
+  border-top: 1px solid rgba(111, 111, 111, 0.2);
+}
+.choose-flight-choice {
+  display: flex;
+  align-items: center;
+}
+.choose-flight-choice i {
+  color: var(--color-global);
+}
+.choose-flight-btn,
+.choose-flight-change-head-btn {
+  width: 160px;
+  height: 40px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid var(--color-global);
+  color: var(--color-global);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.choose-flight-btn {
+}
+.choose-flight-change-head-btn {
+}
+.choose-flight-trip-head {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-content-global);
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-change-head-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-content-global);
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-trip-detail-trip {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-content-global);
+  position: relative;
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-trip-detail-date {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-content-global);
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-change-head-detail-traveler {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-content-global);
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-change-head-detail-date {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-content-global);
+  position: relative;
+  margin-left: var(--margin-left-global);
+}
+.choose-flight-change-head-detail-date::before,
+.choose-flight-trip-detail-trip::before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 15px;
+  background-color: rgba(111, 111, 111, 0.6);
+  top: 0;
+  right: 0;
+  transform: translate(calc(var(--margin-left-global) / 2), 25%);
+}
+.choose-flight-list-child {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+  background: white;
+  border-radius: 6px;
+}
+.choose-flight-list {
+}
+.choose-flight-list-child {
+}
+.choose-flight-list-child-announce {
+  height: 33.333%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choose-flight-list-child-announce-list {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  align-items: center;
+}
+.choose-flight-list-child-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.choose-flight-list-child-baggage {
+  display: flex;
+  align-items: center;
+}
+.choose-flight-list-child-price {
+  display: flex;
+  align-items: center;
+}
+.choose-flight-list-child-time-id {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-content-global);
+}
+.choose-flight-list-child-time-direct {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-content-global);
+}
+.choose-flight-list-child-time-text-direct {
+  font-size: 14px;
+  font-weight: 400;
+  color: #a9a9a9;
+}
+.choose-flight-list-child-announce-show {
+}
+.choose-flight-list-child-detail {
+  height: 66.667%;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  width: 100%;
+  background-color: white;
+}
+.choose-flight-list-child-announce-btn {
+  border: none;
+  width: 160px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: var(--color-global);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.choose-flight-list-child-announce-show i,
+.choose-flight-list-child-baggage i {
+  color: rgb(123, 123, 123);
+}
+.choose-flight-list-child-announce-show i {
+  margin: 0 12px;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.choose-flight-list-child-announce-show i:hover {
+  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.1);
+}
+.choose-flight-list-child-baggage i {
+  margin: 0 4px;
+}

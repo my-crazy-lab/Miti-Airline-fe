@@ -1,12 +1,15 @@
-import react,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import './Navbar.css';
 import {Link} from 'react-router-dom';
 import $ from "jquery";
-import {appData} from "../data";
+import {FlyContext} from "../context"
+import Login  from '../components/Login';
 
-const Navbar=({showLogin,setShowLogin, setSymbol,setConvert })=>{
+
+const Navbar=()=>{
+  const context = useContext(FlyContext)
   const [idLanguage, setIdLanguage] = useState("EN");
-  const [srcLanguage, setSrcLanguage] = useState(appData.languageData[0].src);
+  const [srcLanguage, setSrcLanguage] = useState(context.appData.languageData[0].src);
   const [idCurrency, setIdCurrency] = useState("EUR");
   const [checkCurrency , setCheckCurrency] = useState(false);
   const [checkLanguage, setCheckLanguage] = useState(false);
@@ -17,12 +20,12 @@ const Navbar=({showLogin,setShowLogin, setSymbol,setConvert })=>{
   }
   const chooseCurrency=(id, symbol, convert)=>{
     setIdCurrency(id)
-    setSymbol(symbol)
-    setConvert(convert)
+    context.setSymbol(symbol)
+    context.setConvert(convert)
   }
   const toggleLogin=()=>{
-    if(showLogin === false) setShowLogin(true);
-    else setShowLogin(false);
+    if(context.showLogin === false) context.setShowLogin(true);
+    else context.setShowLogin(false);
   }
   const hideCurrencyAndLanguage = ()=>{
     $('.nav-currency-list-frame').hide();
@@ -85,7 +88,7 @@ const Navbar=({showLogin,setShowLogin, setSymbol,setConvert })=>{
               </button>
             </div>
             <div className="nav-currency-list">
-              {appData.currencyData.map(data =>{
+              {context.appData.currencyData.map(data =>{
                 return <div className="nav-currency-list-child" onClick={()=>chooseCurrency(data.id, data.symbol, data.conversion)}>
                 <span>{data.id}</span>
                 <span>{data.name}</span>
@@ -101,7 +104,7 @@ const Navbar=({showLogin,setShowLogin, setSymbol,setConvert })=>{
               </button>
             </div>
             <div className="nav-language-list">
-              {appData.languageData.map(appData =>{
+              {context.appData.languageData.map(appData =>{
                 return <div className="nav-language-list-child" onClick={()=> chooseLanguage(appData.src,appData.id)}>
                 <img className="nav-language-icon" src={appData.src}></img>
                 <span >{ appData.name}</span>
@@ -114,6 +117,9 @@ const Navbar=({showLogin,setShowLogin, setSymbol,setConvert })=>{
           <button type="button" onClick={toggleLogin} className="nav-login-btn">Login</button>
           <button className="nav-register-btn">Register</button>
         </div>
+      </div>
+      <div className="flight-login" style ={{'top' : `${$(window).scrollTop() + $(window).height()/4}px`}}>
+        <Login></Login>
       </div>
     </div>
   )

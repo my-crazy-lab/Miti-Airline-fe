@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import "./Recommend.css";
 import {appData} from "../data";
 import $ from 'jquery';

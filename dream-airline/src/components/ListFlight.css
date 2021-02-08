@@ -127,33 +127,3 @@
   top: calc(8px - var(--width-global) / 12);
   transition: all 0.1s linear;
 }
-.list-flight-choose {
-  display: flex;
-  justify-content: space-between;
-}
-.list-flight-choose-head {
-  display: flex;
-  justify-content: space-around;
-  width: 75%;
-  align-items: center;
-}
-.list-flight-choose-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.list-flight-choose-head-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-.list-flight-choose-head-child select {
-  width: 160px;
-  height: 24px;
-}
-.list-flight-choose-footer select {
-  width: 160px;
-  height: 24px;
-}

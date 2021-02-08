@@ -1,0 +1,30 @@
+.option {
+  display: flex;
+  justify-content: space-between;
+}
+.option-head {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+  align-items: center;
+}
+.option-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.option-head-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.option-head-child select {
+  width: 160px;
+  height: 24px;
+}
+.option-footer select {
+  width: 160px;
+  height: 24px;
+}

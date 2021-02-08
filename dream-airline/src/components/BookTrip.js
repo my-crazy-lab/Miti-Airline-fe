@@ -1,26 +1,15 @@
-import react, {useState , useEffect, useRef} from 'react';
+import React, {useState , useEffect, useRef, useContext} from 'react';
 import "./BookTrip.css";
 import $ from 'jquery';
 import Calendar from './Calendar';
-import {appData} from '../data.js';
+import {FlyContext} from '../context';
+import {Link} from 'react-router-dom'
 
 const BookTrip =()=>{
-  const [des, setDes] = useState('');
-  const [dep, setDep] = useState('');
-  const [adult , setAdult] = useState(1);
-  const [child , setChild] = useState(0);
-  const [infant , setInfant] = useState(0);
-  const [traveler , setTraveler] = useState(1);
+  const context = useContext(FlyContext)
+
   const [checkway, setCheckway] = useState(true);
-  const [state, setState] = useState({
-    des : des,
-    adult : adult,
-    dep : dep,
-    child : child,
-    infant : infant ,
-    traveler : traveler,
-    checkway : checkway,
-  })
+
   const chooseDep = useRef();
   const chooseDes =useRef();
 
@@ -30,8 +19,8 @@ const BookTrip =()=>{
   const [nameDay, setNameDay]=useState();
 
   useEffect(() => {
-    setTraveler(adult + child + infant);
-  },[adult,child,infant]);
+    context.setTraveler(context.adult + context.child + context.infant);
+  },[context.adult , context.child , context.infant]);
   const checkWay =()=>{
     if(checkway === true){
       setCheckway(false);
@@ -41,22 +30,22 @@ const BookTrip =()=>{
     }
   } 
   const minusAdult =()=>{
-    setAdult(adult - 1);
+    context.setAdult(context.adult - 1);
   }
   const minusChildren =()=>{
-    setChild(child - 1);
+    context.setChild(context.child - 1);
   }
   const minusInfant=()=>{
-    setInfant(infant - 1);
+    context.setInfant(context.infant - 1);
   }
   const plusInfant=()=>{
-    setInfant(infant + 1);
+    context.setInfant(context.infant + 1);
   }
   const plusChildren=()=>{
-    setChild(child + 1);
+    context.setChild(context.child + 1);
   }
   const plusAdult=()=>{
-    setAdult(adult + 1);
+    context.setAdult(context.adult + 1);
   }
   const overflow =()=>{
     $('.booktrip-where-child-1').css('display','none');
@@ -66,10 +55,10 @@ const BookTrip =()=>{
     $('.booktrip-date-calendar-2').css('display','none');
   }
   const inputDes=(e)=>{
-    setDes(e.target.value);
+    context.setDes(e.target.value);
   }
   const inputDep=(e)=>{
-    setDep(e.target.value);
+    context.setDep(e.target.value);
   }
   const clickDeparture =()=>{
     overflow();
@@ -95,19 +84,19 @@ const BookTrip =()=>{
     $('.booktrip-date-calendar-2').css('display','block');
   }
   const swapContent=()=>{
-    setDep(des) ;
-    setDes(dep);
-    $('#departure').val(`${dep}`);
-    $('#destination').val(`${des}`);
+    context.setDep(context.des) ;
+    context.setDes(context.dep);
+    $('#departure').val(`${context.dep}`);
+    $('#destination').val(`${context.des}`);
   }
   const chooseTripDep=(id,name)=>{
     chooseDep.current.value  = `${name}(${id})`;
-    setDes(`${name}(${id})`)
+    context.setDes(`${name}(${id})`)
     overflow();
   }
   const chooseTripDes=(id,name)=>{
     chooseDes.current.value  = `${name}(${id})`;
-    setDep(`${name}(${id})`);
+    context.setDep(`${name}(${id})`);
     overflow();
   }
   return(
@@ -131,7 +120,7 @@ const BookTrip =()=>{
               </button>
             </div> 
             <div className="booktrip-where-child-body">
-              {appData.allTrip.map(dataAll => {
+              {context.appData.allTrip.map(dataAll => {
               return <div className="booktrip-where-child">
               <div className="booktrip-where-child-country">
               <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
@@ -169,7 +158,7 @@ const BookTrip =()=>{
               </button>
             </div>
             <div className="booktrip-where-child-body">
-              {appData.allTrip.map(dataAll => {
+              {context.appData.allTrip.map(dataAll => {
                 return <div className="booktrip-where-child" >
                 <div className="booktrip-where-child-country">
                   <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
@@ -228,7 +217,7 @@ const BookTrip =()=>{
         <div className="booktrip-traveler-frame">
           <div onClick={clickTraveler} className="booktrip-traveler">
             <span>Traveler</span>
-            <span>{traveler} Traveler</span>
+            <span>{context.traveler} Traveler</span>
           </div>
             <div className="booktrip-traveler-child">
               <div className="booktrip-traveler-child-head">
@@ -243,11 +232,11 @@ const BookTrip =()=>{
                   <span>Age 12+</span>
                 </div>
                 <div className="booktrip-traveler-child-list-count">
-                  <button  onClick={minusAdult} type="button" className={`adult adultminus ${adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
+                  <button  onClick={minusAdult} type="button" className={`adult adultminus ${context.adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
                     <i class="fas fa-minus"></i>
                   </button>
-                  <p id="adult">{adult}</p>
-                  <button onClick={plusAdult} type="button" className={`adult ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                  <p id="adult">{context.adult}</p>
+                  <button onClick={plusAdult} type="button" className={`adult ${context.traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
@@ -258,11 +247,11 @@ const BookTrip =()=>{
                   <span>Age 2-11</span>
                 </div>
                 <div className="booktrip-traveler-child-list-count">
-                  <button onClick={minusChildren} type="button" className={`children ${child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
+                  <button onClick={minusChildren} type="button" className={`children ${context.child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
                     <i class="fas fa-minus"></i>
                   </button>
-                  <p id="children">{child}</p>
-                  <button onClick={plusChildren} type="button" className={`children ${traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                  <p id="children">{context.child}</p>
+                  <button onClick={plusChildren} type="button" className={`children ${context.traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
@@ -273,18 +262,20 @@ const BookTrip =()=>{
                   <span>Age 0-2</span>
                 </div>
                 <div className="booktrip-traveler-child-list-count">
-                  <button onClick={minusInfant} type="button" className={`infant ${infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
+                  <button onClick={minusInfant} type="button" className={`infant ${context.infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
                     <i class="fas fa-minus"></i>
                   </button>
-                  <p id="infant">{infant}</p>
-                  <button onClick={plusInfant} type="button" className={`infant ${traveler > 5 || infant > 1 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                  <p id="infant">{context.infant}</p>
+                  <button onClick={plusInfant} type="button" className={`infant ${context.traveler > 5 || context.infant > 1 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
               </div>
             </div>
         </div>
-        <button className="booktrip-search">Search</button>
+        <Link to="/SearchPlane" className="booktrip-search">
+          <button className="booktrip-search-btn">Search</button>
+        </Link>
       </div>
   )
 }

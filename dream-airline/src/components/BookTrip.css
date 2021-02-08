@@ -9,7 +9,7 @@ input::placeholder {
   font-size: 16px;
   font-weight: 500;
   color: var(--color-text-booktrip);
-}     
+}
 :root {
   --height-global-booktrip: 480px;
   --border-global-booktrip: #e6e6e7;
@@ -80,17 +80,21 @@ input::placeholder {
 /* search */
 .booktrip-search {
   width: 100%;
-  border: none;
   height: 12%;
-  background: var(--color-global);
+  margin: var(--margin-top-bottom-global-booktrip) 0 0 0;
+}
+.booktrip-search-btn {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
   font-size: 16px;
   font-weight: 700;
+  background: var(--color-global);
   color: #fff;
-  border-radius: 6px;
-  margin: var(--margin-top-bottom-global-booktrip) 0 0 0;
-  cursor: pointer;
+  border: none;
 }
-.booktrip-search:hover {
+.booktrip-search-btn:hover {
   background: #f83f45;
 }
 /* traveler */
