@@ -12,6 +12,7 @@ import plane14 from "../images/plane-14.jpeg";
 import plane13 from "../images/plane-13.jpeg";
 import plane5 from "../images/plane-5.jpeg";
 import plane6 from "../images/plane-6.jpeg";
+import Head from '../components/Head';
 
 const Flight =() =>{
   // let countBackground = 1; 
@@ -27,6 +28,7 @@ const Flight =() =>{
   // },8000)
   return(
     <div>
+      <Head></Head>
       <Recommend></Recommend>
       <ListFlight></ListFlight>
       <Partners></Partners>

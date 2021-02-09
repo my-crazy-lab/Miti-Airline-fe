@@ -1,55 +1,43 @@
-import React,{useState, useEffect, useRef} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import "./Calendar.css"
 import $ from "jquery";
+import {FlyContext} from "../context"
 
-const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
-  const asd = useRef('a');
-  const dateNow = new Date();
-  const [nameMonth,setNameMonth] = useState('');
-  const [dayNow,setDayNow] = useState('');
-  const [yearNow,setYearNow] = useState(parseInt(`${new Date().getFullYear()}`));
-  const [monthNow,setMonthNow] = useState(parseInt(`${dateNow.getMonth()}`));
-  const [firstDay,setFirstDay] = useState(`${new Date(yearNow, monthNow, 1)}`);
+const Calendar =() =>{
+  const context = useContext(FlyContext);
+  
+  const [firstDay,setFirstDay] = useState(`${new Date(context.yearNow, context.monthNow, 1)}`);
   const [checkFday,setCheckFday] = useState(`${firstDay.split('' , 2).join('')}`);
   const [sumDay,setSumDay] = useState(0);
 
   useEffect(() => {
     fillCalendar();
-    setNameDay(dateNow.getDate())
-    setMonthParent(nameMonth);
-    setDayParent(dayNow);
-    setYearParent(yearNow);
   });
+
   useEffect(() => {
-    setMonthParent(nameMonth);
-    setNameDay(dateNow.getDate())
-    setDayParent(findDay());
-    setYearParent(yearNow);
-  },[monthNow])
+    findDay()
+  },[]);
   const fixMonthNow=()=>{
-    if( monthNow === 12) {
-      setMonthNow(0);
-      setYearNow(yearNow + 1);
+    if( context.monthNow === 12) {
+      context.setMonthNow(0);
+      context.setYearNow(context.yearNow + 1);
     }
-    if(monthNow < 0) {
-      setMonthNow(11);
-      setYearNow(yearNow - 1);
+    if(context.monthNow < 0) {
+      context.setMonthNow(11);
+      context.setYearNow(context.yearNow - 1);
     }
   }
   const nextMonth=()=>{
-    setMonthNow(monthNow + 1);
+    context.setMonthNow(context.monthNow + 1);
     fixMonthNow();
-    asd.current = 'asdasd'
-    console.log(asd.current)
   }
   const backMonth=()=>{
-    setMonthNow(monthNow - 1);
+    context.setMonthNow(context.monthNow - 1);
     fixMonthNow();
-    console.log(asd.current)
   }
   const checkLeapYear=()=>{
-    if(yearNow %4=== 0 && yearNow %100!== 0){
-      switch(monthNow){
+    if(context.yearNow %4=== 0 && context.yearNow %100!== 0){
+      switch(context.monthNow){
         case 0 :{
           setSumDay(31);
           break;
@@ -101,7 +89,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
       }
     }
     else {
-      switch(monthNow){
+      switch(context.monthNow){
         case 0 :{
           setSumDay(31);
           break;
@@ -154,12 +142,11 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
     }
   }
   const fillCalendar =()=>{
-    setFirstDay(`${new Date(yearNow, monthNow, 1)}`);
-    setCheckFday(`${firstDay.split('' , 2).join('')}`)
-    findDay();
+    setFirstDay(`${new Date(context.yearNow, context.monthNow, 1)}`);
+    setCheckFday(`${firstDay.split('' , 3).join('')}`)
     findMonth();
     checkLeapYear();
-    if(checkFday === 'Su'){
+    if(checkFday === 'Sun'){
       $('.0').text('1');
       $('.0').css({'width': '40px', 'height': '40px'});
       for(let i = 2 ; i <= sumDay ; i++){
@@ -170,7 +157,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         $(`.${j}`).text('');
       }
     }
-    if(checkFday === 'Mo'){
+    if(checkFday === 'Mon'){
       $('.0').text('');
       $('.1').text('1');
       $('.1').css({'width': '40px', 'height': '40px'});
@@ -182,7 +169,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         $(`.${j}`).text('');
       }
     }
-    if(checkFday === 'Tu'){
+    if(checkFday === 'Tue'){
       $('.0').text('');
       $('.1').text('');
       $('.2').text('1');
@@ -195,7 +182,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         $(`.${j}`).text('');
       }
     }
-    if(checkFday === 'We'){
+    if(checkFday === 'Wed'){
       $('.0').text('');
       $('.1').text('');
       $('.2').text('');
@@ -209,7 +196,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         $(`.${j}`).text('');
       }
     }
-    if(checkFday === 'Th'){
+    if(checkFday === 'Thu'){
       $('.0').text('');
       $('.1').text('');
       $('.2').text('');
@@ -224,7 +211,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         $(`.${j}`).text('');
       }
     }
-    if(checkFday === 'Fr'){
+    if(checkFday === 'Fri'){
       $('.0').text('');
       $('.1').text('');
       $('.2').text('');
@@ -240,7 +227,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         $(`.${j}`).text('');
       }
     }
-    if(checkFday === 'Sa'){
+    if(checkFday === 'Sat'){
       $('.0').text('');
       $('.1').text('');
       $('.2').text('');
@@ -259,93 +246,100 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
     }
   }
   const findDay =()=>{
-    switch(dateNow.getDay()){
+    switch(new Date().getDay()){
       case 0: {
-        setDayNow('Sunday') ;
+        context.setNameDay('Sun') ;
         break;
       }
       case 1: {
-        setDayNow('Monday') ;
+        context.setNameDay('Mon') ;
         break;
       }
       case 2: {
-        setDayNow('Tuesday') ;
+        context.setNameDay('Tue') ;
         break;
       }
       case 3: {
-        setDayNow('Wednesday') ;
+        context.setNameDay('Wed') ;
         break;
       }
       case 4: {
-        setDayNow('Thursday') ;
+        context.setNameDay('Thu') ;
         break;
       }
       case 5: {
-        setDayNow('Friday') ;
+        context.setNameDay('Fri') ;
         break;
       }
       case 6: {
-        setDayNow('Saturday') ;
+        context.etNameDay('Sat') ;
         break;
       }
       default: break;
     }
   }
   const findMonth =()=>{
-    switch(monthNow){
+    switch(context.monthNow){
       case 0 : {  
-        setNameMonth('January');
+        context.setNameMonth('January');
         break;
       }
       case 1 : {  
-        setNameMonth('February');
+        context.setNameMonth('February');
         break;
       }
       case 2 : {  
-        setNameMonth('Match');
+        context.setNameMonth('Match');
         break;
       }
       case 3 : {  
-        setNameMonth('April');
+        context.setNameMonth('April');
         break;
       }
       case 4 : {  
-        setNameMonth('May');
+        context.setNameMonth('May');
         break;
       }
       case 5 : {  
-        setNameMonth('June');
+        context.setNameMonth('June');
         break;
       }
       case 6 : {  
-        setNameMonth('July');
+        context.setNameMonth('July');
         break;
       }
       case 7 : {  
-        setNameMonth('August');
+        context.setNameMonth('August');
         break;
       }
       case 8 : {  
-        setNameMonth('September');
+        context.setNameMonth('September');
         break;
       }
       case 9 : {  
-        setNameMonth('October');
+        context.setNameMonth('October');
         break;
       }
       case 10 : {  
-        setNameMonth('November');
+        context.setNameMonth('November');
         break;
       }
       case 11 : {  
-        setNameMonth('December');
+        context.setNameMonth('December');
         break;
       }
       default : break;
     }
   }
-  const chooseDateInCalendar =()=>{
-    console.log()
+  const chooseDateInCalendar=(text , index) =>{
+    context.setDay(text)
+    if(parseInt(index) % 7 === 0) context.setNameDay('Sun')
+    if(parseInt(index) % 7 === 1) context.setNameDay('Mon')
+    if(parseInt(index) % 7 === 2) context.setNameDay('Tue')
+    if(parseInt(index) % 7 === 3) context.setNameDay('Wed')
+    if(parseInt(index) % 7 === 4) context.setNameDay('Thu')
+    if(parseInt(index) % 7 === 5) context.setNameDay('Fri')
+    if(parseInt(index) % 7 === 6) context.setNameDay('Sat')
   }
   return(
     <div className="calendar">
@@ -353,7 +347,7 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
         <button onClick={backMonth}>
           <i class="fas fa-chevron-left"></i>
         </button>
-        <span>{nameMonth} {yearNow}</span>
+        <span>{context.nameMonth} {context.yearNow}</span>
         <button onClick={nextMonth}>
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -379,145 +373,145 @@ const Calendar =({setMonthParent,setNameDay, setYearParent, setDayParent}) =>{
             <span>Fri</span>
           </div>
           <div>
-            <span>Sat</span>
+            <span >Sat</span>
           </div>
         </div>
         <div className="calendar-name-day">
           <div>
-            <span className="0" onClick={chooseDateInCalendar}></span>
+            <span className="0" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
           <div>
-            <span className="1" onClick={chooseDateInCalendar}></span>
+            <span className="1" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
           <div>
-            <span className="2" onClick={chooseDateInCalendar}></span>
+            <span className="2" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
           <div>
-            <span className="3" onClick={chooseDateInCalendar}></span>
+            <span className="3" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
           <div>
-            <span className="4" onClick={chooseDateInCalendar}></span>
+            <span className="4" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
           <div>
-            <span className="5" onClick={chooseDateInCalendar}></span>
+            <span className="5" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
           <div>
-            <span className="6" onClick={chooseDateInCalendar}></span>
+            <span className="6" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
           </div>
-        </div>
-        <div className="calendar-name-day">
-        <div>
-        <span className="7" onClick={chooseDateInCalendar}></span>
-      </div>
-      <div>
-        <span className="8" onClick={chooseDateInCalendar}></span>
-      </div>
-      <div>
-        <span className="9" onClick={chooseDateInCalendar}></span>
-      </div>
-      <div>
-        <span className="10" onClick={chooseDateInCalendar}></span>
-      </div>
-      <div>
-        <span className="11" onClick={chooseDateInCalendar}></span>
-      </div>
-      <div>
-        <span className="12" onClick={chooseDateInCalendar}></span>
-      </div>
-      <div>
-        <span className="13" onClick={chooseDateInCalendar}></span>
-      </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="14" onClick={chooseDateInCalendar}></span>
+        <span className="7" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="15" onClick={chooseDateInCalendar}></span>
+        <span className="8" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="16" onClick={chooseDateInCalendar}></span>
+        <span className="9" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="17" onClick={chooseDateInCalendar}></span>
+        <span className="10" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="18" onClick={chooseDateInCalendar}></span>
+        <span className="11" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="19" onClick={chooseDateInCalendar}></span>
+        <span className="12" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="20" onClick={chooseDateInCalendar}></span>
+        <span className="13" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="21" onClick={chooseDateInCalendar}></span>
+        <span className="14" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="22" onClick={chooseDateInCalendar}></span>
+        <span className="15" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="23" onClick={chooseDateInCalendar}></span>
+        <span className="16" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="24" onClick={chooseDateInCalendar}></span>
+        <span className="17" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="25" onClick={chooseDateInCalendar}></span>
+        <span className="18" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="26" onClick={chooseDateInCalendar}></span>
+        <span className="19" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="27" onClick={chooseDateInCalendar}></span>
+        <span className="20" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="28" onClick={chooseDateInCalendar}></span>
+        <span className="21" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="29" onClick={chooseDateInCalendar}></span>
+        <span className="22" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="30" onClick={chooseDateInCalendar}></span>
+        <span className="23" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="31" onClick={chooseDateInCalendar}></span>
+        <span className="24" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="32" onClick={chooseDateInCalendar}></span>
+        <span className="25" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="33" onClick={chooseDateInCalendar}></span>
+        <span className="26" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="34" onClick={chooseDateInCalendar}></span>
+        <span className="27" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
         </div>
         <div className="calendar-name-day">
         <div>
-        <span className="35" onClick={chooseDateInCalendar}></span>
+        <span className="28" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="36" onClick={chooseDateInCalendar}></span>
+        <span className="29" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="37" onClick={chooseDateInCalendar}></span>
+        <span className="30" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="38" onClick={chooseDateInCalendar}></span>
+        <span className="31" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="39" onClick={chooseDateInCalendar}></span>
+        <span className="32" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="40" onClick={chooseDateInCalendar}></span>
+        <span className="33" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
       <div>
-        <span className="41" onClick={chooseDateInCalendar}></span>
+        <span className="34" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+        </div>
+        <div className="calendar-name-day">
+        <div>
+        <span className="35" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+      <div>
+        <span className="36" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+      <div>
+        <span className="37" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+      <div>
+        <span className="38" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+      <div>
+        <span className="39" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+      <div>
+        <span className="40" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+      </div>
+      <div>
+        <span className="41" onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
       </div>
         </div>
       </div>

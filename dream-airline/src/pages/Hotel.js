@@ -1,9 +1,16 @@
-import react from 'react';
-import SliderPrice from "../components/SliderPrice";
+import React from 'react';
+import {Link} from "react-router-dom";
+import HeadHotel from '../components/HeadHotel';
+import Partners from '../components/Partners';
+import TopFlight from '../components/TopFlight';
 
 const Hotel =() =>{
   return(
-    <SliderPrice></SliderPrice>
+    <div>
+      <HeadHotel></HeadHotel>
+      <Partners></Partners>
+      <TopFlight></TopFlight>
+    </div>
   )
 }
 

@@ -10,6 +10,12 @@ const FlyProvider =({children})=>{
     $('.flight-login').toggle();
   },[showLogin]);
 
+  const [monthNow,setMonthNow] = useState(parseInt(`${new Date().getMonth()}`));
+  const [nameMonth,setNameMonth] = useState('');
+  const [nameDay,setNameDay] = useState('');
+  const [day, setDay] = useState(new Date().getDate());
+  const [yearNow,setYearNow] = useState(parseInt(`${new Date().getFullYear()}`));
+
   const [chooseTrip, setChooseTrip] = useState(false);
   const [idDep, setIdDep] = useState('');
   const [idDes, setIdDes] = useState('');
@@ -73,6 +79,16 @@ const FlyProvider =({children})=>{
       setIdDep : setIdDep,
       trip: trip ,
       setTrip: setTrip,
+      nameMonth: nameMonth ,
+      setNameMonth: setNameMonth,
+      day: day ,
+      setDay: setDay,
+      yearNow: yearNow ,
+      setYearNow: setYearNow,
+      nameDay: nameDay ,
+      setNameDay: setNameDay,
+      monthNow: monthNow ,
+      setMonthNow: setMonthNow,
     }}>
       {children}
     </FlyContext.Provider>

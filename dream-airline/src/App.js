@@ -8,13 +8,11 @@ import Price from './pages/Price';
 import Error from './pages/Error';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
-import Head from './components/Head';
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Head></Head>
       <Switch>
         <Route exact path="/" component ={Flight}></Route>
         <Route exact path="/Hotel/" component ={Hotel}></Route>

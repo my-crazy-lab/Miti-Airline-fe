@@ -13,11 +13,6 @@ const BookTrip =()=>{
   const chooseDep = useRef();
   const chooseDes =useRef();
 
-  const [monthParent, setMonthParent] = useState();
-  const [dayParent, setDayParent]= useState();
-  const [yearParent, setYearParent]= useState();
-  const [nameDay, setNameDay]=useState();
-
   useEffect(() => {
     context.setTraveler(context.adult + context.child + context.infant);
   },[context.adult , context.child , context.infant]);
@@ -190,7 +185,7 @@ const BookTrip =()=>{
         <div className="booktrip-date">
           <div className="booktrip-date-departure" onClick={showCalendarDe}>
             <span className="booktrip-date-departure-span1">Departure Date</span>
-            <span className="booktrip-date-departure-span2">{dayParent}, {nameDay} {monthParent} {yearParent}</span>
+            <span className="booktrip-date-departure-span2">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
           <div className="booktrip-date-calendar-1">
             <div className="booktrip-date-calendar-head">
@@ -200,13 +195,13 @@ const BookTrip =()=>{
               </button>
             </div>
             <div className="booktrip-date-calendar-body">
-              <Calendar setNameDay={setNameDay} setMonthParent={setMonthParent} setDayParent={setDayParent} setYearParent={setYearParent}></Calendar>
+              <Calendar></Calendar>
               <div>1</div>
             </div>
           </div>
           <div className={`booktrip-date-return ${checkway === false? '' : 'pointer-none'}`} onClick={showCalendarRe}>
             <span className={`${checkway === false? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>Return Date</span>
-            <span className={`${checkway === false? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>{dayParent}, {nameDay} {monthParent} {yearParent}</span>
+            <span className={`${checkway === false? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
             <div className="booktrip-date-calendar-2" >
               <div className="booktrip-date-calendar-head">
@@ -216,7 +211,7 @@ const BookTrip =()=>{
                 </button>
               </div>
               <div className="booktrip-date-calendar-body">
-                <Calendar setNameDay={setNameDay} setMonthParent={setMonthParent} setDayParent={setDayParent} setYearParent={setYearParent}></Calendar>
+                <Calendar ></Calendar>
                 <div>2</div>
               </div>
             </div>

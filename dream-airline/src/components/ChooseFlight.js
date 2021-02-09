@@ -32,7 +32,7 @@ const ChooseFlight = ()=>{
                 Departure flight to Ho Chi Minh City
               </span>
               <div className="choose-flight-change-head-detail">
-                <span className="choose-flight-change-head-detail-date">Tue, 9 February 2021</span>
+                <span className="choose-flight-change-head-detail-date">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
                 <span className="choose-flight-change-head-detail-traveler"> {context.traveler} Traveler</span>
               </div>
             </div>
@@ -88,7 +88,7 @@ const ChooseFlight = ()=>{
           <div>
             <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-big">{context.trip.departureTime}</span>
-              <span className="choose-flight-text-small">09 Feb 2021</span>
+              <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
             </div>
             <div>
               <i class="far fa-clock"></i>
@@ -96,7 +96,7 @@ const ChooseFlight = ()=>{
             </div>
             <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-big">{context.trip.destinationTime}</span>
-              <span className="choose-flight-text-small">09 Feb 2021</span>
+              <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
             </div>
           </div>
           <div>
@@ -172,7 +172,7 @@ const ChooseFlight = ()=>{
                 <div>
                   <div className="choose-flight-list-child-detail-child">
                     <span className="choose-flight-text-big">{data.departureTime}</span>
-                    <span className="choose-flight-text-small">09 Feb 2021</span>
+                    <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
                   </div>
                   <div>
                     <i class="far fa-clock"></i>
@@ -180,7 +180,7 @@ const ChooseFlight = ()=>{
                   </div>
                   <div className="choose-flight-list-child-detail-child">
                     <span className="choose-flight-text-big">{data.destinationTime}</span>
-                    <span className="choose-flight-text-small">09 Feb 2021</span>
+                    <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
                   </div>
                 </div>
                 <div>
