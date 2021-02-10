@@ -68,6 +68,7 @@
   --width-global: 1260px;
   --margin-left-global: 20px;
   --color-background-topic: #f3f1f1;
+  --width-line-go: 80px;
 }
 body {
   background: #f7f7f7;
@@ -100,4 +101,8 @@ input {
   cursor: pointer;
   padding: 12px 20px;
   font-size: 16px;
+}
+.special-pointer {
+  color: var(--color-global);
+  font-size: 18px;
 }

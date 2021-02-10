@@ -31,9 +31,11 @@ const DetailTrip =() =>{
             <span className="choose-flight-text-small">BL6215</span>
             <span className="choose-flight-text-small">Airbus A320</span>
           </div>
-          <div className="detail-trip-child">
-                  
-          </div>
+          <div className="graph-go">
+                  <div className="point-start"></div>
+                  <div className="line-go"></div>
+                  <div className="point-end"></div>
+                </div>
           <div>
             <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-big">{context.dataChoice.departureTime}</span>
@@ -90,7 +92,7 @@ const DetailTrip =() =>{
           <span className="choose-flight-text-bold margin-left-text">Total Price</span>
           <span className="choose-flight-text-bold margin-right-text">{context.dataChoice.currency} {context.dataChoice.price * context.traveler}</span>
         </div>
-        <Link>
+        <Link to="/Flight/book">
           <button type="button" className="btn-red-white detail-trip-btn">Continue Booking</button>
         </Link>
       </div>

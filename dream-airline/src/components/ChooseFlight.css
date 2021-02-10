@@ -230,3 +230,27 @@
   font-weight: 700;
   color: var(--color-content-global);
 }
+.graph-go {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.point-start {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.line-go {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 1px;
+  height: var(--width-line-go);
+  margin: 16px 0;
+}
+.point-end {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+}

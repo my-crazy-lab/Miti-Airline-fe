@@ -88,9 +88,11 @@ const ChooseFlight = ()=>{
             <span className="choose-flight-text-small">BL6215</span>
             <span className="choose-flight-text-small">Airbus A320</span>
           </div>
-          <div className="choose-flight-list-child-detail-child">
-          
-          </div>
+          <div className="graph-go">
+                  <div className="point-start"></div>
+                  <div className="line-go"></div>
+                  <div className="point-end"></div>
+                </div>
           <div>
             <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-big">{context.trip.departureTime}</span>
@@ -174,8 +176,10 @@ const ChooseFlight = ()=>{
                   <span className="choose-flight-text-small">BL6215</span>
                   <span className="choose-flight-text-small">Airbus A320</span>
                 </div>
-                <div className="choose-flight-list-child-detail-child">
-                
+                <div className="graph-go">
+                  <div className="point-start"></div>
+                  <div className="line-go"></div>
+                  <div className="point-end"></div>
                 </div>
                 <div>
                   <div className="choose-flight-list-child-detail-child">

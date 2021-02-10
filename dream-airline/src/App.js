@@ -9,6 +9,7 @@ import Error from './pages/Error';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import ConfirmTrip from './pages/ConfirmTrip';
+import Book from './pages/Book';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/Flight" component ={Flight}></Route>
         <Route exact path="/Flight/confirm" component ={ConfirmTrip}></Route>
+        <Route exact path="/Flight/book" component ={Book}></Route>
         <Route exact path="/Hotel/" component ={Hotel}></Route>
         <Route exact path="/SearchPlane/" component ={SearchPlane}></Route>
         <Route exact path="/Orders/" component ={Orders}></Route>
