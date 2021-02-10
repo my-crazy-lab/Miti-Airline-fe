@@ -108,7 +108,7 @@ const OptionFlight =()=>{
               </select>
             </form>
             <form className="option-head-child">
-              <button onClick={clickAllListTrip} type="button">All</button>
+              <button onClick={clickAllListTrip} type="button" className="btn-show">All</button>
             </form>
           </div>
           <form className="option-footer">

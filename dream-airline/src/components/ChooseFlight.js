@@ -2,9 +2,13 @@ import React, {useContext} from 'react'
 import "./ChooseFlight.css"
 import {FlyContext} from '../context';
 import OptionFlight from '../components/OptionFlight'
+import {Link} from 'react-router-dom'
 
 const ChooseFlight = ()=>{
   const context = useContext(FlyContext);
+  const chooseTrip=(key)=>{
+    context.setDataChoice(context.appData.flyData.find(data => data.key === key))
+  }
   return(
     <div className="choose-flight-frame">
     <div className="choose-flight-choice-frame">
@@ -36,7 +40,7 @@ const ChooseFlight = ()=>{
                 <span className="choose-flight-change-head-detail-traveler"> {context.traveler} Traveler</span>
               </div>
             </div>
-            <button className="choose-flight-change-head-btn">Change Date</button>
+            <button className="btn-red-white margin-right-text">Change Date</button>
           </div>
           <div className="choose-flight-change-option">
             <OptionFlight></OptionFlight>
@@ -47,7 +51,7 @@ const ChooseFlight = ()=>{
           { context.chooseTrip  === true ? (<div className="choose-flight-list-child">
           <div className="choose-flight-list-child-announce">
           <div className="choose-flight-list-child-announce-list">
-            <span className="choose-flight-text-normal">VietNam Airline</span>
+            <span className="choose-flight-text-normal margin-left-text ">VietNam Airline</span>
             <div className="choose-flight-list-child-time">
               <span className="choose-flight-text-bold">{context.trip.departureTime}</span>
               <span className="choose-flight-text-normal">{context.trip.id}</span>
@@ -72,12 +76,14 @@ const ChooseFlight = ()=>{
             <span className="choose-flight-list-child-price choose-flight-text-blur">{context.trip.typePrice}</span>
           </div>
           <div className="choose-flight-list-child-announce-show">
-            <button type="button" className="choose-flight-list-child-announce-btn">Choose Flight</button>
+            <Link to="/Flight/confirm">
+              <button type="button" className="btn-red-white" onClick={() => chooseTrip(context.trip.key)}>Choose Flight</button>
+            </Link>
             <i class="fas fa-chevron-up"></i>
           </div>
         </div>
         <div className="choose-flight-list-child-detail">
-          <div className="choose-flight-list-child-detail-child">
+          <div className="choose-flight-list-child-detail-child margin-left-text ">
             <span className="choose-flight-text-normal">VietNam Airline</span>
             <span className="choose-flight-text-small">BL6215</span>
             <span className="choose-flight-text-small">Airbus A320</span>
@@ -101,12 +107,12 @@ const ChooseFlight = ()=>{
           </div>
           <div>
             <div className="choose-flight-list-child-detail-child">
-              <span className="choose-flight-text-normal">{context.trip.to} ({context.trip.toId})</span>
-              <span className="choose-flight-text-blur">{context.trip.toAirline}</span>
-            </div>
-            <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-normal">{context.trip.name} ({context.trip.id})</span>
               <span className="choose-flight-text-blur">{context.trip.airport}</span>
+            </div>
+            <div className="choose-flight-list-child-detail-child">
+              <span className="choose-flight-text-normal">{context.trip.to} ({context.trip.toId})</span>
+              <span className="choose-flight-text-blur">{context.trip.toAirline}</span>
             </div>
           </div>
           <div className="choose-flight-list-child-detail-child choose-flight-baggage">
@@ -131,7 +137,7 @@ const ChooseFlight = ()=>{
             return <div className="choose-flight-list-child">
               <div className="choose-flight-list-child-announce">
                 <div className="choose-flight-list-child-announce-list">
-                  <span className="choose-flight-text-normal">VietNam Airline</span>
+                  <span className="choose-flight-text-normal margin-left-text ">VietNam Airline</span>
                   <div className="choose-flight-list-child-time">
                     <span className="choose-flight-text-bold">{data.departureTime}</span>
                     <span className="choose-flight-text-normal">{data.id}</span>
@@ -156,13 +162,15 @@ const ChooseFlight = ()=>{
                   <span className="choose-flight-list-child-price choose-flight-text-blur">{data.typePrice}</span>
                 </div>
                 <div className="choose-flight-list-child-announce-show">
-                  <button type="button" className="choose-flight-list-child-announce-btn">Choose Flight</button>
+                  <Link to="/Flight/confirm">
+                    <button type="button" className="btn-red-white" onClick={() => chooseTrip(data.key)}>Choose Flight</button>                  
+                  </Link>
                   <i class="fas fa-chevron-up"></i>
                 </div>
               </div>
               <div className="choose-flight-list-child-detail">
-                <div className="choose-flight-list-child-detail-child">
-                  <span className="choose-flight-text-normal">VietNam Airline</span>
+                <div className="choose-flight-list-child-detail-child margin-left-text ">
+                  <span className="choose-flight-text-normal ">VietNam Airline</span>
                   <span className="choose-flight-text-small">BL6215</span>
                   <span className="choose-flight-text-small">Airbus A320</span>
                 </div>
@@ -185,15 +193,15 @@ const ChooseFlight = ()=>{
                 </div>
                 <div>
                   <div className="choose-flight-list-child-detail-child">
-                    <span className="choose-flight-text-normal">{data.to} ({data.toId})</span>
-                    <span className="choose-flight-text-blur">{data.toAirline}</span>
-                  </div>
-                  <div className="choose-flight-list-child-detail-child">
                     <span className="choose-flight-text-normal">{data.name} ({data.id})</span>
                     <span className="choose-flight-text-blur">{data.airport}</span>
                   </div>
+                  <div className="choose-flight-list-child-detail-child">
+                    <span className="choose-flight-text-normal">{data.to} ({data.toId})</span>
+                    <span className="choose-flight-text-blur">{data.toAirline}</span>
+                  </div>
                 </div>
-                <div className="choose-flight-list-child-detail-child choose-flight-baggage">
+                <div className="choose-flight-baggage">
                   <div>
                     <i class="fas fa-suitcase-rolling"></i>
                     <span className="choose-flight-text-normal">Cabin Baggage 7 kg</span>

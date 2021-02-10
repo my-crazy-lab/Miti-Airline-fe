@@ -59,7 +59,7 @@ const Navbar=()=>{
           <i class="fas fa-fighter-jet"></i>
         </div>
         <div className="nav-list">
-          <Link to="/" className="nav-list-child">Flight</Link>
+          <Link to="/Flight" className="nav-list-child">Flight</Link>
           <Link to="/Hotel" className="nav-list-child">Hotel</Link>
           <Link to="/SearchPlane" className="nav-list-child">Search</Link>
           <Link to="/Orders" className="nav-list-child">Orders</Link>

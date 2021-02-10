@@ -16,6 +16,8 @@ const FlyProvider =({children})=>{
   const [day, setDay] = useState(new Date().getDate());
   const [yearNow,setYearNow] = useState(parseInt(`${new Date().getFullYear()}`));
 
+  const [dataChoice, setDataChoice] = useState({})
+
   const [chooseTrip, setChooseTrip] = useState(false);
   const [idDep, setIdDep] = useState('');
   const [idDes, setIdDes] = useState('');
@@ -89,6 +91,8 @@ const FlyProvider =({children})=>{
       setNameDay: setNameDay,
       monthNow: monthNow ,
       setMonthNow: setMonthNow,
+      dataChoice: dataChoice ,
+      setDataChoice: setDataChoice,
     }}>
       {children}
     </FlyContext.Provider>

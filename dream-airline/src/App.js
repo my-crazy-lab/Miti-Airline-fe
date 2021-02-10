@@ -8,13 +8,15 @@ import Price from './pages/Price';
 import Error from './pages/Error';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
+import ConfirmTrip from './pages/ConfirmTrip';
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
       <Switch>
-        <Route exact path="/" component ={Flight}></Route>
+        <Route exact path="/Flight" component ={Flight}></Route>
+        <Route exact path="/Flight/confirm" component ={ConfirmTrip}></Route>
         <Route exact path="/Hotel/" component ={Hotel}></Route>
         <Route exact path="/SearchPlane/" component ={SearchPlane}></Route>
         <Route exact path="/Orders/" component ={Orders}></Route>

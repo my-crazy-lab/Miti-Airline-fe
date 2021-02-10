@@ -21,10 +21,10 @@
   align-items: center;
 }
 .option-head-child select {
-  width: 160px;
+  width: 90px;
   height: 24px;
 }
 .option-footer select {
-  width: 160px;
+  width: 120px;
   height: 24px;
 }

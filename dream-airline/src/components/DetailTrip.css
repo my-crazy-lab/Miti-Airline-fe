@@ -1,0 +1,98 @@
+.detail-trip-frame {
+  width: calc(var(--width-global) * 0.7);
+  background: white;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 6px;
+}
+.detail-trip-btn {
+  width: calc(var(--width-global) * 0.25);
+  font-size: 20px;
+}
+.detail-trip-price {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.detail-trip-price-head {
+  height: 48%;
+  background-color: white;
+  border-radius: 6px;
+}
+.detail-trip-depart i {
+  font-size: 14px;
+  color: var(--color-text-opa);
+  margin: 0 6px;
+}
+.detail-trip-depart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.detail-trip-price-topic {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+.detail-trip-total {
+  display: flex;
+  justify-content: space-between;
+  height: 28%;
+  background-color: white;
+  align-items: center;
+  border-radius: 6px;
+}
+.detail-trip-text-small-bold {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-content-global);
+}
+.frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.detail-trip {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.detail-trip-child {
+  display: flex;
+  flex-direction: column;
+}
+.detail-trip-head {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+.detail-trip-time {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.detail-trip-time i {
+  font-size: 14px;
+  color: var(--color-text-opa);
+  margin: 0 16px;
+}
+.detail-trip-baggage {
+  width: 25%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.detail-trip-baggage i {
+  color: var(--color-text-global);
+  margin-right: 8px;
+}

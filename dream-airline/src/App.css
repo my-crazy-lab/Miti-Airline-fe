@@ -39,6 +39,21 @@
   padding: 6px 12px 6px 12px;
   background: transparent;
 }
+.btn-red-white {
+  padding: 12px 16px;
+  border: 1px solid var(--color-global);
+  color: var(--color-global);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s;
+}
+.btn-red-white:hover {
+  color: white;
+  background-color: var(--color-global);
+}
 .style-topic {
   color: #4e0309;
   font-size: 36px;
@@ -47,6 +62,7 @@
 :root {
   --color-text-global: #6d595b;
   --color-content-global: #535353;
+  --color-text-opa: #c4c0c0;
   --color-global: #ec1f26;
   --margin-bottom-element-body: 60px;
   --width-global: 1260px;
@@ -65,4 +81,23 @@ button {
 }
 input {
   outline: none;
+}
+.margin-left-text {
+  margin-left: 20px;
+}
+.margin-right-text {
+  margin-right: 20px;
+}
+.box-shadow-frame {
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+.btn-show {
+  color: white;
+  background: var(--color-global);
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
 }
