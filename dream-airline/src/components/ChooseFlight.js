@@ -36,7 +36,7 @@ const ChooseFlight = ()=>{
                 Departure flight to Ho Chi Minh City
               </span>
               <div className="choose-flight-change-head-detail">
-                <span className="choose-flight-change-head-detail-date">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
+                <span className="choose-flight-change-head-detail-date margin-left-text">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
                 <span className="choose-flight-change-head-detail-traveler"> {context.traveler} Traveler</span>
               </div>
             </div>

@@ -1,0 +1,33 @@
+.contact {
+  width: calc(var(--width-global) * 2 / 3);
+  background-color: white;
+  height: 400px;
+}
+.contact-head {
+  height: 16%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.contact-body {
+  height: 84%;
+}
+.contact-child {
+  display: flex;
+  height: 25%;
+}
+.contact-child-child {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 30%;
+}
+.contact-input {
+  font-size: 14px;
+  font-weight: 400;
+  color: #776673;
+}
+.contact-input::placeholder {
+  font-size: 14px;
+  color: #cfd7df;
+}

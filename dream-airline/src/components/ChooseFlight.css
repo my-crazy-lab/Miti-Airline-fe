@@ -105,7 +105,6 @@
   font-weight: 400;
   color: var(--color-content-global);
   position: relative;
-  margin-left: var(--margin-left-global);
 }
 .choose-flight-change-head-detail-date::before,
 .choose-flight-trip-detail-trip::before {

@@ -727,6 +727,36 @@ const tripDataJa ={
     }
   ]
 }
+const mobileCountry =[
+  {
+    country : 'Afghanistan',
+    number: '+93',
+  },
+  {
+    country : 'Aland Island',
+    number: '++358',
+  },
+  {
+    country : 'Albania',
+    number: '+355',
+  },
+  {
+    country : 'Algeria',
+    number: '+213',
+  },
+  {
+    country : 'American',
+    number: '+1684',
+  },
+  {
+    country : 'Australia',
+    number: '+61',
+  },
+  {
+    country : 'Benin',
+    number: '+299',
+  },
+]
 const allTrip = [
   tripDataVN,
   tripDataUS,
@@ -748,6 +778,7 @@ export const appData={
   flyDataT : flyDataT,
   listPrice : listPrice,
   toCountry : toCountry,
+  mobileCountry : mobileCountry,
 }
 
 function setData (){

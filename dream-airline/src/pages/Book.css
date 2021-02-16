@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 600px;
 }
 .book {
   width: var(--width-global);

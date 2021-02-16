@@ -17,7 +17,7 @@ const DetailTrip =() =>{
               <span className="choose-flight-text-bold">{context.dataChoice.to} ({context.dataChoice.toId})</span>
             </div>
             <div className="choose-flight-change-head-detail">
-              <span className="choose-flight-change-head-detail-date">{context.traveler} Pax</span>
+              <span className="choose-flight-change-head-detail-date margin-left-text">{context.traveler} Pax</span>
               <span className="choose-flight-change-head-detail-traveler">Direct</span>
             </div>
           </div>

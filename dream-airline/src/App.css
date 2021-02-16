@@ -89,6 +89,12 @@ input {
 .margin-right-text {
   margin-right: 20px;
 }
+.margin-top-text {
+  margin-top: 20px;
+}
+.margin-bottom-text {
+  margin-bottom: 20px;
+}
 .box-shadow-frame {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
 }

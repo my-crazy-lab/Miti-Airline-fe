@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactInfor from '../components/ContactInfor'
+import TravelerInfor from '../components/TravelerInfor'
 import './Book.css';
 
 const Book =() =>{
@@ -8,6 +9,7 @@ const Book =() =>{
       <div className="book">
         <div>
           <ContactInfor></ContactInfor>
+          <TravelerInfor></TravelerInfor>
         </div>
       </div>
     </div>
