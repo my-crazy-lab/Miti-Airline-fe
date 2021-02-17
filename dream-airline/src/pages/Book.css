@@ -3,9 +3,90 @@
   display: flex;
   justify-content: center;
 }
+.book-head {
+  margin-top: 100px;
+  width: 100%;
+}
 .book {
-  width: var(--width-global);
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+.book-body {
+  width: var(--width-global);
+  display: flex;
+}
+.book-body-1 {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.book-body-2 {
+  width: 30%;
+}
+.book-price {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-price-head {
+  height: 66%;
+  background-color: white;
+  border-radius: 6px;
+}
+.book-total {
+  display: flex;
+  justify-content: space-between;
+  height: 32%;
+  background-color: white;
+  align-items: center;
+  border-radius: 6px;
+}
+.book-flight-detail {
+  height: 400px;
+  width: 100%;
+  background-color: white;
+}
+.book-flight-head {
+  height: 16%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book-text-detail {
+  font-size: 14px;
+  color: #f4a25b;
+  font-weight: 500;
+}
+.book-flight-depart {
+  height: 24%;
+}
+.book-flight-depart-flex {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.book-flight-time {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.book-time {
+  width: 90%;
+  height: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-around;
+}
+.book-continue {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

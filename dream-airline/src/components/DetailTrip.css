@@ -96,3 +96,9 @@
   color: var(--color-text-global);
   margin-right: 8px;
 }
+.detail-trip-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

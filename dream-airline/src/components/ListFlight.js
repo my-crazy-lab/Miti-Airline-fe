@@ -2,9 +2,15 @@ import React, { useContext} from 'react'
 import "./ListFlight.css";
 import OptionFlight from '../components/OptionFlight'
 import {FlyContext} from '../context';
+import {Link} from 'react-router-dom'
 
 const ListFlight =()=>{
   const context = useContext(FlyContext)
+
+  const chooseListFlight=(id, toId)=>{
+    context.setChooseTrip(true)
+    context.setTrip(context.appData.flyData.find(data => data.id === id && data.toId === toId))
+  }
   return(
     <div className="list-flight-frame">
       <div className="list-flight">
@@ -12,7 +18,7 @@ const ListFlight =()=>{
         <OptionFlight></OptionFlight>
         <div className="list-flight-list">
           {context.listData.map(fly => {
-            return <div className="list-flight-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
+            return <Link to="/SearchPlane" onClick={() => chooseListFlight(fly.id, fly.toId)} className="list-flight-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
             <div className="list-flight-list-row list-flight-list-row-child">
               <div className="list-flight-list-row-child-topic">
                 <span>From {fly.from}</span>
@@ -30,7 +36,7 @@ const ListFlight =()=>{
                 <i class="fas fa-angle-double-right"></i>
               </div>
             </div>
-          </div>
+          </Link>
           })}
         </div>
       </div>    

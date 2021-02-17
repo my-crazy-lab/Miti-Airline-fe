@@ -32,13 +32,13 @@ const DetailTrip =() =>{
             <span className="choose-flight-text-small">Airbus A320</span>
           </div>
           <div className="graph-go">
-                  <div className="point-start"></div>
-                  <div className="line-go"></div>
-                  <div className="point-end"></div>
-                </div>
-          <div>
+            <div className="point-start"></div>
+            <div className="line-go"></div>
+            <div className="point-end"></div>
+          </div>
+          <div className="detail-trip-flex">
             <div className="choose-flight-list-child-detail-child">
-              <span className="choose-flight-text-big">{context.dataChoice.departureTime}</span>
+              <span className="choose-flight-text-big margin-top-text">{context.dataChoice.departureTime}</span>
               <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
             </div>
             <div>
@@ -47,17 +47,17 @@ const DetailTrip =() =>{
             </div>
             <div className="detail-trip-child">
               <span className="choose-flight-text-big">{context.dataChoice.destinationTime}</span>
-              <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
+              <span className="choose-flight-text-small margin-bottom-text">{context.day} {context.nameMonth} {context.yearNow}</span>
             </div>
           </div>
-          <div>
+          <div className="detail-trip-flex">
             <div className="detail-trip-child">
-              <span className="choose-flight-text-normal">{context.dataChoice.name} ({context.dataChoice.id})</span>
+              <span className="choose-flight-text-normal margin-top-text">{context.dataChoice.name} ({context.dataChoice.id})</span>
               <span className="choose-flight-text-blur">{context.dataChoice.airport}</span>
             </div>
             <div className="detail-trip-child">
               <span className="choose-flight-text-normal">{context.dataChoice.to} ({context.dataChoice.toId})</span>
-              <span className="choose-flight-text-blur">{context.dataChoice.toAirline}</span>
+              <span className="choose-flight-text-blur margin-bottom-text">{context.dataChoice.toAirline}</span>
             </div>
           </div>
           <div className="detail-trip-baggage">

@@ -1,34 +1,40 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import "./Recommend.css";
-import {appData} from "../data";
-import $ from 'jquery';
+import {FlyContext} from '../context';
+import {Link} from 'react-router-dom'
 
 const Recommend =() =>{
+  const context = useContext(FlyContext);
+
+  const chooseRecommend=(id, toId)=>{
+    context.setChooseTrip(true)
+    context.setTrip(context.appData.flyData.find(data => data.id === id && data.toId === toId))
+  }
   return(
     <div className="recommend-frame">
       <div className="recommend">
         <span className="recommend-head">Recommended for you</span>
         <div className="recommend-list">
-          {appData.flyData.map(fly => {
-            return <div className="recommend-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
-            <div className="recommend-list-row recommend-list-row-child">
-              <div className="recommend-list-row-child-topic">
-                <span>From {fly.from}</span>
-                <div className="recommend-list-row-child-topic-icon">
-                  <i class="fas fa-plane"></i>
-                  <span>{fly.to} City</span>
+          {context.appData.flyData.map(fly => {
+            return <Link to="/SearchPlane" onClick={() => chooseRecommend(fly.id, fly.toId)} className="recommend-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
+              <div className="recommend-list-row recommend-list-row-child">
+                <div className="recommend-list-row-child-topic">
+                  <span>From {fly.from}</span>
+                  <div className="recommend-list-row-child-topic-icon">
+                    <i class="fas fa-plane"></i>
+                    <span>{fly.to} City</span>
+                  </div>
+                  <div className="recommend-list-row-child-topic-line"></div>
                 </div>
-                <div className="recommend-list-row-child-topic-line"></div>
-              </div>
-              <div className="recommend-list-row-child-topic-show">
-                <div className="recommend-list-row-child-topic price">
-                  <span>Start from</span>
-                  <span>{fly.price}</span>
+                <div className="recommend-list-row-child-topic-show">
+                  <div className="recommend-list-row-child-topic price">
+                    <span>Start from</span>
+                    <span>{context.symbol} {(fly.price * context.convert).toFixed(2)}</span>
+                  </div>
+                  <i class="fas fa-angle-double-right"></i>
                 </div>
-                <i class="fas fa-angle-double-right"></i>
               </div>
-            </div>
-          </div>
+            </Link>
           })}
         </div>
       </div>    

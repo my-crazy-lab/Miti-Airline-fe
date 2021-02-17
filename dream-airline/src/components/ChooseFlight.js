@@ -33,7 +33,7 @@ const ChooseFlight = ()=>{
           <div className="choose-flight-change-head">
             <div>
               <span className="choose-flight-change-head-name choose-flight-text-big ">
-                Departure flight to Ho Chi Minh City
+                Departure flight to {context.trip.to}
               </span>
               <div className="choose-flight-change-head-detail">
                 <span className="choose-flight-change-head-detail-date margin-left-text">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
@@ -70,7 +70,7 @@ const ChooseFlight = ()=>{
               <span className="choose-flight-text-normal">24 kg</span>
             </div>
             <div className="choose-flight-list-child-price">
-              <span  className="choose-flight-text-bold">{context.trip.currency} {context.trip.price}</span>
+              <span  className="choose-flight-text-bold">{context.symbol} {(context.trip.price * context.convert).toFixed(2)}</span>
               <span className="choose-flight-text-blur">/pax</span>
             </div>
             <span className="choose-flight-list-child-price choose-flight-text-blur">{context.trip.typePrice}</span>
@@ -93,9 +93,9 @@ const ChooseFlight = ()=>{
                   <div className="line-go"></div>
                   <div className="point-end"></div>
                 </div>
-          <div>
+          <div className="choose-flight-flex">
             <div className="choose-flight-list-child-detail-child">
-              <span className="choose-flight-text-big">{context.trip.departureTime}</span>
+              <span className="choose-flight-text-big margin-top-text">{context.trip.departureTime}</span>
               <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
             </div>
             <div>
@@ -104,17 +104,17 @@ const ChooseFlight = ()=>{
             </div>
             <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-big">{context.trip.destinationTime}</span>
-              <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
+              <span className="choose-flight-text-small margin-bottom-text">{context.day} {context.nameMonth} {context.yearNow}</span>
             </div>
           </div>
-          <div>
+          <div className="choose-flight-flex">
             <div className="choose-flight-list-child-detail-child">
-              <span className="choose-flight-text-normal">{context.trip.name} ({context.trip.id})</span>
+              <span className="choose-flight-text-normal margin-top-text">{context.trip.name} ({context.trip.id})</span>
               <span className="choose-flight-text-blur">{context.trip.airport}</span>
             </div>
             <div className="choose-flight-list-child-detail-child">
               <span className="choose-flight-text-normal">{context.trip.to} ({context.trip.toId})</span>
-              <span className="choose-flight-text-blur">{context.trip.toAirline}</span>
+              <span className="choose-flight-text-blur margin-bottom-text">{context.trip.toAirline}</span>
             </div>
           </div>
           <div className="choose-flight-list-child-detail-child choose-flight-baggage">
@@ -129,7 +129,7 @@ const ChooseFlight = ()=>{
           </div> 
         </div>
       </div>):(
-        <div></div>
+        <div>This Trip is cancel</div>
       )}
         </div>
 
@@ -158,7 +158,7 @@ const ChooseFlight = ()=>{
                     <span className="choose-flight-text-normal">24 kg</span>
                   </div>
                   <div className="choose-flight-list-child-price">
-                    <span  className="choose-flight-text-bold">{data.currency} {data.price}</span>
+                    <span  className="choose-flight-text-bold">{context.symbol} {(data.price * context.convert).toFixed(2)}</span>
                     <span className="choose-flight-text-blur">/pax</span>
                   </div>
                   <span className="choose-flight-list-child-price choose-flight-text-blur">{data.typePrice}</span>
@@ -181,9 +181,9 @@ const ChooseFlight = ()=>{
                   <div className="line-go"></div>
                   <div className="point-end"></div>
                 </div>
-                <div>
+                <div className="choose-flight-flex">
                   <div className="choose-flight-list-child-detail-child">
-                    <span className="choose-flight-text-big">{data.departureTime}</span>
+                    <span className="choose-flight-text-big margin-top-text">{data.departureTime}</span>
                     <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
                   </div>
                   <div>
@@ -192,17 +192,17 @@ const ChooseFlight = ()=>{
                   </div>
                   <div className="choose-flight-list-child-detail-child">
                     <span className="choose-flight-text-big">{data.destinationTime}</span>
-                    <span className="choose-flight-text-small">{context.day} {context.nameMonth} {context.yearNow}</span>
+                    <span className="choose-flight-text-small margin-bottom-text">{context.day} {context.nameMonth} {context.yearNow}</span>
                   </div>
                 </div>
-                <div>
+                <div className="choose-flight-flex">
                   <div className="choose-flight-list-child-detail-child">
-                    <span className="choose-flight-text-normal">{data.name} ({data.id})</span>
+                    <span className="choose-flight-text-normal margin-top-text">{data.name} ({data.id})</span>
                     <span className="choose-flight-text-blur">{data.airport}</span>
                   </div>
                   <div className="choose-flight-list-child-detail-child">
                     <span className="choose-flight-text-normal">{data.to} ({data.toId})</span>
-                    <span className="choose-flight-text-blur">{data.toAirline}</span>
+                    <span className="choose-flight-text-blur margin-bottom-text">{data.toAirline}</span>
                   </div>
                 </div>
                 <div className="choose-flight-baggage">

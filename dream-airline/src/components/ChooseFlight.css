@@ -253,3 +253,9 @@
   height: 8px;
   background-color: rgba(0, 0, 0, 0.4);
 }
+.choose-flight-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

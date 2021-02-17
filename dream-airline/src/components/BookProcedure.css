@@ -1,0 +1,45 @@
+.procedure-frame {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+}
+.procedure {
+  height: 100%;
+  width: var(--width-global);
+  display: flex;
+  justify-content: center;
+}
+.procedure-step {
+  display: flex;
+}
+.procedure-flex {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  align-items: center;
+  justify-content: center;
+}
+.procedure-sbs {
+  background-color: var(--color-global);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+}
+.procedure-before-step {
+  position: relative;
+}
+.procedure-before-step::before {
+  position: absolute;
+  top: 22%;
+  right: -60%;
+  color: #c9c9c9;
+  width: 180px;
+  content: "----------------------";
+}

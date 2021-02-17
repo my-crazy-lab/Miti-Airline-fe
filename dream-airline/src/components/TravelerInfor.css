@@ -14,9 +14,15 @@
   align-items: center;
   justify-content: center;
   width: 94%;
+  padding: 0 0 20px 0;
+}
+.traveler-infor-body-frame {
+  display: flex;
+  justify-content: center;
 }
 .traveler-infor-child {
   height: 330px;
+  width: 100%;
 }
 .traveler-infor-child-head {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -31,4 +37,17 @@
 .traveler-infor-child-body-child {
   height: 33.333%;
   display: flex;
+}
+.traveler-infor-child-head-1 {
+  display: flex;
+  align-items: center;
+}
+.traveler-infor-child-head-1 i {
+  font-size: 20px;
+  color: #616d7c;
+  margin-right: 12px;
+}
+.traveler-infor-child-head-2 {
+  display: flex;
+  align-items: center;
 }
