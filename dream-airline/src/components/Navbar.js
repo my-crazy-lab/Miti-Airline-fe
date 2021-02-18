@@ -10,7 +10,6 @@ const Navbar=()=>{
   const context = useContext(FlyContext)
   const [idLanguage, setIdLanguage] = useState("EN");
   const [srcLanguage, setSrcLanguage] = useState(context.appData.languageData[0].src);
-  const [idCurrency, setIdCurrency] = useState("EUR");
   const [checkCurrency , setCheckCurrency] = useState(false);
   const [checkLanguage, setCheckLanguage] = useState(false);
 
@@ -18,10 +17,11 @@ const Navbar=()=>{
     setIdLanguage(id);
     setSrcLanguage(src);
   }
-  const chooseCurrency=(id, symbol, convert)=>{
-    setIdCurrency(id)
+  const chooseCurrency=(id, symbol, convert, name, flag)=>{
+    context.setIdCurrency(id)
     context.setSymbol(symbol)
     context.setConvert(convert)
+    context.setNameCurrency(name)
   }
   const toggleLogin=()=>{
     if(context.showLogin === false) context.setShowLogin(true);
@@ -49,7 +49,7 @@ const Navbar=()=>{
   return(
     <div className="nav-frame">
       <div className="nav">
-        <div className="nav-logo">
+        <Link to="/" className="nav-logo">
           <span className="nav-logo-brand">D</span>
           <span className="nav-logo-brand">R</span>
           <span className="nav-logo-brand">E</span>
@@ -57,12 +57,12 @@ const Navbar=()=>{
           <span className="nav-logo-brand">M</span>
           <span className="nav-logo-text">Airline</span>
           <i class="fas fa-fighter-jet"></i>
-        </div>
+        </Link>
         <div className="nav-list">
           <Link to="/Flight" className="nav-list-child">Flight</Link>
           <Link to="/Hotel" className="nav-list-child">Hotel</Link>
           <Link to="/SearchPlane" className="nav-list-child">Search</Link>
-          <Link to="/Orders" className="nav-list-child">Orders</Link>
+          <Link to="/Promo" className="nav-list-child">Promo</Link>
           <Link to="/Price" className="nav-list-child">Price</Link>
           <Link to="/SearchPlane" className="nav-list-child">
             More
@@ -77,7 +77,7 @@ const Navbar=()=>{
           </button>
           <button className={`nav-currency  ${checkCurrency === true ? 'currency-and-language-show'  : 'currency-and-language-hide'}`} onClick={showCurrency}>
             <i class="fas fa-coins"></i>
-            <span className={`${checkCurrency === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>{idCurrency}</span>     
+            <span className={`${checkCurrency === true ?'currency-and-language-show-text':'currency-and-language-hide-text'}`}>{context.idCurrency}</span>     
             <i class="fas fa-angle-down"></i>
           </button>
           <div className="nav-currency-list-frame">
@@ -89,7 +89,7 @@ const Navbar=()=>{
             </div>
             <div className="nav-currency-list">
               {context.appData.currencyData.map(data =>{
-                return <div className="nav-currency-list-child" onClick={()=>chooseCurrency(data.id, data.symbol, data.conversion)}>
+                return <div className="nav-currency-list-child" onClick={()=>chooseCurrency(data.id, data.symbol, data.conversion, data.name, data.flag)}>
                 <span>{data.id}</span>
                 <span>{data.name}</span>
               </div>

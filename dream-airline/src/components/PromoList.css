@@ -1,0 +1,21 @@
+.promo-s-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.promo-s {
+  width: var(--width-global);
+}
+.promo-s-head {
+  color: #6d595b;
+  font-size: 36px;
+  font-weight: 500;
+  margin: 100px 0;
+}
+.promo-s-c {
+  width: 360px;
+}
+.promo-s-c-img {
+  max-width: 100%;
+  height: auto;
+}

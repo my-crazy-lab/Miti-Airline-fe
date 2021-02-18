@@ -1,0 +1,132 @@
+.payment-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.payment-head {
+  margin-top: 100px;
+  width: 100%;
+}
+.payment {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.payment-body {
+  width: var(--width-global);
+  display: flex;
+  justify-content: space-between;
+}
+.payment-body-1 {
+  width: calc(var(--width-global) * 2 / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.payment-body-2 {
+  width: 30%;
+}
+.payment-code {
+  width: 100%;
+  background-color: white;
+  height: 160px;
+}
+.payment-code-1 {
+  height: 44%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.payment-code-2 {
+  height: 56%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-text-need {
+  color: var(--color-global);
+  font-weight: 500;
+  font-size: 16px;
+}
+.payment-traveler {
+  width: 100%;
+  background-color: white;
+  height: 140px;
+}
+.payment-traveler-1 {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.payment-traveler-2 {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-promo {
+  width: 100%;
+  background-color: white;
+  height: 120px;
+}
+.payment-promo-1 {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-promo-2 {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-flex-row {
+  display: flex;
+}
+.payment-currency {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: white;
+}
+.payment-currency-id {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.choose-flight-text-blur-big {
+  font-size: 16px;
+  font-weight: 700;
+  color: #a9a9a9;
+}
+.payment-flag {
+  margin-right: 8px;
+}
+.payment-method {
+  width: 100%;
+  height: 440px;
+  background-color: white;
+}
+.payment-method-head {
+  height: 18%;
+  display: flex;
+  align-items: center;
+}
+.payment-method-body {
+  height: 41%;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.payment-method-img {
+  width: 160px;
+}

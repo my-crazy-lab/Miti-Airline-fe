@@ -29,7 +29,6 @@ const Flight =() =>{
   return(
     <div>
       <Head></Head>
-      <Recommend></Recommend>
       <ListFlight></ListFlight>
       <Partners></Partners>
       <TopFlight></TopFlight>

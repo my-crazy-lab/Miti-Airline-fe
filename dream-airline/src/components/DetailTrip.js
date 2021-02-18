@@ -85,12 +85,12 @@ const DetailTrip =() =>{
               <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
               <i class="fas fa-chevron-down"></i>
             </div>
-            <span className="detail-trip-text-small-bold margin-right-text">{context.dataChoice.currency} {context.dataChoice.price * context.traveler}</span>
+            <span className="detail-trip-text-small-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
           </div>
         </div>
         <div className="detail-trip-total box-shadow-frame ">
           <span className="choose-flight-text-bold margin-left-text">Total Price</span>
-          <span className="choose-flight-text-bold margin-right-text">{context.dataChoice.currency} {context.dataChoice.price * context.traveler}</span>
+          <span className="choose-flight-text-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
         </div>
         <Link to="/Flight/book">
           <button type="button" className="btn-red-white detail-trip-btn">Continue Booking</button>
