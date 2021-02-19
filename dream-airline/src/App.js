@@ -15,6 +15,7 @@ import CreditCard from './components/CreditCard';
 import DebitCard from './components/DebitCard';
 import Home from './pages/Home';
 import Promo from './pages/Promo';
+import PromoView from './pages/PromoView';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/Hotel/" component ={Hotel}></Route>
         <Route exact path="/SearchPlane/" component ={SearchPlane}></Route>
         <Route exact path="/Promo/" component ={Promo}></Route>
+        <Route exact path="/Promo/view" component ={PromoView}></Route>
         <Route exact path="/Price/" component ={Price}></Route>
         <Route component ={Error}></Route>
       </Switch>

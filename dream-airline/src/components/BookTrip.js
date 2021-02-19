@@ -8,8 +8,6 @@ import {Link} from 'react-router-dom'
 const BookTrip =()=>{
   const context = useContext(FlyContext)
 
-  const [checkway, setCheckway] = useState(true);
-
   const chooseDep = useRef();
   const chooseDes =useRef();
 
@@ -17,11 +15,11 @@ const BookTrip =()=>{
     context.setTraveler(context.adult + context.child + context.infant);
   },[context.adult , context.child , context.infant]);
   const checkWay =()=>{
-    if(checkway === true){
-      setCheckway(false);
+    if(context.typeTrip === "normal"){
+      context.setTypeTrip("return");
     }
     else {
-      setCheckway(true);
+      context.setTypeTrip("normal");
     }
   } 
   const minusAdult =()=>{
@@ -106,8 +104,8 @@ const BookTrip =()=>{
   return(
       <div className="booktrip">
         <div className="booktrip-type">
-          <button onClick={checkWay} className={`${checkway === true? 'oneway': 'twoway'}`}>One Way</button>
-          <button onClick={checkWay} className={`${checkway === true? 'twoway': 'oneway'}`}>Round Trip</button>
+          <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'oneway': 'twoway'}`}>One Way</button>
+          <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'twoway': 'oneway'}`}>Round Trip</button>
         </div>
         <div className="booktrip-where">
           <form className="booktrip-where-input" onClick={clickDeparture } >
@@ -199,9 +197,9 @@ const BookTrip =()=>{
               <div>1</div>
             </div>
           </div>
-          <div className={`booktrip-date-return ${checkway === false? '' : 'pointer-none'}`} onClick={showCalendarRe}>
-            <span className={`${checkway === false? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>Return Date</span>
-            <span className={`${checkway === false? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
+          <div className={`booktrip-date-return ${context.typeTrip === "return"? '' : 'pointer-none'}`} onClick={showCalendarRe}>
+            <span className={`${context.typeTrip === "return"? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>Return Date</span>
+            <span className={`${context.typeTrip === "return"? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
             <div className="booktrip-date-calendar-2" >
               <div className="booktrip-date-calendar-head">

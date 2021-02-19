@@ -1,32 +1,48 @@
 import React,{useContext} from 'react';
 import {Link} from 'react-router-dom'
 import {FlyContext} from '../context';
-import Partners from '../components/Partners';
-import TopFlight from '../components/TopFlight';
-import Head from '../components/Head';
 import './PromoList.css';
 
 const PromoList =()=>{
   const context = useContext(FlyContext);
+  const clickPromo =(link)=>{
+    context.setChoosePromo(context.appData.promo.find(data => data.link === link));
+  }
   return(
     <div className="promo-s-frame">
       <div className="promo-s">
         <span className="promo-s-head">Promo List</span>
         <div className="promo-s-list">
-          <div className="promo-s-c">
+        {
+          context.appData.promo.map(data=> {
+            return <div className="promo-s-c box-shadow-frame border-radius-4 margin-top-text margin-left-text">
             <div>
-              <img className="promo-s-c-img" src="https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg"></img>
+              <div className="promo-s-c-img" style={{backgroundImage: `url(${data.img})`}}></div>
             </div>
-            <div>
-              <div>
-                <Link>Carefree Travelling at Airpaz with Paylater by Indodana everyday. Enjoy special discount up to IDR 500.000</Link>
-                <span>Holidays are even more memorable at AIRPAZ with Paylater by Indodana. Enjoy special discounts up to. IDR 500,000.</span>
+            <div className="promo-s-c-b-frame">
+              <div className="promo-s-c-b">
+                <div className="promo-s-c-b-text">
+                  <Link onClick={()=>clickPromo(data.link)} to="/Promo/view" className="promo-text-bold margin-top-text">{data.link}</Link>
+                  <span className="promo-text-small promo-overflow-text-small">{data.text}</span>
+                </div>
+                <div className="promo-s-c-time margin-top-text margin-bottom-text">
+                  <div className="promo-s-c-time-c">
+                    <span className="promo-text-blur-small">Promo Period</span>
+                    <span className="promo-text-bold-small">{data.promoPeriod}</span>
+                  </div>
+                  <div className="promo-s-c-time-c">
+                    <span className="promo-text-blur-small">Travel Period</span>
+                    <span className="promo-text-bold-small">{data.travelerPeriod}</span>
+                  </div>
+                </div>
+                <Link to="/Promo/view">
+                  <button onClick={()=>clickPromo(data.link)} className="promo-btn-moreD border-radius-4 margin-bottom-text">More Details</button>
+                </Link>
               </div>
-              <Link>
-                <button>More Details</button>
-              </Link>
             </div>
           </div>
+          })
+        }
         </div>
       </div>    
     </div>

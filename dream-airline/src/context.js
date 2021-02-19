@@ -13,8 +13,12 @@ const FlyProvider =({children})=>{
   const [monthNow,setMonthNow] = useState(parseInt(`${new Date().getMonth()}`));
   const [nameMonth,setNameMonth] = useState('');
   const [nameDay,setNameDay] = useState('');
-  const [day, setDay] = useState(new Date().getDate());
+  const [day, setDay] = useState(parseInt(new Date().getDate()));
   const [yearNow,setYearNow] = useState(parseInt(`${new Date().getFullYear()}`));
+  
+  const [typeTrip , setTypeTrip] = useState("normal")
+  const [month, setMonth] = useState(parseInt(`${new Date().getMonth()}`));
+  const [year, setYear] = useState(parseInt(`${new Date().getFullYear()}`));
 
   const [dataChoice, setDataChoice] = useState({})
 
@@ -40,6 +44,9 @@ const FlyProvider =({children})=>{
   const [idCurrency, setIdCurrency] = useState("EUR");
   const [nameCurrency, setNameCurrency] = useState("Euro")
 
+  const [choosePromo, setChoosePromo] = useState({});
+
+
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
     setMaxPrice((Math.max(...appData.listPrice) * convert).toFixed(0))
@@ -49,6 +56,10 @@ const FlyProvider =({children})=>{
   },[chooseTrip])
   return(
     <FlyContext.Provider value ={{
+      typeTrip: typeTrip ,
+      month : month,
+      year : year,
+      choosePromo: choosePromo ,
       nameCurrency: nameCurrency ,
       idCurrency: idCurrency ,
       minPrice : minPrice ,
@@ -75,6 +86,10 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      setMonth: setMonth ,
+      setYear : setYear ,
+      setTypeTrip: setTypeTrip ,
+      setChoosePromo: setChoosePromo ,
       setNameCurrency: setNameCurrency ,
       setIdCurrency: setIdCurrency ,
       setMinPrice: setMinPrice ,

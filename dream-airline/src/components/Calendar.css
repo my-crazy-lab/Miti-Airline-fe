@@ -1,19 +1,19 @@
-:root{
-  --width-calendar : 350px;
-  --height-calendar : 320px;
+:root {
+  --width-calendar: 350px;
+  --height-calendar: 320px;
 }
-.calendar-head{
+.calendar-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.calendar-head span{
-  font-size : 20px;
-  font-weight : 500;
+.calendar-head span {
+  font-size: 20px;
+  font-weight: 500;
   color: var(--color-text-global);
 }
-.calendar-head button{
-  border : none;
+.calendar-head button {
+  border: none;
   color: var(--color-text-booktrip);
   background-color: transparent;
   display: inline-flex;
@@ -23,51 +23,51 @@
   cursor: pointer;
   padding: 16px;
 }
-.calendar-head i{
-  font-size : 18px;
+.calendar-head i {
+  font-size: 18px;
 }
-.calendar{
+.calendar {
   width: var(--width-calendar);
-  height: var(--height-calendar) ;
+  height: var(--height-calendar);
   background-color: white;
 }
-.calendar div{
+.calendar div {
   height: 40px;
 }
-.calendar-name-day div:nth-child(1){
-  color: var(--color-global)
+.calendar-name-day div:nth-child(1) {
+  color: var(--color-global);
 }
-.calendar-name-day div{
+.calendar-name-day div {
   margin: 8px 0;
-  width: calc(var(--width-calendar)/7);
+  width: calc(var(--width-calendar) / 7);
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
-.calendar-name-day{
+.calendar-name-day {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 .calendar-body {
   font-weight: 500;
-  color: var(--color-text-booktrip)
+  color: var(--color-text-booktrip);
 }
-.calendar-name-month{
+.calendar-name-month {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.calendar-name-month div{
-  width: calc(var(--width-calendar)/7);
+.calendar-name-month div {
+  width: calc(var(--width-calendar) / 7);
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
-.calendar-note{
+.calendar-note {
   color: var(--color-global);
 }
-.calendar-name-day span{
+.calendar-name-day span {
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -75,7 +75,11 @@
   color: var(--color-text-booktrip);
   cursor: pointer;
 }
-.calendar-name-day div span:hover{
-  background-color:var(--color-global);
+.calendar-name-day div span:hover {
+  background-color: var(--color-global);
   color: white;
+}
+.calendar-hidden {
+  pointer-events: none;
+  color: #eceaea;
 }

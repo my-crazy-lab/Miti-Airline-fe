@@ -10,6 +10,8 @@ const Calendar =() =>{
   const [checkFday,setCheckFday] = useState(`${firstDay.split('' , 2).join('')}`);
   const [sumDay,setSumDay] = useState(0);
 
+  const [checkHiddenDate, setCheckHiddenDate] = useState(0)
+  
   useEffect(() => {
     fillCalendar();
   });
@@ -30,11 +32,14 @@ const Calendar =() =>{
   const nextMonth=()=>{
     context.setMonthNow(context.monthNow + 1);
     fixMonthNow();
+    setCheckHiddenDate(checkHiddenDate + 1)
   }
   const backMonth=()=>{
     context.setMonthNow(context.monthNow - 1);
     fixMonthNow();
+    setCheckHiddenDate(checkHiddenDate - 1)
   }
+  
   const checkLeapYear=()=>{
     if(context.yearNow %4=== 0 && context.yearNow %100!== 0){
       switch(context.monthNow){
@@ -344,8 +349,8 @@ const Calendar =() =>{
   return(
     <div className="calendar">
       <div className="calendar-head">
-        <button onClick={backMonth}>
-          <i class="fas fa-chevron-left"></i>
+        <button onClick={backMonth} className={`${checkHiddenDate > 0 ? '' : "calendar-hidden"}`}>
+          <i class={`fas fa-chevron-left ${checkHiddenDate > 0 ? '' : "calendar-hidden"}`}></i>
         </button>
         <span>{context.nameMonth} {context.yearNow}</span>
         <button onClick={nextMonth}>
