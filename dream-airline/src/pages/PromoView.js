@@ -17,6 +17,28 @@ const PromoView =()=>{
           })
         } 
       </div>
+      <div className="promo-view-code-frame">
+        <div className="promo-view-code margin-top-text">
+        { context.choosePromo.discount.length > 0 ? 
+          (context.choosePromo.discount.map(data =>{
+            return <div className="promo-view-code-c box-shadow-frame border-radius-4 margin-bottom-text margin-right-text">
+            <div className="promo-view-code-c-flex margin-top-text">
+              <span className="choose-flight-text-bold">DISCOUNT {context.symbol} {data.priceDiscount}</span>
+            </div>
+            <div className="promo-view-code-c-flex margin-top-text">Min amount {context.symbol}</div>
+            <div className="promo-view-code-c-flex margin-top-text margin-bottom-text">
+              <div className="promo-code-d">
+                <span className="choose-flight-text-blur promo-code-t">{data.code}</span>
+              </div>
+              <button className='btn-copy'><i class="far fa-copy"></i>Copy</button>
+            </div>
+          </div>
+          })):(
+            <div>No code</div>
+          )
+        }
+        </div>
+      </div>
       <div className="promo-view">
         <div className="promo-view-b margin-top-text">
           <span className="choose-flight-text-big ">Term & Conditions</span>

@@ -277,7 +277,7 @@ const Calendar =() =>{
         break;
       }
       case 6: {
-        context.etNameDay('Sat') ;
+        context.setNameDay('Sat') ;
         break;
       }
       default: break;

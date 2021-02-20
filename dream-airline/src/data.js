@@ -285,10 +285,6 @@ const promo=[
       "Airpaz and Indodana have the right to cancel the discount if the transaction does not meet terms and conditions of the promo",
     ],
     discount :[
-      {
-        priceDiscount : 0,
-        code : "",
-      },
     ],
   },
   {
