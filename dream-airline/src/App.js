@@ -1,9 +1,7 @@
 import './App.css';
 import { Route, Switch} from "react-router-dom";
 import Flight from './pages/Flight';
-import Hotel from './pages/Hotel';
 import SearchPlane from './pages/SearchPlane';
-import Orders from './pages/Orders';
 import Price from './pages/Price';
 import Error from './pages/Error';
 import Navbar from './components/Navbar'
@@ -16,6 +14,7 @@ import DebitCard from './components/DebitCard';
 import Home from './pages/Home';
 import Promo from './pages/Promo';
 import PromoView from './pages/PromoView';
+import Trips from './pages/Trips';
 
 function App() {
   return (
@@ -29,8 +28,8 @@ function App() {
         <Route exact path="/Flight/payment" component ={Payment}></Route>
         <Route exact path="/Flight/payment/creditCard" component ={CreditCard}></Route>
         <Route exact path="/Flight/payment/debitCard" component ={DebitCard}></Route>
-        <Route exact path="/Hotel/" component ={Hotel}></Route>
         <Route exact path="/SearchPlane/" component ={SearchPlane}></Route>
+        <Route exact path="/trips/" component ={Trips}></Route>
         <Route exact path="/Promo/" component ={Promo}></Route>
         <Route exact path="/Promo/view" component ={PromoView}></Route>
         <Route exact path="/Price/" component ={Price}></Route>

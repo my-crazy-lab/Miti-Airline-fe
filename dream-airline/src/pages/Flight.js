@@ -29,8 +29,6 @@ const Flight =() =>{
   return(
     <div>
       <Head></Head>
-      <ListFlight></ListFlight>
-      <Partners></Partners>
       <TopFlight></TopFlight>
     </div>
   )

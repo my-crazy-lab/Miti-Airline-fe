@@ -104,18 +104,18 @@ const BookTrip =()=>{
   return(
       <div className="booktrip">
         <div className="booktrip-type">
-          <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'oneway': 'twoway'}`}>One Way</button>
-          <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'twoway': 'oneway'}`}>Round Trip</button>
+          <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'oneway': 'twoway'}`}>{context.thisLanguage.oneWay}</button>
+          <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'twoway': 'oneway'}`}>{context.thisLanguage.roundTrip}</button>
         </div>
         <div className="booktrip-where">
           <form className="booktrip-where-input" onClick={clickDeparture } >
-            <span>Form</span>
-            <input placeholder="Select Departure City" id="departure" ref={chooseDep} onInput={inputDep}></input>
+            <span>{context.thisLanguage.from}</span>
+            <input disabled placeholder={context.thisLanguage.selectDepartureCity} id="departure" ref={chooseDep} onInput={inputDep}></input>
           </form>
           <div className="booktrip-where-child-1"> 
             <div className="booktrip-where-child-head">
               <span className="booktrip-where-child-topic">
-                  Select Departure City 
+                {context.thisLanguage.selectDepartureCity}
               </span>
               <button type="button" onClick={clickExit} className="button-exit" >
                   <i class="fas fa-times button-exit-icon"></i>
@@ -147,13 +147,13 @@ const BookTrip =()=>{
             <i class="fas fa-retweet"></i>
           </button>
           <form className="booktrip-where-input" onClick={clickDestination} >
-            <span>To</span>
-            <input placeholder="Select Destination City" id="destination" ref={chooseDes} onInput={inputDes}></input>
+            <span>{context.thisLanguage.to}</span>
+            <input disabled placeholder={context.thisLanguage.selectDestinationCity} id="destination" ref={chooseDes} onInput={inputDes}></input>
           </form>
           <div className="booktrip-where-child-2">
             <div className="booktrip-where-child-head">
               <span className="booktrip-where-child-topic">
-                Select Destination City 
+                {context.thisLanguage.selectDestinationCity}
               </span>
               <button type="button" onClick={clickExit} className="button-exit" >
                   <i class="fas fa-times button-exit-icon"></i>
@@ -182,12 +182,12 @@ const BookTrip =()=>{
         </div>
         <div className="booktrip-date">
           <div className="booktrip-date-departure" onClick={showCalendarDe}>
-            <span className="booktrip-date-departure-span1">Departure Date</span>
+            <span className="booktrip-date-departure-span1">{context.thisLanguage.departureDate}</span>
             <span className="booktrip-date-departure-span2">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
           <div className="booktrip-date-calendar-1">
             <div className="booktrip-date-calendar-head">
-              <span>Departure Date</span>
+              <span>{context.thisLanguage.departureDate}</span>
               <button type="button" onClick={clickExit}>
                 <i class="fas fa-times button-exit-icon"></i>
               </button>
@@ -198,12 +198,12 @@ const BookTrip =()=>{
             </div>
           </div>
           <div className={`booktrip-date-return ${context.typeTrip === "return"? '' : 'pointer-none'}`} onClick={showCalendarRe}>
-            <span className={`${context.typeTrip === "return"? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>Return Date</span>
+            <span className={`${context.typeTrip === "return"? 'booktrip-date-return-span1' : 'booktrip-date-return-hide'}`}>{context.thisLanguage.destinationDate}</span>
             <span className={`${context.typeTrip === "return"? 'booktrip-date-return-span2' : 'booktrip-date-return-hide'}`}>{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
             <div className="booktrip-date-calendar-2" >
               <div className="booktrip-date-calendar-head">
-                <span>Return Date</span>
+                <span>{context.thisLanguage.destinationDate}</span>
                 <button type="button" onClick={clickExit}>
                   <i class="fas fa-times button-exit-icon"></i>
                 </button>
@@ -216,20 +216,20 @@ const BookTrip =()=>{
         </div>
         <div className="booktrip-traveler-frame">
           <div onClick={clickTraveler} className="booktrip-traveler">
-            <span>Traveler</span>
-            <span>{context.traveler} Traveler</span>
+            <span>{context.thisLanguage.traveler}</span>
+            <span>{context.traveler} {context.thisLanguage.traveler}</span>
           </div>
             <div className="booktrip-traveler-child">
               <div className="booktrip-traveler-child-head">
-                <span>Traveler</span>
+                <span>{context.thisLanguage.traveler}</span>
                 <button type="button" className="button-exit" onClick={clickExit}>
                   <i class="fas fa-times button-exit-icon"></i>
                 </button>
               </div>
               <div className="booktrip-traveler-child-list adult">
                 <div className="booktrip-traveler-child-list-head">
-                  <span>Adults</span>
-                  <span>Age 12+</span>
+                  <span>{context.thisLanguage.adult}</span>
+                  <span>{context.thisLanguage.age} 12+</span>
                 </div>
                 <div className="booktrip-traveler-child-list-count">
                   <button  onClick={minusAdult} type="button" className={`adult adultminus ${context.adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
@@ -243,8 +243,8 @@ const BookTrip =()=>{
               </div>
               <div className="booktrip-traveler-child-list children">
                 <div className="booktrip-traveler-child-list-head">
-                  <span>Childrens</span>
-                  <span>Age 2-11</span>
+                  <span>{context.thisLanguage.children}</span>
+                  <span>{context.thisLanguage.age} 2-11</span>
                 </div>
                 <div className="booktrip-traveler-child-list-count">
                   <button onClick={minusChildren} type="button" className={`children ${context.child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
@@ -258,8 +258,8 @@ const BookTrip =()=>{
               </div>
               <div className="booktrip-traveler-child-list infant">
                 <div className="booktrip-traveler-child-list-head">
-                  <span>Infants</span>
-                  <span>Age 0-2</span>
+                  <span>{context.thisLanguage.infant}</span>
+                  <span>{context.thisLanguage.age} 0-2</span>
                 </div>
                 <div className="booktrip-traveler-child-list-count">
                   <button onClick={minusInfant} type="button" className={`infant ${context.infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
@@ -274,7 +274,7 @@ const BookTrip =()=>{
             </div>
         </div>
         <Link to="/SearchPlane" className="booktrip-search">
-          <button className="booktrip-search-btn" onClick={clickToSearch}>Search</button>
+          <button className="booktrip-search-btn" onClick={clickToSearch}>{context.thisLanguage.search}</button>
         </Link>
       </div>
   )

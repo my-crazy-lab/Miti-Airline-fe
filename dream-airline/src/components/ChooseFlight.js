@@ -17,7 +17,7 @@ const ChooseFlight = ()=>{
           <i class="fas fa-plane-departure"></i>
           <div className="choose-flight-trip">
             <span className="choose-flight-trip-head">
-              Select Departure Flight
+              {context.thisLanguage.selectDepartureCity}
             </span>
             <div className="choose-flight-trip-detail">
               <span className="choose-flight-trip-detail-trip">HUI - SGN </span>
@@ -25,28 +25,10 @@ const ChooseFlight = ()=>{
             </div>
           </div>
         </div>
-        <button type="button" className="choose-flight-btn">Change Search</button>
+        <button type="button" className="btn-red-white">{context.thisLanguage.changeSearch}</button>
       </div>
     </div>
       <div className="choose-flight-this">
-        <div className="choose-flight-change">
-          <div className="choose-flight-change-head">
-            <div>
-              <span className="choose-flight-change-head-name choose-flight-text-big ">
-                Departure flight to {context.trip.to}
-              </span>
-              <div className="choose-flight-change-head-detail">
-                <span className="choose-flight-change-head-detail-date margin-left-text">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
-                <span className="choose-flight-change-head-detail-traveler"> {context.traveler} Traveler</span>
-              </div>
-            </div>
-            <button className="btn-red-white margin-right-text">Change Date</button>
-          </div>
-          <div className="choose-flight-change-option">
-            <OptionFlight></OptionFlight>
-          </div>
-        </div>
-
         <div className="choose-flight-list">
           { context.chooseTrip  === true ? (<div className="choose-flight-list-child">
           <div className="choose-flight-list-child-announce">
@@ -71,13 +53,13 @@ const ChooseFlight = ()=>{
             </div>
             <div className="choose-flight-list-child-price">
               <span  className="choose-flight-text-bold">{context.symbol} {(context.trip.price * context.convert).toFixed(2)}</span>
-              <span className="choose-flight-text-blur">/pax</span>
+              <span className="choose-flight-text-blur">/{context.thisLanguage.pax}</span>
             </div>
             <span className="choose-flight-list-child-price choose-flight-text-blur">{context.trip.typePrice}</span>
           </div>
           <div className="choose-flight-list-child-announce-show">
             <Link to="/Flight/confirm">
-              <button type="button" className="btn-red-white" onClick={() => chooseTrip(context.trip.key)}>Choose Flight</button>
+              <button type="button" className="btn-red-white" onClick={() => chooseTrip(context.trip.key)}>{context.thisLanguage.chooseFlight}</button>
             </Link>
             <i class="fas fa-chevron-up"></i>
           </div>
@@ -133,7 +115,25 @@ const ChooseFlight = ()=>{
       )}
         </div>
 
-        <span className="choose-flight-text-biggest">Choose different trips</span>
+        <div className="choose-flight-change">
+          <div className="choose-flight-change-head">
+            <div>
+              <span className="choose-flight-change-head-name choose-flight-text-big ">
+                {context.thisLanguage.departureTo} {context.trip.to}
+              </span>
+              <div className="choose-flight-change-head-detail">
+                <span className="choose-flight-change-head-detail-date margin-left-text">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
+                <span className="choose-flight-change-head-detail-traveler"> {context.traveler} {context.thisLanguage.traveler}</span>
+              </div>
+            </div>
+            <button className="btn-red-white margin-right-text">{context.thisLanguage.changeDate}</button>
+          </div>
+          <div className="choose-flight-change-option">
+            <OptionFlight></OptionFlight>
+          </div>
+        </div>
+
+        <span className="choose-flight-text-biggest">{context.thisLanguage.chooseDifferentTrip}</span>
         <div className="choose-flight-list">
           { context.listData.map(data => { 
             return <div className="choose-flight-list-child">
@@ -159,13 +159,13 @@ const ChooseFlight = ()=>{
                   </div>
                   <div className="choose-flight-list-child-price">
                     <span  className="choose-flight-text-bold">{context.symbol} {(data.price * context.convert).toFixed(2)}</span>
-                    <span className="choose-flight-text-blur">/pax</span>
+                    <span className="choose-flight-text-blur">/{context.thisLanguage.pax}</span>
                   </div>
                   <span className="choose-flight-list-child-price choose-flight-text-blur">{data.typePrice}</span>
                 </div>
                 <div className="choose-flight-list-child-announce-show">
                   <Link to="/Flight/confirm">
-                    <button type="button" className="btn-red-white" onClick={() => chooseTrip(data.key)}>Choose Flight</button>                  
+                    <button type="button" className="btn-red-white" onClick={() => chooseTrip(data.key)}>{context.thisLanguage.chooseFlight}</button>                  
                   </Link>
                   <i class="fas fa-chevron-up"></i>
                 </div>

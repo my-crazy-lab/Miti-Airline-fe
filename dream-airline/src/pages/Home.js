@@ -4,12 +4,12 @@ import {FlyContext} from '../context';
 import Recommend from '../components/Recommend';
 import Partners from '../components/Partners';
 import TopFlight from '../components/TopFlight';
-import Head from '../components/Head';
+import HeadHome from '../components/HeadHome';
 
 const Home =()=>{
   return(
     <div>
-      <Head></Head>
+      <HeadHome></HeadHome>
       <Recommend></Recommend>
       <Partners></Partners>
       <TopFlight></TopFlight>

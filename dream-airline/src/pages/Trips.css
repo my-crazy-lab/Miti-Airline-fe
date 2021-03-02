@@ -1,0 +1,13 @@
+.trips-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.trips-choice-frame {
+  background: white;
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

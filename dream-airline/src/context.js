@@ -45,17 +45,21 @@ const FlyProvider =({children})=>{
   const [nameCurrency, setNameCurrency] = useState("Euro")
 
   const [choosePromo, setChoosePromo] = useState({});
+  const [idLanguage,setIdLanguage] = useState('EN')
 
+  const [choosePage, setChoosePage] =useState('')
+
+  const [thisLanguage, setThisLanguage] = useState(appData.listLanguage.english)
 
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
     setMaxPrice((Math.max(...appData.listPrice) * convert).toFixed(0))
   },[convert])
-  useEffect(() => {
-    
-  },[chooseTrip])
   return(
     <FlyContext.Provider value ={{
+      thisLanguage: thisLanguage ,
+      choosePage: choosePage ,
+      idLanguage: idLanguage ,
       typeTrip: typeTrip ,
       month : month,
       year : year,
@@ -86,6 +90,9 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      setThisLanguage: setThisLanguage ,
+      setChoosePage: setChoosePage ,
+      setIdLanguage: setIdLanguage ,
       setMonth: setMonth ,
       setYear : setYear ,
       setTypeTrip: setTypeTrip ,

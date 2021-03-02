@@ -1,12 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import "./Partners.css"
+import {FlyContext} from '../context';
 
 const Partners =() =>{
+  const context = useContext(FlyContext);
   return(
     <div className="partner-frame">
       <div className="partner">
         <div className="partner-topic">
-          <p className="partner-topic-text style-topic">Airline Partners</p>  
+          <p className="partner-topic-text style-topic">{context.thisLanguage.airlinePartner}</p>  
           <span className="partner-topic-text-under">Domestic & International Airline Partners</span>
           <span className="style-text">We are partnering with various airlines across the globe to get you to wherever you need to be.</span>
         </div>
@@ -75,7 +77,7 @@ const Partners =() =>{
       </div>
       <div className="partner">
         <div className="partner-topic">
-          <p className="partner-topic-text style-topic">Payment Partners</p>  
+          <p className="partner-topic-text style-topic">{context.thisLanguage.paymentPartner}</p>  
           <span className="style-text">We are partnering with the most reliable payment service providers to make sure every transaction is smooth and worry-free!</span>
         </div>
         <div className="partner-logo">

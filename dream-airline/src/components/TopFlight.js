@@ -1,37 +1,39 @@
-import react from 'react'
+import React,{useContext} from 'react'
 import "./TopFlight.css";
+import {FlyContext} from '../context';
 
 const TopFlight =() =>{
+  const context = useContext(FlyContext);
   return(
     <div className="top-frame">
       <div className="top">
-        <div className="top-head style-topic">Popular Flight Destinations</div>
+        <div className="top-head style-topic">{context.thisLanguage.popularFlight}</div>
         <div className="top-list">
           <div className="top-list-child">
-            <a>Flights to Hong Kong</a>
-            <a>Flights to London</a>
-            <a>Flights to Maldives</a>
-            <a>Flights to Kota Kinabalu</a>
-            <a>Flights to Melbourne</a>
+            <a>{context.thisLanguage.flightTo} Hong Kong</a>
+            <a>{context.thisLanguage.flightTo} London</a>
+            <a>{context.thisLanguage.flightTo} Maldives</a>
+            <a>{context.thisLanguage.flightTo} Kota Kinabalu</a>
+            <a>{context.thisLanguage.flightTo} Melbourne</a>
           </div>
           <div className="top-list-child">
-            <a>Flights to Bangkok</a>
-            <a>Flights to Langkawi</a>
-            <a>Flights to Singapore</a>
-            <a>Flights to Penang</a>
-            <a>Flights to Bali</a>
+            <a>{context.thisLanguage.flightTo} Bangkok</a>
+            <a>{context.thisLanguage.flightTo} Langkawi</a>
+            <a>{context.thisLanguage.flightTo} Singapore</a>
+            <a>{context.thisLanguage.flightTo} Penang</a>
+            <a>{context.thisLanguage.flightTo} Bali</a>
           </div>
           <div className="top-list-child">
-            <a>Flights to Taipei</a>
-            <a>Flights to Lombok</a>
-            <a>Flights to Phuket</a>
-            <a>Flights to Tokyo</a>
-            <a>Flights to Dubai</a>
+            <a>{context.thisLanguage.flightTo} Taipei</a>
+            <a>{context.thisLanguage.flightTo} Lombok</a>
+            <a>{context.thisLanguage.flightTo} Phuket</a>
+            <a>{context.thisLanguage.flightTo} Tokyo</a>
+            <a>{context.thisLanguage.flightTo} Dubai</a>
           </div>
         </div>
       </div>
       <div className="top">
-          <div className="top-head style-topic">Top Flight Routes</div>
+          <div className="top-head style-topic">{context.thisLanguage.topFlight}</div>
           <div className="top-list">
             <div className="top-list-child">
               <a>Kuala Lumpur to Singapore</a>

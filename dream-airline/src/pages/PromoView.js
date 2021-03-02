@@ -23,14 +23,14 @@ const PromoView =()=>{
           (context.choosePromo.discount.map(data =>{
             return <div className="promo-view-code-c box-shadow-frame border-radius-4 margin-bottom-text margin-right-text">
             <div className="promo-view-code-c-flex margin-top-text">
-              <span className="choose-flight-text-bold">DISCOUNT {context.symbol} {data.priceDiscount}</span>
+              <span className="choose-flight-text-bold">{context.thisLanguage.discount} {context.symbol} {data.priceDiscount}</span>
             </div>
             <div className="promo-view-code-c-flex margin-top-text">Min amount {context.symbol}</div>
             <div className="promo-view-code-c-flex margin-top-text margin-bottom-text">
               <div className="promo-code-d">
                 <span className="choose-flight-text-blur promo-code-t">{data.code}</span>
               </div>
-              <button className='btn-copy'><i class="far fa-copy"></i>Copy</button>
+              <button className='btn-copy'><i class="far fa-copy"></i>{context.thisLanguage.copy}</button>
             </div>
           </div>
           })):(
@@ -41,7 +41,7 @@ const PromoView =()=>{
       </div>
       <div className="promo-view">
         <div className="promo-view-b margin-top-text">
-          <span className="choose-flight-text-big ">Term & Conditions</span>
+          <span className="choose-flight-text-big ">{context.thisLanguage.term}</span>
           <ol className="promo-view-ol">
             {
               context.choosePromo.content.map(data =>{
@@ -51,7 +51,7 @@ const PromoView =()=>{
           </ol>
         </div>
         <div className="promo-view-share margin-top-text">
-          <span className="promo-text-bold">Share with your friend :</span>
+          <span className="promo-text-bold">{context.thisLanguage.share} :</span>
           <di className="promo-view-flex margin-top-text margin-bottom-text ">
             <div className="promo-view-share-c"><i class="fab fa-facebook-f"></i></div>
             <div className="promo-view-share-c"><i class="fas fa-envelope"></i></div>

@@ -37,7 +37,7 @@
   width: 24px;
   height: 24px;
   background: var(--color-global);
-  border: 1px solidvar(--color-global);
+  border: 1px var(--color-global);
   margin: 0px 1px;
 }
 .fa-fighter-jet {
@@ -84,7 +84,7 @@
   align-items: center;
 }
 .nav-list-child {
-  width: 80px;
+  width: auto;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -147,7 +147,7 @@
   color: var(--color-global);
 }
 .currency-and-language-hide-text {
-  color: #2f2f31;
+  color: var(--color-text-opa);
 }
 .nav-language-list-frame,
 .nav-currency-list-frame {
@@ -189,14 +189,15 @@
   padding: 0 20px;
   flex-wrap: wrap;
 }
-.nav-currency-list-child,
-.nav-language-list-child {
+.nav-currency-list-flex,
+.nav-language-list-flex {
   width: 33.333%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 26px;
 }
+
 .nav-currency-list-child span:nth-child(1),
 .nav-language-list-child span:nth-child(1) {
   font-size: 14px;
@@ -230,9 +231,160 @@
 .nav-currency-list-child:hover span {
   color: var(--color-global);
 }
+.change-color-currency span,
+.change-color-language span {
+  color: var(--color-global);
+}
+.change-color-currency span:nth-child(2),
+.change-color-language span:nth-child(2) {
+  font-size: 14px;
+  font-weight: 400;
+}
+.change-color-currency span:nth-child(1) {
+  font-size: 14px;
+  font-weight: 500;
+  width: 40px;
+}
+.change-color-language img {
+  margin-right: 8px;
+}
 .choose-language-or-currency {
   color: var(--color-global);
 }
 .none-language-or-currency {
   color: rgb(137, 136, 136);
+}
+/*  */
+.bor-style-2-child {
+  position: relative;
+  outline: none;
+  border: none;
+  width: 80px;
+  height: 60px;
+  font-size: 20px;
+  color: var(--color-text-opa);
+  background-color: white;
+  transition: all 0.6s;
+  font-weight: 700;
+}
+.bor-style-2-child:hover {
+  cursor: pointer;
+  color: var(--color-global);
+  text-shadow: none;
+}
+.bor-style-2-child::after {
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  border-top: 0px solid var(--color-global);
+  border-left: 0px solid var(--color-global);
+  width: 0px;
+  height: 0px;
+  top: 0;
+  left: 0px;
+  transition: all 1s;
+}
+.bor-style-2-child::before {
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  border-bottom: 0px solid var(--color-global);
+  border-right: 0px solid var(--color-global);
+  width: 0px;
+  height: 0px;
+  right: 0px;
+  bottom: 0px;
+  transition: all 1s;
+}
+.bor-style-2-child:hover:after {
+  width: 78px;
+  height: 58px;
+  border-top: 1px solid var(--color-global);
+  border-left: 1px solid var(--color-global);
+}
+.bor-style-2-child:hover:before {
+  width: 78px;
+  height: 58px;
+  border-right: 1px solid var(--color-global);
+  border-bottom: 1px solid var(--color-global);
+}
+.choose-page-in-navbar {
+  border: 1px solid var(--color-global);
+  color: var(--color-global);
+}
+/*  */
+.bor-style-2-long-child {
+  position: relative;
+  outline: none;
+  border: none;
+  width: 140px;
+  height: 60px;
+  font-size: 20px;
+  color: var(--color-text-opa);
+  font-weight: 700;
+  background-color: white;
+  transition: all 0.6s;
+}
+.bor-style-2-long-child:hover {
+  cursor: pointer;
+  text-shadow: none;
+  color: var(--color-global);
+}
+.bor-style-2-long-child::after {
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  border-top: 0px solid var(--color-global);
+  border-left: 0px solid var(--color-global);
+  width: 0px;
+  height: 0px;
+  top: 0;
+  left: 0px;
+  transition: all 1s;
+}
+.bor-style-2-long-child::before {
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  border-bottom: 0px solid var(--color-global);
+  border-right: 0px solid var(--color-global);
+  width: 0px;
+  height: 0px;
+  right: 0px;
+  bottom: 0px;
+  transition: all 1s;
+}
+.bor-style-2-long-child:hover:after {
+  width: 134px;
+  height: 58px;
+  border-top: 1px solid var(--color-global);
+  border-left: 1px solid var(--color-global);
+}
+.bor-style-2-long-child:hover:before {
+  width: 134px;
+  height: 58px;
+  border-right: 1px solid var(--color-global);
+  border-bottom: 1px solid var(--color-global);
+}
+/*  */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.choose-page {
+  width: 140px;
+  border: 1px solid var(--color-global);
+  color: var(--color-global);
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  height: 60px;
+  font-size: 20px;
+  background-color: white;
+  transition: all 0.6s;
+  font-weight: 700;
 }

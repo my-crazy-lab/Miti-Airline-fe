@@ -1,0 +1,17 @@
+.promo-head-frame {
+  position: relative;
+  width: 100%;
+  height: 430px;
+  background: #be2a2a;
+  background-size: cover;
+  display: flex;
+  margin-bottom: var(--margin-bottom-element-body);
+  justify-content: center;
+  align-items: center;
+}
+.promo-head {
+  margin-top: 66px;
+  width: 100%;
+  background-image: url("https://cdn.airpaz.com/banner/Cheap-Flight-Ticket-Online-Booking-Promo-Anyhere-Anytime-in-February-Airpaz-LP-668.jpg");
+  height: 420px;
+}

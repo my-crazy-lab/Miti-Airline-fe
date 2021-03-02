@@ -1,0 +1,55 @@
+.home-head-frame {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background-image: linear-gradient(
+    to right,
+    rgba(252, 87, 87, 0.9),
+    rgba(253, 150, 150, 0.9)
+  );
+  background-size: cover;
+  display: flex;
+  margin-bottom: var(--margin-bottom-element-body);
+  justify-content: center;
+  align-items: center;
+}
+.home-head {
+  width: calc(var(--width-global));
+  height: 420px;
+}
+.home-h-flex {
+  display: flex;
+  align-items: center;
+}
+.home-h-img-1 {
+  background-image: url("https://cdn.airpaz.com/banner/Cheap-Airline-and-Flight-Tickets-Booking-to-All-Destinations-in-February-with-Airpaz-NL-962.jpg");
+}
+.home-img-center {
+  height: 340px;
+  width: 780px;
+  background-size: cover;
+  background-position: bottom center;
+  border-radius: 8px;
+}
+.home-img-right {
+  height: 288px;
+  width: 280px;
+  background-size: cover;
+  background-position: bottom right;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.home-img-left {
+  height: 288px;
+  width: 280px;
+  background-size: cover;
+  background-position: bottom left;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.home-h-img-2 {
+  background-image: url("https://cdn.airpaz.com/banner/find-cheap-flight-tickets-on-Airpaz.com-NL-3.jpg");
+}
+.home-h-img-3 {
+  background-image: url("https://cdn.airpaz.com/banner/Airpaz-booking-hotel-online-hdesktop1.jpg");
+}

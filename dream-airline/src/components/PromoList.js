@@ -11,7 +11,7 @@ const PromoList =()=>{
   return(
     <div className="promo-s-frame">
       <div className="promo-s">
-        <span className="promo-s-head">Promo List</span>
+        <span className="promo-s-head">{context.thisLanguage.promoList}</span>
         <div className="promo-s-list">
         {
           context.appData.promo.map(data=> {
@@ -27,16 +27,16 @@ const PromoList =()=>{
                 </div>
                 <div className="promo-s-c-time margin-top-text margin-bottom-text">
                   <div className="promo-s-c-time-c">
-                    <span className="promo-text-blur-small">Promo Period</span>
+                    <span className="promo-text-blur-small">{context.thisLanguage.promoPeriod}</span>
                     <span className="promo-text-bold-small">{data.promoPeriod}</span>
                   </div>
                   <div className="promo-s-c-time-c">
-                    <span className="promo-text-blur-small">Travel Period</span>
+                    <span className="promo-text-blur-small">{context.thisLanguage.travelPeriod}</span>
                     <span className="promo-text-bold-small">{data.travelerPeriod}</span>
                   </div>
                 </div>
                 <Link to="/Promo/view">
-                  <button onClick={()=>clickPromo(data.link)} className="promo-btn-moreD border-radius-4 margin-bottom-text">More Details</button>
+                  <button onClick={()=>clickPromo(data.link)} className="promo-btn-moreD border-radius-4 margin-bottom-text">{context.thisLanguage.moreDetail}</button>
                 </Link>
               </div>
             </div>

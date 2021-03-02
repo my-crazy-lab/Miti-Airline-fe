@@ -69,27 +69,27 @@ const OptionFlight =()=>{
   return(
     <div className="option">
           <div className="option-head">
-            <span>Filter:</span>
+            <span>{context.thisLanguage.filter}:</span>
             <form className="option-head-child">
               <SliderPrice setListData={context.setListData} setCurrentPrice={context.setCurrentPrice} currentPrice ={context.currentPrice}></SliderPrice>
             </form>
             <form className="option-head-child">
-              <span>Stops</span>
+              <span>{context.thisLanguage.stop}</span>
               <select>
-                <option>Direct</option>
-                <option>Transit</option>
-                <option>One-stop</option>
+                <option>{context.thisLanguage.direct}</option>
+                <option>{context.thisLanguage.transit}</option>
+                <option>{context.thisLanguage.oneStop}</option>
               </select>
             </form>
             <form className="option-head-child">
-              <span>Type Ticket</span>
+              <span>{context.thisLanguage.typePrice}</span>
               <select onChange={changeTypeTicket}>
-                <option value="business">Business</option>
-                <option value="normal">Normal</option>
+                <option value="business">{context.thisLanguage.business}</option>
+                <option value="normal">{context.thisLanguage.normal}</option>
               </select>
             </form>
             <form className="option-head-child">
-              <span>Plane</span>
+              <span>{context.thisLanguage.plane}</span>
               <select>
                 <option>Airbus A900</option>
                 <option>Boeing 747</option>
@@ -99,26 +99,26 @@ const OptionFlight =()=>{
               </select>
             </form>
             <form className="option-head-child">
-              <span>Departure</span>
+              <span>{context.thisLanguage.departure}</span>
               <select onChange={changeDeparture}>
-                <option value ="0:00">Early Flight 0:00 - 6:00</option>
-                <option value = "6:00">Morning Flight 6:00 - 12:00</option>
-                <option value = "12:00">Afternoon Flight 12:00 - 18:00</option>
-                <option value = "18:00">Night Flight 18:00 - 0:00</option>
+                <option value ="0:00">{context.thisLanguage.earlyFlight} 0:00 - 6:00</option>
+                <option value = "6:00">{context.thisLanguage.morningFLight} 6:00 - 12:00</option>
+                <option value = "12:00">{context.thisLanguage.afternoonFlight} 12:00 - 18:00</option>
+                <option value = "18:00">{context.thisLanguage.nightFlight} 18:00 - 0:00</option>
               </select>
             </form>
             <form className="option-head-child">
-              <button onClick={clickAllListTrip} type="button" className="btn-show">All</button>
+              <button onClick={clickAllListTrip} type="button" className="btn-show">{context.thisLanguage.all}</button>
             </form>
           </div>
           <form className="option-footer">
-            <span>Sort: </span>
+            <span>{context.thisLanguage.sort}: </span>
             <select onChange={changeSortChoose}>
-              <option value ="">All</option>
-              <option value ="lowest">Lowest Price</option>
-              <option value="highest">Highest Price</option>
-              <option value ="earliest">Earliest Trip</option>
-              <option value="latest">Latest Trip</option>
+              <option value ="">{context.thisLanguage.all}</option>
+              <option value ="lowest">{context.thisLanguage.lowestPrice}</option>
+              <option value="highest">{context.thisLanguage.highestPrice}</option>
+              <option value ="earliest">{context.thisLanguage.earliest}</option>
+              <option value="latest">{context.thisLanguage.lastest}</option>
             </select>
           </form>
         </div>

@@ -3,16 +3,15 @@ import {Link} from 'react-router-dom'
 import {FlyContext} from '../context';
 import Partners from '../components/Partners';
 import TopFlight from '../components/TopFlight';
-import Head from '../components/Head';
+import HeadPromo from '../components/HeadPromo';
 import PromoList from '../components/PromoList';
 
 const Promo =()=>{
   return(
     <div>
-      <Head></Head>
+      <HeadPromo></HeadPromo>
       <PromoList></PromoList>
       <Partners></Partners>
-      <TopFlight></TopFlight>
     </div>
   )
 }

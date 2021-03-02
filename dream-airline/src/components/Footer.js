@@ -1,9 +1,11 @@
-import react,{useState,useEffect} from 'react'
+import react,{useState,useContext} from 'react'
 import "./Footer.css";
 import $ from 'jquery';
+import {FlyContext} from "../context"
 
 const Footer =()=>{
-  const [showErrorMessage, setShowErrorMessage] =useState(false);
+  const context = useContext(FlyContext);
+
   const hideErrorMessage =()=>{
     $('.fill-none').hide();
     $('.wrong-format').hide();
@@ -53,8 +55,8 @@ const Footer =()=>{
           <div className="footer-body-head">
             <img src="https://cdn.airpaz.com/nuxt/img/en.f5276dd.png" className="footer-body-bigimg"></img>
             <div className="footer-body-head-app">
-              <h2>Download DreamAirline App Now,
-              <br></br>Book hotel and flight ticket without a hassle!</h2>
+              <h2>{context.thisLanguage.textFooterFirst}
+              <br></br>{context.thisLanguage.textFooterSecond}</h2>
               <div className="footer-body-app">
                 <a href="">
                   <img src="https://cdn.airpaz.com/nuxt/img/playstore.c68e1c2.svg"></img>
@@ -67,11 +69,11 @@ const Footer =()=>{
           </div>
           <div className="footer-body-sub">
             <div className="footer-body-sub-topic">
-              <span>Sign Up for Newsletter</span>
-              <span>Subscribe to get deals & update in your email</span>
+              <span>{context.thisLanguage.signUpForNewsletter}</span>
+              <span>{context.thisLanguage.subscribeTextFooter}</span>
             </div>
-            <input placeholder="Enter Email Address" onInput={fillEmail} className="footer-body-sub-input"></input>
-            <button className="footer-body-sub-btn" onClick={SubEmail}>SUBSCRIBE</button>
+            <input placeholder={context.thisLanguage.enterEmail} onInput={fillEmail} className="footer-body-sub-input"></input>
+            <button className="footer-body-sub-btn" onClick={SubEmail}>{context.thisLanguage.subscribe}</button>
             <div className="footer-body-sub-error  fill-none">
               <i class="fas fa-exclamation-triangle"></i>
               <span className="footer-body-sub-error-content">Please fill email</span>
@@ -96,14 +98,14 @@ const Footer =()=>{
             </div>
           </div>
           <div className="footer-footer-child">
-            <span className="footer-footer-topic">Account</span>
+            <span className="footer-footer-topic">{context.thisLanguage.account}</span>
             <div div className="footer-footer-topic-text">
               <a href="">Sign Up</a>
               <a href="" >Forgot Password</a>
             </div>
           </div>
           <div className="footer-footer-child">
-            <span className="footer-footer-topic">Support</span>
+            <span className="footer-footer-topic">{context.thisLanguage.support}</span>
             <div div className="footer-footer-topic-text">
               <a href="" >FAQ</a>
               <a href="" >Help Center</a>
@@ -112,7 +114,7 @@ const Footer =()=>{
             </div>
           </div>
           <div className="footer-footer-child">
-            <span className="footer-footer-topic">Follow Us</span>
+            <span className="footer-footer-topic">{context.thisLanguage.followUs}</span>
               <div className="footer-footer-topic-follow">
                 <a href="" className="footer-footer-topic-follow-fb">
                   <i class="fab fa-facebook-f"></i>
