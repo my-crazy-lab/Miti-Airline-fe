@@ -27,9 +27,9 @@ const SliderPrice =({currentPrice})=>{
       <span>{context.currentPrice}</span>
     </div>
     <div className="slider-price-body">
-      <div className="slider-price-value-left">{context.minPrice}</div>
+      <div className="slider-price-value-left choose-flight-text-normal">{context.minPrice}</div>
       <input onChange={changePrice} type="range" min={context.minPrice} step ={valueSlider / 20} max={context.maxPrice} value={currentPrice}></input>
-      <div className="slider-price-value-right">{context.maxPrice}</div>
+      <div className="slider-price-value-right choose-flight-text-normal">{context.maxPrice}</div>
     </div>
   </div>
 }

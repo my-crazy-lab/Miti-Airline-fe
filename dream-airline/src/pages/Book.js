@@ -20,7 +20,7 @@ const Book =() =>{
             <TravelerInfor></TravelerInfor>
           </div>
           <div className="book-body-2">
-            <div className="book-flight-detail box-shadow-frame margin-bottom-text">
+            <div className="book-flight-detail margin-top-text box-shadow-frame margin-bottom-text">
               <div className="book-flight-head">
                 <span className="choose-flight-text-big margin-left-text">Flight</span>
                 <Link className="book-text-detail margin-right-text" to="/">Detail</Link>

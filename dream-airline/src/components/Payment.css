@@ -130,3 +130,21 @@
 .payment-method-img {
   width: 160px;
 }
+.verify-flex {
+  position: relative;
+}
+.error-verify {
+  position: absolute;
+  top: 0%;
+  right: -100%;
+  border-radius: 24px;
+  background-color: rgb(48, 134, 48);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 16px;
+}

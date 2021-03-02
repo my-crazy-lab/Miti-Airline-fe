@@ -65,6 +65,34 @@
   color: #bfbfbf;
   font-size: 18px;
 }
+.promo-view-share-c.fb:hover {
+  cursor: pointer;
+  border-color: blue;
+}
+.promo-view-share-c.fb:hover i {
+  color: blue;
+}
+.promo-view-share-c.tw:hover {
+  cursor: pointer;
+  border-color: orange;
+}
+.promo-view-share-c.tw:hover i {
+  color: orange;
+}
+.promo-view-share-c.phone:hover {
+  cursor: pointer;
+  border-color: green;
+}
+.promo-view-share-c.phone:hover i {
+  color: green;
+}
+.promo-view-share-c.letter:hover {
+  cursor: pointer;
+  border-color: pink;
+}
+.promo-view-share-c.letter:hover i {
+  color: pink;
+}
 .promo-view-code-c {
   width: 40%;
   display: flex;

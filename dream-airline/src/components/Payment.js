@@ -1,11 +1,20 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import BookProcedure from '../components/BookProcedure'
 import './Payment.css';
 import {Link} from 'react-router-dom'
 import {FlyContext} from '../context';
 
 const Payment =()=>{
-  const context = useContext(FlyContext)
+  const context = useContext(FlyContext);
+  const [showErrorVerify, setShowErrorVerify] = useState();
+
+  const checkCode=()=>{
+    if(context.appData.codeDiscount.includes(context.thisCode) === true){
+      setShowErrorVerify(true);
+    }
+    setShowErrorVerify(false);
+  }
+
   return(
     <div className="payment-frame margin-bottom-text">
       <div className="payment">
@@ -134,8 +143,11 @@ const Payment =()=>{
                 </div>
               </div>
               <div className="payment-promo-2">
-                <input placeholder="Input Code Here" className="margin-left-text"></input>
-                <button className="btn-show margin-right-text">Verify</button>
+                <input placeholder="Input Code Here" className="margin-left-text" onInput ={(e)=> context.setThisCode(e.target.value)}></input>
+                <div className="verify-flex">
+                  <button type ='button' className="btn-show margin-right-text" onClick={checkCode}>Verify</button>                
+                  <span className="error-verify">SUCCESS</span>
+                </div>
               </div>
             </div>
             <div className="payment-traveler box-shadow-frame margin-top-text border-radius-4 ">

@@ -36,12 +36,12 @@
 }
 .choose-flight-change-head {
   display: flex;
-  height: 55%;
+  height: 46%;
   justify-content: space-between;
   align-items: center;
 }
 .choose-flight-change-option {
-  height: 45%;
+  height: 54%;
   border-top: 1px solid rgba(111, 111, 111, 0.2);
 }
 .choose-flight-choice {

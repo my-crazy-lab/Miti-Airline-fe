@@ -5,7 +5,8 @@
 .option-head {
   display: flex;
   justify-content: space-around;
-  width: 75%;
+  width: 92%;
+  align-items: center;
   align-items: center;
 }
 .option-footer {
@@ -15,16 +16,58 @@
   align-items: center;
 }
 .option-head-child {
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 .option-head-child select {
-  width: 90px;
-  height: 24px;
+  width: 112px;
+  height: 32px;
+}
+.option-long select {
+  width: 220px;
+  height: 32px;
 }
 .option-footer select {
   width: 120px;
-  height: 24px;
+  height: 32px;
+}
+.select-price {
+  color: var(--color-global);
+  border: 1px solid var(--color-global);
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  padding: 2px 8px;
+  font-size: 14px;
+}
+.select-price:hover {
+  color: white;
+  background-color: var(--color-global);
+}
+.select-price option {
+  border-radius: 6px;
+  background-color: white;
+  color: var(--color-global);
+}
+.btn-show-all {
+  padding: 12px 20px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: var(--color-global);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+.btn-show-all:hover {
+  background-color: rgb(212, 4, 4);
 }

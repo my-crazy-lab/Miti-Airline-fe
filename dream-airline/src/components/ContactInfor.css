@@ -20,14 +20,49 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  width: 30%;
+  width: 40%;
 }
 .contact-input {
   font-size: 14px;
   font-weight: 400;
+  width: 220px;
   color: #776673;
+  letter-spacing: 2px;
 }
 .contact-input::placeholder {
   font-size: 14px;
   color: #cfd7df;
+  letter-spacing: 0px;
+}
+.contact-input-long {
+  font-size: 14px;
+  font-weight: 400;
+  width: 360px;
+  color: #776673;
+  letter-spacing: 2px;
+}
+.contact-input-long::placeholder {
+  font-size: 14px;
+  color: #cfd7df;
+  letter-spacing: 0px;
+}
+.select-title {
+  width: 58px;
+  color: var(--color-global);
+  height: 22px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.select-title-long {
+  width: 168px;
+  color: var(--color-global);
+  height: 22px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const ContactInfor =() =>{
   const context = useContext(FlyContext)
   return(
-    <div className="contact box-shadow-frame ">
+    <div className="contact box-shadow-frame margin-top-text">
       <div className="contact-head">
         <span className="choose-flight-text-big margin-left-text">Contact Information</span>
       </div>
@@ -14,7 +14,7 @@ const ContactInfor =() =>{
         <div  className="contact-child">
           <div className="contact-child-child margin-left-text">
             <label className="traveler-infor-child-title">Title <span className="special-pointer">*</span></label>
-            <select>
+            <select className="select-title">
               <option>Mr</option>
               <option>Ms</option>
               <option>Mrs</option>
@@ -34,7 +34,7 @@ const ContactInfor =() =>{
       <div className="contact-child">
         <div className="contact-child-child margin-left-text">
           <label className="traveler-infor-child-title">Country <span className="special-pointer">*</span></label>
-          <select>
+          <select className="select-title-long">
           {context.appData.mobileCountry.map(data => {
             return <option>{data.country} ({data.number})</option>
           })}
@@ -48,7 +48,7 @@ const ContactInfor =() =>{
       <div className="contact-child">
         <div className="contact-child-child margin-left-text">
           <label className="traveler-infor-child-title">Email <span className="special-pointer">*</span></label>
-          <input className="contact-input" placeholder="ex. yourmail@gmail.com"></input>
+          <input className="contact-input-long" placeholder="ex. yourmail@gmail.com"></input>
         </div>
       </div>
       </div>

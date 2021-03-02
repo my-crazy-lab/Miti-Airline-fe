@@ -25,7 +25,7 @@ const TravelerInfor =()=>{
       <div  className="traveler-infor-child-body-child">
         <div className="contact-child-child margin-left-text">
           <label className="traveler-infor-child-title">Title <span className="special-pointer">*</span></label>
-          <select>
+          <select className="select-title">
             <option>Mr</option>
             <option>Ms</option>
             <option>Mrs</option>

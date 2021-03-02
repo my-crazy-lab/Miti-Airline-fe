@@ -140,8 +140,8 @@ const Navbar=()=>{
           </div>
         </div>
         <div className="nav-human">
-          <button type="button" onClick={toggleLogin} className="nav-login-btn">{context.thisLanguage.login}</button>
-          <button className="nav-register-btn">{context.thisLanguage.register}</button>
+          <button type="button" onClick={toggleLogin} className="margin-right-text bor-style-5-child-btn">{context.thisLanguage.login}</button>
+          <button className="nav-register-btn bor-style-3-child">{context.thisLanguage.register}</button>
         </div>
       </div>
       <div className="flight-login" style ={{'top' : `${$(window).height()* 0.2}px`}}>

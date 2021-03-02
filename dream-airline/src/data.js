@@ -576,6 +576,7 @@ const promo=[
     ],
   },
 ]
+const codeDiscount = [];
 const tripDataVN ={
   countryTrip : "VietNam",
   detailTrip : [
@@ -1239,12 +1240,12 @@ const listLanguage ={
     oneStop : 'One-stop',
     normal : 'Normal',
     business : 'Business',
-    earlyFlight : '>Early Flight',
+    earlyFlight : 'Early Flight',
     morningFLight : 'Morning Flight',
     afternoonFlight :"Afternoon Flight",
     nightFlight : 'Night Flight',
     lowestPrice : 'Lowest Price',
-    highestPrice : 'Highest Pricet',
+    highestPrice : 'Highest Price',
     earliest : 'Earliest Trip',
     lastest :'Latest Trip',
     promoList : 'Promo List',
@@ -1276,6 +1277,7 @@ const listPrice =[]
 const toCountry =[]
 
 export const appData={
+  codeDiscount : codeDiscount,
   listLanguage : listLanguage,
   currencyData : currencyData,
   languageData : languageData,
@@ -1291,6 +1293,12 @@ export const appData={
 }
 
 function setData (){
+  promo.map(data => {
+    return data.discount.map(code => {
+      return codeDiscount.push(code.code);
+    })
+  })
+  console.log(codeDiscount)
   allTrip.map( dataAll => {
     return dataAll.detailTrip.map(data => {
       return data.fly.map(fly => toCountry.push({to :fly.to, id : fly.toId, toAirline : fly.toAirline})) // con cho mat day khon nan tuoi lol.
