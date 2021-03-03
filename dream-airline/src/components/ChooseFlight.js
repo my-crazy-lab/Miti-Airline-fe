@@ -9,6 +9,11 @@ const ChooseFlight = ()=>{
   const chooseTrip=(key)=>{
     context.setDataChoice(context.appData.flyData.find(data => data.key === key))
   }
+  const funcShowAni=(id,to)=>{
+    if(context.aniShowTrip === true) context.setAniShowTrip(false)
+    else context.setAniShowTrip(true)
+    context.setKeyAniShowTrip(`${id}${to}`);
+  }
   return(
     <div className="choose-flight-frame">
     <div className="choose-flight-choice-frame">
@@ -167,10 +172,10 @@ const ChooseFlight = ()=>{
                   <Link to="/Flight/confirm">
                     <button type="button" className="btn-red-white" onClick={() => chooseTrip(data.key)}>{context.thisLanguage.chooseFlight}</button>                  
                   </Link>
-                  <i class="fas fa-chevron-up"></i>
+                  <i class={`fas fa-chevron-up ani-hide-detail-trip ${context.aniShowTrip === true && context.keyAniShowTrip === `${data.id}${data.to}`? 'ani-show-detail-trip' : ''}`} onClick={()=> funcShowAni(data.id, data.to,)}></i>
                 </div>
               </div>
-              <div className="choose-flight-list-child-detail">
+              <div className={`choose-flight-list-child-detail ani-hide-detail-trip-text ${context.aniShowTrip === true && context.keyAniShowTrip === `${data.id}${data.to}` ? 'ani-show-detail-trip-text' : ''}`}>
                 <div className="choose-flight-list-child-detail-child margin-left-text ">
                   <span className="choose-flight-text-normal ">VietNam Airline</span>
                   <span className="choose-flight-text-small">BL6215</span>

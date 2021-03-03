@@ -31,7 +31,10 @@ const ContactInfor =() =>{
         <div className="contact-child">
           <div className="contact-child-child margin-left-text">
             <label className="traveler-infor-child-title">Name <span className="special-pointer">*</span></label>
-            <input value ={context.valueName} className="contact-input" placeholder="ex.Albert Thomas" onInput={(e)=>{
+            <input onKeyDown={(e)=>{
+              if(parseInt(e.key) >= 0 && parseInt(e.key) <= 9 || e.key === '0') e.preventDefault();
+            }
+            } value ={context.valueName} className="contact-input" placeholder="ex.Albert Thomas" onInput={(e)=>{
               context.setValueName(e.target.value)
             }}></input>
             <div className={`${context.checkInputName === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
@@ -41,7 +44,9 @@ const ContactInfor =() =>{
           </div>
           <div className="contact-child-child">
             <label className="traveler-infor-child-title">Surname <span className="special-pointer">*</span></label>
-            <input value={context.valueSurName} className="contact-input" placeholder="ex.Miller" onInput={(e)=>{
+            <input onKeyDown={(e)=> {
+              if(parseInt(e.key) >= 0 && parseInt(e.key) <= 9 || e.key === '0') e.preventDefault();
+            }} value={context.valueSurName} className="contact-input" placeholder="ex.Miller" onInput={(e)=>{
               context.setValueSurName(e.target.value)
               }}></input>
             <div className={`${context.checkInputSurName === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
@@ -65,7 +70,7 @@ const ContactInfor =() =>{
         </div>
         <div className="contact-child-child">
           <label className="traveler-infor-child-title">Phone<span className="special-pointer">*</span></label>
-          <input value={context.valueNumber} className="contact-input" placeholder="ex. 2025550155" onInput={(e)=>{
+          <input type='number' value={context.valueNumber} className="contact-input" placeholder="ex. 2025550155" onInput={(e)=>{
             context.setValueNumber(e.target.value)
           }}></input>
           <div className={`${context.checkInputNumber === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
@@ -77,7 +82,7 @@ const ContactInfor =() =>{
       <div className="contact-child">
         <div className="contact-child-child margin-left-text">
           <label className="traveler-infor-child-title">Email <span className="special-pointer">*</span></label>
-          <input value={context.valueEmail} className="contact-input-long" placeholder="ex. yourmail@gmail.com" onInput={(e)=> {
+          <input type="email" value={context.valueEmail} className="contact-input-long" placeholder="ex. yourmail@gmail.com" onInput={(e)=> {
             context.setValueEmail(e.target.value)
           }}></input>
           <div className={`${context.checkInputEmail === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>

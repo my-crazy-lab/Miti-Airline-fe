@@ -33,6 +33,16 @@ const FlyProvider =({children})=>{
   const [checkInputNumber, setCheckInputNumber] = useState(false);
   const [checkInputEmail, setCheckInputEmail] = useState(false);
 
+  const [checkInputTitle1, setCheckInputTitle1] =useState(false);
+  const [checkInputSurName1, setCheckInputSurName1] =useState(false);
+  const [checkInputName1, setCheckInputName1] =useState(false);
+  const [checkInputDate1, setCheckInputDate1] =useState(false);
+
+  const [checkInputTitle2, setCheckInputTitle2] =useState(false);
+  const [checkInputSurName2, setCheckInputSurName2] =useState(false);
+  const [checkInputName2, setCheckInputName2] =useState(false);
+  const [checkInputDate2, setCheckInputDate2] =useState(false);
+
   const [monthNow,setMonthNow] = useState(parseInt(`${new Date().getMonth()}`));
   const [nameMonth,setNameMonth] = useState('');
   const [nameDay,setNameDay] = useState('');
@@ -76,12 +86,26 @@ const FlyProvider =({children})=>{
 
   const [thisCode, setThisCode] = useState('')
 
+  const [aniShowTrip, setAniShowTrip] = useState(false)
+
+  const [keyAniShowTrip, setKeyAniShowTrip] =useState('')
+
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
     setMaxPrice((Math.max(...appData.listPrice) * convert).toFixed(0))
   },[convert])
   return(
     <FlyContext.Provider value ={{
+      keyAniShowTrip:keyAniShowTrip,
+      aniShowTrip:aniShowTrip,
+      checkInputTitle1 : checkInputTitle1,
+      checkInputSurName1 : checkInputSurName1,
+      checkInputName1 : checkInputName1,
+      checkInputDate1 : checkInputDate1,
+      checkInputTitle2 : checkInputTitle2,
+      checkInputSurName2 : checkInputSurName2,
+      checkInputName2 : checkInputName2,
+      checkInputDate2 : checkInputDate2,
       step : step,
       showErrorBookStep1: showErrorBookStep1,
       valueTitle : valueTitle,
@@ -131,6 +155,16 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      setKeyAniShowTrip:setKeyAniShowTrip,
+      setAniShowTrip: setAniShowTrip,
+      setCheckInputTitle1 : setCheckInputTitle1,
+      setCheckInputSurName1 : setCheckInputSurName1,
+      setCheckInputName1 : setCheckInputName1,
+      setCheckInputDate1 : setCheckInputDate1,
+      setCheckInputTitle2 : setCheckInputTitle2,
+      setCheckInputSurName2 : setCheckInputSurName2,
+      setCheckInputName2 : setCheckInputName2,
+      setCheckInputDate2 : setCheckInputDate2,
       setStep : setStep,
       setShowErrorBookStep1:setShowErrorBookStep1,
       setValueNumber: setValueNumber ,

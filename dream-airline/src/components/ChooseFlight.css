@@ -118,21 +118,22 @@
   transform: translate(calc(var(--margin-left-global) / 2), 25%);
 }
 .choose-flight-list-child {
-  height: 300px;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 16px 0;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.2);
 }
 .choose-flight-list-child-announce {
-  height: 33.333%;
+  height: 100px;
   display: flex;
+  background: white;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(41, 41, 41, 0.2);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0px -8px 8px -8px rgba(0, 0, 0, 0.3),
+    8px 0px 8px -8px rgba(0, 0, 0, 0.3), -8px 0px 8px -8px rgba(0, 0, 0, 0.3);
 }
 .choose-flight-list-child-announce-list {
   display: flex;
@@ -201,11 +202,16 @@
   color: rgb(132, 132, 132);
 }
 .choose-flight-list-child-detail {
-  height: 66.667%;
+  height: 200px;
+  background-color: white;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0px 8px 8px -8px rgba(0, 0, 0, 0.3),
+    8px 0px 8px -8px rgba(0, 0, 0, 0.3), -8px 0px 8px -8px rgba(0, 0, 0, 0.3);
 }
 .choose-flight-list-child-detail-child {
   display: flex;
@@ -258,4 +264,20 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+.ani-show-detail-trip {
+  transform: rotate(-180deg);
+  transition: all 0.6s;
+}
+.ani-hide-detail-trip {
+  transition: all 0.6s;
+}
+.ani-show-detail-trip-text {
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.6s;
+}
+.ani-hide-detail-trip-text {
+  transition: all 0.6s;
+  overflow: hidden;
 }
