@@ -73,22 +73,37 @@ const DetailTrip =() =>{
         </div>
       </div>
       <div className="detail-trip-price">
-        <div className="detail-trip-price-head box-shadow-frame ">
+        <div className="detail-trip-price-head  margin-bottom-10">
           <div className="detail-trip-price-topic">
             <span className="choose-flight-text-bold margin-left-text">Price detail</span>          
           </div>
-          <div className="detail-trip-depart">
-            <div>
-              <span className="detail-trip-text-small-bold margin-left-text">Depart </span>
-              <span className="detail-trip-text-small-bold">({context.dataChoice.id}</span>
-              <i class="fas fa-arrow-right"></i>
-              <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
-              <i class="fas fa-chevron-down"></i>
+          <div className="detail-trip-depart ">
+            <div className="detail-trip-depart-1">
+              <div className="detail-trip-depart-1-c" onClick={()=>{
+                if(context.aniShowPrice === true) context.setAniShowPrice(false);
+                else context.setAniShowPrice(true);
+              }}>
+                <span className="detail-trip-text-small-bold margin-left-text">Depart </span>
+                <span className="detail-trip-text-small-bold">({context.dataChoice.id}</span>
+                <i class="fas fa-arrow-right"></i>
+                <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
+                <i class={`fas fa-chevron-up ani-hide-price-icon ${context.aniShowPrice === true ? 'ani-show-price-icon' : ''}`}></i>
+              </div>
+              <span className="detail-trip-text-small-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
             </div>
-            <span className="detail-trip-text-small-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
+            <div className={`detail-trip-depart-2 ani-show-price-text ${context.aniShowPrice === true ? 'ani-hide-price-text' : ''}`}>
+              <div className="detail-trip-depart-2-c">
+                <span className="margin-left-text choose-flight-text-blur">Adult x 2</span>
+                <span className="margin-right-text choose-flight-text-normal">59000</span>
+              </div>
+              <div className="detail-trip-depart-2-c">
+                <span className="margin-left-text choose-flight-text-blur">Tax</span>
+                <span className="margin-right-text choose-flight-text-normal">59000</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="detail-trip-total box-shadow-frame ">
+        <div className="detail-trip-total box-shadow-frame margin-bottom-10">
           <span className="choose-flight-text-bold margin-left-text">Total Price</span>
           <span className="choose-flight-text-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
         </div>

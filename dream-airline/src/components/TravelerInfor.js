@@ -160,9 +160,7 @@ const TravelerInfor =()=>{
       </div>
       <div className="traveler-infor-body-frame">
         <div className="traveler-infor-body">
-          {
-            arrayTraveler
-          }
+          {arrayTraveler}
         </div>
       </div>
     </div>

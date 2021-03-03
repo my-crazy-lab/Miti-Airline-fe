@@ -12,15 +12,8 @@
   font-size: 20px;
 }
 .detail-trip-price {
-  height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-.detail-trip-price-head {
-  height: 48%;
-  background-color: white;
-  border-radius: 6px;
 }
 .detail-trip-depart i {
   font-size: 14px;
@@ -29,20 +22,57 @@
 }
 .detail-trip-depart {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.3),
+    8px 0 8px -8px rgba(0, 0, 0, 0.3), -8px 0 8px -8px rgba(0, 0, 0, 0.3);
+}
+.detail-trip-depart-1 {
+  height: 48px;
+  background-color: white;
+  display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.detail-trip-depart-2 {
+  height: 64px;
+  background-color: white;
+  flex-direction: column;
+  display: flex;
+  align-items: space-between;
+  width: 100%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.detail-trip-depart-1-c {
+  width: 70%;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.detail-trip-depart-2-c {
+  display: flex;
+  justify-content: space-between;
   height: 50%;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  align-items: center;
 }
 .detail-trip-price-topic {
-  height: 50%;
+  height: 54px;
   display: flex;
   align-items: center;
+  background: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 -8px 8px -8px rgba(0, 0, 0, 0.3),
+    8px 0 8px -8px rgba(0, 0, 0, 0.3), -8px 0 8px -8px rgba(0, 0, 0, 0.3);
 }
 .detail-trip-total {
   display: flex;
   justify-content: space-between;
-  height: 28%;
+  height: 60px;
   background-color: white;
   align-items: center;
   border-radius: 6px;
@@ -101,4 +131,22 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+.ani-show-price-icon {
+  transform: rotate(-180deg);
+  transition: all 0.6s;
+  overflow: hidden;
+}
+.ani-hide-price-icon {
+  transition: all 0.6s;
+  overflow: hidden;
+}
+.ani-show-price-text {
+  transition: all 0.6s;
+  overflow: hidden;
+}
+.ani-hide-price-text {
+  height: 0px;
+  transition: all 0.6s;
+  overflow: hidden;
 }

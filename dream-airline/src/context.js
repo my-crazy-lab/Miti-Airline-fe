@@ -87,8 +87,9 @@ const FlyProvider =({children})=>{
   const [thisCode, setThisCode] = useState('')
 
   const [aniShowTrip, setAniShowTrip] = useState(false)
-
   const [keyAniShowTrip, setKeyAniShowTrip] =useState('')
+
+  const [aniShowPrice, setAniShowPrice] = useState(false)
 
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
@@ -96,6 +97,7 @@ const FlyProvider =({children})=>{
   },[convert])
   return(
     <FlyContext.Provider value ={{
+      aniShowPrice:aniShowPrice,
       keyAniShowTrip:keyAniShowTrip,
       aniShowTrip:aniShowTrip,
       checkInputTitle1 : checkInputTitle1,
@@ -155,6 +157,7 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      setAniShowPrice:setAniShowPrice,
       setKeyAniShowTrip:setKeyAniShowTrip,
       setAniShowTrip: setAniShowTrip,
       setCheckInputTitle1 : setCheckInputTitle1,
