@@ -8,6 +8,9 @@
 .booktrip {
   z-index: 1;
 }
+.login-overlay {
+  z-index: 2;
+}
 .booktrip-where-child-1,
 .booktrip-where-child-2,
 .booktrip-traveler-child,
@@ -15,7 +18,8 @@
 .booktrip-date-calendar-2,
 .nav-language-list,
 .nav-currency-list,
-.calendar {
+.calendar,
+.tab-detail {
   z-index: 10;
 }
 .login {
@@ -119,4 +123,33 @@ input {
   font-weight: 500;
   font-size: 16px;
   color: #59595b;
+}
+.error {
+  background: rgba(250, 72, 69, 0.8);
+  padding: 10px 32px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 12px #8c1f15;
+}
+.error i {
+  color: white;
+  margin-right: 8px;
+}
+.error-content {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.login-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.hide-error {
+  display: none;
 }

@@ -1,11 +1,12 @@
 .procedure-frame {
-  background-color: white;
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 80px;
+  height: 100px;
+  background-color: transparent;
 }
 .procedure {
+  background-color: white;
   height: 100%;
   width: var(--width-global);
   display: flex;
@@ -21,7 +22,7 @@
   align-items: center;
   justify-content: center;
 }
-.procedure-sbs {
+.procedure-sbs-success {
   background-color: var(--color-global);
   width: 24px;
   height: 24px;
@@ -32,14 +33,38 @@
   font-size: 12px;
   border-radius: 50%;
 }
-.procedure-before-step {
+.procedure-sbs-none {
+  background-color: rgb(97, 97, 97);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+}
+.procedure-before-step-success {
   position: relative;
 }
-.procedure-before-step::before {
+.procedure-before-step-success::before {
   position: absolute;
-  top: 22%;
+  top: 28%;
   right: -60%;
   color: #c9c9c9;
   width: 180px;
   content: "----------------------";
+  color: var(--color-global);
+}
+.procedure-before-step-none {
+  position: relative;
+}
+.procedure-before-step-none::before {
+  position: absolute;
+  top: 28%;
+  right: -60%;
+  color: #c9c9c9;
+  width: 180px;
+  content: "----------------------";
+  color: var(--text-global);
 }

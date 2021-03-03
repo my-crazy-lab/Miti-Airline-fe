@@ -10,6 +10,29 @@ const FlyProvider =({children})=>{
     $('.flight-login').toggle();
   },[showLogin]);
 
+  const [showDetail,setShowDetail] = useState(false);
+  useEffect(() => {
+    $('.toggle-detail').toggle();
+  },[showDetail]);
+
+  const [step, setStep] = useState(1) 
+
+  const [valueTitle, setValueTitle] = useState('');
+  const [valueName, setValueName] = useState('');
+  const [valueSurName, setValueSurName] = useState('');
+  const [valueEmail, setValueEmail] = useState('');
+  const [valueCountry, setValueCountry] = useState('');
+  const [valueNumber, setValueNumber] = useState('');
+
+  const[showErrorBookStep1,setShowErrorBookStep1] =useState(false)
+
+  const [checkInputTitle, setCheckInputTitle] = useState(false);
+  const [checkInputName, setCheckInputName] = useState(false);
+  const [checkInputSurName, setCheckInputSurName] = useState(false);
+  const [checkInputCountry, setCheckInputCountry] = useState(false);
+  const [checkInputNumber, setCheckInputNumber] = useState(false);
+  const [checkInputEmail, setCheckInputEmail] = useState(false);
+
   const [monthNow,setMonthNow] = useState(parseInt(`${new Date().getMonth()}`));
   const [nameMonth,setNameMonth] = useState('');
   const [nameDay,setNameDay] = useState('');
@@ -59,6 +82,21 @@ const FlyProvider =({children})=>{
   },[convert])
   return(
     <FlyContext.Provider value ={{
+      step : step,
+      showErrorBookStep1: showErrorBookStep1,
+      valueTitle : valueTitle,
+      valueEmail : valueEmail,
+      valueCountry : valueCountry,
+      valueSurName : valueSurName,
+      valueName : valueName,
+      valueNumber : valueNumber,      
+      checkInputCountry: checkInputCountry ,
+      checkInputNumber: checkInputNumber ,
+      checkInputEmail: checkInputEmail ,
+      checkInputSurName: checkInputSurName ,
+      checkInputName: checkInputName ,
+      checkInputTitle: checkInputTitle ,
+      showDetail: showDetail ,
       thisCode : thisCode,
       thisLanguage: thisLanguage ,
       choosePage: choosePage ,
@@ -93,6 +131,21 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      setStep : setStep,
+      setShowErrorBookStep1:setShowErrorBookStep1,
+      setValueNumber: setValueNumber ,
+      setValueCountry: setValueCountry ,
+      setValueEmail: setValueEmail ,
+      setValueSurName: setValueSurName ,
+      setValueName: setValueName ,
+      setValueTitle: setValueTitle ,
+      setCheckInputCountry: setCheckInputCountry ,
+      setCheckInputNumber: setCheckInputNumber ,
+      setCheckInputEmail: setCheckInputEmail ,
+      setCheckInputSurName: setCheckInputSurName ,
+      setCheckInputName: setCheckInputName ,
+      setCheckInputTitle: setCheckInputTitle ,
+      setShowDetail: setShowDetail ,
       setThisCode : setThisCode ,
       setThisLanguage: setThisLanguage ,
       setChoosePage: setChoosePage ,

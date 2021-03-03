@@ -27,6 +27,7 @@ input::placeholder {
   background: rgb(150, 148, 148);
 }
 .booktrip {
+  position: relative;
   width: 560px;
   height: var(--height-global-booktrip);
   background: white;
@@ -36,6 +37,35 @@ input::placeholder {
   flex-direction: column;
   padding: 24px;
   border-radius: 8px;
+}
+.booktrip-error {
+  position: absolute;
+  width: 100%;
+}
+.booktrip-error-c {
+  width: 100%;
+  position: absolute;
+  background: rgba(250, 72, 69, 0.8);
+  right: -100%;
+  top: -100px;
+  padding: 10px 32px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 12px #8c1f15;
+}
+.booktrip-error-c i {
+  color: white;
+  margin-right: 8px;
+}
+.booktrip-error-content {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.hide-error {
+  display: none;
 }
 /* type */
 .booktrip-type {

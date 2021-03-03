@@ -582,7 +582,7 @@ const tripDataVN ={
   detailTrip : [
   {
     id : "SGN",
-    name : "Ho Chi Minh City, Vietnam",
+    name : "Ho Chi Minh City",
     from : "Ho Chi Minh",
     airport : "Tan Son Nhat International Airport",
     fly : [
@@ -624,7 +624,7 @@ const tripDataVN ={
   },
   {
     id : "HAN",
-    name : "Hanoi, Vietnam",
+    name : "Hanoi",
     from : "Hanoi",
     airport : "Noi Bai International Airport",
     fly : [
@@ -664,7 +664,7 @@ const tripDataVN ={
   },
   {
     id : "DAD",
-    name : "Da Nang, Vietnam",
+    name : "Da Nang",
     from : "DaNang",
     airport : "Da Nang International Airport",
     fly : [
@@ -708,7 +708,7 @@ const tripDataUS ={
   detailTrip : [
     {
       id : "AMR",
-      name : "Denver City, American",
+      name : "Denver City",
       from : "Denver",
       airport : "Denver - Den International Airport",
       fly : [
@@ -748,7 +748,7 @@ const tripDataUS ={
     },
     {
       id : "DAF",
-      name : "Texas City, American",
+      name : "Texas City",
       from : "Texas",
       airport : "Dallas-Forth Worth International Airport",
       fly : [
@@ -788,7 +788,7 @@ const tripDataUS ={
     },
     {
       id : "ATL  ",
-      name : "Georgia City, American",
+      name : "Georgia City",
       from :"Georgia",
       airport : "Atlanta  International Airport",
       fly : [
@@ -833,7 +833,7 @@ const tripDataUK ={
   detailTrip : [
     {
       id : "BA",
-      name : "British City, United Kingdom",
+      name : "British City",
       from : "British",
       airport : "British Airways International Airport",
       fly : [
@@ -873,7 +873,7 @@ const tripDataUK ={
     },
     {
       id : "ABB",
-      name : "Abingdon City, United Kingdom",
+      name : "Abingdon City",
       from : "Abingdon",
       airport : "RAF Abingdon International Airport",
       fly : [
@@ -913,13 +913,13 @@ const tripDataUK ={
     },
     {
       id : "EGDM",
-      name : "Amesbury City, United Kingdom",
+      name : "Amesbury City",
       from :"Amesbury",
       airport : "MoD Boscombe Down  International Airport",
       fly : [
         {
           key : "aa64512",
-          to : "HoChiMinh-Vietnam",
+          to : "HoChiMinh",
           toAirline : "Tan Son Nhat International Airport",
           img : "url(/img/city-17.webp)" ,
           id: "SGN",
@@ -958,7 +958,7 @@ const tripDataJa ={
   detailTrip : [
     {
       id : "KIX",
-      name : "Osaka City, Japan",
+      name : "Osaka City",
       from : "Osaka",
       airport : "Izumisano International Airport",
       fly : [
@@ -998,7 +998,7 @@ const tripDataJa ={
     },
     {
       id : "HND",
-      name : "Tokyo City, Japan",
+      name : "Tokyo City",
       from : "Tokyo",
       airport : "Ota ward, Tokyo International Airport",
       fly : [
@@ -1038,7 +1038,7 @@ const tripDataJa ={
     },
     {
       id : "FUK ",
-      name : "Fukuoka City, Japan",
+      name : "Fukuoka City",
       from :"Fukuoka",
       airport : "Fukuoka International Airport",
       fly : [
@@ -1298,7 +1298,6 @@ function setData (){
       return codeDiscount.push(code.code);
     })
   })
-  console.log(codeDiscount)
   allTrip.map( dataAll => {
     return dataAll.detailTrip.map(data => {
       return data.fly.map(fly => toCountry.push({to :fly.to, id : fly.toId, toAirline : fly.toAirline})) // con cho mat day khon nan tuoi lol.

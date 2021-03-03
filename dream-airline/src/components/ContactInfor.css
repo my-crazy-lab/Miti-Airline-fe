@@ -17,6 +17,7 @@
   height: 25%;
 }
 .contact-child-child {
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -65,4 +66,26 @@
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
+}
+.error-title {
+  position: absolute;
+  top: 12%;
+  left: 24%;
+  height: 32px;
+  border-radius: 32px;
+  background-color: rgba(248, 233, 233, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+}
+.error-title i {
+  color: var(--color-global);
+  margin-right: 2px;
+  font-size: 10px;
+}
+.error-title span {
+  color: var(--color-global);
+  font-size: 10px;
+  font-weight: 500;
 }

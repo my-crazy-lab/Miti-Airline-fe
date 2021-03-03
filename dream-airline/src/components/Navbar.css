@@ -326,26 +326,18 @@
   transition: all 1s;
 }
 .bor-style-2-long-child:hover:after {
-  width: 134px;
-  height: 58px;
+  width: 139px;
+  height: 59px;
   border-top: 1px solid var(--color-global);
   border-left: 1px solid var(--color-global);
 }
 .bor-style-2-long-child:hover:before {
-  width: 134px;
-  height: 58px;
+  width: 139px;
+  height: 59px;
   border-right: 1px solid var(--color-global);
   border-bottom: 1px solid var(--color-global);
 }
 /*  */
-.login-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
 .choose-page {
   width: 140px;
   border: 1px solid var(--color-global);

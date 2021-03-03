@@ -21,7 +21,7 @@ const DetailTrip =() =>{
               <span className="choose-flight-change-head-detail-traveler">Direct</span>
             </div>
           </div>
-          <Link>
+          <Link to="/SearchPlane">
             <button type="button" className="margin-right-text btn-red-white">Change Flight</button>        
           </Link>
         </div>

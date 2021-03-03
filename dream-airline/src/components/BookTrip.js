@@ -81,6 +81,7 @@ const BookTrip =()=>{
     context.setDes(context.dep);
     $('#departure').val(`${context.dep}`);
     $('#destination').val(`${context.des}`);
+    console.log(context.des, context.dep)
   }
   const chooseTripDep=(id,name)=>{
     chooseDep.current.value  = `${name}(${id})`;
@@ -102,7 +103,7 @@ const BookTrip =()=>{
     else context.setChooseTrip(false)
   }
   return(
-      <div className="booktrip">
+      <div className="booktrip"> 
         <div className="booktrip-type">
           <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'oneway': 'twoway'}`}>{context.thisLanguage.oneWay}</button>
           <button onClick={checkWay} className={`${context.typeTrip === "normal"? 'twoway': 'oneway'}`}>{context.thisLanguage.roundTrip}</button>
@@ -273,9 +274,19 @@ const BookTrip =()=>{
               </div>
             </div>
         </div>
-        <Link to="/SearchPlane" className="booktrip-search">
+        <Link to={`${context.des !== '' && context.chooseTrip === true && context.dep!== '' && context.des !== context.dep ? '/SearchPlane' : '/Flight'}`} className="booktrip-search">
           <button className="booktrip-search-btn" onClick={clickToSearch}>{context.thisLanguage.search}</button>
         </Link>
+        <div className="booktrip-error">
+          <div className={`${context.des === context.dep && context.des !== '' && context.dep !== '' ? 'booktrip-error-c' : 'hide-error'}`}>
+            <i class="fas fa-exclamation-triangle"></i>
+            <span className="booktrip-error-content">Departure and arrival city must be different</span>
+          </div>
+          <div className={`${context.chooseTrip === false && context.des !== '' && context.dep !== ''? 'booktrip-error-c' : 'hide-error'}`}>
+            <i class="fas fa-exclamation-triangle"></i>
+            <span className="booktrip-error-content">Sorry.This trip is cancel , please choose different trip.Thank you</span>
+          </div>
+        </div>
       </div>
   )
 }

@@ -58,9 +58,13 @@
   align-items: center;
 }
 .book-text-detail {
-  font-size: 14px;
+  font-size: 15px;
   color: #f4a25b;
   font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
 }
 .book-flight-depart {
   height: 24%;
@@ -89,4 +93,25 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+.tab-detail {
+  position: absolute;
+  background-color: #f7f7f7;
+  width: 932px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 412px;
+}
+.toggle-detail {
+  position: relative;
+  display: none;
+}
+.detail-show-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 16%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }

@@ -7,23 +7,23 @@ const BookProcedure =()=>{
   const context = useContext(FlyContext);
 
   return (
-    <div className="procedure-frame box-shadow-frame">
-      <div className="procedure">
+    <div className="procedure-frame margin-top-text">
+      <div className="procedure box-shadow-frame margin-left-text">
         <div className="procedure-step">
-          <div className="procedure-flex procedure-before-step">
-            <div className="procedure-sbs">1</div>
+          <div className={`procedure-flex ${context.step >= 2 ?'procedure-before-step-success' : 'procedure-before-step-none'}`}>
+            <div className="procedure-sbs-success">1</div>
             <span className="choose-flight-text-normal">Book</span>
           </div>
-          <div className="procedure-flex procedure-before-step">
-            <div className="procedure-sbs">2</div>
+          <div className={`procedure-flex ${context.step >= 3 ?'procedure-before-step-success' : 'procedure-before-step-none'}`}>
+            <div className={`${context.step >= 2 ? "procedure-sbs-success" : 'procedure-sbs-none'}`}>2</div>
             <span className="choose-flight-text-normal">Payment</span>
           </div>
-          <div className="procedure-flex procedure-before-step">
-            <div className="procedure-sbs">3</div>
+          <div className={`procedure-flex ${context.step >= 4 ?'procedure-before-step-success' : 'procedure-before-step-none'}`}>
+            <div className={`${context.step >= 3 ? "procedure-sbs-success" : 'procedure-sbs-none'}`}>3</div>
             <span className="choose-flight-text-normal">Payment Confirmation</span>
           </div>
           <div className="procedure-flex">
-            <div className="procedure-sbs">4</div>
+            <div className={`${context.step >= 4 ? "procedure-sbs-success" : 'procedure-sbs-none'}`}>4</div>
             <span className="choose-flight-text-normal">Done</span>
           </div>
         </div>
