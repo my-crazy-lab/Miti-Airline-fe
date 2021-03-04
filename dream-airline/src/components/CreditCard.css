@@ -99,3 +99,64 @@
 .back-to-payment i {
   color: #f18a5d;
 }
+.error-pay {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 60px 40px;
+  border-radius: 6px;
+  width: 600px;
+}
+.btn-ok {
+  background-color: var(--color-global);
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-ok:hover {
+  background-color: rgb(202, 2, 2);
+}
+.error-pay-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.error-pay-flex:nth-child(1) {
+  height: 140px;
+  justify-content: space-around;
+}
+.exit-error-pay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.exit-error-pay i {
+  color: var(--color-global);
+  font-size: 14px;
+}
+.exit-error-pay:hover {
+  background-color: var(--color-global);
+}
+.exit-error-pay:hover i {
+  color: white;
+  font-size: 14px;
+}

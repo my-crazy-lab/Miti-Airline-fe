@@ -204,7 +204,7 @@ const Book =() =>{
           <span className="choose-flight-text-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
         </div>
       </div>
-            <Link className="book-continue" to={()=> {
+            <Link onClick={()=>$(window).scrollTop(0)} className="book-continue" to={()=> {
               if(context.checkInputTitle === true && context.checkInputCountry === true && context.checkInputNumber === true && context.checkInputEmail === true && context.checkInputSurName === true && context.checkInputName === true) {
                 context.setStep(context.step ++);
                 return '/Flight/payment';

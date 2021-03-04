@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import "./DetailTrip.css";
 import {FlyContext} from '../context';
 import {Link} from 'react-router-dom'
+import $ from 'jquery';
 
 const DetailTrip =() =>{
   const context = useContext(FlyContext)
@@ -107,7 +108,7 @@ const DetailTrip =() =>{
           <span className="choose-flight-text-bold margin-left-text">Total Price</span>
           <span className="choose-flight-text-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
         </div>
-        <Link to="/Flight/book">
+        <Link onClick={()=> $(window).scrollTop(0)} to="/Flight/book">
           <button type="button" className="btn-red-white detail-trip-btn">Continue Booking</button>
         </Link>
       </div>

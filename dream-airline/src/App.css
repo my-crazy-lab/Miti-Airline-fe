@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 /* z-index */
 .booktrip-where-child,
 .nav-more-show {
@@ -9,7 +12,8 @@
 .booktrip {
   z-index: 1;
 }
-.login-overlay {
+.login-overlay,
+.change-search-retweet {
   z-index: 2;
 }
 .booktrip-where-child-1,
@@ -21,6 +25,7 @@
 .nav-currency-list,
 .calendar,
 .tab-detail,
+.error-pay,
 .nav-human-acc-show {
   z-index: 10;
 }

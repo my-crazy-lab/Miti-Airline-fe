@@ -1,12 +1,13 @@
 import React,{useContext} from 'react';
 import "./Recommend.css";
-import {FlyContext} from '../context';
+import {FlyContext, resetScroll} from '../context';
 import {Link} from 'react-router-dom'
 
 const Recommend =() =>{
   const context = useContext(FlyContext);
 
   const chooseRecommend=(id, toId)=>{
+    resetScroll()
     context.setChooseTrip(true)
     context.setTrip(context.appData.flyData.find(data => data.id === id && data.toId === toId))
   }

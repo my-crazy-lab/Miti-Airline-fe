@@ -2,13 +2,18 @@ import React,{useState, useEffect, useRef} from 'react';
 import {appData} from "./data";
 import $ from "jquery";
 
+export function resetScroll(){
+  $(window).scrollTop(0)
+}
+
 const FlyContext = React.createContext()
 
 const FlyProvider =({children})=>{
 
   const refRecommend = useRef(null);
   const refAirlinePartner = useRef(null);
-  const refTopFlight = useRef(null);
+  const refTopFlight = useRef(null);  
+  const refErrorPay = useRef(null);
 
   const [showLogin,setShowLogin] = useState(false);
   useEffect(() => {
@@ -108,16 +113,35 @@ const FlyProvider =({children})=>{
 
   const [showMore, setShowMore] = useState(false)
 
+  const [hide, setHide] = useState(false)
+  
+  const [checkSameContact, setCheckSameContact] = useState(false)
+
+  const [errorPay, setErrorPay] = useState(false)
+
+  const [showChangeSearch, setShowChangeSearch] = useState(false)
+
+    function hideTab(){
+      setShowMore(false);
+      $('.nav-currency-list-frame').hide();
+      $('.nav-language-list-frame').hide();
+    }
+
   useEffect(() => {
-    $('.nav-more-show').toggle();
-  },[showMore]);
+    hideTab()
+  },[hide])
 
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
     setMaxPrice((Math.max(...appData.listPrice) * convert).toFixed(0))
   },[convert])
+
   return(
     <FlyContext.Provider value ={{
+      showChangeSearch:showChangeSearch,
+      refErrorPay:refErrorPay,
+      errorPay:errorPay,
+      checkSameContact:checkSameContact,
       refRecommend:refRecommend,
       refAirlinePartner:refAirlinePartner,
       refTopFlight:refTopFlight,
@@ -190,8 +214,13 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      hide : hide,
 
       setShowMore: setShowMore,
+      setShowChangeSearch:setShowChangeSearch,
+      setErrorPay :setErrorPay,
+      setCheckSameContact:setCheckSameContact,
+      setHide:setHide,
       setShowOverlay: setShowOverlay,
       setShowDetailAccount: setShowDetailAccount,
       setThisAccount: setThisAccount,
@@ -264,6 +293,6 @@ const FlyProvider =({children})=>{
   )
 }
 
-const FlyConsumer = FlyContext.FlyConsumer
+const FlyConsumer = FlyContext.FlyConsumer;
 
 export {FlyProvider, FlyConsumer, FlyContext}; 

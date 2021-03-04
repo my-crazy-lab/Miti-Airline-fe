@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .payment-head {
   margin-top: 100px;

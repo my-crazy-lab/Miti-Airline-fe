@@ -17,8 +17,11 @@ const TravelerInfor =()=>{
         <span class="choose-flight-change-head-detail-traveler">Adult</span>
       </div>
       <div className="margin-left-text traveler-infor-child-head-2">
-        <input id= "Same with Contact" type="checkbox"></input>
-        <label for="Same with Contact" className="margin-right-text choose-flight-text-normal">Same with Contact</label>
+        <input id= "Same with Contact" type="checkbox" className="checkbox-traveler"></input>
+        <label for="Same with Contact" className="margin-right-text choose-flight-text-normal" onClick={()=> {
+          if(context.checkSameContact === true) context.setCheckSameContact(false);
+          else context.setCheckSameContact(true);
+        }}>Same with Contact</label>
       </div>
     </div>
     <div className="traveler-infor-child-body">
@@ -39,7 +42,7 @@ const TravelerInfor =()=>{
       <div className="traveler-infor-child-body-child">
         <div className="contact-child-child margin-left-text">
           <label className="traveler-infor-child-title">Name <span className="special-pointer">*</span></label>
-          <input className="contact-input" placeholder="ex.Albert Thomas"></input>
+          <input value={context.checkSameContact === true ? context.valueName : ''} className="contact-input" placeholder="ex.Albert Thomas"></input>
           <div className={`${context.checkInputName1 === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
               <i class="fas fa-exclamation-triangle"></i>
               <span>This text's length must be 2 - 20 characters</span>
@@ -47,7 +50,7 @@ const TravelerInfor =()=>{
         </div>
         <div className="contact-child-child">
           <label className="traveler-infor-child-title">Surname <span className="special-pointer">*</span></label>
-          <input className="contact-input" placeholder="ex.Miller"></input>
+          <input value={context.checkSameContact === true ? context.valueSurName : ''} className="contact-input" placeholder="ex.Miller"></input>
           <div className={`${context.checkInputSurName1 === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
               <i class="fas fa-exclamation-triangle"></i>
               <span>This text's length must be 2 - 20 characters</span>

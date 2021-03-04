@@ -1,13 +1,14 @@
 import React, { useContext} from 'react'
 import "./ListFlight.css";
 import OptionFlight from '../components/OptionFlight'
-import {FlyContext} from '../context';
+import {FlyContext, resetScroll} from '../context';
 import {Link} from 'react-router-dom'
 
 const ListFlight =()=>{
   const context = useContext(FlyContext)
 
   const chooseListFlight=(id, toId)=>{
+    resetScroll();
     context.setChooseTrip(true)
     context.setTrip(context.appData.flyData.find(data => data.id === id && data.toId === toId))
   }

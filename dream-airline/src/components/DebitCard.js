@@ -2,11 +2,21 @@ import React,{useContext} from 'react';
 import BookProcedure from '../components/BookProcedure'
 import {Link} from 'react-router-dom'
 import {FlyContext} from '../context';
+import $ from 'jquery';
 
 const DebitCard =()=>{
   const context = useContext(FlyContext);
   return(
     <div className="payment-frame margin-bottom-text">
+      <div className={`${context.errorPay === true ? 'login-overlay' :''}`}></div>
+      <div className={`${context.errorPay === true ? 'error-pay' : 'hide-error'}`} style ={{'top' : `${$(window).height() * 0.8}px`, 'left' : '30%'}}>
+        <div className="error-pay-flex">
+          <span className="choose-flight-text-bold">No payment received. <br></br>Please make the payment first.</span>
+          <button onClick={()=> context.setErrorPay(false)} className="btn-ok">OK</button>
+        </div>
+        <img src="https://cdn.airpaz.com/nuxt/img/help.2ab29c0.svg"></img>
+        <button onClick={()=> context.setErrorPay(false)} className="exit-error-pay"><i class="fas fa-times"></i></button>
+      </div>
       <div className="payment">
         <div className="payment-head">
           <BookProcedure></BookProcedure>
@@ -15,7 +25,7 @@ const DebitCard =()=>{
           <div className="payment-body-1">
             <Link to="/Flight/payment" className="back-to-payment">
               <i class="fas fa-chevron-left "></i>
-              <span className="text-back-payment">Select Other Method</span>
+              <span ref={context.refErrorPay} className="text-back-payment">Select Other Method</span>
             </Link>
             <div className="credit-card box-shadow-frame border-radius-4">
               <div className="credit-card-head">
@@ -71,7 +81,10 @@ const DebitCard =()=>{
                 </div>
                 <div className="credit-pay-2">
                   <img className="credit-img" src="https://cdn.airpaz.com/nuxt/img/geotrust.48a6649.svg"></img>
-                  <button className="btn-pay margin-right-text margin-left-text">Pay</button>
+                  <button type='button' onClick={()=>{
+                    context.setErrorPay(true);
+                    context.refErrorPay.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
+                  }} className="btn-pay margin-right-text margin-left-text">Pay</button>
                 </div>
               </div>
             </div>

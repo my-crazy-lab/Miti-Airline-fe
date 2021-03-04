@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
 import "./ChooseFlight.css"
-import {FlyContext} from '../context';
+import {FlyContext, resetScroll} from '../context';
 import OptionFlight from '../components/OptionFlight'
 import {Link} from 'react-router-dom'
 
 const ChooseFlight = ()=>{
   const context = useContext(FlyContext);
   const chooseTrip=(key)=>{
+    resetScroll()
     context.setDataChoice(context.appData.flyData.find(data => data.key === key))
   }
   const funcShowAni=(id,to)=>{
@@ -30,11 +31,50 @@ const ChooseFlight = ()=>{
             </div>
           </div>
         </div>
-        <button type="button" className="btn-red-white">{context.thisLanguage.changeSearch}</button>
+        <button onClick={()=>{
+          if(context.showChangeSearch === true) context.setShowChangeSearch(false)
+          else context.setShowChangeSearch(true)
+        }} type="button" className="btn-red-white">{context.thisLanguage.changeSearch}</button>
+      </div>
+      <div className={`ani-hide-change-search change-search ${context.showChangeSearch === true ? 'ani-show-change-search' : ''}`}>
+        <div className="change-search-retweet"><i class="fas fa-retweet"></i></div>
+        <div className="c-search-f margin-top-text">
+          <div className="c-search-f-c">
+            <input id="1way" type="checkbox"></input>
+            <label for="1way">One Way</label>
+          </div>
+          <div className="c-search-f-c">
+            <input id="2way" type="checkbox"></input>
+            <label for="2way">Round Trip</label>
+          </div>
+        </div>
+        <div className="c-search-f b-trip border-radius-4 margin-top-text">
+          <div className="c-search-f-column from">
+            <span className="choose-flight-text-blur">From</span>
+            <span className="margin-4 choose-flight-text-bold">HoChiMinh</span>
+          </div>
+          <div className="c-search-f-column to">
+            <span className="choose-flight-text-blur">To</span>
+            <span className="margin-4 choose-flight-text-bold">Hanoi</span>
+          </div>
+          <div className="c-search-f-column dep">
+            <span className="choose-flight-text-blur">Departure Date</span>
+            <span className="margin-4 choose-flight-text-bold">Sat, 3 April 2021</span>
+          </div>
+          <div className="c-search-f-column re">
+            <span className="choose-flight-text-blur">Return Date</span>
+            <span className="margin-4 choose-flight-text-bold">Sat, 3 April 2021</span>
+          </div>
+          <div className="c-search-f-column last-c-s">
+            <span className="choose-flight-text-blur">Traveler</span>
+            <span className="margin-4 choose-flight-text-bold">1 Traveler</span>
+          </div>
+          <button className="c-search-btn"><i class="fas fa-search"></i></button>
+        </div>
       </div>
     </div>
       <div className="choose-flight-this">
-        <div className="choose-flight-list">
+        <div className="choose-flight-list margin-top-text">
           { context.chooseTrip  === true ? (<div className="choose-flight-list-child">
           <div className="choose-flight-list-child-announce">
           <div className="choose-flight-list-child-announce-list">

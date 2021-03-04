@@ -50,4 +50,13 @@
 .traveler-infor-child-head-2 {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+.traveler-infor-child-head-2 label {
+  cursor: pointer;
+}
+.checkbox-traveler {
+  transform: scale(1.4);
+  cursor: pointer;
+  color: var(--color-global);
 }

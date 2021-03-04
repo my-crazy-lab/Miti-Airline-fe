@@ -2,10 +2,9 @@ import React,{useState, useContext,useEffect} from 'react'
 import './Navbar.css';
 import {Link} from 'react-router-dom';
 import $ from "jquery";
-import {FlyContext} from "../context"
+import {FlyContext, resetScroll} from "../context"
 import Login  from '../components/Login';
-
-
+ 
 const Navbar=()=>{
 
   const context = useContext(FlyContext)
@@ -50,11 +49,13 @@ const Navbar=()=>{
     hideCurrencyAndLanguage();
     $('.nav-currency-list-frame').show();
     setCheckCurrency(true);
+    context.setShowMore(false)
   }
   const showLanguage=()=>{
     hideCurrencyAndLanguage();
     $('.nav-language-list-frame').show();
     setCheckLanguage(true);
+    context.setShowMore(false)
   }
   const classCurrency =(id)=>{
     let classN = `nav-currency-list-flex `;
@@ -73,12 +74,15 @@ const Navbar=()=>{
     return classN;
   }
   const toRecommend=()=>{
+    context.setShowMore(false)
     context.refRecommend.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
   }
   const toPartner=()=>{
+    context.setShowMore(false)
     context.refAirlinePartner.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
   }
   const toTopFlight=()=>{
+    context.setShowMore(false)
     context.refTopFlight.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
   }
   return(
@@ -93,22 +97,40 @@ const Navbar=()=>{
           <i class="fas fa-fighter-jet"></i>
         </Link>
         <div className="nav-list">
-          <Link to="/Flight" className="nav-list-child">
+          <Link onClick={()=> {
+            context.setShowMore(false);
+            $('.nav-currency-list-frame').hide();
+            $('.nav-language-list-frame').hide();
+            resetScroll()
+          }} to="/Flight" className="nav-list-child">
             <button className={` ${context.choosePage === `${context.thisLanguage.flight}` ? 'choose-page': 'bor-style-2-long-child'}`} onClick={(e)=> context.setChoosePage(e.target.innerText)}>{context.thisLanguage.flight}</button>
           </Link>
-          <Link to="/trips" className="nav-list-child">
+          <Link onClick={()=> {
+            context.setShowMore(false);
+            $('.nav-currency-list-frame').hide();
+            $('.nav-language-list-frame').hide();
+            resetScroll()
+          }} to="/trips" className="nav-list-child">
             <button className={`${context.choosePage === `${context.thisLanguage.allTrip}` ? 'choose-page': 'bor-style-2-long-child'}`} onClick={(e)=> context.setChoosePage(e.target.innerText)}>{context.thisLanguage.allTrip}</button>
           </Link>
-          <Link to="/Promo" className="nav-list-child">
+          <Link onClick={()=> {
+            context.setShowMore(false);
+            $('.nav-currency-list-frame').hide();
+            $('.nav-language-list-frame').hide();
+            resetScroll()
+          }} to="/Promo" className="nav-list-child">
             <button className={` ${context.choosePage === `${context.thisLanguage.promo}` ? 'choose-page': 'bor-style-2-long-child'}`} onClick={(e)=> context.setChoosePage(e.target.innerText)}>{context.thisLanguage.promo}</button>
           </Link>
           <Link onClick={()=>{
+            $('.nav-currency-list-frame').hide();
+            $('.nav-language-list-frame').hide();
             if(context.showMore === false) context.setShowMore(true);
             else context.setShowMore(false);
+            resetScroll();
           }} to="/" className="nav-list-child">
             <button className={`${context.choosePage === `${context.thisLanguage.more}` ? 'choose-page': 'bor-style-2-long-child'}`} onClick={(e)=> context.setChoosePage(e.target.innerText)}>{context.thisLanguage.more}<i class="fas fa-angle-down"></i></button>
           </Link>   
-          <div className="nav-more-show border-radius-4 box-shadow-frame">
+          <div className={`${context.showMore === true ? "nav-more-show border-radius-4 box-shadow-frame" : 'hide-error'}`}>
               <div className="nav-more-show-c" onClick={toRecommend}>
                 <i class="fab fa-wpforms"></i>
                 <div className="nav-more-c-f">
