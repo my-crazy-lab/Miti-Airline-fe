@@ -19,7 +19,8 @@
 .nav-language-list,
 .nav-currency-list,
 .calendar,
-.tab-detail {
+.tab-detail,
+.nav-human-acc-show {
   z-index: 10;
 }
 .login {

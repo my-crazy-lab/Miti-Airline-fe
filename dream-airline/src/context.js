@@ -91,12 +91,29 @@ const FlyProvider =({children})=>{
 
   const [aniShowPrice, setAniShowPrice] = useState(false)
 
+  const [checkLogin, setCheckLogin] = useState(false)
+  const [thisAccount, setThisAccount] = useState({})
+  const [checkClickLogin, setCheckClickLogin] = useState(false)
+  const [user, setUser] = useState('')
+  const [pass, setPass] = useState('')
+
+  const [showDetailAccount, setShowDetailAccount] = useState(false)
+ 
+  const [showOverlay, setShowOverlay] = useState(false)
+
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
     setMaxPrice((Math.max(...appData.listPrice) * convert).toFixed(0))
   },[convert])
   return(
     <FlyContext.Provider value ={{
+      showOverlay:showOverlay,
+      showDetailAccount:showDetailAccount,
+      thisAccount:thisAccount,
+      checkClickLogin:checkClickLogin,
+      user : user,
+      pass : pass,
+      checkLogin:checkLogin,
       aniShowPrice:aniShowPrice,
       keyAniShowTrip:keyAniShowTrip,
       aniShowTrip:aniShowTrip,
@@ -157,6 +174,13 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
+      setShowOverlay:setShowOverlay,
+      setShowDetailAccount:setShowDetailAccount,
+      setThisAccount:setThisAccount,
+      setCheckClickLogin:setCheckClickLogin,
+      setUser : setUser,
+      setPass : setPass,
+      setCheckLogin:setCheckLogin,
       setAniShowPrice:setAniShowPrice,
       setKeyAniShowTrip:setKeyAniShowTrip,
       setAniShowTrip: setAniShowTrip,

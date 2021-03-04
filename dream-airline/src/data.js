@@ -1276,7 +1276,46 @@ const  airline =[]
 const listPrice =[]
 const toCountry =[]
 
+const account =[
+  {
+    username : 'monday',
+    pass : '1',
+    name : 'Monday',
+  },
+  {
+    username : 'tuesday',
+    pass : '1',
+    name : 'Tuesday',
+  },
+  {
+    username : 'wednesday',
+    pass : '1',
+    name : 'Wednesday',
+  },
+  {
+    username : 'thursday',
+    pass : '1',
+    name : 'Thursday',
+  },
+  {
+    username : 'friday',
+    pass : '1',
+    name : 'Friday',
+  },
+  {
+    username : 'saturday',
+    pass : '1',
+    name : 'Saturday',
+  },
+  {
+    username : 'sunday',
+    pass : '1',
+    name : 'Sunday',
+  },
+]
+
 export const appData={
+  account : account,
   codeDiscount : codeDiscount,
   listLanguage : listLanguage,
   currencyData : currencyData,

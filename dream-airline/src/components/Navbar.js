@@ -34,6 +34,7 @@ const Navbar=()=>{
   const toggleLogin=()=>{
     if(context.showLogin === false) context.setShowLogin(true);
     else context.setShowLogin(false);
+    context.setShowOverlay(true);
   }
   const hideCurrencyAndLanguage = ()=>{
     $('.nav-currency-list-frame').hide();
@@ -139,15 +140,72 @@ const Navbar=()=>{
             </div>
           </div>
         </div>
-        <div className="nav-human">
-          <button type="button" onClick={toggleLogin} className="margin-right-text bor-style-5-child-btn">{context.thisLanguage.login}</button>
-          <button className="nav-register-btn bor-style-3-child">{context.thisLanguage.register}</button>
-        </div>
+        {context.checkLogin === false ? (
+          <div className="nav-human">
+            <button type="button" onClick={toggleLogin} className="margin-right-text bor-style-5-child-btn">{context.thisLanguage.login}</button>
+            <button className="nav-register-btn bor-style-3-child">{context.thisLanguage.register}</button>
+          </div>
+        ) : (
+          <div className="nav-human-acc">
+            <div className={`${context.showDetailAccount === true ? 'nav-human-acc-show border-radius-4 box-shadow-frame' : 'error-login-hide'}`}>
+              <div className="nav-acc-exit" onClick={()=>context.setShowDetailAccount(false)}><i class="fas fa-times"></i></div>
+              <div className="nav-human-acc-show-c">
+                <div className="nav-acc-name-img">
+                  <i class="fas fa-user-secret"></i>
+                </div>
+                <div className="nav-acc-flex">
+                  <span>{context.thisAccount.name}</span>
+                  <span>Xem thông tin cá nhân.</span>
+                </div>
+              </div>
+              <div className="nav-human-acc-show-c">
+                <div className="nav-acc-name-img">
+                  <i class="far fa-envelope"></i>
+                </div>
+                <div className="nav-acc-flex">
+                  <span>Đóng góp ý kiến.</span>
+                  <span>Góp phần nâng cao tương tác.</span>
+                </div>
+              </div>
+              <div className="nav-human-acc-show-c">
+                <div className="nav-acc-name-img">
+                  <i class="fab fa-angellist"></i>
+                </div>
+                <div className="nav-acc-flex">
+                  <span>Chuyển tài khoản.</span>
+                  <span>Đăng nhập mới ngay.</span>
+                </div>
+              </div>
+              <div className="nav-human-acc-show-c">
+                <div className="nav-acc-name-img">
+                  <i class="fas fa-door-open"></i>
+                </div>
+                <div className="nav-acc-flex" onClick={()=> {       
+                  context.setCheckLogin(false)
+                }}>
+                  <span>Đăng xuất.</span>
+                </div>
+              </div>
+            </div>
+            <div className="nav-acc-name">
+              <div className="nav-acc-name-img">
+                <i class="fas fa-user-secret"></i>
+              </div>
+              <span>{context.thisAccount.name}</span>
+            </div>
+            <div className="nav-acc-set" onClick={()=> {
+              if(context.showDetailAccount === false) context.setShowDetailAccount(true)
+              else context.setShowDetailAccount(false)
+            }}>
+              <i class="fas fa-sort-down"></i>
+            </div>
+          </div>
+        )}
       </div>
       <div className="flight-login" style ={{'top' : `${$(window).height()* 0.2}px`}}>
-        <Login toggleLogin={toggleLogin}></Login>
+        <Login></Login>
       </div>
-      <div className={` ${context.showLogin === true ? 'login-overlay' :''}`}></div>
+      <div className={` ${context.showOverlay === true? 'login-overlay' :''}`}></div>
     </div>
   )
 }
