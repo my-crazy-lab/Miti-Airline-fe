@@ -1,10 +1,15 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useRef} from 'react';
 import {appData} from "./data";
 import $ from "jquery";
 
 const FlyContext = React.createContext()
 
 const FlyProvider =({children})=>{
+
+  const refRecommend = useRef(null);
+  const refAirlinePartner = useRef(null);
+  const refTopFlight = useRef(null);
+
   const [showLogin,setShowLogin] = useState(false);
   useEffect(() => {
     $('.flight-login').toggle();
@@ -98,8 +103,14 @@ const FlyProvider =({children})=>{
   const [pass, setPass] = useState('')
 
   const [showDetailAccount, setShowDetailAccount] = useState(false)
- 
+
   const [showOverlay, setShowOverlay] = useState(false)
+
+  const [showMore, setShowMore] = useState(false)
+
+  useEffect(() => {
+    $('.nav-more-show').toggle();
+  },[showMore]);
 
   useEffect(() => {
     setMinPrice((Math.min(...appData.listPrice) * convert).toFixed(0))
@@ -107,6 +118,11 @@ const FlyProvider =({children})=>{
   },[convert])
   return(
     <FlyContext.Provider value ={{
+      refRecommend:refRecommend,
+      refAirlinePartner:refAirlinePartner,
+      refTopFlight:refTopFlight,
+
+      showMore:showMore,
       showOverlay:showOverlay,
       showDetailAccount:showDetailAccount,
       thisAccount:thisAccount,
@@ -174,15 +190,17 @@ const FlyProvider =({children})=>{
       nameDay: nameDay ,
       monthNow: monthNow ,
       dataChoice: dataChoice ,
-      setShowOverlay:setShowOverlay,
-      setShowDetailAccount:setShowDetailAccount,
-      setThisAccount:setThisAccount,
-      setCheckClickLogin:setCheckClickLogin,
+
+      setShowMore: setShowMore,
+      setShowOverlay: setShowOverlay,
+      setShowDetailAccount: setShowDetailAccount,
+      setThisAccount: setThisAccount,
+      setCheckClickLogin: setCheckClickLogin,
       setUser : setUser,
       setPass : setPass,
-      setCheckLogin:setCheckLogin,
-      setAniShowPrice:setAniShowPrice,
-      setKeyAniShowTrip:setKeyAniShowTrip,
+      setCheckLogin: setCheckLogin,
+      setAniShowPrice: setAniShowPrice,
+      setKeyAniShowTrip: setKeyAniShowTrip,
       setAniShowTrip: setAniShowTrip,
       setCheckInputTitle1 : setCheckInputTitle1,
       setCheckInputSurName1 : setCheckInputSurName1,

@@ -5,7 +5,7 @@ import {FlyContext} from '../context';
 const TopFlight =() =>{
   const context = useContext(FlyContext);
   return(
-    <div className="top-frame">
+    <div className="top-frame" ref ={context.refTopFlight}>
       <div className="top">
         <div className="top-head style-topic">{context.thisLanguage.popularFlight}</div>
         <div className="top-list">

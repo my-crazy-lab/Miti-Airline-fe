@@ -11,7 +11,7 @@ const Recommend =() =>{
     context.setTrip(context.appData.flyData.find(data => data.id === id && data.toId === toId))
   }
   return(
-    <div className="recommend-frame">
+    <div  ref ={context.refRecommend} className="recommend-frame">
       <div className="recommend">
         <span className="recommend-head">{context.thisLanguage.recommend}</span>
         <div className="recommend-list">

@@ -7,6 +7,7 @@ import Login  from '../components/Login';
 
 
 const Navbar=()=>{
+
   const context = useContext(FlyContext)
   const [srcLanguage, setSrcLanguage] = useState(context.appData.languageData[0].src);
   const [checkCurrency , setCheckCurrency] = useState(false);
@@ -71,6 +72,15 @@ const Navbar=()=>{
     else classN+='nav-language-list-child'
     return classN;
   }
+  const toRecommend=()=>{
+    context.refRecommend.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
+  }
+  const toPartner=()=>{
+    context.refAirlinePartner.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
+  }
+  const toTopFlight=()=>{
+    context.refTopFlight.current.scrollIntoView({ behavior: 'smooth', block: 'start' })  
+  }
   return(
     <div className="nav-frame">
       <div className="nav">
@@ -92,9 +102,32 @@ const Navbar=()=>{
           <Link to="/Promo" className="nav-list-child">
             <button className={` ${context.choosePage === `${context.thisLanguage.promo}` ? 'choose-page': 'bor-style-2-long-child'}`} onClick={(e)=> context.setChoosePage(e.target.innerText)}>{context.thisLanguage.promo}</button>
           </Link>
-          <Link to="/" className="nav-list-child">
+          <Link onClick={()=>{
+            if(context.showMore === false) context.setShowMore(true);
+            else context.setShowMore(false);
+          }} to="/" className="nav-list-child">
             <button className={`${context.choosePage === `${context.thisLanguage.more}` ? 'choose-page': 'bor-style-2-long-child'}`} onClick={(e)=> context.setChoosePage(e.target.innerText)}>{context.thisLanguage.more}<i class="fas fa-angle-down"></i></button>
           </Link>   
+          <div className="nav-more-show border-radius-4 box-shadow-frame">
+              <div className="nav-more-show-c" onClick={toRecommend}>
+                <i class="fab fa-wpforms"></i>
+                <div className="nav-more-c-f">
+                  <span className="choose-flight-text-normal">Recommend for you</span>
+                </div>
+              </div>  
+              <div className="nav-more-show-c" onClick={toTopFlight}> 
+                <i class="far fa-paper-plane"></i>
+                <div className="nav-more-c-f">
+                  <span className="choose-flight-text-normal">Popular Flight Destinations</span>
+                </div>
+              </div>
+              <div className="nav-more-show-c"  onClick={toPartner}>
+                <i class="fab fa-amazon-pay"></i>
+                <div className="nav-more-c-f">
+                  <span className="choose-flight-text-normal">Payment Partners</span>
+                </div>
+              </div>
+          </div>  
         </div>
         <div className="nav-price">
           <button className={`nav-language  ${checkLanguage === true ? 'currency-and-language-show'  : 'currency-and-language-hide'}`} onClick={showLanguage}>
@@ -154,8 +187,8 @@ const Navbar=()=>{
                   <i class="fas fa-user-secret"></i>
                 </div>
                 <div className="nav-acc-flex">
-                  <span>{context.thisAccount.name}</span>
-                  <span>Xem thông tin cá nhân.</span>
+                  <span className='choose-flight-text-blur-big'>Hello {context.thisAccount.name}</span>
+                  <span className='choose-flight-text-normal'>Xem thông tin cá nhân.</span>
                 </div>
               </div>
               <div className="nav-human-acc-show-c">
@@ -163,17 +196,22 @@ const Navbar=()=>{
                   <i class="far fa-envelope"></i>
                 </div>
                 <div className="nav-acc-flex">
-                  <span>Đóng góp ý kiến.</span>
-                  <span>Góp phần nâng cao tương tác.</span>
+                  <span className='choose-flight-text-blur-big'>Đóng góp ý kiến.</span>
+                  <span className='choose-flight-text-normal'>Góp phần nâng cao tương tác.</span>
                 </div>
               </div>
               <div className="nav-human-acc-show-c">
                 <div className="nav-acc-name-img">
                   <i class="fab fa-angellist"></i>
                 </div>
-                <div className="nav-acc-flex">
-                  <span>Chuyển tài khoản.</span>
-                  <span>Đăng nhập mới ngay.</span>
+                <div className="nav-acc-flex" onClick={()=>{
+                  context.setCheckLogin(false)
+                  context.setCheckClickLogin(false)
+                  context.setShowLogin(true)
+                  context.setShowOverlay(true)
+                }}>
+                  <span className='choose-flight-text-blur-big'>Chuyển tài khoản.</span>
+                  <span className='choose-flight-text-normal'>Đăng nhập mới ngay.</span>
                 </div>
               </div>
               <div className="nav-human-acc-show-c">
@@ -182,8 +220,9 @@ const Navbar=()=>{
                 </div>
                 <div className="nav-acc-flex" onClick={()=> {       
                   context.setCheckLogin(false)
+                  context.setCheckClickLogin(false)
                 }}>
-                  <span>Đăng xuất.</span>
+                  <span className='choose-flight-text-blur-big'>Đăng xuất.</span>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import {FlyContext} from '../context';
 const Partners =() =>{
   const context = useContext(FlyContext);
   return(
-    <div className="partner-frame">
+    <div ref={context.refAirlinePartner} className="partner-frame">
       <div className="partner">
         <div className="partner-topic">
           <p className="partner-topic-text style-topic">{context.thisLanguage.airlinePartner}</p>  

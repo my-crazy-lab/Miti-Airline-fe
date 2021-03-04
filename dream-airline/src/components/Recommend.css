@@ -10,14 +10,13 @@
   color: #6d595b;
   font-size: 36px;
   font-weight: 500;
-  margin: 100px 0;
 }
 .recommend-list {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 .recommend-list-frame {
   width: 100%;

@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 /* z-index */
-.booktrip-where-child {
+.booktrip-where-child,
+.nav-more-show {
   z-index: 100;
 }
 .booktrip {
