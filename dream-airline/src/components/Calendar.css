@@ -1,11 +1,11 @@
 :root {
   --width-calendar: 350px;
-  --height-calendar: 320px;
 }
 .calendar-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 36px;
 }
 .calendar-head span {
   font-size: 20px;
@@ -28,11 +28,7 @@
 }
 .calendar {
   width: var(--width-calendar);
-  height: var(--height-calendar);
   background-color: white;
-}
-.calendar div {
-  height: 40px;
 }
 .calendar-name-day div {
   margin: 8px 0;
@@ -45,6 +41,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 36px;
 }
 .calendar-body {
   font-weight: 500;
@@ -53,6 +50,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 40px;
 }
 .calendar-name-month div {
   width: calc(var(--width-calendar) / 7);
@@ -87,4 +85,20 @@
 }
 .calendar-text-holiday {
   color: var(--color-global);
+}
+.holiday-f {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 22px;
+}
+.holiday-name {
+  width: 80%;
+  font-size: 13px;
+  color: var(--color-global);
+}
+.holiday-date {
+  color: var(--color-global);
+  font-size: 13px;
+  font-weight: 700;
 }

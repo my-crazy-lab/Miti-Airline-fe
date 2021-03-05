@@ -10,6 +10,7 @@
   flex-direction: column;
 }
 .choose-flight-choice-frame {
+  position: relative;
   background: white;
   margin-top: 96px;
   width: 100%;
@@ -180,6 +181,10 @@
   font-size: 16px;
   font-weight: 700;
 }
+.choose-flight-list-child-announce-show {
+  display: flex;
+  align-items: center;
+}
 .choose-flight-list-child-announce-show i,
 .choose-flight-list-child-announce-list i,
 .choose-flight-list-child-baggage i {
@@ -203,7 +208,7 @@
   color: rgb(132, 132, 132);
 }
 .choose-flight-list-child-detail {
-  height: 200px;
+  height: 0px;
   background-color: white;
   width: 100%;
   display: flex;
@@ -272,29 +277,28 @@
 }
 .ani-hide-detail-trip {
   transition: all 0.6s;
+  overflow: hidden;
 }
 .ani-show-detail-trip-text {
-  height: 0px;
+  height: 200px;
   overflow: hidden;
   transition: all 0.6s;
 }
-.ani-hide-detail-trip-text {
+.ani-detail-trip-text {
   transition: all 0.6s;
   overflow: hidden;
 }
 .ani-hide-change-search {
-  height: 180px;
+  height: 0px;
   transition: all 0.6s;
   overflow: hidden;
-  position: relative;
 }
 .ani-show-change-search {
-  height: 0;
-  transition: all 0.6s;
+  height: 180px;
   overflow: hidden;
   transition: all 0.6s;
-  overflow: hidden;
 }
+
 .change-search {
   width: var(--width-global);
 }
@@ -377,4 +381,54 @@
 .change-search-retweet i {
   font-size: 18px;
   color: rgba(0, 0, 0, 0.4);
+}
+.hide {
+  display: none;
+}
+.choose-flight-where-child-1,
+.choose-flight-where-child-2 {
+  position: absolute;
+  background: #fff;
+  margin-left: var(--margin-left-global-choose-flight);
+  border-radius: 8px;
+  width: 100%;
+  display: none;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.6);
+  top: 0;
+  width: 460px;
+}
+.choose-flight-where-child-1 {
+  top: 100%;
+  right: 62%;
+}
+.choose-flight-where-child-2 {
+  top: 100%;
+  right: 45%;
+}
+.choose-flight-traveler-child {
+  position: absolute;
+  width: 460px;
+  background-color: white;
+  box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.4);
+  top: 100%;
+  right: 2%;
+  border-radius: 8px;
+  cursor: default;
+  display: none;
+}
+.choose-flight-date-calendar-1,
+.choose-flight-date-calendar-2 {
+  position: absolute;
+  top: 100%;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+  right: 20%;
+  cursor: default;
+  display: none;
+  border-radius: 6px;
+}
+.choose-flight-date-calendar-1 {
+  right: 35%;
+}
+.choose-flight-date-calendar-2 {
+  right: 22%;
 }

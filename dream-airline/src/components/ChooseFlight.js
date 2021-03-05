@@ -3,6 +3,8 @@ import "./ChooseFlight.css"
 import {FlyContext, resetScroll} from '../context';
 import OptionFlight from '../components/OptionFlight'
 import {Link} from 'react-router-dom'
+import $ from 'jquery'
+import Calendar from '../components/Calendar';
 
 const ChooseFlight = ()=>{
   const context = useContext(FlyContext);
@@ -14,6 +16,56 @@ const ChooseFlight = ()=>{
     if(context.aniShowTrip === true) context.setAniShowTrip(false)
     else context.setAniShowTrip(true)
     context.setKeyAniShowTrip(`${id}${to}`);
+  }
+  const overflow =()=>{
+    $('.choose-flight-where-child-1').css('display','none');
+    $('.choose-flight-where-child-2').css('display','none');
+    $('.choose-flight-traveler-child').css('display','none');
+    $('.choose-flight-date-calendar-1').css('display','none');
+    $('.choose-flight-date-calendar-2').css('display','none');
+  }
+  const clickDeparture =()=>{
+    overflow();
+    $('.choose-flight-where-child-1').css('display','block');
+  }
+  const clickDestination=()=>{
+    overflow();
+    $('.choose-flight-where-child-2').css('display','block');
+  }
+  const clickExit=()=>{
+    overflow();
+  }
+  const minusAdult =()=>{
+    context.setAdult(context.adult - 1);
+  }
+  const minusChildren =()=>{
+    context.setChild(context.child - 1);
+  }
+  const minusInfant=()=>{
+    context.setInfant(context.infant - 1);
+  }
+  const plusInfant=()=>{
+    context.setInfant(context.infant + 1);
+  }
+  const plusChildren=()=>{
+    context.setChild(context.child + 1);
+  }
+  const plusAdult=()=>{
+    context.setAdult(context.adult + 1);
+  }
+  const clickTraveler =()=>{
+    overflow();
+    $('.choose-flight-traveler-child').css('display','block');
+  }
+  const showCalendarDe=()=>{
+    overflow();
+    $('.choose-flight-date-calendar-1').css('display','block');
+  }
+  const showCalendarRe=()=>{
+    if(context.typeTrip === 'return'){
+      overflow();
+      $('.choose-flight-date-calendar-2').css('display','block');
+    }
   }
   return(
     <div className="choose-flight-frame">
@@ -36,36 +88,178 @@ const ChooseFlight = ()=>{
           else context.setShowChangeSearch(true)
         }} type="button" className="btn-red-white">{context.thisLanguage.changeSearch}</button>
       </div>
+      <div className="choose-flight-where-child-1"> 
+            <div className="booktrip-where-child-head">
+              <span className="booktrip-where-child-topic">
+                {context.thisLanguage.selectDepartureCity}
+              </span>
+              <button type="button" onClick={clickExit} className="button-exit" >
+                  <i class="fas fa-times button-exit-icon"></i>
+              </button>
+            </div> 
+            <div className="booktrip-where-child-body">
+              {context.appData.allTrip.map(dataAll => {
+              return <div className="booktrip-where-child">
+              <div className="booktrip-where-child-country">
+              <span className="booktrip-where-child-country-text">{dataAll.countryTrip}</span>
+            </div>
+              <div className="booktrip-where-child-list">
+                {dataAll.detailTrip.map(data => {
+                  return <div className="booktrip-where-child-list-child" key={data.id}>
+                  <i class="fas fa-plane-departure"></i>
+                  <div>
+                    <span>{data.name}</span>
+                    <span>{data.airport}</span>
+                  </div>
+                  <span className="booktrip-where-child-list-child-id">{data.id}</span>
+                </div>
+                })}
+              </div>
+            </div>
+              })} 
+            </div>
+            </div>
+        <div className="choose-flight-where-child-2">
+            <div className="booktrip-where-child-head">
+              <span className="booktrip-where-child-topic">
+                {context.thisLanguage.selectDestinationCity}
+              </span>
+              <button type="button" onClick={clickExit} className="button-exit" >
+                  <i class="fas fa-times button-exit-icon"></i>
+              </button>
+            </div>
+            <div className="booktrip-where-child-body">
+              {context.appData.toCountry.map(data => {
+                return <div className="booktrip-where-child" >
+                <div className="booktrip-where-child-country">
+                  <span className="booktrip-where-child-country-text">{data.to}</span>
+                </div>
+                <div className="booktrip-where-child-list">
+                    <div className="booktrip-where-child-list-child" key={data.id}>
+                    <i class="fas fa-plane-departure"></i>
+                    <div>
+                      <span>{data.to}</span>
+                      <span>{data.toAirline}</span>
+                    </div>
+                    <span className="booktrip-where-child-list-child-id">{data.id}</span>
+                  </div>
+                </div>
+              </div>
+              })}
+            </div>
+      </div>
+      <div className="choose-flight-traveler-child">
+              <div className="booktrip-traveler-child-head">
+                <span className="margin-left-text">{context.thisLanguage.traveler}</span>
+                <button type="button" className="button-exit" onClick={clickExit}>
+                  <i class="fas fa-times button-exit-icon"></i>
+                </button>
+              </div>
+              <div className="booktrip-traveler-child-list adult">
+                <div className="booktrip-traveler-child-list-head">
+                  <span className="margin-left-text">{context.thisLanguage.adult}</span>
+                  <span className="margin-left-text">{context.thisLanguage.age} 12+</span>
+                </div>
+                <div className="booktrip-traveler-child-list-count">
+                  <button  onClick={minusAdult} type="button" className={`adult adultminus ${context.adult > 1? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <p id="adult">{context.adult}</p>
+                  <button onClick={plusAdult} type="button" className={`adult ${context.traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div className="booktrip-traveler-child-list children">
+                <div className="booktrip-traveler-child-list-head">
+                  <span className="margin-left-text">{context.thisLanguage.children}</span>
+                  <span className="margin-left-text">{context.thisLanguage.age} 2-11</span>
+                </div>
+                <div className="booktrip-traveler-child-list-count">
+                  <button onClick={minusChildren} type="button" className={`children ${context.child > 0? 'booktrip-minus-show': 'booktrip-minus-hide'}`}>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <p id="children">{context.child}</p>
+                  <button onClick={plusChildren} type="button" className={`children ${context.traveler > 5 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div className="booktrip-traveler-child-list infant">
+                <div className="booktrip-traveler-child-list-head">
+                  <span className="margin-left-text">{context.thisLanguage.infant}</span>
+                  <span className="margin-left-text">{context.thisLanguage.age} 0-2</span>
+                </div>
+                <div className="booktrip-traveler-child-list-count">
+                  <button onClick={minusInfant} type="button" className={`infant ${context.infant > 0 ? 'booktrip-minus-show': 'booktrip-minus-hide'} `}>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <p id="infant">{context.infant}</p>
+                  <button onClick={plusInfant} type="button" className={`infant ${context.traveler > 5 || context.infant > 1 ? 'booktrip-minus-hide': 'booktrip-minus-show'} `}>
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+      </div>
+      <div className="choose-flight-date-calendar-1">
+            <div className="booktrip-date-calendar-head">
+              <span>{context.thisLanguage.departureDate}</span>
+              <button type="button" onClick={clickExit}>
+                <i class="fas fa-times button-exit-icon"></i>
+              </button>
+            </div>
+            <div className="booktrip-date-calendar-body">
+              <Calendar></Calendar>
+            </div>
+      </div>
+      <div className="choose-flight-date-calendar-2" >
+              <div className="booktrip-date-calendar-head">
+                <span>{context.thisLanguage.destinationDate}</span>
+                <button type="button" onClick={clickExit}>
+                  <i class="fas fa-times button-exit-icon"></i>
+                </button>
+              </div>
+              <div className="booktrip-date-calendar-body">
+                <Calendar ></Calendar>
+              </div>
+      </div>
       <div className={`ani-hide-change-search change-search ${context.showChangeSearch === true ? 'ani-show-change-search' : ''}`}>
         <div className="change-search-retweet"><i class="fas fa-retweet"></i></div>
         <div className="c-search-f margin-top-text">
           <div className="c-search-f-c">
-            <input id="1way" type="checkbox"></input>
+            <input id="1way" type="radio" name ='radio' onInput={(e)=> {
+              if(e.target.value === 'on') context.setTypeTrip('normal')
+              console.log(e.target.value)
+            }}></input>
             <label for="1way">One Way</label>
           </div>
           <div className="c-search-f-c">
-            <input id="2way" type="checkbox"></input>
+            <input id="2way" type="radio" name = "radio" onInput={(e)=> {
+              if(e.target.value === 'on') context.setTypeTrip('return')
+              console.log(context.typeTrip)
+              console.log(typeof e.target.value)
+            }}></input>
             <label for="2way">Round Trip</label>
           </div>
         </div>
         <div className="c-search-f b-trip border-radius-4 margin-top-text">
-          <div className="c-search-f-column from">
+          <div className="c-search-f-column from" onClick={clickDeparture }>
             <span className="choose-flight-text-blur">From</span>
             <span className="margin-4 choose-flight-text-bold">HoChiMinh</span>
           </div>
-          <div className="c-search-f-column to">
+          <div className="c-search-f-column to" onClick={clickDestination}>
             <span className="choose-flight-text-blur">To</span>
             <span className="margin-4 choose-flight-text-bold">Hanoi</span>
           </div>
-          <div className="c-search-f-column dep">
+          <div className="c-search-f-column dep" onClick={showCalendarDe}>
             <span className="choose-flight-text-blur">Departure Date</span>
             <span className="margin-4 choose-flight-text-bold">Sat, 3 April 2021</span>
           </div>
-          <div className="c-search-f-column re">
-            <span className="choose-flight-text-blur">Return Date</span>
-            <span className="margin-4 choose-flight-text-bold">Sat, 3 April 2021</span>
+          <div className={`c-search-f-column re`} onClick={showCalendarRe}>
+            <span className={`choose-flight-text-blur ${context.typeTrip === 'normal' ? 'hide' : ''}`}>Return Date</span>
+            <span className={`margin-4 choose-flight-text-bold ${context.typeTrip === 'normal' ? 'hide' : ''}`}>Sat, 3 April 2021</span>
           </div>
-          <div className="c-search-f-column last-c-s">
+          <div className="c-search-f-column last-c-s" onClick={clickTraveler}>
             <span className="choose-flight-text-blur">Traveler</span>
             <span className="margin-4 choose-flight-text-bold">1 Traveler</span>
           </div>
@@ -86,7 +280,7 @@ const ChooseFlight = ()=>{
             <i class="fas fa-arrow-right"></i>
             <div className="choose-flight-list-child-time">
               <span className="choose-flight-text-bold">{context.trip.destinationTime}</span>
-              <span className="choose-flight-text-normal">{context.trip.to}</span>
+              <span className="choose-flight-text-normal">{context.trip.toId}</span>
             </div>
             <div className="choose-flight-list-child-time">
               <span className="choose-flight-text-bold">{Math.floor(context.trip.flightTime)}h {context.trip.flightTime - Math.floor(context.trip.flightTime)}m</span>
@@ -106,10 +300,10 @@ const ChooseFlight = ()=>{
             <Link to="/Flight/confirm">
               <button type="button" className="btn-red-white" onClick={() => chooseTrip(context.trip.key)}>{context.thisLanguage.chooseFlight}</button>
             </Link>
-            <i class="fas fa-chevron-up"></i>
+            <i class={`fas fa-chevron-down ani-hide-detail-trip ${context.aniShowTrip === true && context.keyAniShowTrip === `${context.trip.id}${context.trip.to}`? 'ani-show-detail-trip' : ''}`} onClick={()=> funcShowAni(context.trip.id, context.trip.to,)}></i>
           </div>
         </div>
-        <div className="choose-flight-list-child-detail">
+        <div className={`choose-flight-list-child-detail ani-hide-detail-trip ${context.aniShowTrip === true && context.keyAniShowTrip === `${context.trip.id}${context.trip.to}` ? 'ani-show-detail-trip-text' : ''}`}>
           <div className="choose-flight-list-child-detail-child margin-left-text ">
             <span className="choose-flight-text-normal">VietNam Airline</span>
             <span className="choose-flight-text-small">BL6215</span>
@@ -192,7 +386,7 @@ const ChooseFlight = ()=>{
                   <i class="fas fa-arrow-right"></i>
                   <div className="choose-flight-list-child-time">
                     <span className="choose-flight-text-bold">{data.destinationTime}</span>
-                    <span className="choose-flight-text-normal">{data.to}</span>
+                    <span className="choose-flight-text-normal">{data.toId}</span>
                   </div>
                   <div className="choose-flight-list-child-time">
                     <span className="choose-flight-text-bold">{Math.floor(data.flightTime)}h {(data.flightTime - Math.floor(data.flightTime)) * 60}m</span>
@@ -212,10 +406,10 @@ const ChooseFlight = ()=>{
                   <Link to="/Flight/confirm">
                     <button type="button" className="btn-red-white" onClick={() => chooseTrip(data.key)}>{context.thisLanguage.chooseFlight}</button>                  
                   </Link>
-                  <i class={`fas fa-chevron-up ani-hide-detail-trip ${context.aniShowTrip === true && context.keyAniShowTrip === `${data.id}${data.to}`? 'ani-show-detail-trip' : ''}`} onClick={()=> funcShowAni(data.id, data.to,)}></i>
+                  <i class={`fas fa-chevron-down ani-hide-detail-trip ${context.aniShowTrip === true && context.keyAniShowTrip === `${data.id}${data.to}`? 'ani-show-detail-trip' : ''}`} onClick={()=> funcShowAni(data.id, data.to,)}></i>
                 </div>
               </div>
-              <div className={`choose-flight-list-child-detail ani-hide-detail-trip-text ${context.aniShowTrip === true && context.keyAniShowTrip === `${data.id}${data.to}` ? 'ani-show-detail-trip-text' : ''}`}>
+              <div className={`choose-flight-list-child-detail ani-hide-detail-trip ${context.aniShowTrip === true && context.keyAniShowTrip === `${data.id}${data.to}` ? 'ani-show-detail-trip-text' : ''}`}>
                 <div className="choose-flight-list-child-detail-child margin-left-text ">
                   <span className="choose-flight-text-normal ">VietNam Airline</span>
                   <span className="choose-flight-text-small">BL6215</span>

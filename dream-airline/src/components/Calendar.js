@@ -532,6 +532,14 @@ const Calendar =() =>{
       </div>
         </div>
       </div>
+      <div>
+                {context.appData.holiday.filter(months => parseInt(months.month) === context.monthNow).map(holiday => {
+                  return <div className="holiday-f">
+                    <span className="margin-left-text holiday-date">{holiday.date}/{holiday.month}</span>
+                    <span className="holiday-name">{holiday.name}</span>
+                  </div>
+                })}
+      </div>
     </div>
   )
 }

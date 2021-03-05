@@ -312,8 +312,6 @@ input::placeholder {
 .booktrip-date-calendar-body {
   background: white;
   width: 100%;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
 }
 .booktrip-date-calendar-head span {
   font-size: 18px;
@@ -364,7 +362,7 @@ input::placeholder {
   display: none;
   box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.6);
   top: 0;
-  width: 100%;
+  width: 460px;
 }
 .booktrip-where-child-1 {
   top: calc(var(--height-global-booktrip) * 0.4 * 0.5 - 12px);

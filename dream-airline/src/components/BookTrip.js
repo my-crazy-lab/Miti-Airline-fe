@@ -167,7 +167,7 @@ const BookTrip =()=>{
                   <span className="booktrip-where-child-country-text">{data.to}</span>
                 </div>
                 <div className="booktrip-where-child-list">
-                    return <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDes(data.id, data.to)}>
+                    <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDes(data.id, data.to)}>
                     <i class="fas fa-plane-departure"></i>
                     <div>
                       <span>{data.to}</span>
@@ -195,7 +195,6 @@ const BookTrip =()=>{
             </div>
             <div className="booktrip-date-calendar-body">
               <Calendar></Calendar>
-              <div>1</div>
             </div>
           </div>
           <div className={`booktrip-date-return ${context.typeTrip === "return"? '' : 'pointer-none'}`} onClick={showCalendarRe}>
@@ -211,7 +210,6 @@ const BookTrip =()=>{
               </div>
               <div className="booktrip-date-calendar-body">
                 <Calendar ></Calendar>
-                <div>2</div>
               </div>
             </div>
         </div>
