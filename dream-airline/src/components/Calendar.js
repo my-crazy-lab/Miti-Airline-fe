@@ -13,18 +13,19 @@ const Calendar =() =>{
   const [resetDay, setResetDay] = useState('')
   const [resetNameDay, setResetNameDay] = useState('')
 
-  const [checkFocusCalendar, setCheckFocusCalendar] = useState(false)
+  const [arrayD, setArrayD] = useState([''])
   const [checkHoverCalendar, setCheckHoverCalendar] = useState(false)
 
   const [checkHiddenDate, setCheckHiddenDate] = useState(0)
   
   useEffect(() => {
     fillCalendar();
-  });
+  },[context.monthNow]);
 
   useEffect(() => {
     findDay()
   },[]);
+
   const fixMonthNow=()=>{
     if( context.monthNow === 12) {
       context.setMonthNow(0);
@@ -39,6 +40,7 @@ const Calendar =() =>{
     context.setMonthNow(context.monthNow + 1);
     fixMonthNow();
     setCheckHiddenDate(checkHiddenDate + 1)
+    console.log(arrayD)
   }
   const backMonth=()=>{
     context.setMonthNow(context.monthNow - 1);
@@ -97,6 +99,7 @@ const Calendar =() =>{
           setSumDay(31);
           break;
         }
+        default : break;
       }
     }
     else {
@@ -149,112 +152,52 @@ const Calendar =() =>{
           setSumDay(31);
           break;
         }
+        default : break;
     }
     }
   }
   const fillCalendar =()=>{
+    let arrayDate =['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
     setFirstDay(`${new Date(context.yearNow, context.monthNow, 1)}`);
     setCheckFday(`${firstDay.split('' , 3).join('')}`)
     findMonth();
     checkLeapYear();
     if(checkFday === 'Sun'){
-      $('.0').text('1');
-      $('.0').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay ; i++){
-        $(`.${i - 1}`).text(`${i}`);
-        $(`.${i - 1}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 6] = i + 1 ; 
       }
     }
     if(checkFday === 'Mon'){
-      $('.0').text('');
-      $('.1').text('1');
-      $('.1').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay; i++){
-        $(`.${i}`).text(`${i}`);
-        $(`.${i}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay + 1 ; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i] = i + 1 ; 
       }
     }
     if(checkFday === 'Tue'){
-      $('.0').text('');
-      $('.1').text('');
-      $('.2').text('1');
-      $('.2').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay; i++){
-        $(`.${i + 1}`).text(`${i}`);
-        $(`.${i + 1}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay + 2 ; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 1] = i + 1 ; 
       }
     }
     if(checkFday === 'Wed'){
-      $('.0').text('');
-      $('.1').text('');
-      $('.2').text('');
-      $('.3').text('1');
-      $('.3').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay; i++){
-        $(`.${i + 2}`).text(`${i}`);
-        $(`.${i + 2}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay + 3 ; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 2] = i + 1 ; 
       }
     }
     if(checkFday === 'Thu'){
-      $('.0').text('');
-      $('.1').text('');
-      $('.2').text('');
-      $('.3').text('');
-      $('.4').text('1');
-      $('.4').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay; i++){
-        $(`.${i + 3}`).text(`${i}`);
-        $(`.${i + 3}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay + 4 ; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 3] = i + 1 ; 
       }
     }
     if(checkFday === 'Fri'){
-      $('.0').text('');
-      $('.1').text('');
-      $('.2').text('');
-      $('.3').text('');
-      $('.4').text('');
-      $('.5').text('1');
-      $('.5').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay; i++){
-        $(`.${i + 4}`).text(`${i}`);
-        $(`.${i + 4}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay + 5 ; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 4] = i + 1 ; 
       }
     }
     if(checkFday === 'Sat'){
-      $('.0').text('');
-      $('.1').text('');
-      $('.2').text('');
-      $('.3').text('');
-      $('.4').text('');
-      $('.5').text('');
-      $('.6').text('1');
-      $('.6').css({'width': '40px', 'height': '40px'});
-      for(let i = 2 ; i <= sumDay; i++){
-        $(`.${i + 5}`).text(`${i}`);
-        $(`.${i + 5}`).css({'width': '40px', 'height': '40px'});
-      }
-      for(let j = sumDay + 6 ; j <= 41; j++){
-        $(`.${j}`).text('');
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 5] = i + 1 ; 
       }
     }
+    setArrayD(arrayDate)
   }
   const findDay =()=>{
     switch(new Date().getDay()){
@@ -343,15 +286,16 @@ const Calendar =() =>{
     }
   }
   const chooseDateInCalendar=(text , index) =>{
-    context.setDay(text)
-    if(parseInt(index) % 7 === 0) context.setNameDay('Sun')
-    if(parseInt(index) % 7 === 1) context.setNameDay('Mon')
-    if(parseInt(index) % 7 === 2) context.setNameDay('Tue')
-    if(parseInt(index) % 7 === 3) context.setNameDay('Wed')
-    if(parseInt(index) % 7 === 4) context.setNameDay('Thu')
-    if(parseInt(index) % 7 === 5) context.setNameDay('Fri')
-    if(parseInt(index) % 7 === 6) context.setNameDay('Sat')
-    console.log(typeof index)
+    if(text !== ''){
+      context.setDay(text)
+      if(parseInt(index) % 7 === 0) context.setNameDay('Sun')
+      if(parseInt(index) % 7 === 1) context.setNameDay('Mon')
+      if(parseInt(index) % 7 === 2) context.setNameDay('Tue')
+      if(parseInt(index) % 7 === 3) context.setNameDay('Wed')
+      if(parseInt(index) % 7 === 4) context.setNameDay('Thu')
+      if(parseInt(index) % 7 === 5) context.setNameDay('Fri')
+      if(parseInt(index) % 7 === 6) context.setNameDay('Sat')
+    }
   }
   const mouseCheckHover =(text)=>{
     if(parseInt(text) > 0){
@@ -393,143 +337,12 @@ const Calendar =() =>{
             <span className="calendar-text-normal" >Sat</span>
           </div>
         </div>
-        <div className="calendar-name-day">
-          <div>
-            <span className={`0 ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
+        <div className="calendar-flex">
+        {arrayD.map((date,index )=> {
+          return <div className={`calendar-flex-c ${context.appData.holiday.filter(months => parseInt(months.month) === context.monthNow).map(data => data.date).includes(date.toString()) ? 'calendar-text-holiday' : 'calendar-text-normal'} ${parseInt(context.day) === date ? 'calendar-text-select' : 'calendar-text-normal'} ${checkHoverCalendar === true ? 'calendar-hover' : ''} ${context.day === date ? 'calendar-text-select' : ''}`} id ={index} key={index} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.id)}>
+            {date}
           </div>
-          <div>
-            <span className= {`1  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-          </div>
-          <div>
-            <span className= {`2  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-          </div>
-          <div>
-            <span className= {`3  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-          </div>
-          <div>
-            <span className= {`4  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-          </div>
-          <div>
-            <span className= {`5  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-          </div>
-          <div>
-            <span className= {`6  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-          </div>
-        </div>
-        <div className="calendar-name-day">
-        <div>
-        <span className= {`7  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`8  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`9  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`10  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`11  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className={`12  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`13  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-        </div>
-        <div className="calendar-name-day">
-        <div>
-        <span className={`14  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`15  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`16  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`17  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`18  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className={`19  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className={`20  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-        </div>
-        <div className="calendar-name-day">
-        <div>
-        <span className={`21  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`22  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className={`23  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`24  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`25  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`26  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`27  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-        </div>
-        <div className="calendar-name-day">
-        <div>
-        <span className= {`28  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`29  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`30  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`31  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`32  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className={`33  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`34  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-        </div>
-        <div className="calendar-name-day">
-        <div>
-        <span className= {`35  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`36  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`37  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`38  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`39  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className= {`40  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
-      <div>
-        <span className={`41  ${checkHoverCalendar === true ? 'calendar-hover' : ''}`} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.className)}></span>
-      </div>
+        })}
         </div>
       </div>
       <div>

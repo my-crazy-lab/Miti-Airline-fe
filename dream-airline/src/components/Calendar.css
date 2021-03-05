@@ -68,23 +68,9 @@
   align-items: center;
   cursor: pointer;
 }
-.calendar-hover:hover {
-  background-color: var(--color-global);
-  color: white;
-}
 .calendar-hidden {
   pointer-events: none;
   color: #eceaea;
-}
-.calendar-text-normal {
-  color: var(--color-text-booktrip);
-}
-.calendar-text-select {
-  background-color: var(--color-global);
-  color: white;
-}
-.calendar-text-holiday {
-  color: var(--color-global);
 }
 .holiday-f {
   display: flex;
@@ -101,4 +87,33 @@
   color: var(--color-global);
   font-size: 13px;
   font-weight: 700;
+}
+.calendar-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.calendar-flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 7);
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.calendar-hover:hover {
+  border: 2px solid var(--color-global);
+  cursor: pointer;
+  color: var(--color-global);
+}
+.calendar-text-normal {
+  color: #777777;
+}
+.calendar-text-holiday {
+  color: var(--color-global);
+}
+.calendar-text-select {
+  background-color: var(--color-global);
+  color: white;
 }

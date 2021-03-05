@@ -362,7 +362,7 @@ input::placeholder {
   display: none;
   box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.6);
   top: 0;
-  width: 460px;
+  width: 100%;
 }
 .booktrip-where-child-1 {
   top: calc(var(--height-global-booktrip) * 0.4 * 0.5 - 12px);
