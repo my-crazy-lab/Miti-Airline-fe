@@ -102,13 +102,28 @@
   font-size: 16px;
   font-weight: 500;
 }
-.calendar-hover:hover {
+.calendar-text-normal:hover {
+  border: 2px solid var(--color-global);
+  cursor: pointer;
+  color: var(--color-global);
+}
+.calendar-text-select:hover {
+  cursor: pointer;
+  color: white;
+}
+.calendar-text-holiday:hover {
   border: 2px solid var(--color-global);
   cursor: pointer;
   color: var(--color-global);
 }
 .calendar-text-normal {
-  color: #777777;
+  color: #4d4d4d;
+}
+.calendar-text-blur {
+  color: #c7c6c6;
+}
+.calendar-text-normal-big {
+  color: #acacac;
 }
 .calendar-text-holiday {
   color: var(--color-global);
@@ -116,4 +131,8 @@
 .calendar-text-select {
   background-color: var(--color-global);
   color: white;
+}
+.d-c {
+  width: calc(100% / 7);
+  height: 40px;
 }

@@ -12,6 +12,11 @@ const BookTrip =()=>{
   const chooseDes =useRef();
 
   useEffect(() => {
+    chooseDes.current.value  = context.des;
+    chooseDep.current.value  = context.dep;
+  },[])
+
+  useEffect(() => {
     context.setTraveler(context.adult + context.child + context.infant);
   },[context.adult , context.child , context.infant]);
   const checkWay =()=>{
@@ -100,7 +105,7 @@ const BookTrip =()=>{
       context.setChooseTrip(true)
       context.setTrip(context.appData.flyData.find(data => data.id === context.idDep && data.toId ===context.idDes))
     }
-    else context.setChooseTrip(false)
+        else context.setChooseTrip(false)
   }
   return(
       <div className="booktrip"> 

@@ -7,10 +7,14 @@ import {Link} from 'react-router-dom'
 const ListFlight =()=>{
   const context = useContext(FlyContext)
 
-  const chooseListFlight=(id, toId)=>{
+  const chooseListFlight=(id, toId, name , to)=>{
     resetScroll();
     context.setChooseTrip(true)
     context.setTrip(context.appData.flyData.find(data => data.id === id && data.toId === toId))
+    context.setDep(`${to}(${toId})`)
+    context.setDes(`${name}(${id})`)
+    context.setIdDep(id)
+    context.setIdDes(toId)
   }
   return(
     <div className="list-flight-frame">
@@ -19,7 +23,7 @@ const ListFlight =()=>{
         <OptionFlight></OptionFlight>
         <div className="list-flight-list">
           {context.listData.map(fly => {
-            return <Link to="/SearchPlane" onClick={() => chooseListFlight(fly.id, fly.toId)} className="list-flight-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
+            return <Link to="/SearchPlane" onClick={() => chooseListFlight(fly.id, fly.toId ,fly.name, fly.to)} className="list-flight-list-row-frame" style={{ backgroundImage : `${fly.img}`,  backgroundSize :"cover"}}>
             <div className="list-flight-list-row list-flight-list-row-child">
               <div className="list-flight-list-row-child-topic">
                 <span>{context.thisLanguage.from} {fly.from}</span>

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import "./ChooseFlight.css"
 import {FlyContext, resetScroll} from '../context';
 import OptionFlight from '../components/OptionFlight'
@@ -35,6 +35,9 @@ const ChooseFlight = ()=>{
   const clickExit=()=>{
     overflow();
   }
+  useEffect(() => {
+    context.setTraveler(context.adult + context.child + context.infant);
+  },[context.adult , context.child , context.infant]);
   const minusAdult =()=>{
     context.setAdult(context.adult - 1);
   }
@@ -67,6 +70,24 @@ const ChooseFlight = ()=>{
       $('.choose-flight-date-calendar-2').css('display','block');
     }
   }
+  const chooseTripDep=(id,name)=>{
+    context.setDes(`${name}(${id})`)
+    context.setIdDep(id)
+    overflow();
+  }
+  const chooseTripDes=(id,name)=>{
+    context.setDep(`${name}(${id})`);
+    context.setIdDes(id)
+    overflow();
+  }
+  const clickToSearch=()=>{
+    if(context.appData.flyData.filter(data => data.id === context.idDep && data.toId ===context.idDes).length > 0 ) {
+      context.setChooseTrip(true)
+      context.setTrip(context.appData.flyData.find(data => data.id === context.idDep && data.toId ===context.idDes))
+    }
+    else context.setChooseTrip(false)
+    }
+    console.log(context.chooseTrip)
   return(
     <div className="choose-flight-frame">
     <div className="choose-flight-choice-frame">
@@ -105,7 +126,7 @@ const ChooseFlight = ()=>{
             </div>
               <div className="booktrip-where-child-list">
                 {dataAll.detailTrip.map(data => {
-                  return <div className="booktrip-where-child-list-child" key={data.id}>
+                  return <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDep(data.id, data.name)}>
                   <i class="fas fa-plane-departure"></i>
                   <div>
                     <span>{data.name}</span>
@@ -135,7 +156,7 @@ const ChooseFlight = ()=>{
                   <span className="booktrip-where-child-country-text">{data.to}</span>
                 </div>
                 <div className="booktrip-where-child-list">
-                    <div className="booktrip-where-child-list-child" key={data.id}>
+                    <div className="booktrip-where-child-list-child" key={data.id} onClick={()=>chooseTripDes(data.id, data.to)}>
                     <i class="fas fa-plane-departure"></i>
                     <div>
                       <span>{data.to}</span>
@@ -224,7 +245,12 @@ const ChooseFlight = ()=>{
               </div>
       </div>
       <div className={`ani-hide-change-search change-search ${context.showChangeSearch === true ? 'ani-show-change-search' : ''}`}>
-        <div className="change-search-retweet"><i class="fas fa-retweet"></i></div>
+        <div className="change-search-retweet" onClick={()=>{
+          context.setDes(context.dep)
+          context.setDep(context.des)
+          context.setIdDes(context.idDep)
+          context.setIdDep(context.idDes)
+        }}><i class="fas fa-retweet"></i></div>
         <div className="c-search-f margin-top-text">
           <div className="c-search-f-c">
             <input id="1way" type="radio" name ='radio' onInput={(e)=> {
@@ -245,25 +271,31 @@ const ChooseFlight = ()=>{
         <div className="c-search-f b-trip border-radius-4 margin-top-text">
           <div className="c-search-f-column from" onClick={clickDeparture }>
             <span className="choose-flight-text-blur">From</span>
-            <span className="margin-4 choose-flight-text-bold">HoChiMinh</span>
+            <span className="margin-4 choose-flight-text-bold">{context.des}</span>
           </div>
           <div className="c-search-f-column to" onClick={clickDestination}>
             <span className="choose-flight-text-blur">To</span>
-            <span className="margin-4 choose-flight-text-bold">Hanoi</span>
+            <span className="margin-4 choose-flight-text-bold">{context.dep}</span>
           </div>
           <div className="c-search-f-column dep" onClick={showCalendarDe}>
             <span className="choose-flight-text-blur">Departure Date</span>
-            <span className="margin-4 choose-flight-text-bold">Sat, 3 April 2021</span>
+            <span className="margin-4 choose-flight-text-bold">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
           <div className={`c-search-f-column re`} onClick={showCalendarRe}>
             <span className={`choose-flight-text-blur ${context.typeTrip === 'normal' ? 'hide' : ''}`}>Return Date</span>
-            <span className={`margin-4 choose-flight-text-bold ${context.typeTrip === 'normal' ? 'hide' : ''}`}>Sat, 3 April 2021</span>
+            <span className={`margin-4 choose-flight-text-bold ${context.typeTrip === 'normal' ? 'hide' : ''}`}>{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
           </div>
           <div className="c-search-f-column last-c-s" onClick={clickTraveler}>
             <span className="choose-flight-text-blur">Traveler</span>
-            <span className="margin-4 choose-flight-text-bold">1 Traveler</span>
+            <span className="margin-4 choose-flight-text-bold">{context.traveler} traveler</span>
           </div>
-          <button className="c-search-btn"><i class="fas fa-search"></i></button>
+          <button type="button" className="c-search-btn" onClick={(clickToSearch)}><i class="fas fa-search"></i></button>
+          <div className="choose-flight-s-error">
+          <div className={`${context.des === context.dep && context.des !== '' && context.dep !== '' ? 'choose-flight-error-c' : 'hide-error'}`}>
+            <i class="fas fa-exclamation-triangle"></i>
+            <span className="choose-flight-error-content">Departure and arrival city must be different</span>
+          </div>
+        </div>
         </div>
       </div>
     </div>

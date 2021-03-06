@@ -671,9 +671,9 @@ const tripDataVN ={
     fly : [
       {
         key : "21123p4",
-        to : "Ho Chi Minh ",
+        to : "Cuba",
         toAirline : "Tan Son Nhat International Airport",
-        toId :"SGN",
+        toId :"CBA",
         img : "url(/img/city-2.jpeg)" ,
         id: "",
           price : 160,
@@ -903,22 +903,6 @@ const tripDataUK ={
       from :"Amesbury",
       airport : "MoD Boscombe Down  International Airport",
       fly : [
-        {
-          key : "aa64512",
-          to : "HoChiMinh",
-          toAirline : "Tan Son Nhat International Airport",
-          img : "url(/img/city-17.webp)" ,
-          id: "SGN",
-          price : 720,
-          currency : "€",
-          typePrice : "business",
-          flightTime : 4.0,
-          departureTime : "8:00",
-          destinationTime : "12:00",
-          direct :"",
-          baggage : "",
-          typePlane: "",
-        },
         {
           key : "64512cc",
           to : "Texas",

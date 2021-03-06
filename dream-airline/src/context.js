@@ -66,12 +66,12 @@ const FlyProvider =({children})=>{
   const [dataChoice, setDataChoice] = useState({})
 
   const [chooseTrip, setChooseTrip] = useState(false);
-  const [idDep, setIdDep] = useState('');
-  const [idDes, setIdDes] = useState('');
+  const [idDep, setIdDep] = useState('SGN');
+  const [idDes, setIdDes] = useState('HAN');
   const [trip, setTrip] = useState({});
 
-  const [des, setDes] = useState('');
-  const [dep, setDep] = useState('');
+  const [des, setDes] = useState('Ho Chi Minh City(SGN)');
+  const [dep, setDep] = useState('Hanoi(HAN)');
   const [adult , setAdult] = useState(1);
   const [child , setChild] = useState(0);
   const [infant , setInfant] = useState(0);

@@ -301,6 +301,7 @@
 
 .change-search {
   width: var(--width-global);
+  position: relative;
 }
 .c-search-f-c {
   display: flex;
@@ -319,6 +320,7 @@
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 .c-search-f.b-trip {
+  position: relative;
   border-top: 2px solid rgba(0, 0, 0, 0.1);
   border-left: 2px solid rgba(0, 0, 0, 0.1);
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
@@ -364,7 +366,7 @@
 .change-search-retweet {
   position: absolute;
   top: 52%;
-  left: 18.6%;
+  left: 18.5%;
   background-color: white;
   width: 40px;
   height: 40px;
@@ -431,4 +433,30 @@
 }
 .choose-flight-date-calendar-2 {
   right: 22%;
+}
+.choose-flight-error {
+  position: absolute;
+  width: 100%;
+}
+.choose-flight-error-c {
+  width: 48%;
+  position: absolute;
+  background: rgba(250, 72, 69, 0.8);
+  right: 25%;
+  top: -54%;
+  padding: 10px 32px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 12px #8c1f15;
+}
+.choose-flight-error-c i {
+  color: white;
+  margin-right: 8px;
+}
+.choose-flight-error-content {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
 }

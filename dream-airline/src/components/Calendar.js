@@ -319,39 +319,39 @@ const Calendar =() =>{
             <span className="calendar-note">Sun</span>
           </div>
           <div>
-            <span className="calendar-text-normal">Mon</span>
+            <span className="calendar-text-normal-big">Mon</span>
           </div>
           <div>
-            <span className="calendar-text-normal">Tue</span>
+            <span className="calendar-text-normal-big">Tue</span>
           </div>
           <div>
-            <span className="calendar-text-normal">Wed</span>
+            <span className="calendar-text-normal-big">Wed</span>
           </div>
           <div>
-            <span className="calendar-text-normal">Thu</span>
+            <span className="calendar-text-normal-big">Thu</span>
           </div>
           <div>
-            <span className="calendar-text-normal">Fri</span>
+            <span className="calendar-text-normal-big">Fri</span>
           </div>
           <div>
-            <span className="calendar-text-normal" >Sat</span>
+            <span className="calendar-text-normal-big" >Sat</span>
           </div>
         </div>
         <div className="calendar-flex">
         {arrayD.map((date,index )=> {
-          return <div className={`calendar-flex-c ${context.appData.holiday.filter(months => parseInt(months.month) === context.monthNow).map(data => data.date).includes(date.toString()) ? 'calendar-text-holiday' : 'calendar-text-normal'} ${parseInt(context.day) === date ? 'calendar-text-select' : 'calendar-text-normal'} ${checkHoverCalendar === true ? 'calendar-hover' : ''} ${context.day === date ? 'calendar-text-select' : ''}`} id ={index} key={index} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.id)}>
+          return <div className={`${parseInt(date) > 0 ? `calendar-flex-c ${context.appData.holiday.filter(months => parseInt(months.month) === context.monthNow).map(data => data.date).includes(date.toString()) ? 'calendar-text-holiday' : 'calendar-text-normal'} ${parseInt(context.day) === date ? 'calendar-text-select' : 'calendar-text-normal'} ${context.day === date ? 'calendar-text-select' : ''}` : 'd-c'}`} id ={index} key={index} onMouseEnter={(e) => mouseCheckHover(e.target.innerText)} onMouseLeave={() => setCheckHoverCalendar(false)} onClick={(e) => (chooseDateInCalendar)(e.target.innerText, e.target.id)}>
             {date}
           </div>
         })}
         </div>
       </div>
       <div>
-                {context.appData.holiday.filter(months => parseInt(months.month) === context.monthNow).map(holiday => {
-                  return <div className="holiday-f">
-                    <span className="margin-left-text holiday-date">{holiday.date}/{holiday.month}</span>
-                    <span className="holiday-name">{holiday.name}</span>
-                  </div>
-                })}
+        {context.appData.holiday.filter(months => parseInt(months.month) === (context.monthNow + 1)).map(holiday => {
+          return <div className="holiday-f">
+                  <span className="margin-left-text holiday-date">{holiday.date}/{holiday.month}</span>
+                  <span className="holiday-name">{holiday.name}</span>
+                </div>
+        })}
       </div>
     </div>
   )
