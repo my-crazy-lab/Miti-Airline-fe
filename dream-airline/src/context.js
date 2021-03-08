@@ -123,6 +123,16 @@ const FlyProvider =({children})=>{
 
   const [showChangeSearch, setShowChangeSearch] = useState(false)
 
+  const [promo, setPromo] = useState(0)
+
+  const [clickVerify, setClickVerify] = useState(false)
+
+  const [flag, setFlag] = useState("https://cdn.airpaz.com/nuxt/img/eu.ee7f471.svg")
+
+  const [obPromo, setObPromo] = useState({})
+
+  const [showErrorVerify, setShowErrorVerify] = useState();
+
     function hideTab(){
       setShowMore(false);
       $('.nav-currency-list-frame').hide();
@@ -150,6 +160,11 @@ const FlyProvider =({children})=>{
       refTopFlight:refTopFlight,
 
       showMore:showMore,
+      clickVerify:clickVerify,
+      flag : flag,
+      obPromo:obPromo,
+      showErrorVerify:showErrorVerify,
+      promo : promo,
       showOverlay:showOverlay,
       showDetailAccount:showDetailAccount,
       thisAccount:thisAccount,
@@ -220,6 +235,10 @@ const FlyProvider =({children})=>{
       hide : hide,
 
       setShowMore: setShowMore,
+      setClickVerify:setClickVerify,
+      setFlag : setFlag,
+      setPromo : setPromo,
+      setObPromo:setObPromo,
       setDateReturn:setDateReturn ,
       setShowChangeSearch:setShowChangeSearch,
       setErrorPay :setErrorPay,
@@ -235,6 +254,7 @@ const FlyProvider =({children})=>{
       setAniShowPrice: setAniShowPrice,
       setKeyAniShowTrip: setKeyAniShowTrip,
       setAniShowTrip: setAniShowTrip,
+      setShowErrorVerify:setShowErrorVerify,
       setCheckInputTitle1 : setCheckInputTitle1,
       setCheckInputSurName1 : setCheckInputSurName1,
       setCheckInputName1 : setCheckInputName1,

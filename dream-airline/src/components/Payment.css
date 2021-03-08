@@ -134,18 +134,29 @@
 .verify-flex {
   position: relative;
 }
-.error-verify {
+.error-verify-success,
+.error-verify-wrong {
   position: absolute;
-  top: 0%;
-  right: -100%;
+  top: 20%;
   border-radius: 24px;
-  background-color: rgb(48, 134, 48);
   color: white;
   font-size: 16px;
   font-weight: 500;
-  padding: 12px 20px;
+  padding: 8px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   line-height: 16px;
+}
+.error-verify-success {
+  right: 400%;
+  background-color: rgb(48, 134, 48);
+}
+.error-verify-wrong {
+  right: 400%;
+  width: 300px;
+  background-color: rgb(145, 46, 46);
+}
+.payment-currency-w {
+  width: 260px;
 }

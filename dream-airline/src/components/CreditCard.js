@@ -7,6 +7,25 @@ import $ from 'jquery';
 
 const CreditCard =()=>{
   const context = useContext(FlyContext);
+  const checkCode=()=>{
+    context.setClickVerify(true)
+    if(context.appData.codeDiscount.includes(context.thisCode) === true){
+      context.setShowErrorVerify(true);
+    }
+    if(context.appData.codeDiscount.includes(context.thisCode) === false) context.setShowErrorVerify(false);
+    if(context.appData.pricePromo.filter(promo => promo.code === context.thisCode ).length > 0 )
+      {
+        context.setObPromo(context.appData.pricePromo.filter(promo => {
+          if(promo.code === context.thisCode){
+            return context.setPromo(promo.priceDiscount);
+          }
+        }))
+      }
+    if(context.appData.pricePromo.filter(promo => promo.code === context.thisCode ).length <= 0) {
+      context.setObPromo({})
+      context.setPromo(0)
+    }
+  }
   return(
     <div className="payment-frame margin-bottom-text">
       <div className={`${context.errorPay === true ? 'login-overlay' :''}`}></div>
@@ -151,24 +170,39 @@ const CreditCard =()=>{
               </div>
             </div>
             <div className="book-price">
-              <div className="book-price-head box-shadow-frame ">
-                <div className="detail-trip-price-topic">
-                  <span className="choose-flight-text-bold margin-left-text">Price detail</span>          
+            <div className="detail-trip-price-head  margin-bottom-10">
+            <div className="detail-trip-price-topic">
+              <span className="choose-flight-text-bold margin-left-text">Price detail</span>          
+            </div>
+            <div className="detail-trip-depart ">
+              <div className="detail-trip-depart-1">
+                <div className="detail-trip-depart-1-c" onClick={()=>{
+                  if(context.aniShowPrice === true) context.setAniShowPrice(false);
+                  else context.setAniShowPrice(true);
+                }}>
+                  <span className="detail-trip-text-small-bold margin-left-text">Depart </span>
+                  <span className="detail-trip-text-small-bold">({context.dataChoice.id}</span>
+                  <i class="fas fa-arrow-right"></i>
+                  <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
+                  <i class={`fas fa-chevron-up ani-hide-price-icon ${context.aniShowPrice === true ? 'ani-show-price-icon' : ''}`}></i>
                 </div>
-                <div className="detail-trip-depart">
-                  <div>
-                    <span className="detail-trip-text-small-bold margin-left-text">Depart </span>
-                    <span className="detail-trip-text-small-bold">({context.dataChoice.id}</span>
-                    <i class="fas fa-arrow-right"></i>
-                    <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </div>
-                  <span className="detail-trip-text-small-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
+                <span className="detail-trip-text-small-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
+              </div>
+              <div className={`detail-trip-depart-2 ani-show-price-text ${context.aniShowPrice === true ? 'ani-hide-price-text' : ''}`}>
+                <div className="detail-trip-depart-2-c">
+                  <span className="margin-left-text choose-flight-text-blur">Adult x {context.traveler}</span>
+                  <span className="margin-right-text choose-flight-text-normal">{context.dataChoice.price * context.traveler}</span>
+                </div>
+                <div className="detail-trip-depart-2-c">
+                  <span className="margin-left-text choose-flight-text-blur">Tax</span>
+                  <span className="margin-right-text choose-flight-text-normal">{context.dataChoice.price}</span>
                 </div>
               </div>
+            </div>
+          </div>
               <div className="book-total box-shadow-frame ">
                 <span className="choose-flight-text-bold margin-left-text">Total Price</span>
-                <span className="choose-flight-text-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
+                <span className="choose-flight-text-bold margin-right-text">{context.symbol} {(((context.dataChoice.price - context.promo) * context.convert).toFixed(2)) * context.traveler}</span>
               </div>
             </div>
             <div className="payment-promo box-shadow-frame border-radius-4 margin-top-text">
@@ -182,8 +216,14 @@ const CreditCard =()=>{
                 </div>
               </div>
               <div className="payment-promo-2">
-                <input placeholder="Input Code Here" className="margin-left-text"></input>
-                <button className="btn-show margin-right-text">Verify</button>
+                <input placeholder="Input Code Here" className="margin-left-text" onInput ={(e)=> {
+                  context.setThisCode(e.target.value)
+                }}></input>
+                <div className="verify-flex">
+                  <button type ='button' className="btn-show margin-right-text" onClick={checkCode}>Verify</button>                
+                  <span className={`${context.showErrorVerify === true && context.clickVerify === true ? "error-verify-success" : 'hide-error'}`}>Success</span>
+                  <span className={`${context.showErrorVerify === false && context.clickVerify === true ? "error-verify-wrong" : 'hide-error'}`}>This code is wrong. Please check!</span>
+                </div>
               </div>
             </div>
             <div className="payment-traveler box-shadow-frame margin-top-text border-radius-4 ">

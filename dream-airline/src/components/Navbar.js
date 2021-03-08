@@ -30,6 +30,7 @@ const Navbar=()=>{
     context.setSymbol(symbol)
     context.setConvert(convert)
     context.setNameCurrency(name)
+    context.setFlag(flag)
   }
   const toggleLogin=()=>{
     if(context.showLogin === false) context.setShowLogin(true);

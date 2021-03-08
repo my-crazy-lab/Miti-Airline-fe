@@ -94,12 +94,12 @@ const DetailTrip =() =>{
             </div>
             <div className={`detail-trip-depart-2 ani-show-price-text ${context.aniShowPrice === true ? 'ani-hide-price-text' : ''}`}>
               <div className="detail-trip-depart-2-c">
-                <span className="margin-left-text choose-flight-text-blur">Adult x 2</span>
-                <span className="margin-right-text choose-flight-text-normal">59000</span>
+                <span className="margin-left-text choose-flight-text-blur">Adult x {context.traveler}</span>
+                <span className="margin-right-text choose-flight-text-normal">{context.dataChoice.price * context.traveler}</span>
               </div>
               <div className="detail-trip-depart-2-c">
                 <span className="margin-left-text choose-flight-text-blur">Tax</span>
-                <span className="margin-right-text choose-flight-text-normal">59000</span>
+                <span className="margin-right-text choose-flight-text-normal">0</span>
               </div>
             </div>
           </div>

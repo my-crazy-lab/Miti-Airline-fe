@@ -317,7 +317,7 @@ const promo=[
     ],
     discount :[
       {
-        priceDiscount : 150,
+        priceDiscount : 15,
         code : "NEWAPZKTC150",
       },
     ],
@@ -360,7 +360,7 @@ const promo=[
         code : "THFFEB75",
       },
       {
-        priceDiscount : 220,
+        priceDiscount : 22,
         code : "THFFEB220",
       },
     ],
@@ -403,7 +403,7 @@ const promo=[
         code : "PHFFEB60",
       },
       {
-        priceDiscount : 190,
+        priceDiscount : 19,
         code : "PHFFEB190",
       },
     ],
@@ -438,15 +438,15 @@ const promo=[
     ],
     discount :[
       {
-        priceDiscount : 10000,
+        priceDiscount : 10,
         code : "VNFFEB10",
       },
       {
-        priceDiscount : 25000,
+        priceDiscount : 20,
         code : "VNFFEB25",
       },
       {
-        priceDiscount : 80000,
+        priceDiscount : 80,
         code : "VNFFEB80",
       },
     ],
@@ -562,20 +562,21 @@ const promo=[
     ],
     discount :[
       {
-        priceDiscount : 10000,
+        priceDiscount : 10,
         code : "IDFFEB10",
       },
       {
-        priceDiscount : 25720,
+        priceDiscount : 20,
         code : "IDFFEB25",
       },
       {
-        priceDiscount : 88000,
+        priceDiscount : 80,
         code : "IDFFEB88",
       },
     ],
   },
 ]
+const pricePromo =[];
 const codeDiscount = [];
 const tripDataVN ={
   countryTrip : "VietNam",
@@ -1477,10 +1478,16 @@ export const appData={
   toCountry : toCountry,
   mobileCountry : mobileCountry,
   promo: promo,
+  pricePromo : pricePromo,
   debug : debug,
 }
 
 function setData (){
+  promo.map(data => {
+    return data.discount.map(promo =>{
+      return pricePromo.push(promo);
+    })
+  })
   promo.map(data => {
     return data.discount.map(code => {
       return codeDiscount.push(code.code);
