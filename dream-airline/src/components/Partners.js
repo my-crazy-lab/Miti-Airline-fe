@@ -9,8 +9,8 @@ const Partners =() =>{
       <div className="partner">
         <div className="partner-topic">
           <p className="partner-topic-text style-topic">{context.thisLanguage.airlinePartner}</p>  
-          <span className="partner-topic-text-under">Domestic & International Airline Partners</span>
-          <span className="style-text">We are partnering with various airlines across the globe to get you to wherever you need to be.</span>
+          <span className="partner-topic-text-under">{context.thisLanguage.topicPartnerAirline}</span>
+          <span className="style-text">{context.thisLanguage.textPartnerAirline}</span>
         </div>
         <div className="partner-logo">
           <a>
@@ -78,7 +78,7 @@ const Partners =() =>{
       <div className="partner">
         <div className="partner-topic">
           <p className="partner-topic-text style-topic">{context.thisLanguage.paymentPartner}</p>  
-          <span className="style-text">We are partnering with the most reliable payment service providers to make sure every transaction is smooth and worry-free!</span>
+          <span className="style-text">{context.thisLanguage.textPartnerPayment}</span>
         </div>
         <div className="partner-logo">
           <a>

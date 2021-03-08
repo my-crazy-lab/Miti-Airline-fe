@@ -23,6 +23,8 @@ const Navbar=()=>{
 
   const chooseLanguage=(src, id)=>{
     context.setIdLanguage(id);
+    $('.nav-currency-list-frame').hide();
+    $('.nav-language-list-frame').hide();
     setSrcLanguage(src);
   }
   const chooseCurrency=(id, symbol, convert, name, flag)=>{
@@ -31,6 +33,8 @@ const Navbar=()=>{
     context.setConvert(convert)
     context.setNameCurrency(name)
     context.setFlag(flag)
+    $('.nav-currency-list-frame').hide();
+    $('.nav-language-list-frame').hide();
   }
   const toggleLogin=()=>{
     if(context.showLogin === false) context.setShowLogin(true);
@@ -89,7 +93,9 @@ const Navbar=()=>{
   return(
     <div className="nav-frame">
       <div className="nav">
-        <Link to="/" className="nav-logo" onClick={(e)=> context.setChoosePage('')}>
+        <Link to="/" className="nav-logo" onClick={(e)=> {
+          resetScroll()
+          context.setChoosePage('')}}>
           <span className="nav-logo-brand">B</span>
           <span className="nav-logo-brand">O</span>
           <span className="nav-logo-brand">O</span>
@@ -135,19 +141,19 @@ const Navbar=()=>{
               <div className="nav-more-show-c" onClick={toRecommend}>
                 <i class="fab fa-wpforms"></i>
                 <div className="nav-more-c-f">
-                  <span className="choose-flight-text-normal">Recommend for you</span>
+                  <span className="choose-flight-text-normal">{context.thisLanguage.recommend}</span>
                 </div>
               </div>  
               <div className="nav-more-show-c" onClick={toTopFlight}> 
                 <i class="far fa-paper-plane"></i>
                 <div className="nav-more-c-f">
-                  <span className="choose-flight-text-normal">Popular Flight Destinations</span>
+                  <span className="choose-flight-text-normal">{context.thisLanguage.popularFlight}</span>
                 </div>
               </div>
               <div className="nav-more-show-c"  onClick={toPartner}>
                 <i class="fab fa-amazon-pay"></i>
                 <div className="nav-more-c-f">
-                  <span className="choose-flight-text-normal">Payment Partners</span>
+                  <span className="choose-flight-text-normal">{context.thisLanguage.paymentPartner}</span>
                 </div>
               </div>
           </div>  

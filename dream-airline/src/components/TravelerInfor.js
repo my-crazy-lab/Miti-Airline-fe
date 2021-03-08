@@ -13,15 +13,15 @@ const TravelerInfor =()=>{
     <div className="traveler-infor-child-head">
       <div className="margin-left-text traveler-infor-child-head-1">
         <i class="far fa-user"></i>
-        <span class="choose-flight-change-head-detail-date choose-flight-text-bold">Traveler {i}</span>
-        <span class="choose-flight-change-head-detail-traveler">Adult</span>
+        <span class="choose-flight-change-head-detail-date choose-flight-text-bold">{context.thisLanguage.traveler} {i}</span>
+        <span class="choose-flight-change-head-detail-traveler">{context.thisLanguage.traveler}</span>
       </div>
       <div className="margin-left-text traveler-infor-child-head-2">
         <input id= "Same with Contact" type="checkbox" className="checkbox-traveler"></input>
         <label for="Same with Contact" className="margin-right-text choose-flight-text-normal" onClick={()=> {
           if(context.checkSameContact === true) context.setCheckSameContact(false);
           else context.setCheckSameContact(true);
-        }}>Same with Contact</label>
+        }}>{context.thisLanguage.sameWith}</label>
       </div>
     </div>
     <div className="traveler-infor-child-body">
@@ -75,12 +75,12 @@ const TravelerInfor =()=>{
     <div className="traveler-infor-child-head">
       <div className="margin-left-text traveler-infor-child-head-1">
         <i class="far fa-user"></i>
-        <span class="choose-flight-change-head-detail-date choose-flight-text-bold">Traveler {i}</span>
+        <span class="choose-flight-change-head-detail-date choose-flight-text-bold">{context.thisLanguage.traveler} {i}</span>
         <span class="choose-flight-change-head-detail-traveler">Children</span>
       </div>
       <div className="margin-left-text traveler-infor-child-head-2">
         <input id= "Same with Contact" type="checkbox"></input>
-        <label for="Same with Contact" className="margin-right-text choose-flight-text-normal">Same with Contact</label>
+        <label for="Same with Contact" className="margin-right-text choose-flight-text-normal">{context.thisLanguage.sameWith}t</label>
       </div>
     </div>
     <div className="traveler-infor-child-body">
@@ -118,12 +118,12 @@ const TravelerInfor =()=>{
     <div className="traveler-infor-child-head">
       <div className="margin-left-text traveler-infor-child-head-1">
         <i class="far fa-user"></i>
-        <span class="choose-flight-change-head-detail-date choose-flight-text-bold">Traveler {i}</span>
+        <span class="choose-flight-change-head-detail-date choose-flight-text-bold">{context.thisLanguage.traveler} {i}</span>
         <span class="choose-flight-change-head-detail-traveler">Infant</span>
       </div>
       <div className="margin-left-text traveler-infor-child-head-2">
         <input id= "Same with Contact" type="checkbox"></input>
-        <label for="Same with Contact" className="margin-right-text choose-flight-text-normal">Same with Contact</label>
+        <label for="Same with Contact" className="margin-right-text choose-flight-text-normal">{context.thisLanguage.samwWith}</label>
       </div>
     </div>
     <div className="traveler-infor-child-body">
@@ -159,7 +159,7 @@ const TravelerInfor =()=>{
   return(
     <div className="traveler-infor margin-top-text box-shadow-frame ">
       <div className="traveler-infor-head">
-        <span className="choose-flight-text-big margin-left-text">Traveler Information</span>
+        <span className="choose-flight-text-big margin-left-text">{context.thisLanguage.travelInfor}</span>
       </div>
       <div className="traveler-infor-body-frame">
         <div className="traveler-infor-body">

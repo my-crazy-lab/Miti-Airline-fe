@@ -9,7 +9,7 @@ const ContactInfor =() =>{
   return(
     <div className="contact box-shadow-frame margin-top-text">
       <div className="contact-head">
-        <span className="choose-flight-text-big margin-left-text">Contact Information</span>
+        <span className="choose-flight-text-big margin-left-text">{context.thisLanguage.contactInfor}</span>
       </div>
       <div className="contact-body">
         <div  className="contact-child">
@@ -24,7 +24,7 @@ const ContactInfor =() =>{
             </select>
             <div className={`${context.checkInputTitle === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'}`}>
               <i class="fas fa-exclamation-triangle"></i>
-              <span>Please select !</span>
+              <span>{context.thisLanguage.pleaseSelect}</span>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ const ContactInfor =() =>{
             }}></input>
             <div className={`${context.checkInputName === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
               <i class="fas fa-exclamation-triangle"></i>
-              <span>This text's length must be 2 - 20 characters</span>
+              <span>{context.thisLanguage.mustCharacter}</span>
             </div>
           </div>
           <div className="contact-child-child">
@@ -51,7 +51,7 @@ const ContactInfor =() =>{
               }}></input>
             <div className={`${context.checkInputSurName === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
               <i class="fas fa-exclamation-triangle"></i>
-              <span>This text's length must be 2 - 20 characters</span>
+              <span>{context.thisLanguage.mustCharacter}</span>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const ContactInfor =() =>{
           </select>
           <div className={`${context.checkInputCountry === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
             <i class="fas fa-exclamation-triangle"></i>
-            <span>Please select !</span>
+            <span>{context.thisLanguage.pleaseSelect}</span>
           </div>  
         </div>
         <div className="contact-child-child">
@@ -75,7 +75,7 @@ const ContactInfor =() =>{
           }}></input>
           <div className={`${context.checkInputNumber === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
             <i class="fas fa-exclamation-triangle"></i>
-            <span>This text's length must be 6 - 16 characters</span>
+            <span>{context.thisLanguage.mustCharacter2}</span>
         </div>  
         </div>
       </div>
@@ -87,7 +87,7 @@ const ContactInfor =() =>{
           }}></input>
           <div className={`${context.checkInputEmail === false && context.showErrorBookStep1 === true ? 'error-title' : 'hide-error'} `}>
             <i class="fas fa-exclamation-triangle"></i>
-            <span>This text's length must be 6 - 36 characters</span>
+            <span>{context.thisLanguage.mustCharacter2}</span>
           </div>  
         </div>
       </div>

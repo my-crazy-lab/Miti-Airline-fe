@@ -36,7 +36,7 @@ const Payment =()=>{
           <div className="payment-body-1">
             <div className="payment-currency box-shadow-frame border-radius-4 margin-top-text">
               <div className="payment-currency-id">
-                <span className="choose-flight-text-bold margin-left-text">Payment Currency</span>
+                <span className="choose-flight-text-bold margin-left-text">{context.thisLanguage.paymentCurrency}</span>
                 <div className="payment-currency-w">
                   <img className="nav-language-icon margin-left-text payment-flag" src={context.flag}></img>
                   <span className="choose-flight-text-blur-big">{context.idCurrency} - {context.nameCurrency}</span>
@@ -46,16 +46,16 @@ const Payment =()=>{
             </div>
             <div className="payment-method margin-top-text border-radius-4 box-shadow-frame">
               <div className="payment-method-head">
-                <span className="margin-left-text choose-flight-text-biggest">Payment Methods</span>
+                <span className="margin-left-text choose-flight-text-biggest">{context.thisLanguage.paymentMethod}</span>
               </div>
               <div className="payment-method-body">
-                <span className="choose-flight-text-blur-big margin-left-text margin-top-text">Credit Card</span>
+                <span className="choose-flight-text-blur-big margin-left-text margin-top-text">{context.thisLanguage.credit}</span>
                 <Link to="/FLight/payment/creditCard" className=" box-shadow-frame payment-method-img margin-left-text margin-bottom-text">
                   <img src="https://cdn.airpaz.com/nuxt/img/master-visa.82b1593.png"></img>
                 </Link>  
               </div>
               <div className="payment-method-body">
-                <span className="choose-flight-text-blur-big margin-left-text margin-top-text">Debit Card</span>
+                <span className="choose-flight-text-blur-big margin-left-text margin-top-text">{context.thisLanguage.debit}</span>
                 <Link to="/Flight/payment/debitCard" className=" box-shadow-frame payment-method-img margin-left-text margin-bottom-text">
                   <img src="https://cdn.airpaz.com/nuxt/img/master-visa.82b1593.png"></img>
                 </Link> 
@@ -69,18 +69,18 @@ const Payment =()=>{
                 <span className="margin-right-text choose-flight-text-normal">1012240391</span>
               </div>
               <div className="payment-code-2">
-                <span className="margin-left-text choose-flight-text-bold">Booking Status</span>
-                <span className="margin-right-text payment-text-need">Need Payment</span>
+                <span className="margin-left-text choose-flight-text-bold">{context.thisLanguage.status}</span>
+                <span className="margin-right-text payment-text-need">{context.thisLanguage.needPayment}</span>
               </div>
             </div>
             <div className="book-flight-detail box-shadow-frame margin-bottom-text">
               <div className="book-flight-head">
-                <span className="choose-flight-text-big margin-left-text">Flight</span>
-                <Link className="book-text-detail margin-right-text" to="/">Detail</Link>
+                <span className="choose-flight-text-big margin-left-text">{context.thisLanguage.flight}</span>
+                <Link className="book-text-detail margin-right-text" to="/">{context.thisLanguage.detail}</Link>
               </div>
               <div className="book-flight-depart">
                 <div className="book-flight-depart-flex margin-left-text">
-                  <span className="choose-flight-text-normal">Depart Flight</span>
+                  <span className="choose-flight-text-normal">{context.thisLanguage.depart}</span>
                   <span className="choose-flight-text-blur">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
                 </div>
                 <div className="book-flight-depart-flex margin-left-text">
@@ -125,7 +125,7 @@ const Payment =()=>{
             <div className="book-price">
             <div className="detail-trip-price-head  margin-bottom-10">
             <div className="detail-trip-price-topic">
-              <span className="choose-flight-text-bold margin-left-text">Price detail</span>          
+              <span className="choose-flight-text-bold margin-left-text">{context.thisLanguage.priceDetail}</span>          
             </div>
             <div className="detail-trip-depart ">
               <div className="detail-trip-depart-1">
@@ -133,7 +133,7 @@ const Payment =()=>{
                   if(context.aniShowPrice === true) context.setAniShowPrice(false);
                   else context.setAniShowPrice(true);
                 }}>
-                  <span className="detail-trip-text-small-bold margin-left-text">Depart </span>
+                  <span className="detail-trip-text-small-bold margin-left-text">{context.thisLanguage.depart} </span>
                   <span className="detail-trip-text-small-bold">({context.dataChoice.id}</span>
                   <i class="fas fa-arrow-right"></i>
                   <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
@@ -143,34 +143,34 @@ const Payment =()=>{
               </div>
               <div className={`detail-trip-depart-2 ani-show-price-text ${context.aniShowPrice === true ? 'ani-hide-price-text' : ''}`}>
                 <div className="detail-trip-depart-2-c">
-                  <span className="margin-left-text choose-flight-text-blur">Adult x {context.traveler}</span>
+                  <span className="margin-left-text choose-flight-text-blur">{context.thisLanguage.traveler} x {context.traveler}</span>
                   <span className="margin-right-text choose-flight-text-normal">{context.dataChoice.price * context.traveler}</span>
                 </div>
                 <div className="detail-trip-depart-2-c">
-                  <span className="margin-left-text choose-flight-text-blur">Tax</span>
+                  <span className="margin-left-text choose-flight-text-blur">{context.thisLanguage.tax}</span>
                   <span className="margin-right-text choose-flight-text-normal">{context.dataChoice.price}</span>
                 </div>
               </div>
             </div>
           </div>
               <div className="book-total box-shadow-frame ">
-                <span className="choose-flight-text-bold margin-left-text">Total Price</span>
+                <span className="choose-flight-text-bold margin-left-text">{context.thisLanguage.total}</span>
                 <span className="choose-flight-text-bold margin-right-text">{context.symbol} {(((context.dataChoice.price - context.promo) * context.convert).toFixed(2)) * context.traveler}</span>
               </div>
             </div>
             <div className="payment-promo box-shadow-frame border-radius-4 margin-top-text">
               <div className="payment-promo-1">
-                <span className="margin-left-text choose-flight-text-bold">Promo Code</span>
+                <span className="margin-left-text choose-flight-text-bold">{context.thisLanguage.promoCode}</span>
                 <div className="payment-flex-row">
-                  <span className="payment-text-need margin-right-text">Apply Code</span>
+                  <span className="payment-text-need margin-right-text">{context.thisLanguage.apply}</span>
                 </div>
               </div>
               <div className="payment-promo-2">
-                <input placeholder="Input Code Here" className="margin-left-text" onInput ={(e)=> {
+                <input placeholder={context.thisLanguage.inputCode} className="margin-left-text" onInput ={(e)=> {
                   context.setThisCode(e.target.value)
                 }}></input>
                 <div className="verify-flex">
-                  <button type ='button' className="btn-show margin-right-text" onClick={checkCode}>Verify</button>                
+                  <button type ='button' className="btn-show margin-right-text" onClick={checkCode}>{context.thisLanguage.verify}</button>                
                   <span className={`${context.showErrorVerify === true && context.clickVerify === true ? "error-verify-success" : 'hide-error'}`}>Success</span>
                   <span className={`${context.showErrorVerify === false && context.clickVerify === true ? "error-verify-wrong" : 'hide-error'}`}>This code is wrong. Please check!</span>
                 </div>
@@ -178,8 +178,8 @@ const Payment =()=>{
             </div>
             <div className="payment-traveler box-shadow-frame margin-top-text border-radius-4 ">
               <div className="payment-traveler-1">
-                <span className="margin-left-text choose-flight-text-bold">Traveler</span>
-                <Link className="margin-right-text choose-flight-text-normal">Detail</Link>
+                <span className="margin-left-text choose-flight-text-bold">{context.thisLanguage.traveler}</span>
+                <Link className="margin-right-text choose-flight-text-normal">{context.thisLanguage.detail}</Link>
               </div>
               <div className="payment-traveler-2">
                 <span className="margin-left-text choose-flight-text-bold">1. Mr.Zinaa, Leminh</span>

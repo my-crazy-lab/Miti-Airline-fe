@@ -11,7 +11,8 @@ const Book =() =>{
   const context = useContext(FlyContext);
 
   useEffect(() => {
-    if(context.valueTitle.length >= 1) context.setCheckInputTitle(true);                  if(context.valueEmail !== '') context.setCheckInputEmail(true);
+    if(context.valueTitle.length >= 1) context.setCheckInputTitle(true);                  
+    if(context.valueEmail !== '') context.setCheckInputEmail(true);
     if(context.valueNumber.length >= 6) context.setCheckInputNumber(true);
     if(context.valueName.length >= 3) context.setCheckInputName(true);
     if(context.valueSurName.length >= 2) context.setCheckInputSurName(true);
@@ -36,7 +37,7 @@ const Book =() =>{
       <div className="toggle-detail" style ={{'top' : `${$(window).height() * 0.4}px`, 'left' : '20%'}}>
         <div className="tab-detail border-radius-4 box-shadow-frame">
           <div className='detail-show-head'>
-            <span className="margin-left-text choose-flight-text-bold">Detail</span> 
+            <span className="margin-left-text choose-flight-text-bold">{context.thisLanguage.detail}</span> 
             <button type="button" className="button-exit-big margin-right-text" onClick={toggleDetail}>
               <i class="fas fa-times button-exit-icon"></i>
             </button>
@@ -46,7 +47,7 @@ const Book =() =>{
               <div className="detail-trip-frame box-shadow-frame">
                 <div className="detail-trip-head">
                   <div className="detail-trip-head-topic">
-                    <span className="margin-left-text choose-flight-text-normal">Departure Flight</span>
+                    <span className="margin-left-text choose-flight-text-normal">{context.thisLanguage.depart}ht</span>
                     <div className="margin-left-text detail-trip-time">
                       <span className="choose-flight-text-bold">{context.dataChoice.name} ({context.dataChoice.id})</span>
                       <i class="fas fa-arrow-right"></i>
@@ -54,7 +55,7 @@ const Book =() =>{
                     </div>
                     <div className="choose-flight-change-head-detail">
                       <span className="choose-flight-change-head-detail-date margin-left-text">{context.traveler} Pax</span>
-                      <span className="choose-flight-change-head-detail-traveler">Direct</span>
+                      <span className="choose-flight-change-head-detail-traveler">{context.thisLanguage.direct}</span>
                     </div>
                   </div>
                 </div>
@@ -121,12 +122,12 @@ const Book =() =>{
           <div className="book-body-2">
             <div className="book-flight-detail margin-top-text box-shadow-frame margin-bottom-text">
               <div className="book-flight-head">
-                <span className="choose-flight-text-big margin-left-text">Flight</span>
-                <button onClick={toggleDetail} className="book-text-detail margin-right-text">Detail</button>
+                <span className="choose-flight-text-big margin-left-text">{context.thisLanguage.flight}</span>
+                <button onClick={toggleDetail} className="book-text-detail margin-right-text">{context.thisLanguage.detail}</button>
               </div>
               <div className="book-flight-depart">
                 <div className="book-flight-depart-flex margin-left-text">
-                  <span className="choose-flight-text-normal">Depart Flight</span>
+                  <span className="choose-flight-text-normal">{context.thisLanguage.depart}</span>
                   <span className="choose-flight-text-blur">{context.nameDay}, {context.day} {context.nameMonth} {context.yearNow}</span>
                 </div>
                 <div className="book-flight-depart-flex margin-left-text">
@@ -171,7 +172,7 @@ const Book =() =>{
             <div className="detail-trip-price">
             <div className="detail-trip-price-head  margin-bottom-10">
             <div className="detail-trip-price-topic">
-              <span className="choose-flight-text-bold margin-left-text">Price detail</span>          
+              <span className="choose-flight-text-bold margin-left-text">{context.thisLanguage.priceDetail}</span>          
             </div>
             <div className="detail-trip-depart ">
               <div className="detail-trip-depart-1">
@@ -179,7 +180,7 @@ const Book =() =>{
                   if(context.aniShowPrice === true) context.setAniShowPrice(false);
                   else context.setAniShowPrice(true);
                 }}>
-                  <span className="detail-trip-text-small-bold margin-left-text">Depart </span>
+                  <span className="detail-trip-text-small-bold margin-left-text">{context.thisLanguage.depart} </span>
                   <span className="detail-trip-text-small-bold">({context.dataChoice.id}</span>
                   <i class="fas fa-arrow-right"></i>
                   <span className="detail-trip-text-small-bold">{context.dataChoice.toId})</span>
@@ -189,18 +190,18 @@ const Book =() =>{
               </div>
               <div className={`detail-trip-depart-2 ani-show-price-text ${context.aniShowPrice === true ? 'ani-hide-price-text' : ''}`}>
                 <div className="detail-trip-depart-2-c">
-                  <span className="margin-left-text choose-flight-text-blur">Adult x {context.traveler}</span>
+                  <span className="margin-left-text choose-flight-text-blur">{context.thisLanguage.traveler} x {context.traveler}</span>
                   <span className="margin-right-text choose-flight-text-normal">{context.dataChoice.price * context.traveler}</span>
                 </div>
                 <div className="detail-trip-depart-2-c">
-                  <span className="margin-left-text choose-flight-text-blur">Tax</span>
+                  <span className="margin-left-text choose-flight-text-blur">{context.thisLanguage.tax}</span>
                   <span className="margin-right-text choose-flight-text-normal">0</span>
                 </div>
               </div>
             </div>
           </div>
         <div className="detail-trip-total box-shadow-frame margin-bottom-10">
-          <span className="choose-flight-text-bold margin-left-text">Total Price</span>
+          <span className="choose-flight-text-bold margin-left-text">{context.thisLanguage.total}</span>
           <span className="choose-flight-text-bold margin-right-text">{context.symbol} {((context.dataChoice.price * context.convert).toFixed(2)) * context.traveler}</span>
         </div>
       </div>
@@ -212,7 +213,7 @@ const Book =() =>{
             }}>
                 <button className="detail-trip-btn btn-red-white margin-top-text" onClick={()=>{
                   context.setShowErrorBookStep1(true);
-                }}>Continue</button>
+                }}>{context.thisLanguage.continue}</button>
             </Link>
           </div>
         </div>
