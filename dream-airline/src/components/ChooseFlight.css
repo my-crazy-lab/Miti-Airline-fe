@@ -460,3 +460,13 @@
   font-size: 16px;
   font-weight: 700;
 }
+.error-cancel {
+  width: var(--width-global);
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}

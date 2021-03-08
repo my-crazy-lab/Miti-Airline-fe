@@ -10,21 +10,18 @@ const Calendar =() =>{
   const [checkFday,setCheckFday] = useState(`${firstDay.split('' , 2).join('')}`);
   const [sumDay,setSumDay] = useState(0);
 
-  const [resetDay, setResetDay] = useState('')
-  const [resetNameDay, setResetNameDay] = useState('')
-
-  const [arrayD, setArrayD] = useState([''])
+  const [arrayD, setArrayD] = useState([])
   const [checkHoverCalendar, setCheckHoverCalendar] = useState(false)
 
   const [checkHiddenDate, setCheckHiddenDate] = useState(0)
   
   useEffect(() => {
-    fillCalendar();
-  },[context.monthNow]);
-
-  useEffect(() => {
     findDay()
   },[]);
+  
+  useEffect(() => {
+    fillCalendar();
+  },[context.monthNow]);
 
   const fixMonthNow=()=>{
     if( context.monthNow === 12) {
@@ -38,14 +35,15 @@ const Calendar =() =>{
   }
   const nextMonth=()=>{
     context.setMonthNow(context.monthNow + 1);
-    fixMonthNow();
     setCheckHiddenDate(checkHiddenDate + 1)
-    console.log(arrayD)
+    fixMonthNow();
+    console.log(`${firstDay.split('' , 3).join('')}`, arrayD,checkFday)
   }
   const backMonth=()=>{
     context.setMonthNow(context.monthNow - 1);
-    fixMonthNow();
     setCheckHiddenDate(checkHiddenDate - 1)
+    fixMonthNow();
+    console.log(`${firstDay.split('' , 3).join('')}`)
   }
   
   const checkLeapYear=()=>{
@@ -99,7 +97,8 @@ const Calendar =() =>{
           setSumDay(31);
           break;
         }
-        default : break;
+        default : 
+          break;
       }
     }
     else {
@@ -152,7 +151,8 @@ const Calendar =() =>{
           setSumDay(31);
           break;
         }
-        default : break;
+        default : 
+          break;
     }
     }
   }
@@ -162,42 +162,43 @@ const Calendar =() =>{
     setCheckFday(`${firstDay.split('' , 3).join('')}`)
     findMonth();
     checkLeapYear();
-    if(checkFday === 'Sun'){
-      for(let i = 0; i< sumDay ; i++){
-        arrayDate[i + 6] = i + 1 ; 
-      }
-    }
-    if(checkFday === 'Mon'){
+    if(`${firstDay.split('' , 3).join('')}` === 'Sun'){
       for(let i = 0; i< sumDay ; i++){
         arrayDate[i] = i + 1 ; 
       }
     }
-    if(checkFday === 'Tue'){
+    if(`${firstDay.split('' , 3).join('')}` === 'Mon'){
       for(let i = 0; i< sumDay ; i++){
         arrayDate[i + 1] = i + 1 ; 
       }
     }
-    if(checkFday === 'Wed'){
+    if(`${firstDay.split('' , 3).join('')}` === 'Tue'){
       for(let i = 0; i< sumDay ; i++){
         arrayDate[i + 2] = i + 1 ; 
       }
     }
-    if(checkFday === 'Thu'){
+    if(`${firstDay.split('' , 3).join('')}` === 'Wed'){
       for(let i = 0; i< sumDay ; i++){
         arrayDate[i + 3] = i + 1 ; 
       }
     }
-    if(checkFday === 'Fri'){
+    if(`${firstDay.split('' , 3).join('')}` === 'Thu'){
       for(let i = 0; i< sumDay ; i++){
         arrayDate[i + 4] = i + 1 ; 
       }
     }
-    if(checkFday === 'Sat'){
+    if(`${firstDay.split('' , 3).join('')}` === 'Fri'){
       for(let i = 0; i< sumDay ; i++){
         arrayDate[i + 5] = i + 1 ; 
       }
     }
+    if(`${firstDay.split('' , 3).join('')}` === 'Sat'){
+      for(let i = 0; i< sumDay ; i++){
+        arrayDate[i + 6] = i + 1 ; 
+      }
+    }
     setArrayD(arrayDate)
+    console.log(arrayDate, arrayD)
   }
   const findDay =()=>{
     switch(new Date().getDay()){

@@ -323,7 +323,7 @@ const promo=[
     ],
   },
   {
-    img : "https://cdn.airpaz.com/banner/Cheap-Flights,-Flight-Ticket-Booking-&-Flight-Promotion-to-All-Destinations-in-February-using-Airpaz-LP-3014.jpg",
+    img : "https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg",
     link :"Flight Discount Up To THB 220",
     text :"",
     promoPeriod :"01 February 2021",
@@ -366,7 +366,7 @@ const promo=[
     ],
   },
   {
-    img : "https://cdn.airpaz.com/banner/Cheap-Flights-Booking-and-Airlines-Promo-to-All-Destinations-in-February-Airpaz-LP-9912.jpg",
+    img : "https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg",
     link :"Flight Discount Up To PHP 190",
     text :"",
     promoPeriod :"01 Feb - 28 Feb 2021",
@@ -409,7 +409,7 @@ const promo=[
     ],
   },
   {
-    img : "https://cdn.airpaz.com/banner/Cheap-Airline-and-Flight-Tickets-Booking-to-All-Destinations-in-February-with-Airpaz-LP-1930.jpg",
+    img :"https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg",
     link :"Flight Discount Up To VND 80,000",
     text :"",
     promoPeriod :"01 Feb - 28 Feb 2021",
@@ -452,7 +452,7 @@ const promo=[
     ],
   },
   {
-    img : "https://cdn.airpaz.com/banner/Cheap-Flight-Ticket-Online-Booking-Promo-Anyhere-Anytime-in-February-Airpaz-LP-668.jpg",
+    img : "https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg",
     link :"Flight Discount Up To RM 22",
     text :"",
     promoPeriod :"01 Feb - 28 Feb 2021",
@@ -495,7 +495,7 @@ const promo=[
     ],
   },
   {
-    img : "https://cdn.airpaz.com/banner/Cheap-Flight-Ticket-Booking-Promotion-Price-to-All-Destinations-in-February-Airpaz-LP-3182.jpg",
+    img : "https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg",
     link :"Flight Discount Up To SGD 8",
     text :"",
     promoPeriod :"01 Feb - 28 Feb 2021",
@@ -533,7 +533,7 @@ const promo=[
     ],
   },
   {
-    img : "https://cdn.airpaz.com/banner/Cheap-Flight-Ticket-Promo-to-All-Destinations-for-February-Airpaz-LP-6021test1.jpg",
+    img : "https://cdn.airpaz.com/banner/15102020_5f880792e513b.jpg",
     link :"Flight Discount Up To Rp 88.000,-",
     text :"",
     promoPeriod :"01 Feb - 28 Feb 2021",

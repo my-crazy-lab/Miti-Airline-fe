@@ -53,7 +53,7 @@ const FlyProvider =({children})=>{
   const [checkInputName2, setCheckInputName2] =useState(false);
   const [checkInputDate2, setCheckInputDate2] =useState(false);
 
-  const [monthNow,setMonthNow] = useState(parseInt(`${new Date().getMonth()}`));
+  const [monthNow,setMonthNow] = useState('');
   const [nameMonth,setNameMonth] = useState('');
   const [nameDay,setNameDay] = useState('');
   const [day, setDay] = useState(parseInt(new Date().getDate()));
@@ -65,7 +65,9 @@ const FlyProvider =({children})=>{
 
   const [dataChoice, setDataChoice] = useState({})
 
-  const [chooseTrip, setChooseTrip] = useState(false);
+  const [dataReturn, setDateReturn] = useState({})
+
+  const [chooseTrip, setChooseTrip] = useState(true);
   const [idDep, setIdDep] = useState('SGN');
   const [idDes, setIdDes] = useState('HAN');
   const [trip, setTrip] = useState({});
@@ -138,6 +140,7 @@ const FlyProvider =({children})=>{
 
   return(
     <FlyContext.Provider value ={{
+      dataReturn: dataReturn,
       showChangeSearch:showChangeSearch,
       refErrorPay:refErrorPay,
       errorPay:errorPay,
@@ -217,6 +220,7 @@ const FlyProvider =({children})=>{
       hide : hide,
 
       setShowMore: setShowMore,
+      setDateReturn:setDateReturn ,
       setShowChangeSearch:setShowChangeSearch,
       setErrorPay :setErrorPay,
       setCheckSameContact:setCheckSameContact,

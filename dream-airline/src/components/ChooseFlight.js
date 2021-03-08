@@ -382,7 +382,7 @@ const ChooseFlight = ()=>{
           </div> 
         </div>
       </div>):(
-        <div>This Trip is cancel</div>
+        <div className='error-cancel border-radius-4 box-shadow-frame'>This Trip is cancel!</div>
       )}
         </div>
 

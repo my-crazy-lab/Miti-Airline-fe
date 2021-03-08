@@ -61,6 +61,7 @@ const BookTrip =()=>{
   const clickDeparture =()=>{
     overflow();
     $('.booktrip-where-child-1').css('display','block');
+    console.log(context.monthNow)
   }
   const clickTraveler =()=>{
     overflow();
@@ -76,6 +77,8 @@ const BookTrip =()=>{
   const showCalendarDe=()=>{
     overflow();
     $('.booktrip-date-calendar-1').css('display','block');
+    context.setMonthNow(parseInt(`${new Date().getMonth()}`))
+    console.log(context.monthNow)
   }
   const showCalendarRe=()=>{
     overflow();
@@ -100,12 +103,16 @@ const BookTrip =()=>{
     context.setIdDes(id)
     overflow();
   }
+
   const clickToSearch=()=>{
-    if(context.appData.flyData.filter(data => data.id === context.idDep && data.toId ===context.idDes).length > 0 ) {
+    console.log(context.idDes, context.idDep)
+    if(context.appData.flyData.filter(data => data.id === context.idDep && data.toId === context.idDes).length > 0 ) {
       context.setChooseTrip(true)
+      console.log(context.chooseTrip)
       context.setTrip(context.appData.flyData.find(data => data.id === context.idDep && data.toId ===context.idDes))
     }
-        else context.setChooseTrip(false)
+    else context.setChooseTrip(false)
+    console.log(context.chooseTrip)
   }
   return(
       <div className="booktrip"> 
@@ -277,17 +284,13 @@ const BookTrip =()=>{
               </div>
             </div>
         </div>
-        <Link to={`${context.des !== '' && context.chooseTrip === true && context.dep!== '' && context.des !== context.dep ? '/SearchPlane' : '/Flight'}`} className="booktrip-search">
+        <Link to={`${context.chooseTrip === true && context.des !== context.dep ? '/SearchPlane' : '/Flight'}`} className="booktrip-search">
           <button className="booktrip-search-btn" onClick={clickToSearch}>{context.thisLanguage.search}</button>
         </Link>
         <div className="booktrip-error">
-          <div className={`${context.des === context.dep && context.des !== '' && context.dep !== '' ? 'booktrip-error-c' : 'hide-error'}`}>
+          <div className={`${context.des === context.dep ? 'booktrip-error-c' : 'hide-error'}`}>
             <i class="fas fa-exclamation-triangle"></i>
             <span className="booktrip-error-content">Departure and arrival city must be different</span>
-          </div>
-          <div className={`${context.chooseTrip === false && context.des !== '' && context.dep !== ''? 'booktrip-error-c' : 'hide-error'}`}>
-            <i class="fas fa-exclamation-triangle"></i>
-            <span className="booktrip-error-content">Sorry.This trip is cancel , please choose different trip.Thank you</span>
           </div>
         </div>
       </div>
