@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Switch} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import Flight from './pages/Flight';
 import SearchPlane from './pages/SearchPlane';
 import Price from './pages/Price';
@@ -20,21 +20,21 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Switch>
-        <Route exact path="/" component ={Home}></Route>
-        <Route exact path="/Flight" component ={Flight}></Route>
-        <Route exact path="/Flight/confirm" component ={ConfirmTrip}></Route>
-        <Route exact path="/Flight/book" component ={Book}></Route>
-        <Route exact path="/Flight/payment" component ={Payment}></Route>
-        <Route exact path="/Flight/payment/creditCard" component ={CreditCard}></Route>
-        <Route exact path="/Flight/payment/debitCard" component ={DebitCard}></Route>
-        <Route exact path="/SearchPlane/" component ={SearchPlane}></Route>
-        <Route exact path="/trips/" component ={Trips}></Route>
-        <Route exact path="/Promo/" component ={Promo}></Route>
-        <Route exact path="/Promo/view" component ={PromoView}></Route>
-        <Route exact path="/Price/" component ={Price}></Route>
-        <Route component ={Error}></Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element ={Home}></Route>
+        <Route exact path="/Flight" element ={Flight}></Route>
+        <Route exact path="/Flight/confirm" element ={ConfirmTrip}></Route>
+        <Route exact path="/Flight/book" element ={Book}></Route>
+        <Route exact path="/Flight/payment" element ={Payment}></Route>
+        <Route exact path="/Flight/payment/creditCard" element ={CreditCard}></Route>
+        <Route exact path="/Flight/payment/debitCard" element ={DebitCard}></Route>
+        <Route exact path="/SearchPlane/" element ={SearchPlane}></Route>
+        <Route exact path="/trips/" element ={<Trips/>}></Route>
+        <Route exact path="/Promo/" element ={Promo}></Route>
+        <Route exact path="/Promo/view" element ={PromoView}></Route>
+        <Route exact path="/Price/" element ={Price}></Route>
+        <Route element ={Error}></Route>
+      </Routes>
       <Footer></Footer>
     </div>
   );
