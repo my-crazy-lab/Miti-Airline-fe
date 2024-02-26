@@ -1,55 +1,40 @@
 {
-  "name": "bookairline",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "dream-airline",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "clone-response": "^1.0.2",
-    "concurrently": "^6.0.0",
-    "cors": "^2.8.5",
-    "decompress-response": "^3.3.0",
-    "debug": "^2.6.9",
-    "dotenv": "^8.2.0",
-    "dot-prop": "^5.3.0",
-    "express": "^4.17.1",
-    "is-npm": "^4.0.0",
-    "is-installed-globally": "^0.3.2",
-    "is-number": "^7.0.0",
-    "is-obj": "^2.0.0",
-    "is-path-inside": "^3.0.3",
-    "is-typedarray": "^1.0.0",
-    "is-yarn-global": "^0.3.0",
-    "json-buffer": "^3.0.0",
-    "keyv": "^3.1.0",
-    "lowercase-keys": "^1.0.1",
-    "make-dir": "^3.1.0",
-    "media-typer": "^0.3.0",
-    "mime-types": "^2.1.30",
-    "mime": "^1.6.0",
-    "mime-db": "^1.47.0",
-    "mimic-response": "^1.0.1",
-    "minimist": "^1.2.5",
-    "mongoose": "^5.12.3",
-    "negotiator": "^0.6.2",
-    "ms": "^2.0.0",
-    "nodemon": "^2.0.7",
-    "nopt": "^1.0.10",
-    "normalize-url": "^4.5.0",
-    "on-finished": "^2.3.0",
-    "normalize-path": "^3.0.0"
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.0",
+    "jquery": "^3.7.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^6.22.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
   },
-  "devDependencies": {},
   "scripts": {
-    "server": "nodemon server/server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MinhNguyenLe/BookAirline.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MinhNguyenLe/BookAirline/issues"
-  },
-  "homepage": "https://github.com/MinhNguyenLe/BookAirline#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
